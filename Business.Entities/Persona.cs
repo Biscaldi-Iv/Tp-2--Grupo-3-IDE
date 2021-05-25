@@ -25,5 +25,11 @@ namespace Business.Entities
             get { return this._Direccion; }
             set { this._Direccion = value; }
         }
+
+        public string Email
+        {
+            get { return this._Email; }
+            set { this._Email = value; }
+        }
     }
 }
