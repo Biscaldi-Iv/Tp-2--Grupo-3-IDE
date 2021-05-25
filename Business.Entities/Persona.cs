@@ -31,5 +31,11 @@ namespace Business.Entities
             get { return this._Email; }
             set { this._Email = value; }
         }
+        
+        public DateTime FechaNacimiento
+        {
+            get { return this._FechaNacimiento; }
+            set { this._FechaNacimiento = value; }
+        }
     }
 }
