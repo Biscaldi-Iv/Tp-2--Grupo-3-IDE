@@ -37,5 +37,11 @@ namespace Business.Entities
             get { return this._FechaNacimiento; }
             set { this._FechaNacimiento = value; }
         }
+
+        public int IDPlan
+        {
+            get { return this._IDPlan; }
+            set { this._IDPlan = value; }
+        }
     }
 }
