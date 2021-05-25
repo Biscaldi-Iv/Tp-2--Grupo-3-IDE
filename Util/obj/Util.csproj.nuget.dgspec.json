@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Util\\Util.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Util\\Util.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Util\\Util.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Util\\Util.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Util\\Util.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Util\\Util.csproj",
         "projectName": "Util",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Util\\Util.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Util\\Util.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Util\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Util\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

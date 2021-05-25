@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Business.Logic\\Business.Logic.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
       "projectName": "Business.Logic",
-      "projectPath": "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Business.Logic\\Business.Logic.csproj",
+      "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\source\\repos\\Laboratorios.net\\TP 2- Grupo 3\\Business.Logic\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
