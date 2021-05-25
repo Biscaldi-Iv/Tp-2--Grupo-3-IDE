@@ -43,5 +43,29 @@ namespace Business.Entities
             get { return this._IDPlan; }
             set { this._IDPlan = value; }
         }
+
+        public int Legajo
+        {
+            get { return this._Legajo; }
+            set { this._Legajo = value; }
+        }
+
+        public string Nombre
+        {
+            get { return this._Nombre; }
+            set { this._Nombre = value; }
+        }
+
+        public string Telefono
+        {
+            get { return this._Telefono; }
+            set { this._Telefono = value; }
+        }
+
+        /*public TipoPersona TipoPersonas
+        {
+            get { return this._TipoPersona; }
+            set { this._TipoPersona = value; }
+        }*/
     }
 }
