@@ -12,7 +12,7 @@ namespace Business.Entities
         private DateTime _FechaNacimiento;
         private int _IDPlan, _Legajo;
         private string _Nombre, _Telefono;
-        //private TipoPersona _TipoPersonas;
+        private TipoPersonas _TipoPersona;
 
         public string Apellido
         {
@@ -62,10 +62,11 @@ namespace Business.Entities
             set { this._Telefono = value; }
         }
 
-        /*public TipoPersona TipoPersonas
+        // Corregir si es necesario creando 2 propiedades: getTipo y setTipo
+        public string TipoPersona
         {
-            get { return this._TipoPersona; }
-            set { this._TipoPersona = value; }
-        }*/
+            get { return this._TipoPersona.Descripcion; }
+            set { this._TipoPersona.Descripcion = value; }
+        }
     }
 }
