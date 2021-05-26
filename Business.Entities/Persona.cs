@@ -63,10 +63,10 @@ namespace Business.Entities
         }
 
         // Corregir si es necesario creando 2 propiedades: getTipo y setTipo
-        public string TipoPersona
+        public TipoPersonas TipoPersona
         {
-            get { return this._TipoPersona.Descripcion; }
-            set { this._TipoPersona.Descripcion = value; }
+            get { return this._TipoPersona; }
+            set { this._TipoPersona = value; }
         }
     }
 }
