@@ -1,11 +1,64 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {}
+    "net5.0-windows7.0": {
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
+      "Business.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Business.Entities": "1.0.0",
+          "Data.Database": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Business.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Logic.dll": {}
+        }
+      },
+      "Data.Database/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Data.Database.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Data.Database.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
+    },
+    "Business.Logic/1.0.0": {
+      "type": "project",
+      "path": "../Business.Logic/Business.Logic.csproj",
+      "msbuildProject": "../Business.Logic/Business.Logic.csproj"
+    },
+    "Data.Database/1.0.0": {
+      "type": "project",
+      "path": "../Data.Database/Data.Database.csproj",
+      "msbuildProject": "../Data.Database/Data.Database.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": []
+    "net5.0-windows7.0": [
+      "Business.Entities >= 1.0.0",
+      "Business.Logic >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Usuario\\.nuget\\packages\\": {},
@@ -38,7 +91,14 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+            },
+            "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

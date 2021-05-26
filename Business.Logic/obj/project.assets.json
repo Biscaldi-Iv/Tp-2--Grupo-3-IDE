@@ -1,11 +1,45 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
+      "Data.Database/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Data.Database.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Data.Database.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
+    },
+    "Data.Database/1.0.0": {
+      "type": "project",
+      "path": "../Data.Database/Data.Database.csproj",
+      "msbuildProject": "../Data.Database/Data.Database.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Business.Entities >= 1.0.0",
+      "Data.Database >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Usuario\\.nuget\\packages\\": {},
@@ -38,7 +72,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+            },
+            "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.Database\\Data.Database.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.Database\\Data.Database.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
