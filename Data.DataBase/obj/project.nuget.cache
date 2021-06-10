@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xmU5De0B7ek/DWRqRO0BxoJAb9Hss9pgYXsQhnwoFv3bS2qoGf81AU07jdSz+tfQL2pBcT0r8S6Dcor+1JHKfg==",
+  "dgSpecHash": "ESwtGOG36OPtT+6BHZEP22hj/s2Qu8H+tx3L9OyRKq4QCZtSglG1GWqeAAqUzjKj6njCXJuD2aX0UZQTD4wz3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
