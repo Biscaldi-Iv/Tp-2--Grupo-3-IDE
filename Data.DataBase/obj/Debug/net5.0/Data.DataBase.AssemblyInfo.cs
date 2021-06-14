@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Data.DataBase")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Data.Database")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Data.DataBase")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Data.DataBase")]
+[assembly: System.Reflection.AssemblyProductAttribute("Data.Database")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Data.Database")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
