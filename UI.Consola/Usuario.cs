@@ -22,7 +22,7 @@ namespace UI.Consola
             this.UsuarioNegocio = usr;
         }
 
-        public static int menu()
+        public void menu()
         {
             Console.Write("\t\t1– Listado General\n" +
                 "\t\t2– Consulta\n" +
@@ -32,8 +32,27 @@ namespace UI.Consola
                 "\t\t6 - Salir\n" +
                 "\n\n\t\tSeleccionar:");
             int s = int.Parse(Console.ReadLine());
-            return s;
+            switch (s)
+            {
+                case 1:
+                    this.ListadoGeneral();
+                    break;
+                case 2:
+                    this.Consultar();
+                    break;
+                case 3:
+                    this.Agregar();
+                    break;
+                case 4:
+                    this.Modificar();
+                    break;
+                case 5:
+                    this.Eliminar();
+                    break;
+                default:break;
+            }
         }
+
         #region metodos_a_completar
         public void ListadoGeneral()
         {
