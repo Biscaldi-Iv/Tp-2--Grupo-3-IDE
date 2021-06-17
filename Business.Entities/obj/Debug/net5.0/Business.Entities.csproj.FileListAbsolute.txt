@@ -1,0 +1,12 @@
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\Business.Entities.deps.json
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\Business.Entities.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\ref\Business.Entities.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\Business.Entities.pdb
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\ref\Business.Entities.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.pdb

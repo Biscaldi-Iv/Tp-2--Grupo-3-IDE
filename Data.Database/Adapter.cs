@@ -10,7 +10,7 @@ namespace Data.Database
 {
     public class Adapter
     {
-        private SqlConnection sqlConnection = new SqlConnection("ConnectionString;");
+        private SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
         
         protected void OpenConnection()
         {

@@ -8,7 +8,7 @@ using Business.Logic;
 
 namespace UI.Consola
 {
-    public class Usuario
+    public class Usuarios
     {
         private UsuarioLogic user;
         public UsuarioLogic UsuarioNegocio
@@ -17,9 +17,9 @@ namespace UI.Consola
             set { this.user = value; }
         }
 
-        public Usuario(UsuarioLogic usr)
+        public Usuarios()
         {
-            this.UsuarioNegocio = usr;
+            this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
         }
 
         public void menu()
@@ -52,11 +52,27 @@ namespace UI.Consola
                 default:break;
             }
         }
-
+        
         #region metodos_a_completar
         public void ListadoGeneral()
         {
+            Console.Clear();
+            foreach (Usuario user in UsuarioNegocio.GetAll())
+            {
+                MostrarDatos(user);
+            }
+        }
 
+        public void MostrarDatos(Usuario usr)
+        {
+            Console.WriteLine("Usuario: {0}", usr.ID);
+            Console.WriteLine("\t\tNombre: {0}", usr.Nombre);
+            Console.WriteLine("\t\tApellido: {0}", usr.Apellido);
+            Console.WriteLine("\t\tNombre de Usuario: {0}", usr.NombreUsuario);
+            Console.WriteLine("\t\tClave: {0}", usr.Clave);
+            Console.WriteLine("\t\tEmail: {0}", usr.Email);
+            Console.WriteLine("\t\tHabilitado: {0}", usr.Habilitado);
+            Console.WriteLine();
         }
 
         public void Consultar()
@@ -84,5 +100,6 @@ namespace UI.Consola
 
         }
         #endregion
+        
     }
 }

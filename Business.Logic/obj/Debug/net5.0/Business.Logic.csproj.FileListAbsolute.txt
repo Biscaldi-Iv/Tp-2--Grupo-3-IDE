@@ -1,0 +1,17 @@
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Business.Logic.deps.json
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Business.Logic.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\ref\Business.Logic.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Business.Logic.pdb
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Business.Entities.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Data.Database.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Business.Entities.pdb
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\bin\Debug\net5.0\Data.Database.pdb
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.csproj.CopyComplete
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\ref\Business.Logic.dll
+C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.pdb

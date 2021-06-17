@@ -13,7 +13,7 @@ namespace Business.Entities
 
         public int AnioEspecialidad
         {
-            get { return this._AnioEspecialidad}
+            get { return this._AnioEspecialidad; }
             set { this._AnioEspecialidad = value; }
         }
 
