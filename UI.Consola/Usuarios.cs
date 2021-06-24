@@ -77,6 +77,10 @@ namespace UI.Consola
 
         public void Consultar()
         {
+            Console.Clear();
+            Console.Write("Ingrese el ID del usuario a consultar: ");
+            int ID = int.Parse(Console.ReadLine());
+            this.MostrarDatos(UsuarioNegocio.GetOne(ID));
 
         }
 

@@ -10,3 +10,15 @@ C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.dll
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\ref\Business.Entities.dll
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.pdb
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\Business.Entities.deps.json
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\Business.Entities.dll
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\ref\Business.Entities.dll
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\bin\Debug\net5.0\Business.Entities.pdb
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.csproj.AssemblyReference.cache
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.AssemblyInfoInputs.cache
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.AssemblyInfo.cs
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.dll
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\ref\Business.Entities.dll
+C:\Users\Seba\Source\Repos\Biscaldi-Iv\Tp-2--Grupo-3-IDE\Business.Entities\obj\Debug\net5.0\Business.Entities.pdb

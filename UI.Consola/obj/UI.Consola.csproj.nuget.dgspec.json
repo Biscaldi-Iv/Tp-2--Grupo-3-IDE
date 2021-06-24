@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj": {}
+    "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+    "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj",
         "projectName": "Business.Entities",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\obj\\",
+        "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj",
+        "packagesPath": "C:\\Users\\Seba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Seba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -58,24 +58,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
+    "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
+        "projectUniqueName": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
         "projectName": "Business.Logic",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\obj\\",
+        "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
+        "packagesPath": "C:\\Users\\Seba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Seba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -90,11 +90,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+              "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+                "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
               },
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj"
+              "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj": {
+                "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj"
               }
             }
           }
@@ -123,24 +123,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj": {
+    "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
+        "projectUniqueName": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
         "projectName": "Data.Database",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\obj\\",
+        "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
+        "packagesPath": "C:\\Users\\Seba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Data.DataBase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Seba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -155,8 +155,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+              "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+                "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
               }
             }
           }
@@ -191,24 +191,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj": {
+    "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj",
+        "projectUniqueName": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj",
         "projectName": "UI.Consola",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Consola\\obj\\",
+        "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\UI.Consola\\UI.Consola.csproj",
+        "packagesPath": "C:\\Users\\Seba\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\UI.Consola\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Seba\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -223,11 +223,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+              "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+                "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
               },
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj"
+              "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
+                "projectPath": "C:\\Users\\Seba\\Source\\Repos\\Biscaldi-Iv\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj"
               }
             }
           }
@@ -256,7 +256,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
