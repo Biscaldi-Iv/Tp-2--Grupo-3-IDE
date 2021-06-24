@@ -15,3 +15,20 @@ C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.dll
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\ref\Business.Logic.dll
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Business.Logic\obj\Debug\net5.0\Business.Logic.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Business.Logic.deps.json
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Business.Logic.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\ref\Business.Logic.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Business.Logic.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Business.Entities.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Data.Database.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Business.Entities.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\bin\Debug\net5.0\Data.Database.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.csproj.AssemblyReference.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.AssemblyInfoInputs.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.AssemblyInfo.cs
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.csproj.CoreCompileInputs.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.csproj.CopyComplete
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\ref\Business.Logic.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Business.Logic\obj\Debug\net5.0\Business.Logic.pdb

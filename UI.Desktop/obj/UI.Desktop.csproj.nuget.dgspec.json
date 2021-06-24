@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Desktop\\UI.Desktop.csproj": {}
+    "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\UI.Desktop\\UI.Desktop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
+    "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj",
+        "projectUniqueName": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj",
         "projectName": "Business.Entities",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\obj\\",
+        "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj",
+        "packagesPath": "C:\\Users\\Gerster\\.nuget\\packages\\",
+        "outputPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files\\VisualStudio\\Compartido\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gerster\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -58,26 +60,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
+    "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Logic\\Business.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
+        "projectUniqueName": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Logic\\Business.Logic.csproj",
         "projectName": "Business.Logic",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\obj\\",
+        "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Logic\\Business.Logic.csproj",
+        "packagesPath": "C:\\Users\\Gerster\\.nuget\\packages\\",
+        "outputPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files\\VisualStudio\\Compartido\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gerster\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -90,11 +94,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+              "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj": {
+                "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj"
               },
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj"
+              "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Data.DataBase\\Data.Database.csproj": {
+                "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Data.DataBase\\Data.Database.csproj"
               }
             }
           }
@@ -123,26 +127,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj": {
+    "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Data.DataBase\\Data.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
+        "projectUniqueName": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Data.DataBase\\Data.Database.csproj",
         "projectName": "Data.Database",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\Data.Database.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Data.DataBase\\obj\\",
+        "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Data.DataBase\\Data.Database.csproj",
+        "packagesPath": "C:\\Users\\Gerster\\.nuget\\packages\\",
+        "outputPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Data.DataBase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files\\VisualStudio\\Compartido\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gerster\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -155,8 +161,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+              "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj": {
+                "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj"
               }
             }
           }
@@ -191,26 +197,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Desktop\\UI.Desktop.csproj": {
+    "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\UI.Desktop\\UI.Desktop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Desktop\\UI.Desktop.csproj",
+        "projectUniqueName": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\UI.Desktop\\UI.Desktop.csproj",
         "projectName": "UI.Desktop",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Desktop\\UI.Desktop.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\UI.Desktop\\obj\\",
+        "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\UI.Desktop\\UI.Desktop.csproj",
+        "packagesPath": "C:\\Users\\Gerster\\.nuget\\packages\\",
+        "outputPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\UI.Desktop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files\\VisualStudio\\Compartido\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gerster\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows7.0"
@@ -223,11 +231,11 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Entities\\Business.Entities.csproj"
+              "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj": {
+                "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Entities\\Business.Entities.csproj"
               },
-              "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj": {
-                "projectPath": "C:\\Users\\Usuario\\source\\repos\\Tp-2--Grupo-3-IDE\\Business.Logic\\Business.Logic.csproj"
+              "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Logic\\Business.Logic.csproj": {
+                "projectPath": "D:\\Gerster\\OneDrive\\OneDrive - frro.utn.edu.ar\\Documentos\\Facultad\\NET IDE\\ProDIGGY-vinilos\\TP2 grupal\\Business.Logic\\Business.Logic.csproj"
               }
             }
           }
@@ -259,7 +267,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

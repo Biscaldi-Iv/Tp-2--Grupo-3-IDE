@@ -15,3 +15,20 @@ C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Data.DataBase\obj\Debug\net5.0\D
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Data.DataBase\obj\Debug\net5.0\Data.Database.dll
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Data.DataBase\obj\Debug\net5.0\ref\Data.Database.dll
 C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\Data.DataBase\obj\Debug\net5.0\Data.Database.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\bin\Debug\net5.0\Data.Database.deps.json
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\bin\Debug\net5.0\Data.Database.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\bin\Debug\net5.0\ref\Data.Database.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\bin\Debug\net5.0\Data.Database.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\bin\Debug\net5.0\Business.Entities.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\bin\Debug\net5.0\Business.Entities.pdb
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.csproj.AssemblyReference.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Interop.MSXML2.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.csproj.ResolveComReference.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.GeneratedMSBuildEditorConfig.editorconfig
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.AssemblyInfoInputs.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.AssemblyInfo.cs
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.csproj.CoreCompileInputs.cache
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.csproj.CopyComplete
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\ref\Data.Database.dll
+D:\Gerster\OneDrive\OneDrive - frro.utn.edu.ar\Documentos\Facultad\NET IDE\ProDIGGY-vinilos\TP2 grupal\Data.DataBase\obj\Debug\net5.0\Data.Database.pdb
