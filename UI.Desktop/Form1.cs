@@ -17,5 +17,9 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
