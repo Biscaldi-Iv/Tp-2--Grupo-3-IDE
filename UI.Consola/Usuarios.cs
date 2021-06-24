@@ -95,10 +95,6 @@ namespace UI.Consola
 
         }
 
-        public void MostrarDatos()
-        {
-
-        }
         #endregion
         
     }
