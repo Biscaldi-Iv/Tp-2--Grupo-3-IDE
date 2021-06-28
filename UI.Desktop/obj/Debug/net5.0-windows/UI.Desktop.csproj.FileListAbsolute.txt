@@ -1,7 +1,0 @@
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.csproj.AssemblyReference.cache
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.Form1.resources
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.csproj.GenerateResource.cache
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.AssemblyInfoInputs.cache
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.AssemblyInfo.cs
-C:\Users\Usuario\source\repos\Tp-2--Grupo-3-IDE\UI.Desktop\obj\Debug\net5.0-windows\UI.Desktop.csproj.CoreCompileInputs.cache
