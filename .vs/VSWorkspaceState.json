@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\UI.Desktop"
   ],
+  "SelectedNode": "\\UI.Desktop\\Usuarios.cs",
   "PreviewInSolutionExplorer": false
 }
