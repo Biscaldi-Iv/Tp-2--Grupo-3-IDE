@@ -22,16 +22,18 @@ namespace UI.Consola
             this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
         }
 
-        public void menu()
+        public bool menu()
         {
+            Console.Clear();
             Console.Write("\t\t1– Listado General\n" +
                 "\t\t2– Consulta\n" +
                 "\t\t3– Agregar\n" +
                 "\t\t4 - Modificar\n" +
                 "\t\t5 - Eliminar\n" +
-                "\t\t6 - Salir\n" +
+                "\t\tOtro - Salir\n" +
                 "\n\n\t\tSeleccionar:");
             int s = int.Parse(Console.ReadLine());
+            Console.Clear();
             switch (s)
             {
                 case 1:
@@ -49,8 +51,11 @@ namespace UI.Consola
                 case 5:
                     this.Eliminar();
                     break;
-                default:break;
+                default:return false;
             }
+            Console.Write("\n\nPresione para continuar");
+            Console.ReadKey();
+            return true;
         }
         
         #region metodos_a_completar
