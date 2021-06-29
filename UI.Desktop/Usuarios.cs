@@ -44,5 +44,10 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
