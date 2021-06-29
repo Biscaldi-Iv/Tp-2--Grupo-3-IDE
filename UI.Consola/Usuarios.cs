@@ -80,6 +80,20 @@ namespace UI.Consola
             Console.WriteLine();
         }
 
+        public static string LectorClaves()
+        {
+            string key = "";
+            ConsoleKey aux;
+            do
+            {
+                aux = Console.ReadKey().Key;
+                Console.Write("\b*");
+                if (aux != ConsoleKey.Enter) key += aux.ToString();
+            } while (aux != ConsoleKey.Enter);
+            Console.Write("\n");
+            return key;
+        }
+
         public void Consultar()
         {
             try
@@ -127,7 +141,7 @@ namespace UI.Consola
             Console.Write("Ingrese Nombre de Usuario: ");
             usuario.NombreUsuario = Console.ReadLine();
             Console.Write("Ingrese Clave: ");
-            usuario.Clave = Console.ReadLine();
+            usuario.Clave = Usuarios.LectorClaves();
             Console.Write("Ingrese Email: ");
             usuario.Email = Console.ReadLine();
             Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
@@ -165,7 +179,7 @@ namespace UI.Consola
                 UsuarioNegocio.Save(usuario);
 
             }
-            catch (FormatException fe)  
+            catch (FormatException e)  
             {
                 Console.WriteLine();
                 Console.WriteLine("La ID ingresada debe ser un numero entero");                            
