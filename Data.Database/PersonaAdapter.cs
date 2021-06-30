@@ -74,25 +74,22 @@ namespace Data.Database
             return Personas.Find(delegate (Persona p) { return p.ID == ID; });
         }
 
-        public void Delete(int ID)
-        {
-            Persona.Remove(this.GetOne(ID));
         }
 
-        public void Save(Persona persona)
+       /* public void Save(Persona persona)
         {
             if (persona.State == BusinessEntity.States.New)
             {
                 int NextID = 0;
-                foreach (Persona usr in Personas)
+                foreach (Persona per in _Personas)
                 {
-                    if (usr.ID > NextID)
+                    if (per.ID > NextID)
                     {
-                        NextID = usr.ID;
+                        NextID = per.ID;
                     }
                 }
                 persona.ID = NextID + 1;
-                Personas.Add(persona);
+                Persona.Add(persona);
             }
             else if (persona.State == BusinessEntity.States.Deleted)
             {
@@ -100,10 +97,10 @@ namespace Data.Database
             }
             else if (persona.State == BusinessEntity.States.Modified)
             {
-                Personas[Personas.FindIndex(delegate (Persona p) { return p.ID == ; })] = persona;
+                Persona[persona.FindIndex(delegate (Persona p) { return p.ID == ; })] = persona;
             }
             persona.State = BusinessEntity.States.Unmodified;
         }
-    }
+    }*/
 }
 
