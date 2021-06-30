@@ -24,25 +24,25 @@ namespace Data.Database
                     Business.Entities.Especialidad esp;
                     esp = new Business.Entities.Especialidad();
                     esp.ID = 1;
-                    esp.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    esp.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     esp.Descripcion = "Ingenieria en Sistemas de Informacion";
                     _Especialidad.Add(esp);
 
                     esp = new Business.Entities.Especialidad();
                     esp.ID = 2;
-                    esp.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    esp.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     esp.Descripcion = "Ingenieria Quimica";
                     _Especialidad.Add(esp);
 
                     esp = new Business.Entities.Especialidad();
                     esp.ID = 3;
-                    esp.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    esp.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     esp.Descripcion = "Ingenieria Civil";
                     _Especialidad.Add(esp);
 
                     esp = new Business.Entities.Especialidad();
                     esp.ID = 4;
-                    esp.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    esp.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     esp.Descripcion = "Ingenieria Electrica";
                     _Especialidad.Add(esp);
 
@@ -71,7 +71,7 @@ namespace Data.Database
 
         public void Save(Especialidad especialidad)
         {
-            if (especialidad.State == BusinessEntity.States.New)
+            if (especialidad.State == BusinessEntity.States.Alta)
             {
                 int NextID = 0;
                 foreach (Especialidad esp in Especialidades)
@@ -84,15 +84,15 @@ namespace Data.Database
                 especialidad.ID = NextID + 1;
                 Especialidades.Add(especialidad);
             }
-            else if (especialidad.State == BusinessEntity.States.Deleted)
+            else if (especialidad.State == BusinessEntity.States.Baja)
             {
                 this.Delete(especialidad.ID);
             }
-            else if (especialidad.State == BusinessEntity.States.Modified)
+            else if (especialidad.State == BusinessEntity.States.Modificado)
             {
                 Especialidades[Especialidades.FindIndex(delegate (Especialidad e) { return e.ID == especialidad.ID; })] = especialidad;
             }
-            especialidad.State = BusinessEntity.States.Unmodified;
+            especialidad.State = BusinessEntity.States.Sin_Modificar;
         }
     }
 }
