@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Business.Entities;
+using Microsoft.Data.SqlClient;
 
 namespace Data.Database
 {
@@ -12,61 +13,54 @@ namespace Data.Database
         // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
         private static List<Usuario> _Usuarios;
 
-        private static List<Usuario> Usuarios
+        private List<Usuario> Usuarios
         {
             get
             {
                 if (_Usuarios == null)
                 {
-                    _Usuarios = new List<Business.Entities.Usuario>();
-                    Business.Entities.Usuario usr;
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 1;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Casimiro";
-                    usr.Apellido = "Cegado";
-                    usr.NombreUsuario = "casicegado";
-                    usr.Clave = "miro";
-                    usr.Email = "casimirocegado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 2;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Armando Esteban";
-                    usr.Apellido = "Quito";
-                    usr.NombreUsuario = "aequito";
-                    usr.Clave = "carpintero";
-                    usr.Email = "armandoquito@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
-                    usr = new Business.Entities.Usuario();
-                    usr.ID = 3;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
-                    usr.Nombre = "Alan";
-                    usr.Apellido = "Brado";
-                    usr.NombreUsuario = "alanbrado";
-                    usr.Clave = "abrete sesamo";
-                    usr.Email = "alanbrado@gmail.com";
-                    usr.Habilitado = true;
-                    _Usuarios.Add(usr);
-
+                    _Usuarios = this.GetAll();
                 }
                 return _Usuarios;
             }
         }
         #endregion
 
+        #region base_datos
         public List<Usuario> GetAll()
         {
-            return new List<Usuario>(Usuarios);
+            this.OpenConnection();
+            SqlDataReader reader= this.ExecuteReader("SELECT TOP (1000) [id_usuario],[nombre_usuario],[clave]," +
+                "[habilitado],[nombre],[apellido],[email],[cambia_clave],[id_persona] " +
+                "FROM[Academia].[dbo].[usuarios]");
+            List<Usuario> users = new List<Usuario>();
+            while (reader.Read()) 
+            {
+                Usuario usr = new Usuario(reader.GetInt32(0) ,reader.GetString(1), reader.GetString(2),
+                    reader.GetString(4), reader.GetString(5), reader.GetString(6),
+                    reader.GetBoolean(3));
+                users.Add(usr);
+            }
+            reader.Close();
+            this.CloseConnection();
+            return users;
         }
+        #endregion
 
         public Business.Entities.Usuario GetOne(int ID)
         {
-            return Usuarios.Find(delegate(Usuario u) { return u.ID == ID; });
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_usuario],[nombre_usuario],[clave]," +
+                "[nombre],[apellido],[email],[habilitado] " +
+                "FROM[Academia].[dbo].[usuarios]" +
+                $"WHERE [id_usuario]={ID}");
+            reader.Read();
+            Usuario u = new Usuario(reader.GetInt32(0) ,reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                reader.GetString(4), reader.GetString(5), reader.GetBoolean(6));
+            reader.Close();
+            this.CloseConnection();
+
+            return u;
         }
 
         public void Delete(int ID)
@@ -99,5 +93,7 @@ namespace Data.Database
             }
             usuario.State = BusinessEntity.States.Unmodified;            
         }
+
+        
     }
 }

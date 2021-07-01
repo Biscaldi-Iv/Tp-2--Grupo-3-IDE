@@ -10,21 +10,38 @@ namespace Data.Database
 {
     public class Adapter
     {
-        private SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
+        protected SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
         
-        protected void OpenConnection()
+        protected void OpenConnection() //abre conexion
         {
-            throw new Exception("Metodo no implementado");
+            try
+            {
+                sqlConnection.Open();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
-        protected void CloseConnection()
+        protected void CloseConnection() //cierra conexion
         {
-            throw new Exception("Metodo no implementado");
+            try
+            {
+                sqlConnection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
-        protected SqlDataReader ExecuteReader(String commandText)
+        protected SqlDataReader ExecuteReader(String commandText) //Ejecuta sentencias SQL
         {
-            throw new Exception("Metodo no implementado");
+            SqlCommand comando = new SqlCommand(commandText, sqlConnection);
+            SqlDataReader reader = comando.ExecuteReader();
+            return reader;
         }
+
     }
 }

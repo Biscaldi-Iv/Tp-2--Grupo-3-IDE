@@ -27,7 +27,7 @@ namespace UI.Consola
             Console.Clear();
             Console.Write("\t\t1– Listado General\n" +
                 "\t\t2– Consulta\n" +
-                "\t\t3– Agregar\n" +
+                "\t\t3– Agregar- no anda\n" +
                 "\t\t4 - Modificar\n" +
                 "\t\t5 - Eliminar\n" +
                 "\t\tOtro - Salir\n" +
@@ -42,9 +42,9 @@ namespace UI.Consola
                 case 2:
                     this.Consultar();
                     break;
-                case 3:
+               /* case 3:
                     this.Agregar();
-                    break;
+                    break;*/
                 case 4:
                     this.Modificar();
                     break;
@@ -130,7 +130,7 @@ namespace UI.Consola
 
         }
 
-        public void Agregar()
+        /*public void Agregar()
         {
             Usuario usuario = new Usuario();
             Console.Clear();
@@ -153,7 +153,7 @@ namespace UI.Consola
 
 
 
-        }
+        }*/
 
         public void Modificar()
         {

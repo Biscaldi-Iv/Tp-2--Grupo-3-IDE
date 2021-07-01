@@ -14,6 +14,7 @@ namespace UI.Consola
         {
             Usuarios usersUI = new Usuarios();
             Console.Write("\n\n\t\t1– ABMC Usuarios\n" +
+                "\t\t2- ABMC Especialidades - Salir\n" +
                 "\t\tOtro - Salir\n" +
                 "\n\n\t\tSeleccionar:");
             int s = int.Parse(Console.ReadLine());

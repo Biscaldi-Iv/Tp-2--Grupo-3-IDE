@@ -8,9 +8,11 @@ namespace Business.Entities
 {
     public class BusinessEntity
     {
-        public BusinessEntity()
+        public BusinessEntity(int id)
         {
+            this.ID = id;
             this.State = States.New;
+
         }
 
         private int _ID;
