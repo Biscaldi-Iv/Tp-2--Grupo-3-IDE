@@ -8,25 +8,6 @@ namespace Data.Database
 {
     public class UsuarioAdapter:Adapter
     {
-        #region DatosEnMemoria
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Usuario> _Usuarios;
-
-        private List<Usuario> Usuarios
-        {
-            get
-            {
-                if (_Usuarios == null)
-                {
-                    _Usuarios = this.GetAll();
-                }
-                return _Usuarios;
-            }
-        }
-        #endregion
-
-        #region base_datos
         public List<Usuario> GetAll()
         {
             this.OpenConnection();
@@ -45,7 +26,6 @@ namespace Data.Database
             this.CloseConnection();
             return users;
         }
-        #endregion
 
         public Business.Entities.Usuario GetOne(int ID)
         {
@@ -65,35 +45,60 @@ namespace Data.Database
 
         public void Delete(int ID)
         {
-            Usuarios.Remove(this.GetOne(ID));
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand(
+                    "DELETE usuarios FROM " +
+                    "usuarios" +
+                    "WHERE id_usuario=@id", sqlConnection);
+                cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw e.InnerException;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
 
         public void Save(Usuario usuario)
         {
-            if (usuario.State == BusinessEntity.States.New)
+            try
             {
-                int NextID = 0;
-                foreach (Usuario usr in Usuarios)
-                {
-                    if (usr.ID > NextID)
-                    {
-                        NextID = usr.ID;
-                    }
-                }
-                usuario.ID = NextID + 1;
-                Usuarios.Add(usuario);
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand(
+                    "UPDATE usuarios SET " +
+                    "nombre_usuario=@n_user," +
+                    "clave=@clave," +
+                    "habilitado=@hab," +
+                    "nombre=@nom," +
+                    "apellido=@ape," +
+                    "email=@email " +
+                    "WHERE id_usuario=@id", sqlConnection);
+                cmdSave.Parameters.Add("@n_user", System.Data.SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
+                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = usuario.ID;
+                cmdSave.Parameters.Add("@clave", System.Data.SqlDbType.VarChar, 50).Value = usuario.Clave;
+                cmdSave.Parameters.Add("@nom", System.Data.SqlDbType.VarChar, 50).Value = usuario.Nombre;
+                cmdSave.Parameters.Add("@ape", System.Data.SqlDbType.VarChar, 50).Value = usuario.Apellido;
+                cmdSave.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50).Value = usuario.Email;
+                cmdSave.Parameters.Add("@hab", System.Data.SqlDbType.Bit).Value = usuario.Habilitado;
+                cmdSave.ExecuteNonQuery();
             }
-            else if (usuario.State == BusinessEntity.States.Deleted)
+            catch (SqlException e)
             {
-                this.Delete(usuario.ID);
+                throw e.InnerException;
             }
-            else if (usuario.State == BusinessEntity.States.Modified)
+            finally
             {
-                Usuarios[Usuarios.FindIndex(delegate(Usuario u) { return u.ID == usuario.ID; })]=usuario;
+                this.CloseConnection();
             }
-            usuario.State = BusinessEntity.States.Unmodified;            
         }
 
+        public void AddNew(Usuario usuario) { }
         
     }
 }

@@ -11,24 +11,6 @@ namespace Data.Database
 {
     public class EspecialidadAdapter: Adapter
     {
-        #region bd
-        // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
-        private static List<Especialidad> _Especialidad;
-
-        private List<Especialidad> Especialidades
-        {
-            get
-            {
-                if (_Especialidad == null)
-                {
-                    _Especialidad = this.GetAll();
-                }
-                return _Especialidad;
-            }
-        }
-        #endregion
-
         public List<Especialidad> GetAll()
         {
             List<Especialidad> esp = new List<Especialidad>();
@@ -59,54 +41,61 @@ namespace Data.Database
 
         public void Delete(int ID)
         {
-            Especialidades.Remove(this.GetOne(ID));
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand(
+                    "DELETE especialidades FROM " +
+                    "especialidades" +
+                    "WHERE id_especialidad=@id", sqlConnection);
+                cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw e.InnerException;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
         }
-
+         //para modificar
         public void Save(Especialidad especialidad)
         {
-            if (especialidad.State == BusinessEntity.States.New)
-            {
-                int NextID = 0;
-                foreach (Especialidad esp in Especialidades)
-                {
-                    if (esp.ID > NextID)
-                    {
-                        NextID = esp.ID;
-                    }
-                }
-                especialidad.ID = NextID + 1;
-                Especialidades.Add(especialidad);
-            }
-            else if (especialidad.State == BusinessEntity.States.Deleted)
-            {
-                this.Delete(especialidad.ID);
-            }
-            else if (especialidad.State == BusinessEntity.States.Modified)
-            {
-                Especialidades[Especialidades.FindIndex(delegate (Especialidad e) { return e.ID == especialidad.ID; })] = especialidad;
-            }
-            especialidad.State = BusinessEntity.States.Unmodified;
-        }
-
-        public void AddNew(Especialidad esp) 
-        {
-            #region pasar_a_logica
-            foreach (Especialidad e in Especialidades)
-            {
-                if (e.Descripcion== esp.Descripcion)
-                {
-                    throw new Exception("Especialidad ya existente!"); // devuelve excepcion porque ya existe una especialidad con ese nombre
-                }
-            }
-            #endregion
             try
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
+                    "UPDATE especialidades SET " +
+                    "desc_especialidad=@d_espec" +
+                    "WHERE id_especialidad=@id", sqlConnection);
+                cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
+                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = especialidad.ID;
+                cmdSave.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw e.InnerException;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public void AddNew(Especialidad esp) 
+        {
+            
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdnew = new SqlCommand(
                 "insert into especialidades(desc_especialidad) " +
                 "Values(@d_espcialidad) " +
                 "selected @@identity", sqlConnection);
-                cmdSave.Parameters.Add("@d_especialidad", System.Data.SqlDbType.VarChar, 50).Value = esp.Descripcion;
+                cmdnew.Parameters.Add("@d_especialidad", System.Data.SqlDbType.VarChar, 50).Value = esp.Descripcion;
+                cmdnew.ExecuteNonQuery();
             }
             catch (SqlException Ex)
             {

@@ -22,8 +22,21 @@ namespace Business.Logic
             set { this._UsuarioData = value; }
         }
 
-        //Crear los métodos GetOne, GetAll, Save y Delete en UsuarioLogic.
-        
+        private List<Usuario> usuarios;
+
+        public List<Usuario> Usuarios
+        {
+            get
+            {
+                if (usuarios == null)
+                {
+                    usuarios = this.GetAll();
+                }
+                return usuarios;
+            }
+        }
+
+
         public List<Usuario> GetAll() 
         {
             return this.UsuarioData.GetAll();
