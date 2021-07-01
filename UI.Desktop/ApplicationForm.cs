@@ -7,12 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
     {
-        public enum ModoForm { Alta, Baja, Modificacion, Consulta }        
+        public enum ModoForm { Alta, Baja, Modificacion, Consulta }
+        public Hashtable nomBtn = new Hashtable()
+        {
+            { 0 ,"Guardar"},
+            { 1 ,"Eliminar"},
+            { 2 ,"Guardar"},
+            { 3 ,"Aceptar"}
+        };
         private ModoForm _modo;
         public ModoForm Modo { get {return _modo;} set {_modo = value;} }        
         public virtual void MapearDeDatos() { }       
@@ -30,7 +38,7 @@ namespace UI.Desktop
             this.Notificar(this.Text, mensaje, botones, icono);
         }
         public ApplicationForm()
-        {     
+        {
             InitializeComponent();
         }
     }

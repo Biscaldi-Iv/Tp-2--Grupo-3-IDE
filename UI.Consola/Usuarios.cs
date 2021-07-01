@@ -136,9 +136,6 @@ namespace UI.Consola
             UsuarioNegocio.Save(usuario);
             Console.WriteLine();
             Console.WriteLine("ID: {0}",usuario.ID);
-
-
-
         }
 
         public void Modificar()
