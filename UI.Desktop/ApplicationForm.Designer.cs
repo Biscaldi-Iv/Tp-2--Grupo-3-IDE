@@ -38,6 +38,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(1115, 525);
             this.Name = "ApplicationForm";
             this.Text = "ApplicationForm";
+            this.Load += new System.EventHandler(this.ApplicationForm_Load);
             this.ResumeLayout(false);
 
         }

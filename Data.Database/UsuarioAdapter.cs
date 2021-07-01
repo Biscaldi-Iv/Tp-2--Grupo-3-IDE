@@ -96,8 +96,7 @@ namespace Data.Database
             else if (usuario.State == BusinessEntity.States.Modificado)
             {
                 Usuarios[Usuarios.FindIndex(delegate(Usuario u) { return u.ID == usuario.ID; })]=usuario;
-            }
-            usuario.State = BusinessEntity.States.Sin_Modificar;            
+            }                     
         }
     }
 }

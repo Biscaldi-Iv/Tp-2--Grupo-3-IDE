@@ -16,7 +16,7 @@ namespace UI.Consola
             get { return this.user; }
             set { this.user = value; }
         }
-
+   
         public Usuarios()
         {
             this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
@@ -150,9 +150,6 @@ namespace UI.Consola
             UsuarioNegocio.Save(usuario);
             Console.WriteLine();
             Console.WriteLine("ID: {0}",usuario.ID);
-
-
-
         }
 
         public void Modificar()
