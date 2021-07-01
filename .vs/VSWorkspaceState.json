@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Business.Entities"
   ],
-  "SelectedNode": "\\TP 2- Grupo 3.sln",
+  "SelectedNode": "\\Business.Entities\\Plan.cs",
   "PreviewInSolutionExplorer": false
 }

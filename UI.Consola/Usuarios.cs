@@ -16,7 +16,7 @@ namespace UI.Consola
             get { return this.user; }
             set { this.user = value; }
         }
-
+   
         public Usuarios()
         {
             this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
