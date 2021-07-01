@@ -49,5 +49,12 @@ namespace UI.Desktop
         {
 
         }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            
+           // UsuarioDesktop usuarioDesktop = new UsuarioDesktop(2, (ApplicationForm.ModoForm)1);
+           // usuarioDesktop.Show();
+        }
     }
 }

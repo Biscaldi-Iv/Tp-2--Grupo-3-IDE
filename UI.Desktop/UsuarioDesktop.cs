@@ -14,7 +14,20 @@ namespace UI.Desktop
 {
     public partial class UsuarioDesktop : ApplicationForm
     {
-        public override void MapearDeDatos() { }
+        private Usuario _UsuarioActual;
+        
+        public override void MapearDeDatos() 
+        {
+            this.txtApellido.Text = this.UsuarioActual.Apellido;
+            this.txtNombre.Text = this.UsuarioActual.Nombre;
+            this.txtEmail.Text = this.UsuarioActual.Email;
+            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
+            this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
+            this.txtClave.Text = this.UsuarioActual.Clave;
+            this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
+            this.txtID.Text = this.UsuarioActual.ID.ToString();
+            this.btnAceptar.Text = nomBtn[(int)Modo].ToString();
+        }
         public override void MapearADatos() { }
         public override void GuardarCambios() { }
         public override bool Validar() { return false; }
@@ -27,17 +40,18 @@ namespace UI.Desktop
             this.Notificar(this.Text, mensaje, botones, icono);
         }
 
-        public /*Usuario*/ void UsuarioActual()  {/*No va void*/}
+        public Usuario UsuarioActual { set {_UsuarioActual = value;} get{ return this._UsuarioActual; }  }
         public UsuarioDesktop()
-        {
-            InitializeComponent();
+        {           
+            InitializeComponent();           
         }
         public UsuarioDesktop(ModoForm modo) : this() { Modo = modo; }
         public UsuarioDesktop(int ID, ModoForm modo) : this() 
         { 
             Modo = modo;
-            Business.Entities.Usuario usr = new();
-            
+            UsuarioLogic ul = new UsuarioLogic(new Data.Database.UsuarioAdapter());          
+            this.UsuarioActual = ul.GetOne(ID);
+            MapearDeDatos();         
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
