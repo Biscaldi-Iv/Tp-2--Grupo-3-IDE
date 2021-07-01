@@ -72,5 +72,15 @@ namespace UI.Desktop
             usuarioDesktop.ShowDialog();
             this.Listar();
         }
+
+        private void Usuarios_Shown(object sender, EventArgs e)
+        {
+
+            formLogin appLogin = new formLogin();
+            if (appLogin.ShowDialog() != DialogResult.OK)
+            {
+                this.Dispose();
+            }
+        }
     }
 }
