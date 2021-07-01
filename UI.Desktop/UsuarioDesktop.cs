@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
-//dsds
+
 namespace UI.Desktop
 {
     public partial class UsuarioDesktop : ApplicationForm
