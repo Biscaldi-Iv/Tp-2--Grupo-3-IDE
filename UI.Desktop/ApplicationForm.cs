@@ -41,5 +41,10 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
+        private void ApplicationForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
