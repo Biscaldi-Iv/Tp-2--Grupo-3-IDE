@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Business.Logic.BusinessLogic" Collapsed="true">
-    <Position X="5.75" Y="1" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BusinessLogic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Business.Logic.EspecialidadLogic" Collapsed="true">
-    <Position X="8.25" Y="1" Width="1.5" />
+  <Class Name="Business.Logic.EspecialidadLogic">
+    <Position X="4" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEMAAAEAAAAAAAAAAABAAAAEAAAAAAgAAAgAgAAA=</HashCode>
       <FileName>EspecialidadLogic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Business.Logic.UsuarioLogic" Collapsed="true">
-    <Position X="5.75" Y="2.25" Width="1.5" />
+  <Class Name="Business.Logic.UsuarioLogic">
+    <Position X="7.75" Y="2" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAACAAAAAAEAAAACAgAAAAAgAAA=</HashCode>
       <FileName>UsuarioLogic.cs</FileName>

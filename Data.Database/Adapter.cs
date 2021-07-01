@@ -10,21 +10,49 @@ namespace Data.Database
 {
     public class Adapter
     {
-        private SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
+        protected static SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
         
-        protected void OpenConnection()
+        protected void OpenConnection() //abre conexion
         {
-            throw new Exception("Metodo no implementado");
+            try
+            {
+                sqlConnection.Open();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
-        protected void CloseConnection()
+        protected void CloseConnection() //cierra conexion
         {
-            throw new Exception("Metodo no implementado");
+            try
+            {
+                sqlConnection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
 
-        protected SqlDataReader ExecuteReader(String commandText)
+        protected SqlDataReader ExecuteReader(String commandText) //Ejecuta sentencias SQL
         {
-            throw new Exception("Metodo no implementado");
+            SqlCommand comando = new SqlCommand(commandText, sqlConnection);
+            SqlDataReader reader = comando.ExecuteReader();
+            return reader;
         }
+
+        protected void LogIn(string user,string password) 
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = ".\\SQLExpress";
+            builder.IntegratedSecurity = true;
+            builder.InitialCatalog = "Academia";
+            builder.UserID = user;
+            builder.Password = password;
+            sqlConnection = new SqlConnection(builder.ToString());
+        }
+
     }
 }

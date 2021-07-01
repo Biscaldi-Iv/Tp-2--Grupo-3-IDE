@@ -26,14 +26,14 @@ namespace Data.Database
                     pln = new Business.Entities.Plan();
                     pln.ID = 1;
                     pln.Descripcion = "2008";
-                    pln.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    pln.State = Business.Entities.BusinessEntity.States.Unmodified;
                     pln.IDEspecialidad = 1;
                     _Plan.Add(pln);
 
                     pln = new Business.Entities.Plan();
                     pln.ID = 2;
                     pln.Descripcion = "1998";
-                    pln.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    pln.State = Business.Entities.BusinessEntity.States.Unmodified;
                     pln.IDEspecialidad = 4;
                     _Plan.Add(pln);
 
@@ -41,14 +41,14 @@ namespace Data.Database
                     pln = new Business.Entities.Plan();
                     pln.ID = 3;
                     pln.Descripcion = "1960";
-                    pln.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    pln.State = Business.Entities.BusinessEntity.States.Unmodified;
                     pln.IDEspecialidad = 2;
                     _Plan.Add(pln);
 
                     pln = new Business.Entities.Plan();
                     pln.ID = 4;
                     pln.Descripcion = "2008";
-                    pln.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    pln.State = Business.Entities.BusinessEntity.States.Unmodified;
                     pln.IDEspecialidad = 3;
                     _Plan.Add(pln);
 
@@ -75,7 +75,7 @@ namespace Data.Database
 
         public void Save(Plan plan)
         {
-            if (plan.State == BusinessEntity.States.Alta)
+            if (plan.State == BusinessEntity.States.New)
             {
                 int NextID = 0;
                 foreach (Plan pln in Planes)
@@ -88,15 +88,15 @@ namespace Data.Database
                 plan.ID = NextID + 1;
                 Planes.Add(plan);
             }
-            else if (plan.State == BusinessEntity.States.Baja)
+            else if (plan.State == BusinessEntity.States.Deleted)
             {
                 this.Delete(plan.ID);
             }
-            else if (plan.State == BusinessEntity.States.Modificado)
+            else if (plan.State == BusinessEntity.States.Modified)
             {
                 Planes[Planes.FindIndex(delegate (Plan p) { return p.ID == plan.ID; })] = plan;
             }
-            plan.State = BusinessEntity.States.Sin_Modificar;
+            plan.State = BusinessEntity.States.Unmodified;
         }
     }
 }
