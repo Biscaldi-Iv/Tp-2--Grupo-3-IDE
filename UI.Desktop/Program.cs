@@ -17,14 +17,9 @@ namespace UI.Desktop
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-<<<<<<< HEAD
             Application.Run(new formMain());
-
-            //Application.Run(new Usuarios());
-=======
-            //Application.Run(new UsuarioDesktop());
             Application.Run(new Usuarios());
->>>>>>> 579e7f56615a206e888f947621bb7041dfe3153b
+
         }
     }
 }
