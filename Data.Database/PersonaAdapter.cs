@@ -23,7 +23,7 @@ namespace Data.Database
                     Business.Entities.Persona per;
                     per = new Business.Entities.Persona();
                     per.ID = 1;
-                    per.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    per.State = Business.Entities.BusinessEntity.States.Unmodified;
                     per.Nombre = "Casimiro";
                     per.Apellido = "Cegado";
                     per.Email = "casimirocegado@gmail.com";
@@ -37,7 +37,7 @@ namespace Data.Database
 
                     per = new Business.Entities.Persona();
                     per.ID = 2;
-                    per.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    per.State = Business.Entities.BusinessEntity.States.Unmodified;
                     per.Nombre = "Armando Esteban";
                     per.Apellido = "Quito";
                     per.FechaNacimiento = new DateTime(2000, 03, 15);
@@ -49,7 +49,7 @@ namespace Data.Database
 
                     per = new Business.Entities.Persona();
                     per.ID = 3;
-                    per.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
+                    per.State = Business.Entities.BusinessEntity.States.Unmodified;
                     per.Nombre = "Alan";
                     per.Apellido = "Brado";
                     per.Telefono = "30000";

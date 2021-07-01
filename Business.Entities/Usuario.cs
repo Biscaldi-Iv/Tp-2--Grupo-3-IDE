@@ -11,6 +11,16 @@ namespace Business.Entities
         private string _NombreUsuario, _Clave, _Nombre, _Apellido, _Email;
         private bool _Habilitado;
 
+        public Usuario(int id,string user_name, string pass,string nom, string appellido, string email, bool h ): base(id)
+        { 
+            this.NombreUsuario = user_name;
+            this.Clave = pass;
+            this.Apellido = appellido;
+            this.Nombre = nom;
+            this.Email = email;
+            this.Habilitado = h;
+        }
+
         public string NombreUsuario
         {
             get { return this._NombreUsuario; }

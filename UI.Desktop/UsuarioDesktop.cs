@@ -31,18 +31,18 @@ namespace UI.Desktop
         {
             if (Modo == ModoForm.Alta)
             {
-                UsuarioActual = new Usuario();
-                this.UsuarioActual.State = BusinessEntity.States.Alta;
+                UsuarioActual = new Usuario(0,"","","","","",false);
+                this.UsuarioActual.State = BusinessEntity.States.New;
                 GuardarMapeoADatos();
             } 
             if (Modo == ModoForm.Modificacion)
             {                  
-                this.UsuarioActual.State = BusinessEntity.States.Modificado;
+                this.UsuarioActual.State = BusinessEntity.States.Modified;
                 GuardarMapeoADatos();
             }
             if (Modo == ModoForm.Baja)
             {
-                if (ValidarClave(txtClave.Text)) { this.UsuarioActual.State = BusinessEntity.States.Baja; }
+                if (ValidarClave(txtClave.Text)) { this.UsuarioActual.State = BusinessEntity.States.Deleted; }
                 else { Notificar("Clave incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
 
             }
@@ -86,7 +86,7 @@ namespace UI.Desktop
         {           
             InitializeComponent();           
         }
-        public UsuarioDesktop(ModoForm modo) : this() { Modo = modo; Usuario usr = new Usuario(); UsuarioActual = usr; MapearDeDatos(); }
+        public UsuarioDesktop(ModoForm modo) : this() { Modo = modo; Usuario usr = new Usuario(0,"","","","","",false); UsuarioActual = usr; MapearDeDatos(); }
         public UsuarioDesktop(int ID, ModoForm modo) : this() 
         { 
             Modo = modo;

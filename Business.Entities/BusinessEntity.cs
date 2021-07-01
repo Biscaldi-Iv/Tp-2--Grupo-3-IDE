@@ -8,9 +8,18 @@ namespace Business.Entities
 {
     public class BusinessEntity
     {
+        //contructor para crear instancia de entidad con datos pre existente
+        //se usa con base(int)
+        public BusinessEntity(int id)
+        {
+            this.ID = id;
+            this.State = States.Unmodified;
+        }
+
+        //constructor para crear nueva instancia de alguna entidad
         public BusinessEntity()
         {
-            this.State = States.Alta;
+            this.State = States.New;
         }
 
         private int _ID;
@@ -28,10 +37,10 @@ namespace Business.Entities
         }
         public enum States
         {
-            Baja,
-            Alta,
-            Modificado,
-            Sin_Modificar,
+            Deleted,
+            New,
+            Modified,
+            Unmodified,
         }
 
     }
