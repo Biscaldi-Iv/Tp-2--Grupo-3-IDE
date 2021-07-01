@@ -10,7 +10,7 @@ namespace Business.Entities
     {
         public BusinessEntity()
         {
-            this.State = States.New;
+            this.State = States.Alta;
         }
 
         private int _ID;
@@ -28,10 +28,10 @@ namespace Business.Entities
         }
         public enum States
         {
-            Deleted,
-            New,
-            Modified,
-            Unmodified,
+            Baja,
+            Alta,
+            Modificado,
+            Sin_Modificar,
         }
 
     }

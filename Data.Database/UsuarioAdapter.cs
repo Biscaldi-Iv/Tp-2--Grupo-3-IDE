@@ -22,7 +22,7 @@ namespace Data.Database
                     Business.Entities.Usuario usr;
                     usr = new Business.Entities.Usuario();
                     usr.ID = 1;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    usr.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     usr.Nombre = "Casimiro";
                     usr.Apellido = "Cegado";
                     usr.NombreUsuario = "casicegado";
@@ -33,7 +33,7 @@ namespace Data.Database
 
                     usr = new Business.Entities.Usuario();
                     usr.ID = 2;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    usr.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     usr.Nombre = "Armando Esteban";
                     usr.Apellido = "Quito";
                     usr.NombreUsuario = "aequito";
@@ -44,7 +44,7 @@ namespace Data.Database
 
                     usr = new Business.Entities.Usuario();
                     usr.ID = 3;
-                    usr.State = Business.Entities.BusinessEntity.States.Unmodified;
+                    usr.State = Business.Entities.BusinessEntity.States.Sin_Modificar;
                     usr.Nombre = "Alan";
                     usr.Apellido = "Brado";
                     usr.NombreUsuario = "alanbrado";
@@ -76,7 +76,7 @@ namespace Data.Database
 
         public void Save(Usuario usuario)
         {
-            if (usuario.State == BusinessEntity.States.New)
+            if (usuario.State == BusinessEntity.States.Alta)
             {
                 int NextID = 0;
                 foreach (Usuario usr in Usuarios)
@@ -89,15 +89,14 @@ namespace Data.Database
                 usuario.ID = NextID + 1;
                 Usuarios.Add(usuario);
             }
-            else if (usuario.State == BusinessEntity.States.Deleted)
+            else if (usuario.State == BusinessEntity.States.Baja)
             {
                 this.Delete(usuario.ID);
             }
-            else if (usuario.State == BusinessEntity.States.Modified)
+            else if (usuario.State == BusinessEntity.States.Modificado)
             {
                 Usuarios[Usuarios.FindIndex(delegate(Usuario u) { return u.ID == usuario.ID; })]=usuario;
-            }
-            usuario.State = BusinessEntity.States.Unmodified;            
+            }                     
         }
     }
 }

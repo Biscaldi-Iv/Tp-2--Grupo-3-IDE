@@ -16,22 +16,24 @@ namespace UI.Consola
             get { return this.user; }
             set { this.user = value; }
         }
-
+   
         public Usuarios()
         {
             this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
         }
 
-        public void menu()
+        public bool menu()
         {
+            Console.Clear();
             Console.Write("\t\t1– Listado General\n" +
                 "\t\t2– Consulta\n" +
                 "\t\t3– Agregar\n" +
                 "\t\t4 - Modificar\n" +
                 "\t\t5 - Eliminar\n" +
-                "\t\t6 - Salir\n" +
+                "\t\tOtro - Salir\n" +
                 "\n\n\t\tSeleccionar:");
             int s = int.Parse(Console.ReadLine());
+            Console.Clear();
             switch (s)
             {
                 case 1:
@@ -49,8 +51,11 @@ namespace UI.Consola
                 case 5:
                     this.Eliminar();
                     break;
-                default:break;
+                default:return false;
             }
+            Console.Write("\n\nPresione para continuar");
+            Console.ReadKey();
+            return true;
         }
         
         #region metodos_a_completar
@@ -127,13 +132,10 @@ namespace UI.Consola
             usuario.Email = Console.ReadLine();
             Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
             usuario.Habilitado = (Console.ReadLine() == "1");
-            usuario.State = BusinessEntity.States.New;
+            usuario.State = BusinessEntity.States.Alta;
             UsuarioNegocio.Save(usuario);
             Console.WriteLine();
             Console.WriteLine("ID: {0}",usuario.ID);
-
-
-
         }
 
         public void Modificar()
@@ -156,7 +158,7 @@ namespace UI.Consola
                 usuario.Email = Console.ReadLine();
                 Console.Write("Ingrese Habilitacion de Usuario (1-si/otro-no): ");
                 usuario.Habilitado = (Console.ReadLine() == "1");
-                usuario.State = BusinessEntity.States.Modified;
+                usuario.State = BusinessEntity.States.Modificado;
                 UsuarioNegocio.Save(usuario);
 
             }
