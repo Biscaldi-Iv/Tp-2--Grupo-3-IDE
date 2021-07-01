@@ -14,6 +14,8 @@ namespace UI.Desktop
 {
     public partial class UsuarioDesktop : ApplicationForm
     {
+        private Usuario _UsuarioActual;
+
         public override void MapearDeDatos() { }
         public override void MapearADatos() { }
         public override void GuardarCambios() { }
@@ -27,7 +29,7 @@ namespace UI.Desktop
             this.Notificar(this.Text, mensaje, botones, icono);
         }
 
-        public /*Usuario*/ void UsuarioActual()  {/*No va void*/}
+        public Usuario UsuarioActual { set {_UsuarioActual = value;} get{ return this._UsuarioActual; }  }
         public UsuarioDesktop()
         {
             InitializeComponent();
@@ -36,7 +38,9 @@ namespace UI.Desktop
         public UsuarioDesktop(int ID, ModoForm modo) : this() 
         { 
             Modo = modo;
-            Business.Entities.Usuario usr = new();
+            this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
+            Usuario usr = new();
+            usr = UsuarioNegocio.GetOne(ID);
             
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
