@@ -10,7 +10,7 @@ namespace Data.Database
 {
     public class Adapter
     {
-        protected SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
+        protected static SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
         
         protected void OpenConnection() //abre conexion
         {
@@ -41,6 +41,17 @@ namespace Data.Database
             SqlCommand comando = new SqlCommand(commandText, sqlConnection);
             SqlDataReader reader = comando.ExecuteReader();
             return reader;
+        }
+
+        protected void LogIn(string user,string password) 
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = ".\\SQLExpress";
+            builder.IntegratedSecurity = true;
+            builder.InitialCatalog = "Academia";
+            builder.UserID = user;
+            builder.Password = password;
+            sqlConnection = new SqlConnection(builder.ToString());
         }
 
     }

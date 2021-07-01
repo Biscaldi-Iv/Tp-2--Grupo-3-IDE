@@ -11,6 +11,8 @@ namespace Data.Database
 {
     public class EspecialidadAdapter: Adapter
     {
+        
+
         public List<Especialidad> GetAll()
         {
             List<Especialidad> esp = new List<Especialidad>();
