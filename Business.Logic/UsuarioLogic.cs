@@ -10,9 +10,9 @@ namespace Business.Logic
 {
     public class UsuarioLogic : BusinessLogic
     {
-        public UsuarioLogic(UsuarioAdapter userdata)
+        public UsuarioLogic()
             {
-            this.UsuarioData = userdata;
+            this.UsuarioData = new UsuarioAdapter();
             }
 
         private Data.Database.UsuarioAdapter _UsuarioData;
@@ -54,7 +54,7 @@ namespace Business.Logic
 
         public void Save(Usuario usr)
         {
-            this.UsuarioData.Save(usr);
+            this.UsuarioData.SaveChanges(usr);
         }
 
     }

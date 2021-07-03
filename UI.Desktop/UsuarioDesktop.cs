@@ -60,7 +60,7 @@ namespace UI.Desktop
         public override void GuardarCambios() 
         {            
             MapearADatos();
-            UsuarioLogic ul = new UsuarioLogic(new Data.Database.UsuarioAdapter());
+            UsuarioLogic ul = new UsuarioLogic();
             ul.Save(_UsuarioActual);
         }
         public bool ValidarClave(string c)  //Falta implementar
@@ -90,7 +90,7 @@ namespace UI.Desktop
         public UsuarioDesktop(int ID, ModoForm modo) : this() 
         { 
             Modo = modo;
-            UsuarioLogic ul = new UsuarioLogic(new Data.Database.UsuarioAdapter());          
+            UsuarioLogic ul = new UsuarioLogic();          
             this.UsuarioActual = ul.GetOne(ID);
             MapearDeDatos();         
         }

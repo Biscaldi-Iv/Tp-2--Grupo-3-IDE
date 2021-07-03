@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Database;
 using Business.Entities;
+using Microsoft.Data.SqlClient;
 
 namespace Business.Logic
 {
     public class EspecialidadLogic: BusinessLogic
     {
-        public EspecialidadLogic(EspecialidadAdapter adapt)
+        public EspecialidadLogic()
         {
-            this.Especialidad_data = adapt;
+            this.Especialidad_data = new EspecialidadAdapter();
         }
 
         private List<Especialidad> _especialidades;
@@ -61,9 +62,16 @@ namespace Business.Logic
             }
         }
 
-        public void Save()
+        public void SaveChanges(Especialidad e)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                Especialidad_data.SaveChanges(e);
+            }
+            catch(SqlException ex)
+            {
+                throw ex.InnerException;
+            }
         }
 
         public void AddNew(Especialidad esp)
@@ -73,6 +81,7 @@ namespace Business.Logic
             {
                 if (e.Descripcion == esp.Descripcion)
                 {
+                    //error no manejado
                     throw new Exception("Especialidad ya existente!"); // devuelve excepcion porque ya existe una especialidad con ese nombre
                 }
             }

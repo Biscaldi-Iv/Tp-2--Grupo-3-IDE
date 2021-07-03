@@ -6,8 +6,13 @@ using Microsoft.Data.SqlClient;
 
 namespace Data.Database
 {
-    public class UsuarioAdapter:Adapter
+    public class UsuarioAdapter : Adapter
     {
+        public UsuarioAdapter():base()
+        {
+            
+        }
+
         public List<Usuario> GetAll()
         {
             this.OpenConnection();
@@ -47,12 +52,13 @@ namespace Data.Database
         {
             try
             {
-                this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand(
                     "DELETE usuarios FROM " +
                     "usuarios" +
                     "WHERE id_usuario=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
+
+                this.OpenConnection();
                 cmdDelete.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -65,11 +71,10 @@ namespace Data.Database
             }
         }
 
-        public void Save(Usuario usuario)
+        public void SaveChanges(Usuario usuario)
         {
             try
             {
-                this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE usuarios SET " +
                     "nombre_usuario=@n_user," +
@@ -86,6 +91,8 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@ape", System.Data.SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmdSave.Parameters.Add("@hab", System.Data.SqlDbType.Bit).Value = usuario.Habilitado;
+
+                this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
             catch (SqlException e)

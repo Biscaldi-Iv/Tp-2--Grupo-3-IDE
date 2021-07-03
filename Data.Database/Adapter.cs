@@ -10,7 +10,21 @@ namespace Data.Database
 {
     public class Adapter
     {
-        protected static SqlConnection sqlConnection = new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
+        public Adapter()
+        {
+            sqlConnection=new SqlConnection(@"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True");
+        }
+        protected SqlConnection sqlConnection;
+        protected SqlDataAdapter _data_Adapter;
+
+        protected SqlDataAdapter SqlDataAdapter
+        {
+            get => this._data_Adapter;
+            set
+            {
+                this._data_Adapter = value;
+            }
+        }
         
         protected void OpenConnection() //abre conexion
         {

@@ -8,12 +8,17 @@ using Business.Entities;
 
 namespace Data.Database
 {
-    class PlanAdapter
+    public class PlanAdapter: Adapter
     {
         #region DatosEnMemoria
         // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
         // Al modificar este proyecto para que acceda a la base de datos esta será eliminada
         private static List<Plan> _Plan;
+
+        public PlanAdapter():base()
+        {
+            
+        }
 
         private static List<Plan> Planes
         {
@@ -73,7 +78,7 @@ namespace Data.Database
             Planes.Remove(this.GetOne(ID));
         }
 
-        public void Save(Plan plan)
+        public void SaveChanges(Plan plan)
         {
             if (plan.State == BusinessEntity.States.New)
             {

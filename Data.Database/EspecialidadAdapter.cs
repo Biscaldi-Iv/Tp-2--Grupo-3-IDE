@@ -11,7 +11,11 @@ namespace Data.Database
 {
     public class EspecialidadAdapter: Adapter
     {
-        
+        public EspecialidadAdapter():base()
+        {
+            
+        }
+
 
         public List<Especialidad> GetAll()
         {
@@ -45,12 +49,12 @@ namespace Data.Database
         {
             try
             {
-                this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand(
                     "DELETE especialidades FROM " +
                     "especialidades" +
                     "WHERE id_especialidad=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
+                this.OpenConnection();
                 cmdDelete.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -63,17 +67,17 @@ namespace Data.Database
             }
         }
          //para modificar
-        public void Save(Especialidad especialidad)
+        public void SaveChanges(Especialidad especialidad)
         {
             try
             {
-                this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE especialidades SET " +
                     "desc_especialidad=@d_espec" +
                     "WHERE id_especialidad=@id", sqlConnection);
                 cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = especialidad.ID;
+                this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -91,18 +95,18 @@ namespace Data.Database
             
             try
             {
-                this.OpenConnection();
                 SqlCommand cmdnew = new SqlCommand(
                 "insert into especialidades(desc_especialidad) " +
                 "Values(@d_espcialidad) " +
                 "selected @@identity", sqlConnection);
                 cmdnew.Parameters.Add("@d_especialidad", System.Data.SqlDbType.VarChar, 50).Value = esp.Descripcion;
+                this.OpenConnection();
                 cmdnew.ExecuteNonQuery();
             }
             catch (SqlException Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear el curso", Ex);
-                throw ExcepcionManejada;
+                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
+                throw ExcepcionNOManejada;
             }
             finally
             {
