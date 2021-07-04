@@ -35,7 +35,12 @@ namespace UI.Desktop
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.dgvEspecialidades.DataSource = this.oEspecialidad.GetAll();
+           this.dgvEspecialidades.DataSource = this.oEspecialidad.GetAll();
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
