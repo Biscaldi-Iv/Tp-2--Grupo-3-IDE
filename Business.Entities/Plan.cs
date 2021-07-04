@@ -21,5 +21,20 @@ namespace Business.Entities
             get { return this._IDEspecialidad; }
             set { this._IDEspecialidad = value; }
         }
+
+        //constructor sin id para crear nuevos planes
+        public Plan(string desc, int esp)
+        {
+            this.Descripcion = desc;
+            this.IDEspecialidad = esp;
+        }
+
+        //constructor con id para instanciar con datos recuperados de base de datos
+        public Plan(int idp, string desc, int esp)
+        {
+            this.ID = idp;
+            this.Descripcion = desc;
+            this.IDEspecialidad = esp;
+        }
     }
 }

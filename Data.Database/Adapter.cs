@@ -56,17 +56,5 @@ namespace Data.Database
             SqlDataReader reader = comando.ExecuteReader();
             return reader;
         }
-
-        protected void LogIn(string user,string password) 
-        {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = ".\\SQLExpress";
-            builder.IntegratedSecurity = true;
-            builder.InitialCatalog = "Academia";
-            builder.UserID = user;
-            builder.Password = password;
-            sqlConnection = new SqlConnection(builder.ToString());
-        }
-
     }
 }

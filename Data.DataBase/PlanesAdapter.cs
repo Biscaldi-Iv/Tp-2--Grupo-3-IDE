@@ -9,41 +9,36 @@ using Microsoft.Data.SqlTypes;
 
 namespace Data.Database
 {
-    public class EspecialidadAdapter: Adapter
+    class PlanesAdapter : Adapter
     {
-        public EspecialidadAdapter():base()
-        {
-            
-        }
+        public PlanesAdapter() : base() { }
 
-
-        public List<Especialidad> GetAll()
+        public List<Plan> GetAll()
         {
-            List<Especialidad> esp = new List<Especialidad>();
+            List<Plan> planes = new List<Plan>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] FROM [Academia].[dbo].[especialidades]");
-            while(reader.Read())
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]");
+            while (reader.Read())
             {
-                Especialidad es = new Especialidad(reader.GetInt32(0), reader.GetString(1));
-                esp.Add(es);
+                Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+                planes.Add(p);
             }
             reader.Close();
             this.CloseConnection();
 
-            return esp;
+            return planes;
         }
 
-        public Business.Entities.Especialidad GetOne(int ID)
+        public Plan GetOne(int ID)
         {
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] " +
-                "FROM [Academia].[dbo].[especialidades]" +
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]" +
                 $" WHERE [id_especialidad]={ID}");
             reader.Read();
-            Especialidad es = new(reader.GetInt32(0), reader.GetString(1));
-            this.CloseConnection();
-            
-            return es;
+            Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            CloseConnection();
+
+            return p;
         }
 
         public void Delete(int ID)
@@ -51,9 +46,9 @@ namespace Data.Database
             try
             {
                 SqlCommand cmdDelete = new SqlCommand(
-                    "DELETE especialidades FROM " +
-                    "especialidades" +
-                    "WHERE id_especialidad=@id", sqlConnection);
+                    "DELETE planes FROM " +
+                    "planes" +
+                    "WHERE id_plan=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
                 this.OpenConnection();
                 cmdDelete.ExecuteNonQuery();
@@ -67,17 +62,17 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-         //para modificar
-        public void SaveChanges(Especialidad especialidad)
+
+        public void SaveChanges(Plan pl)
         {
             try
             {
                 SqlCommand cmdSave = new SqlCommand(
-                    "UPDATE especialidades SET " +
-                    "desc_especialidad=@d_espec" +
-                    "WHERE id_especialidad=@id", sqlConnection);
-                cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
-                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = especialidad.ID;
+                    "UPDATE planes SET " +
+                    "desc_plan=@d_espec" +
+                    "WHERE id_plan=@id", sqlConnection);
+                cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = pl.Descripcion;
+                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = pl.ID;
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
@@ -91,16 +86,17 @@ namespace Data.Database
             }
         }
 
-        public void AddNew(Especialidad esp) 
+        public void AddNew(Plan pl)
         {
-            
+
             try
             {
                 SqlCommand cmdnew = new SqlCommand(
-                "insert into especialidades(desc_especialidad) " +
-                "Values(@d_espcialidad) " +
+                "insert into planes(desc_plan, id_especialidad) " +
+                "Values(@d_plan, @id_esp) " +
                 "selected @@identity", sqlConnection);
-                cmdnew.Parameters.Add("@d_especialidad", System.Data.SqlDbType.VarChar, 50).Value = esp.Descripcion;
+                cmdnew.Parameters.Add("@d_plan", System.Data.SqlDbType.VarChar, 50).Value = pl.Descripcion;
+                cmdnew.Parameters.Add("@id_esp", System.Data.SqlDbType.Int).Value = pl.IDEspecialidad;
                 this.OpenConnection();
                 cmdnew.ExecuteNonQuery();
             }
@@ -117,4 +113,3 @@ namespace Data.Database
         }
     }
 }
-
