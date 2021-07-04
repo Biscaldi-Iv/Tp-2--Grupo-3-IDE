@@ -19,7 +19,7 @@ namespace UI.Consola
    
         public Usuarios()
         {
-            this.UsuarioNegocio = new UsuarioLogic(new Data.Database.UsuarioAdapter());
+            this.UsuarioNegocio = new UsuarioLogic();
         }
 
         public bool menu()
@@ -132,7 +132,7 @@ namespace UI.Consola
 
         public void Agregar()
         {
-            Usuario usuario = new Usuario();
+            Usuario usuario = new Usuario(0, "", "", "", "", "", false);
             Console.Clear();
             Console.Write("Ingrese Nombre: ");
             usuario.Nombre = Console.ReadLine();
@@ -146,7 +146,7 @@ namespace UI.Consola
             usuario.Email = Console.ReadLine();
             Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
             usuario.Habilitado = (Console.ReadLine() == "1");
-            usuario.State = BusinessEntity.States.Alta;
+            usuario.State = BusinessEntity.States.New;
             UsuarioNegocio.Save(usuario);
             Console.WriteLine();
             Console.WriteLine("ID: {0}",usuario.ID);
@@ -172,7 +172,7 @@ namespace UI.Consola
                 usuario.Email = Console.ReadLine();
                 Console.Write("Ingrese Habilitacion de Usuario (1-si/otro-no): ");
                 usuario.Habilitado = (Console.ReadLine() == "1");
-                usuario.State = BusinessEntity.States.Modificado;
+                usuario.State = BusinessEntity.States.Modified;
                 UsuarioNegocio.Save(usuario);
 
             }
