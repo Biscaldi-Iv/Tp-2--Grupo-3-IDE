@@ -16,6 +16,9 @@
     <Compile Update="BackGround.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Planes.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>

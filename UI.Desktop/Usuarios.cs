@@ -52,7 +52,7 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+            int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID; 
             UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
             usuarioDesktop.ShowDialog();
             this.Listar();
