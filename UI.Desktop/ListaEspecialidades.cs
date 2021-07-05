@@ -24,7 +24,13 @@ namespace UI.Desktop
 
         private void ListaEspecialidades_Load(object sender, EventArgs e)
         {
+            this.Listar();
+        }
 
+        public void Listar()
+        {
+            EspecialidadLogic esp = new EspecialidadLogic();
+            this.dgvEspecialidades.DataSource = esp.GetAll();
         }
 
         public EspecialidadLogic oEspecialidad
@@ -42,5 +48,16 @@ namespace UI.Desktop
         {
 
         }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

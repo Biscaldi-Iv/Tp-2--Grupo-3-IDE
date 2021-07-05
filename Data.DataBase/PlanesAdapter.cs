@@ -9,7 +9,7 @@ using Microsoft.Data.SqlTypes;
 
 namespace Data.Database
 {
-    class PlanesAdapter : Adapter
+    public class PlanesAdapter : Adapter
     {
         public PlanesAdapter() : base() { }
 
