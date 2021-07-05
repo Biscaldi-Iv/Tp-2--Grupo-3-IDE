@@ -38,6 +38,7 @@ namespace UI.Desktop
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -72,6 +73,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnRegistros, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnReportes, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -159,6 +161,15 @@ namespace UI.Desktop
             this.toolStrip1.Size = new System.Drawing.Size(111, 25);
             this.toolStrip1.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 15);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "borarr esto";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -190,5 +201,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.Label label1;
     }
 }
