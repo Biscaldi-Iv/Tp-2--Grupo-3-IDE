@@ -19,7 +19,7 @@ namespace UI.Desktop
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Usuarios());
             //Application.Run(new FormListaEspecialidades());
-            Application.Run(new Planes());
+            Application.Run(new MenuPrincipal());
 
         }
     }
