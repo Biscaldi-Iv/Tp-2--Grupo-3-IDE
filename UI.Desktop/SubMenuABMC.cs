@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MenuPrincipal : Form
+    public partial class SubMenuABMC : Form
     {
-        public MenuPrincipal()
+        public SubMenuABMC()
         {
             InitializeComponent();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -37,10 +37,7 @@ namespace UI.Desktop
             this.btnRegistros = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +48,7 @@ namespace UI.Desktop
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(679, 363);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(679, 388);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -61,7 +58,7 @@ namespace UI.Desktop
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -73,7 +70,6 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnRegistros, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnReportes, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -87,7 +83,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 363);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 388);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lMenu
@@ -95,7 +91,7 @@ namespace UI.Desktop
             this.lMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lMenu.AutoSize = true;
             this.lMenu.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lMenu.Location = new System.Drawing.Point(297, 1);
+            this.lMenu.Location = new System.Drawing.Point(297, 3);
             this.lMenu.Name = "lMenu";
             this.lMenu.Size = new System.Drawing.Size(85, 37);
             this.lMenu.TabIndex = 0;
@@ -104,7 +100,7 @@ namespace UI.Desktop
             // btnABMC
             // 
             this.btnABMC.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnABMC.Location = new System.Drawing.Point(279, 85);
+            this.btnABMC.Location = new System.Drawing.Point(279, 92);
             this.btnABMC.Name = "btnABMC";
             this.btnABMC.Size = new System.Drawing.Size(120, 30);
             this.btnABMC.TabIndex = 1;
@@ -114,7 +110,7 @@ namespace UI.Desktop
             // btnInscripciones
             // 
             this.btnInscripciones.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInscripciones.Location = new System.Drawing.Point(279, 125);
+            this.btnInscripciones.Location = new System.Drawing.Point(279, 135);
             this.btnInscripciones.Name = "btnInscripciones";
             this.btnInscripciones.Size = new System.Drawing.Size(120, 30);
             this.btnInscripciones.TabIndex = 2;
@@ -124,7 +120,7 @@ namespace UI.Desktop
             // btnRegistros
             // 
             this.btnRegistros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegistros.Location = new System.Drawing.Point(279, 165);
+            this.btnRegistros.Location = new System.Drawing.Point(279, 178);
             this.btnRegistros.Name = "btnRegistros";
             this.btnRegistros.Size = new System.Drawing.Size(120, 30);
             this.btnRegistros.TabIndex = 3;
@@ -134,7 +130,7 @@ namespace UI.Desktop
             // btnReportes
             // 
             this.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReportes.Location = new System.Drawing.Point(279, 205);
+            this.btnReportes.Location = new System.Drawing.Point(279, 221);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(120, 30);
             this.btnReportes.TabIndex = 4;
@@ -144,7 +140,7 @@ namespace UI.Desktop
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSalir.Location = new System.Drawing.Point(584, 329);
+            this.btnSalir.Location = new System.Drawing.Point(584, 353);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
@@ -152,23 +148,6 @@ namespace UI.Desktop
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(111, 25);
-            this.toolStrip1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "borarr esto";
             // 
             // MenuPrincipal
             // 
@@ -180,8 +159,6 @@ namespace UI.Desktop
             this.Name = "MenuPrincipal";
             this.Text = "Menu";
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -200,7 +177,5 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnRegistros;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.Label label1;
     }
 }
