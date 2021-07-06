@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
@@ -19,6 +20,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.oEspecialidad = new EspecialidadLogic();
+            this.dgvEspecialidades.AutoGenerateColumns = false;
             this.dgvEspecialidades.DataSource = this.oEspecialidad.GetAll();
         }
 

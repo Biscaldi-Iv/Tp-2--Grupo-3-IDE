@@ -86,10 +86,21 @@ namespace UI.Desktop
         {           
             InitializeComponent();           
         }
-        public UsuarioDesktop(ModoForm modo) : this() { Modo = modo; Usuario usr = new Usuario(0,"","","","","",false); UsuarioActual = usr; MapearDeDatos(); }
+
+        //constructor para altas
+        public UsuarioDesktop(ModoForm modo) : this() 
+        { 
+            Modo = modo;
+            Usuario usr = new Usuario(0,"","","","","",false);
+            UsuarioActual = usr; 
+            MapearDeDatos(); 
+        }
+
+        //constructor para modificaciones
         public UsuarioDesktop(int ID, ModoForm modo) : this() 
         { 
             Modo = modo;
+            //falta ver el modo en que entra y setear el texto del boton aceptar/guardar/baja segun sea necesario
             UsuarioLogic ul = new UsuarioLogic();          
             this.UsuarioActual = ul.GetOne(ID);
             MapearDeDatos();         

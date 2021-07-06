@@ -29,19 +29,26 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.tscEspecialidades = new System.Windows.Forms.ToolStripContainer();
             this.tlEspecialidades = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
+            this.Id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
-            this.Id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripEsp = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tscEspecialidades.ContentPanel.SuspendLayout();
+            this.tscEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tscEspecialidades.SuspendLayout();
             this.tlEspecialidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
+            this.toolStripEsp.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -70,6 +77,7 @@ namespace UI.Desktop
             // 
             // tscEspecialidades.TopToolStripPanel
             // 
+            this.tscEspecialidades.TopToolStripPanel.Controls.Add(this.toolStripEsp);
             this.tscEspecialidades.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
             // 
             // tlEspecialidades
@@ -93,7 +101,11 @@ namespace UI.Desktop
             // 
             this.dgvEspecialidades.AllowUserToAddRows = false;
             this.dgvEspecialidades.AllowUserToDeleteRows = false;
+            this.dgvEspecialidades.AllowUserToResizeColumns = false;
             this.dgvEspecialidades.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dgvEspecialidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEspecialidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_especialidad,
@@ -107,6 +119,21 @@ namespace UI.Desktop
             this.dgvEspecialidades.RowTemplate.Height = 25;
             this.dgvEspecialidades.Size = new System.Drawing.Size(655, 416);
             this.dgvEspecialidades.TabIndex = 0;
+            // 
+            // Id_especialidad
+            // 
+            this.Id_especialidad.DataPropertyName = "ID";
+            this.Id_especialidad.HeaderText = "Id";
+            this.Id_especialidad.Name = "Id_especialidad";
+            this.Id_especialidad.ReadOnly = true;
+            // 
+            // desc_especialidad
+            // 
+            this.desc_especialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desc_especialidad.DataPropertyName = "Descripcion";
+            this.desc_especialidad.HeaderText = "Especialidad";
+            this.desc_especialidad.Name = "desc_especialidad";
+            this.desc_especialidad.ReadOnly = true;
             // 
             // btnActualizar
             // 
@@ -138,17 +165,47 @@ namespace UI.Desktop
             this.tsEspecialidades.TabIndex = 0;
             this.tsEspecialidades.Text = "toolStrip1";
             // 
-            // Id_especialidad
+            // toolStripEsp
             // 
-            this.Id_especialidad.HeaderText = "Id";
-            this.Id_especialidad.Name = "Id_especialidad";
-            this.Id_especialidad.ReadOnly = true;
+            this.toolStripEsp.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripEsp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbNuevo,
+            this.tsbEditar,
+            this.tsbEliminar});
+            this.toolStripEsp.Location = new System.Drawing.Point(3, 0);
+            this.toolStripEsp.Name = "toolStripEsp";
+            this.toolStripEsp.Size = new System.Drawing.Size(112, 25);
+            this.toolStripEsp.TabIndex = 0;
             // 
-            // desc_especialidad
+            // tsbNuevo
             // 
-            this.desc_especialidad.HeaderText = "Especialidad";
-            this.desc_especialidad.Name = "desc_especialidad";
-            this.desc_especialidad.ReadOnly = true;
+            this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbNuevo.Image = global::UI.Desktop.Properties.Resources.png_clipart_plus_and_minus_signs_computer_icons_symbol_symbol_miscellaneous_logo;
+            this.tsbNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbNuevo.Name = "tsbNuevo";
+            this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
+            this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.ToolTipText = "Nuevo";
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.Image = global::UI.Desktop.Properties.Resources._45406;
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEditar.Text = "toolStripButton1";
+            this.tsbEditar.ToolTipText = "Editar";
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEliminar.Image = global::UI.Desktop.Properties.Resources.png_transparent_computer_icons_delete_icon_white_text_logo;
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
+            this.tsbEliminar.Text = "toolStripButton1";
+            this.tsbEliminar.ToolTipText = "Eliminar";
             // 
             // FormListaEspecialidades
             // 
@@ -162,10 +219,14 @@ namespace UI.Desktop
             this.Load += new System.EventHandler(this.ListaEspecialidades_Load);
             this.tscEspecialidades.ContentPanel.ResumeLayout(false);
             this.tscEspecialidades.ContentPanel.PerformLayout();
+            this.tscEspecialidades.TopToolStripPanel.ResumeLayout(false);
+            this.tscEspecialidades.TopToolStripPanel.PerformLayout();
             this.tscEspecialidades.ResumeLayout(false);
             this.tscEspecialidades.PerformLayout();
             this.tlEspecialidades.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
+            this.toolStripEsp.ResumeLayout(false);
+            this.toolStripEsp.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +243,9 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStrip tsEspecialidades;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id_especialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn desc_especialidad;
+        private System.Windows.Forms.ToolStrip toolStripEsp;
+        private System.Windows.Forms.ToolStripButton tsbNuevo;
+        private System.Windows.Forms.ToolStripButton tsbEditar;
+        private System.Windows.Forms.ToolStripButton tsbEliminar;
     }
 }
