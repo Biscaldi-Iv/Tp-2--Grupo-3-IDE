@@ -12,7 +12,11 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
+<<<<<<< HEAD:UI.Desktop/ListaEspecialidades.cs
+    public partial class FormListaEspecialidades : ApplicationForm
+=======
     public partial class Especialidades : Form
+>>>>>>> 857e8b406b5e1e3aa206bbdcae3e16cb6025006c:UI.Desktop/Especialidades.cs
     {
         private EspecialidadLogic _especialidades;
 
@@ -32,7 +36,10 @@ namespace UI.Desktop
         public void Listar()
         {
             EspecialidadLogic esp = new EspecialidadLogic();
-            this.dgvEspecialidades.DataSource = esp.GetAll();
+            try
+            {
+                this.dgvEspecialidades.DataSource = esp.GetAll();
+            }catch(Exception e) { Notificar("error","sql roto", MessageBoxButtons.YesNo,MessageBoxIcon.Error); }
         }
 
         public EspecialidadLogic oEspecialidad
@@ -61,5 +68,10 @@ namespace UI.Desktop
             this.Close();
         }
 
+        private void tsbNuevo_Click(object sender, EventArgs e)
+        {
+            EspecialidadesDesktop esp = new EspecialidadesDesktop(ApplicationForm.ModoForm.Alta);
+            esp.ShowDialog();
+        }
     }
 }
