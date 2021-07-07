@@ -48,16 +48,65 @@ namespace UI.Desktop
 
         public override void MapearDeDatos() 
         {
+            switch (Modo)
+            {
+                case ModoForm.Alta:
+                    {
+                        this.btnGuardar.Text = "Registrar";
+                        break;
+                    }
+                case ModoForm.Modificacion:
+                    {
+                        this.btnGuardar.Text = "Guardar";
+                        break;
+                    }
+                case ModoForm.Baja:
+                    {
+                        this.tboxEspecialidad.ReadOnly = true;
+                        this.btnGuardar.Text = "Eliminar";
+                        break;
+                    }
+            }
             this.tboxId.Text = this.EspecialidadActual.ID.ToString();
             this.tboxEspecialidad.Text = this.EspecialidadActual.Descripcion;
         }
-        public override void MapearADatos() { }
-        public override void GuardarCambios() { }
+
+        public override void MapearADatos() 
+        {
+            this.EspecialidadActual.ID = Convert.ToInt32(this.tboxId.Text);
+            this.EspecialidadActual.Descripcion = this.tboxEspecialidad.Text;
+        }
+
+        //public override void GuardarCambios() { } ###no es necesario porque add y savechanges de logic guardan directamente
         public override bool Validar() { return false; }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            EspecialidadLogic espL = new EspecialidadLogic();
+            MapearADatos();
+            switch (Modo)
+            {
+                case ModoForm.Alta: 
+                    {
+                        espL.AddNew(EspecialidadActual);
+                        break;
+                    }
+                case ModoForm.Modificacion: 
+                    {
+                        espL.SaveChanges(EspecialidadActual);
+                        break; 
+                    }
+                case ModoForm.Baja:
+                    {
+                        //ver comportamineto--baja logica o fisica
+                        break;
+                    }
+            }
         }
     }
 }

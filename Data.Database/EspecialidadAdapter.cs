@@ -21,7 +21,7 @@ namespace Data.Database
         {
             List<Especialidad> esp = new List<Especialidad>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] FROM [Academia].[dbo].[especialidades]");
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] FROM [Academia].[dbo].[especialidades] WHERE [state]=1");
             while(reader.Read())
             {
                 Especialidad es = new Especialidad(reader.GetInt32(0), reader.GetString(1));
@@ -38,7 +38,7 @@ namespace Data.Database
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] " +
                 "FROM [Academia].[dbo].[especialidades]" +
-                $" WHERE [id_especialidad]={ID}");
+                $" WHERE [id_especialidad]={ID} and [state]=1");
             reader.Read();
             Especialidad es = new(reader.GetInt32(0), reader.GetString(1));
             this.CloseConnection();
@@ -51,14 +51,14 @@ namespace Data.Database
             try
             {
                 SqlCommand cmdDelete = new SqlCommand(
-                    "DELETE especialidades FROM " +
-                    "especialidades" +
+                    "UPDATE especialidades SET " +
+                    "state=0" +
                     "WHERE id_especialidad=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
                 this.OpenConnection();
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (SqlException e)
+            catch (Exception e)
             {
                 throw e.InnerException;
             }
@@ -81,7 +81,7 @@ namespace Data.Database
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
-            catch (SqlException e)
+            catch (Exception e)
             {
                 throw e.InnerException;
             }
@@ -96,15 +96,13 @@ namespace Data.Database
             
             try
             {
-                SqlCommand cmdnew = new SqlCommand(
-                "insert into especialidades(desc_especialidad) " +
-                "Values(@d_espcialidad) " +
-                "selected @@identity", sqlConnection);
-                cmdnew.Parameters.Add("@d_especialidad", System.Data.SqlDbType.VarChar, 50).Value = esp.Descripcion;
+                SqlCommand cmd = new SqlCommand("sp_add_especialidad", sqlConnection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d_especialidad", esp.Descripcion);
                 this.OpenConnection();
-                cmdnew.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
             }
-            catch (SqlException Ex)
+            catch (Exception Ex)
             {
                 Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
                 throw ExcepcionNOManejada;
