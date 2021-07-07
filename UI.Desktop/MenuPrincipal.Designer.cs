@@ -48,17 +48,13 @@ namespace UI.Desktop
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tableLayoutPanel1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(679, 388);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(679, 363);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(679, 388);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
-            // 
-            // toolStripContainer1.TopToolStripPanel
-            // 
-            this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -83,7 +79,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 388);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 363);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // lMenu
@@ -91,7 +87,7 @@ namespace UI.Desktop
             this.lMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lMenu.AutoSize = true;
             this.lMenu.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lMenu.Location = new System.Drawing.Point(297, 3);
+            this.lMenu.Location = new System.Drawing.Point(297, 1);
             this.lMenu.Name = "lMenu";
             this.lMenu.Size = new System.Drawing.Size(85, 37);
             this.lMenu.TabIndex = 0;
@@ -100,17 +96,18 @@ namespace UI.Desktop
             // btnABMC
             // 
             this.btnABMC.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnABMC.Location = new System.Drawing.Point(279, 92);
+            this.btnABMC.Location = new System.Drawing.Point(279, 85);
             this.btnABMC.Name = "btnABMC";
             this.btnABMC.Size = new System.Drawing.Size(120, 30);
             this.btnABMC.TabIndex = 1;
             this.btnABMC.Text = "ABMC\'s";
             this.btnABMC.UseVisualStyleBackColor = true;
+            this.btnABMC.Click += new System.EventHandler(this.btnABMC_Click);
             // 
             // btnInscripciones
             // 
             this.btnInscripciones.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnInscripciones.Location = new System.Drawing.Point(279, 135);
+            this.btnInscripciones.Location = new System.Drawing.Point(279, 125);
             this.btnInscripciones.Name = "btnInscripciones";
             this.btnInscripciones.Size = new System.Drawing.Size(120, 30);
             this.btnInscripciones.TabIndex = 2;
@@ -120,7 +117,7 @@ namespace UI.Desktop
             // btnRegistros
             // 
             this.btnRegistros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegistros.Location = new System.Drawing.Point(279, 178);
+            this.btnRegistros.Location = new System.Drawing.Point(279, 165);
             this.btnRegistros.Name = "btnRegistros";
             this.btnRegistros.Size = new System.Drawing.Size(120, 30);
             this.btnRegistros.TabIndex = 3;
@@ -130,7 +127,7 @@ namespace UI.Desktop
             // btnReportes
             // 
             this.btnReportes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReportes.Location = new System.Drawing.Point(279, 221);
+            this.btnReportes.Location = new System.Drawing.Point(279, 205);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(120, 30);
             this.btnReportes.TabIndex = 4;
@@ -140,7 +137,7 @@ namespace UI.Desktop
             // btnSalir
             // 
             this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSalir.Location = new System.Drawing.Point(584, 353);
+            this.btnSalir.Location = new System.Drawing.Point(584, 329);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(85, 25);
@@ -157,7 +154,9 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(679, 388);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "MenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();

@@ -12,11 +12,15 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
+<<<<<<< HEAD:UI.Desktop/ListaEspecialidades.cs
     public partial class FormListaEspecialidades : ApplicationForm
+=======
+    public partial class Especialidades : Form
+>>>>>>> 857e8b406b5e1e3aa206bbdcae3e16cb6025006c:UI.Desktop/Especialidades.cs
     {
         private EspecialidadLogic _especialidades;
 
-        public FormListaEspecialidades()
+        public Especialidades()
         {
             InitializeComponent();
             this.oEspecialidad = new EspecialidadLogic();
