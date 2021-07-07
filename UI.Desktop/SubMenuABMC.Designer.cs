@@ -97,6 +97,7 @@ namespace UI.Desktop
             this.btnUsuarios.TabIndex = 0;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnEspecialidades
             // 
@@ -107,6 +108,7 @@ namespace UI.Desktop
             this.btnEspecialidades.TabIndex = 1;
             this.btnEspecialidades.Text = "Especialidades";
             this.btnEspecialidades.UseVisualStyleBackColor = true;
+            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
             // 
             // btnComisiones
             // 
@@ -147,6 +149,7 @@ namespace UI.Desktop
             this.btnPlanesyMaterias.TabIndex = 5;
             this.btnPlanesyMaterias.Text = "Planes y Materias";
             this.btnPlanesyMaterias.UseVisualStyleBackColor = true;
+            this.btnPlanesyMaterias.Click += new System.EventHandler(this.btnPlanesyMaterias_Click);
             // 
             // btnCursos
             // 
@@ -167,6 +170,7 @@ namespace UI.Desktop
             this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lABMC
             // 
@@ -186,6 +190,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "SubMenuABMC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SubMenuABMC";
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class FormListaEspecialidades
+    partial class Especialidades
     {
         /// <summary>
         /// Required designer variable.
@@ -174,7 +174,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.toolStripEsp.Location = new System.Drawing.Point(3, 0);
             this.toolStripEsp.Name = "toolStripEsp";
-            this.toolStripEsp.Size = new System.Drawing.Size(112, 25);
+            this.toolStripEsp.Size = new System.Drawing.Size(81, 25);
             this.toolStripEsp.TabIndex = 0;
             // 
             // tsbNuevo
@@ -207,14 +207,15 @@ namespace UI.Desktop
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             // 
-            // FormListaEspecialidades
+            // Especialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 476);
             this.Controls.Add(this.tscEspecialidades);
             this.Controls.Add(this.label1);
-            this.Name = "FormListaEspecialidades";
+            this.Name = "Especialidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.ListaEspecialidades_Load);
             this.tscEspecialidades.ContentPanel.ResumeLayout(false);

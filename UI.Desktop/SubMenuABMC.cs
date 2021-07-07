@@ -16,5 +16,33 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Program.menu.Show();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {          
+            this.Dispose();
+            Usuarios usuario = new Usuarios();
+            usuario.ShowDialog();
+            
+        }
+
+        private void btnEspecialidades_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Especialidades especialidades = new Especialidades();
+            especialidades.ShowDialog();
+        }
+
+        private void btnPlanesyMaterias_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Planes planes = new Planes();
+            planes.ShowDialog();
+        }
     }
 }

@@ -1,9 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\Business.Entities",
     "\\UI.Desktop"
   ],
   "SelectedNode": "\\UI.Desktop\\Comisiones.cs",
+=======
+    "\\UI.Desktop"
+  ],
+  "SelectedNode": "\\UI.Desktop\\Usuarios.cs",
+>>>>>>> 32fc171dc67e265af45f3d4ad03bc46ce77f9113
   "PreviewInSolutionExplorer": false
 }

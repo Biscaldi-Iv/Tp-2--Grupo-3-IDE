@@ -11,6 +11,7 @@ namespace UI.Desktop
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        public static MenuPrincipal menu;
         [STAThread]
         static void Main()
         {
@@ -18,8 +19,8 @@ namespace UI.Desktop
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Usuarios());
-            Application.Run(new FormListaEspecialidades());
-            //Application.Run(new MenuPrincipal());
+            //Application.Run(new FormListaEspecialidades());
+            Application.Run(menu =new MenuPrincipal());
 
         }
     }
