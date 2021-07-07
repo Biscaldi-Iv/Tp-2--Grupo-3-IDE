@@ -87,6 +87,8 @@ namespace UI.Desktop
             // 
             // dgvComisiones
             // 
+            this.dgvComisiones.AllowUserToAddRows = false;
+            this.dgvComisiones.AllowUserToDeleteRows = false;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -97,6 +99,7 @@ namespace UI.Desktop
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
             this.dgvComisiones.Name = "dgvComisiones";
+            this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowTemplate.Height = 25;
             this.dgvComisiones.Size = new System.Drawing.Size(794, 390);
             this.dgvComisiones.TabIndex = 0;
@@ -170,6 +173,7 @@ namespace UI.Desktop
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.Width = 50;
             // 
             // anio_especialidad
             // 
@@ -177,9 +181,11 @@ namespace UI.Desktop
             this.anio_especialidad.HeaderText = "Año Especialidad";
             this.anio_especialidad.Name = "anio_especialidad";
             this.anio_especialidad.ReadOnly = true;
+            this.anio_especialidad.Width = 150;
             // 
             // descripcion
             // 
+            this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descripcion.DataPropertyName = "desc_comision";
             this.descripcion.HeaderText = "Descripcion";
             this.descripcion.Name = "descripcion";
@@ -191,6 +197,7 @@ namespace UI.Desktop
             this.id_plan.HeaderText = "ID Plan";
             this.id_plan.Name = "id_plan";
             this.id_plan.ReadOnly = true;
+            this.id_plan.Width = 50;
             // 
             // Comisiones
             // 
