@@ -89,9 +89,9 @@ namespace Business.Logic
            
         }
 
-        public void Delete()
+        public void Delete(int id_)
         {
-            throw new System.NotImplementedException();
+            Especialidad_data.Delete(id_);
         }
     }
 }

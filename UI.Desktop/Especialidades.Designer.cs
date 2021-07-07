@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class Especialidades
+    partial class FormListaEspecialidades
     {
         /// <summary>
         /// Required designer variable.
@@ -174,7 +174,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.toolStripEsp.Location = new System.Drawing.Point(3, 0);
             this.toolStripEsp.Name = "toolStripEsp";
-            this.toolStripEsp.Size = new System.Drawing.Size(81, 25);
+            this.toolStripEsp.Size = new System.Drawing.Size(112, 25);
             this.toolStripEsp.TabIndex = 0;
             // 
             // tsbNuevo
@@ -197,6 +197,7 @@ namespace UI.Desktop
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "toolStripButton1";
             this.tsbEditar.ToolTipText = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -207,15 +208,16 @@ namespace UI.Desktop
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // Especialidades
+            // FormListaEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 476);
             this.Controls.Add(this.tscEspecialidades);
             this.Controls.Add(this.label1);
-            this.Name = "Especialidades";
+            this.Name = "FormListaEspecialidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidades";
             this.Load += new System.EventHandler(this.ListaEspecialidades_Load);

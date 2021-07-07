@@ -34,7 +34,7 @@ namespace UI.Desktop
         private void btnEspecialidades_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            Especialidades especialidades = new Especialidades();
+            FormListaEspecialidades especialidades = new FormListaEspecialidades();
             especialidades.ShowDialog();
         }
 

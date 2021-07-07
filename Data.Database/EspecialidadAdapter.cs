@@ -74,16 +74,16 @@ namespace Data.Database
             {
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE especialidades SET " +
-                    "desc_especialidad=@d_espec" +
+                    "desc_especialidad=@d_espec " +
                     "WHERE id_especialidad=@id", sqlConnection);
                 cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = especialidad.ID;
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception("Error en bd");
             }
             finally
             {

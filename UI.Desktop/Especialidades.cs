@@ -12,15 +12,12 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-<<<<<<< HEAD:UI.Desktop/ListaEspecialidades.cs
+
     public partial class FormListaEspecialidades : ApplicationForm
-=======
-    public partial class Especialidades : Form
->>>>>>> 857e8b406b5e1e3aa206bbdcae3e16cb6025006c:UI.Desktop/Especialidades.cs
     {
         private EspecialidadLogic _especialidades;
 
-        public Especialidades()
+        public FormListaEspecialidades()
         {
             InitializeComponent();
             this.oEspecialidad = new EspecialidadLogic();
@@ -71,6 +68,20 @@ namespace UI.Desktop
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
             EspecialidadesDesktop esp = new EspecialidadesDesktop(ApplicationForm.ModoForm.Alta);
+            esp.ShowDialog();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            int id_ = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
+            EspecialidadesDesktop esp = new EspecialidadesDesktop(id_,ApplicationForm.ModoForm.Modificacion);
+            esp.ShowDialog();
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            int id_ = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
+            EspecialidadesDesktop esp = new EspecialidadesDesktop(id_, ApplicationForm.ModoForm.Baja);
             esp.ShowDialog();
         }
     }

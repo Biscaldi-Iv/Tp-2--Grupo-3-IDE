@@ -103,10 +103,11 @@ namespace UI.Desktop
                     }
                 case ModoForm.Baja:
                     {
-                        //ver comportamineto--baja logica o fisica
+                        espL.Delete(Convert.ToInt32(this.tboxId.Text));
                         break;
                     }
             }
+            this.Close();
         }
     }
 }
