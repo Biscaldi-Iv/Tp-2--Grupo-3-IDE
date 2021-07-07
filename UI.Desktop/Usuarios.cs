@@ -23,12 +23,7 @@ namespace UI.Desktop
         {
             UsuarioLogic ul = new UsuarioLogic();
             this.dgvUsuarios.DataSource = ul.GetAll();
-        }
-
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
@@ -42,12 +37,8 @@ namespace UI.Desktop
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            this.Dispose();
+            Program.menu.Show();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -71,16 +62,6 @@ namespace UI.Desktop
             UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
             usuarioDesktop.ShowDialog();
             this.Listar();
-        }
-
-        private void Usuarios_Shown(object sender, EventArgs e)
-        {
-
-            formLogin appLogin = new formLogin();
-            if (appLogin.ShowDialog() != DialogResult.OK)
-            {
-                this.Dispose();
-            }
         }
     }
 }

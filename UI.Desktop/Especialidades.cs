@@ -12,11 +12,11 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class FormListaEspecialidades : Form
+    public partial class Especialidades : Form
     {
         private EspecialidadLogic _especialidades;
 
-        public FormListaEspecialidades()
+        public Especialidades()
         {
             InitializeComponent();
             this.oEspecialidad = new EspecialidadLogic();

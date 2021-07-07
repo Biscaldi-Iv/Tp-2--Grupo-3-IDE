@@ -128,6 +128,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(320, 283);
             this.Controls.Add(this.tlPlanes_desktop);
             this.Name = "PlanesDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlanesDesktop";
             this.tlPlanes_desktop.ResumeLayout(false);
             this.tlPlanes_desktop.PerformLayout();
