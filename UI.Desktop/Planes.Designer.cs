@@ -87,6 +87,8 @@ namespace UI.Desktop
             // 
             // dgvPlanes
             // 
+            this.dgvPlanes.AllowUserToAddRows = false;
+            this.dgvPlanes.AllowUserToDeleteRows = false;
             this.dgvPlanes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlanes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_plan,
@@ -96,6 +98,7 @@ namespace UI.Desktop
             this.dgvPlanes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPlanes.Location = new System.Drawing.Point(3, 3);
             this.dgvPlanes.Name = "dgvPlanes";
+            this.dgvPlanes.ReadOnly = true;
             this.dgvPlanes.RowTemplate.Height = 25;
             this.dgvPlanes.Size = new System.Drawing.Size(794, 390);
             this.dgvPlanes.TabIndex = 0;

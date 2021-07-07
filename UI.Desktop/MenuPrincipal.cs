@@ -22,11 +22,6 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnABMC_Click(object sender, EventArgs e)
         {
             Program.menu.Hide();
