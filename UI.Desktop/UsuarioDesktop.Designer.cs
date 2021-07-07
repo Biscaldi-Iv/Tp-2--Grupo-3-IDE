@@ -220,7 +220,6 @@ namespace UI.Desktop
             this.txtClave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtClave.Location = new System.Drawing.Point(119, 121);
             this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(148, 23);
             this.txtClave.TabIndex = 13;
             // 
@@ -229,7 +228,6 @@ namespace UI.Desktop
             this.txtConfirmarClave.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtConfirmarClave.Location = new System.Drawing.Point(390, 121);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(188, 23);
             this.txtConfirmarClave.TabIndex = 14;
             // 
