@@ -113,6 +113,19 @@ namespace Data.Database
             }
 
         }
+
+        public Especialidad GetByDesc(string desc)
+        {
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] " +
+                "FROM [Academia].[dbo].[especialidades]" +
+                " WHERE [desc_especialidad]=\'"+desc+"\'");
+            reader.Read();
+            Especialidad es = new(reader.GetInt32(0), reader.GetString(1));
+            CloseConnection();
+
+            return es;
+        }
     }
 }
 

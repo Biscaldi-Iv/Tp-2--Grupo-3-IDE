@@ -64,6 +64,18 @@ namespace Business.Logic
             }
         }
 
+        public Plan GetByDesc(string d)
+        {
+            try
+            {
+                return Planes_Data.GetByDesc(d);
+            }
+            catch (Exception e)
+            {
+                throw e.InnerException;
+            }
+        }
+
         public void SaveChanges(Plan e)
         {
             try
@@ -91,9 +103,9 @@ namespace Business.Logic
 
         }
 
-        public void Delete()
+        public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            Planes_Data.Delete(id);
         }
     }
 }

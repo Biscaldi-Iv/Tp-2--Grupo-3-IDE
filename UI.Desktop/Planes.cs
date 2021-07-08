@@ -14,9 +14,21 @@ namespace UI.Desktop
 {
     public partial class Planes : Form
     {
+        private PlanesLogic _planesLogic;
+        public PlanesLogic oPlan
+        {
+            get => this._planesLogic;
+            set => this._planesLogic = value;
+        }
+
+
+
         public Planes()
         {
             InitializeComponent();
+            this.oPlan = new PlanesLogic();
+            this.dgvPlanes.AutoGenerateColumns = false;
+            this.dgvPlanes.DataSource = this.oPlan.GetAll();
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
@@ -67,7 +79,22 @@ namespace UI.Desktop
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            PlanesDesktop pld = new PlanesDesktop(ApplicationForm.ModoForm.Alta);
+            pld.ShowDialog();
+        }
 
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            int id_ = ((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
+            PlanesDesktop esp = new PlanesDesktop(id_, ApplicationForm.ModoForm.Modificacion);
+            esp.ShowDialog();
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            int id_ = ((Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
+            PlanesDesktop esp = new PlanesDesktop(id_, ApplicationForm.ModoForm.Baja);
+            esp.ShowDialog();
         }
     }
 }
