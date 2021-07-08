@@ -28,5 +28,13 @@ namespace Business.Entities
             get { return this._Descripcion; }
             set { this._Descripcion = value; }
         }
+        public Comision(int IDCom,int AnioEspecialidad, int IDPlan, String Descripcion) : base()
+        {
+            this.Descripcion=Descripcion;
+            this.ID = IDCom;
+            this.AnioEspecialidad = AnioEspecialidad;
+            this.IDPlan = IDPlan;
+
+        }
     }
 }

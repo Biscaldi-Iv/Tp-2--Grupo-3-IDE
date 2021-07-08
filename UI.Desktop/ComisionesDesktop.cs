@@ -28,15 +28,15 @@ namespace UI.Desktop
         {
             Modo = modo;
             //falta ver el modo en que entra y setear el texto del boton aceptar/guardar/baja segun sea necesario
-            Comision com = new Comision();
+            Comision com = new Comision(0,0,0,"");
             ComisionActual = com;
             MapearDeDatos();
         }
         public ComisionesDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            ComisionLogic comL = new ComisionLogic();  /// FALTA CREAR COM logic
-            this.ComisionActual = comL.GetOne(Id);
+            //ComisionLogic comL = new ComisionLogic();  /// FALTA CREAR COM logic
+            //this.ComisionActual = comL.GetOne(Id);
             MapearDeDatos();
         }
         public override void MapearDeDatos()
@@ -78,28 +78,28 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            ComisionLogic comL = new ComisionLogic();
+            //ComisionLogic comL = new ComisionLogic();
             MapearADatos();
             switch (Modo)
             {
                 case ModoForm.Alta:
                     {
-                        comL.AddNew(ComisionActual);
+                      //  comL.AddNew(ComisionActual);
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
-                        comL.SaveChanges(ComisionActual;
+                      //  comL.SaveChanges(ComisionActual;
                         break;
                     }
                 case ModoForm.Baja:
                     {
-                        comL.Delete(Convert.ToInt32(this.txtIDCom.Text));
+                       // comL.Delete(Convert.ToInt32(this.txtIDCom.Text));
                         break;
                     }
             }
             this.Close();
         }
     }
-    }
 }
+
