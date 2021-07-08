@@ -12,7 +12,7 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : Form
+    public partial class Comisiones : ApplicationForm
     {
         private ComisionLogic _comisiones;
          public Comisiones()
@@ -22,12 +22,17 @@ namespace UI.Desktop
              this.dgvComisiones.AutoGenerateColumns = false;
              this.dgvComisiones.DataSource = this.oComision.GetAll();
          }
-         public void Listar()
-         {
-             ComisionLogic cl = new ComisionLogic();
-             this.dgvComisiones.DataSource = cl.GetAll();
-         }
-        
+        public void Listar()
+        {
+            ComisionLogic com = new ComisionLogic();
+            try
+            {
+                this.dgvComisiones.DataSource = com.GetAll();
+            }
+            catch (Exception e) { Notificar("error", "sql roto", MessageBoxButtons.YesNo, MessageBoxIcon.Error); }
+        }
+
+
         public ComisionLogic oComision
         {
             get { return _comisiones; }

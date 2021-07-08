@@ -35,8 +35,8 @@ namespace UI.Desktop
         public ComisionesDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            //ComisionLogic comL = new ComisionLogic();  /// FALTA CREAR COM logic
-            //this.ComisionActual = comL.GetOne(Id);
+            ComisionLogic comL = new ComisionLogic();  
+            this.ComisionActual = comL.GetOne(ID);
             MapearDeDatos();
         }
         public override void MapearDeDatos()
@@ -78,23 +78,23 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //ComisionLogic comL = new ComisionLogic();
+            ComisionLogic comL = new ComisionLogic();
             MapearADatos();
             switch (Modo)
             {
                 case ModoForm.Alta:
                     {
-                      //  comL.AddNew(ComisionActual);
+                       //comL.AddNew(ComisionActual);
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
-                      //  comL.SaveChanges(ComisionActual;
+                        comL.SaveChanges(ComisionActual);
                         break;
                     }
                 case ModoForm.Baja:
                     {
-                       // comL.Delete(Convert.ToInt32(this.txtIDCom.Text));
+                       comL.Delete(Convert.ToInt32(this.txtIDCom.Text));
                         break;
                     }
             }
