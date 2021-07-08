@@ -12,40 +12,45 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class Comisiones : Form
+    public partial class Comisiones : ApplicationForm
     {
-        /* private ComisionesLogic _comisiones;
+        private ComisionLogic _comisiones;
          public Comisiones()
          {
              InitializeComponent();
-             this.oComisiones = new EspecialidadLogic();
+             this.oComision = new ComisionLogic();
              this.dgvComisiones.AutoGenerateColumns = false;
-             this.dgvComisiones.DataSource = this.oComisiones.GetAll();
-         }*/
-        /* public void Listar()
-         {
-             ComisionesLogic cl = new ComisionesLogic();
-             this.dgvComisiones.DataSource = cl.GetAll();
-         }*/
-        /*
+             this.dgvComisiones.DataSource = this.oComision.GetAll();
+         }
+        public void Listar()
+        {
+            ComisionLogic com = new ComisionLogic();
+            try
+            {
+                this.dgvComisiones.DataSource = com.GetAll();
+            }
+            catch (Exception e) { Notificar("error", "sql roto", MessageBoxButtons.YesNo, MessageBoxIcon.Error); }
+        }
+
+
         public ComisionLogic oComision
         {
-            get { return _Comisiones; }
-            set { this._Comisiones = value; }
-        }*/
+            get { return _comisiones; }
+            set { this._comisiones = value; }
+        }
 
         private void Comisiones_Load(object sender, EventArgs e)
         {
-           // Listar();
+            Listar();
         }
         
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            //this.dgvComisiones.DataSource = this.oComision.GetAll();
+            this.dgvComisiones.DataSource = this.oComision.GetAll();
         }
         private void btnActualizar_Click_1(object sender, EventArgs e)
         {
-            //this.Listar();
+            this.Listar();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -71,15 +76,6 @@ namespace UI.Desktop
             ComisionesDesktop esp = new ComisionesDesktop(id_, ApplicationForm.ModoForm.Baja);
             esp.ShowDialog();
         }
-       /* public void Listar()
-        {
-            ComisionesLogic esp = new ComisionesLogic();
-            try
-            {
-                this.dgvComisiones.DataSource = esp.GetAll();
-            }
-            catch (Exception e) { Notificar("error", "sql roto", MessageBoxButtons.YesNo, MessageBoxIcon.Error); }
-        }*/
     }
 
 }
