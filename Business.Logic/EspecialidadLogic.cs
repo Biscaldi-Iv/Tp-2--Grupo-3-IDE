@@ -62,6 +62,18 @@ namespace Business.Logic
             }
         }
 
+        public Especialidad GetByDesc(string des)
+        {
+            try
+            {
+                return Especialidad_data.GetByDesc(des);
+            }
+            catch (Exception e)
+            {
+                throw e.InnerException;
+            }
+        }
+
         public void SaveChanges(Especialidad e)
         {
             try

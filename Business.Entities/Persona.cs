@@ -14,6 +14,20 @@ namespace Business.Entities
         private string _Nombre, _Telefono;
         private TipoPersonas _TipoPersona;
 
+        public Persona (int id, string nom, string ap, string dir, string email, string tel, DateTime date, int leg, int tipo_per, int id_plan)
+        {
+            this.ID = id;
+            this.Nombre = nom;
+            this.Apellido = ap;
+            this.Direccion = dir;
+            this.Email = email;
+            this.Telefono = tel;
+            this.FechaNacimiento = date;
+            this.Legajo = leg;
+           // this.TipoPersona = tipo_per; como se hace con esto cuando tipo persona es de tipo TipoPersona???
+            this.IDPlan = id_plan;
+                
+        }
         public string Apellido
         {
             get { return this._Apellido; }

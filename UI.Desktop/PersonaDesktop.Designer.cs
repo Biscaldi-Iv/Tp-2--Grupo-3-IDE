@@ -46,6 +46,7 @@ namespace UI.Desktop
             this.txtTipoPersona = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cbPlanes = new System.Windows.Forms.ComboBox();
+            this.comboBoxTiposPer = new System.Windows.Forms.ComboBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -92,6 +93,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.txtTipoPersona, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 6, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 6, 2);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxTiposPer, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -199,11 +201,11 @@ namespace UI.Desktop
             this.lPersona.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.lPersona, 3);
             this.lPersona.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lPersona.Location = new System.Drawing.Point(302, 3);
+            this.lPersona.Location = new System.Drawing.Point(253, 3);
             this.lPersona.Name = "lPersona";
-            this.lPersona.Size = new System.Drawing.Size(97, 32);
+            this.lPersona.Size = new System.Drawing.Size(196, 32);
             this.lPersona.TabIndex = 14;
-            this.lPersona.Text = "Persona";
+            this.lPersona.Text = "Registrar Persona";
             // 
             // btnSalir
             // 
@@ -225,6 +227,7 @@ namespace UI.Desktop
             this.btnAceptar.TabIndex = 16;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // txtTipoPersona
             // 
@@ -251,12 +254,21 @@ namespace UI.Desktop
             this.cbPlanes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.cbPlanes, 2);
             this.cbPlanes.DisplayMember = "Descripcion";
+            this.cbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlanes.DropDownWidth = 200;
             this.cbPlanes.FormattingEnabled = true;
             this.cbPlanes.Location = new System.Drawing.Point(471, 87);
             this.cbPlanes.Name = "cbPlanes";
             this.cbPlanes.Size = new System.Drawing.Size(150, 23);
             this.cbPlanes.TabIndex = 17;
+            // 
+            // comboBoxTiposPer
+            // 
+            this.comboBoxTiposPer.FormattingEnabled = true;
+            this.comboBoxTiposPer.Location = new System.Drawing.Point(81, 162);
+            this.comboBoxTiposPer.Name = "comboBoxTiposPer";
+            this.comboBoxTiposPer.Size = new System.Drawing.Size(72, 23);
+            this.comboBoxTiposPer.TabIndex = 18;
             // 
             // PersonaDesktop
             // 
@@ -268,7 +280,7 @@ namespace UI.Desktop
             this.MaximizeBox = false;
             this.Name = "PersonaDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PersonaDesktop";
+            this.Text = "Registrar persona";
             this.Load += new System.EventHandler(this.PersonaDesktop_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
@@ -298,5 +310,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.ComboBox cbPlanes;
+        private System.Windows.Forms.ComboBox comboBoxTiposPer;
     }
 }

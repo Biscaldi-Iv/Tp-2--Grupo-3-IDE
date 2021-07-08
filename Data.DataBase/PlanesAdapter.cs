@@ -17,7 +17,8 @@ namespace Data.Database
         {
             List<Plan> planes = new List<Plan>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]");
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes] " +
+                "WHERE [state]=1");
             while (reader.Read())
             {
                 Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
@@ -33,7 +34,19 @@ namespace Data.Database
         {
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]" +
-                $" WHERE [id_especialidad]={ID}");
+                $" WHERE [id_plan]={ID} and [state]=1");
+            reader.Read();
+            Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+            CloseConnection();
+
+            return p;
+        }
+
+        public Plan GetByDesc(string desc)
+        {
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]" +
+                $" WHERE [desc_plan]={desc} and [state]=1");
             reader.Read();
             Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
             CloseConnection();
@@ -45,13 +58,13 @@ namespace Data.Database
         {
             try
             {
-                SqlCommand cmdDelete = new SqlCommand(
-                    "DELETE planes FROM " +
-                    "planes" +
+                SqlCommand cmdSave = new SqlCommand(
+                    "UPDATE planes SET " +
+                    "state=0 " +
                     "WHERE id_plan=@id", sqlConnection);
-                cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
+                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value =ID;
                 this.OpenConnection();
-                cmdDelete.ExecuteNonQuery();
+                cmdSave.ExecuteNonQuery();
             }
             catch (SqlException e)
             {
@@ -69,7 +82,7 @@ namespace Data.Database
             {
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE planes SET " +
-                    "desc_plan=@d_espec" +
+                    "desc_plan=@d_espec " +
                     "WHERE id_plan=@id", sqlConnection);
                 cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = pl.Descripcion;
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = pl.ID;
@@ -91,14 +104,12 @@ namespace Data.Database
 
             try
             {
-                SqlCommand cmdnew = new SqlCommand(
-                "insert into planes(desc_plan, id_especialidad) " +
-                "Values(@d_plan, @id_esp) " +
-                "selected @@identity", sqlConnection);
-                cmdnew.Parameters.Add("@d_plan", System.Data.SqlDbType.VarChar, 50).Value = pl.Descripcion;
-                cmdnew.Parameters.Add("@id_esp", System.Data.SqlDbType.Int).Value = pl.IDEspecialidad;
+                SqlCommand cmd = new SqlCommand("sp_add_plan", sqlConnection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@d_plan", pl.Descripcion);
+                cmd.Parameters.AddWithValue("@id_esp", pl.IDEspecialidad);
                 this.OpenConnection();
-                cmdnew.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
             }
             catch (SqlException Ex)
             {
