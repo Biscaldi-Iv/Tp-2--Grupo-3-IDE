@@ -69,6 +69,7 @@ namespace UI.Desktop
         {
             EspecialidadesDesktop esp = new EspecialidadesDesktop(ApplicationForm.ModoForm.Alta);
             esp.ShowDialog();
+            this.Listar();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
@@ -76,6 +77,7 @@ namespace UI.Desktop
             int id_ = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
             EspecialidadesDesktop esp = new EspecialidadesDesktop(id_,ApplicationForm.ModoForm.Modificacion);
             esp.ShowDialog();
+            this.Listar();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -83,6 +85,7 @@ namespace UI.Desktop
             int id_ = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
             EspecialidadesDesktop esp = new EspecialidadesDesktop(id_, ApplicationForm.ModoForm.Baja);
             esp.ShowDialog();
+            this.Listar();
         }
     }
 }

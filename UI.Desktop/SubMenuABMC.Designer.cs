@@ -119,6 +119,7 @@ namespace UI.Desktop
             this.btnComisiones.TabIndex = 2;
             this.btnComisiones.Text = "Comisiones";
             this.btnComisiones.UseVisualStyleBackColor = true;
+            this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
             // btnProfesores
             // 
