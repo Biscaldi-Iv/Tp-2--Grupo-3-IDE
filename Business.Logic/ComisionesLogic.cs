@@ -75,7 +75,7 @@ namespace Business.Logic
                 }
             }
 
-            /*public void AddNew(Comision com)
+            public void AddNew(Comision com)
             {
 
                 foreach (Comision c in Comisiones)
@@ -88,7 +88,7 @@ namespace Business.Logic
                 }
                 Comision_data.AddNew(com);
 
-            }*/
+            }
 
             public void Delete(int id_)
             {
