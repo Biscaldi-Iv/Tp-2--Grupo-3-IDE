@@ -31,15 +31,15 @@ namespace UI.Desktop
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label_id_com = new System.Windows.Forms.Label();
-            this.labelDesc = new System.Windows.Forms.Label();
-            this.label_id_plan = new System.Windows.Forms.Label();
-            this.anio_especialidad = new System.Windows.Forms.Label();
             this.txtIDCom = new System.Windows.Forms.TextBox();
             this.txtIDPlan = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.txt_anio_Esp = new System.Windows.Forms.TextBox();
+            this.anio_especialidad = new System.Windows.Forms.Label();
+            this.labelDesc = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label_id_plan = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,33 +78,6 @@ namespace UI.Desktop
             this.label_id_com.TabIndex = 0;
             this.label_id_com.Text = "ID Comision";
             // 
-            // labelDesc
-            // 
-            this.labelDesc.AutoSize = true;
-            this.labelDesc.Location = new System.Drawing.Point(3, 62);
-            this.labelDesc.Name = "labelDesc";
-            this.labelDesc.Size = new System.Drawing.Size(69, 15);
-            this.labelDesc.TabIndex = 1;
-            this.labelDesc.Text = "Descripcion";
-            // 
-            // label_id_plan
-            // 
-            this.label_id_plan.AutoSize = true;
-            this.label_id_plan.Location = new System.Drawing.Point(315, 0);
-            this.label_id_plan.Name = "label_id_plan";
-            this.label_id_plan.Size = new System.Drawing.Size(44, 15);
-            this.label_id_plan.TabIndex = 2;
-            this.label_id_plan.Text = "ID Plan";
-            // 
-            // anio_especialidad
-            // 
-            this.anio_especialidad.AutoSize = true;
-            this.anio_especialidad.Location = new System.Drawing.Point(315, 62);
-            this.anio_especialidad.Name = "anio_especialidad";
-            this.anio_especialidad.Size = new System.Drawing.Size(97, 15);
-            this.anio_especialidad.TabIndex = 3;
-            this.anio_especialidad.Text = "Año Especialidad";
-            // 
             // txtIDCom
             // 
             this.txtIDCom.Location = new System.Drawing.Point(155, 3);
@@ -135,6 +108,24 @@ namespace UI.Desktop
             this.txt_anio_Esp.Size = new System.Drawing.Size(100, 23);
             this.txt_anio_Esp.TabIndex = 7;
             // 
+            // anio_especialidad
+            // 
+            this.anio_especialidad.AutoSize = true;
+            this.anio_especialidad.Location = new System.Drawing.Point(315, 62);
+            this.anio_especialidad.Name = "anio_especialidad";
+            this.anio_especialidad.Size = new System.Drawing.Size(97, 15);
+            this.anio_especialidad.TabIndex = 3;
+            this.anio_especialidad.Text = "Año Especialidad";
+            // 
+            // labelDesc
+            // 
+            this.labelDesc.AutoSize = true;
+            this.labelDesc.Location = new System.Drawing.Point(3, 62);
+            this.labelDesc.Name = "labelDesc";
+            this.labelDesc.Size = new System.Drawing.Size(69, 15);
+            this.labelDesc.TabIndex = 1;
+            this.labelDesc.Text = "Descripcion";
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(315, 156);
@@ -153,6 +144,16 @@ namespace UI.Desktop
             this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label_id_plan
+            // 
+            this.label_id_plan.AutoSize = true;
+            this.label_id_plan.Location = new System.Drawing.Point(315, 0);
+            this.label_id_plan.Name = "label_id_plan";
+            this.label_id_plan.Size = new System.Drawing.Size(44, 15);
+            this.label_id_plan.TabIndex = 2;
+            this.label_id_plan.Text = "ID Plan";
             // 
             // ComisionesDesktop
             // 
