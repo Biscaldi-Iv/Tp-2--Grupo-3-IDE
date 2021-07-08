@@ -98,9 +98,11 @@ namespace UI.Desktop
             this.tlComisiones.SetColumnSpan(this.dgvComisiones, 2);
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
+            this.dgvComisiones.MultiSelect = false;
             this.dgvComisiones.Name = "dgvComisiones";
             this.dgvComisiones.ReadOnly = true;
             this.dgvComisiones.RowTemplate.Height = 25;
+            this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComisiones.Size = new System.Drawing.Size(794, 390);
             this.dgvComisiones.TabIndex = 0;
             // 
@@ -146,6 +148,7 @@ namespace UI.Desktop
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
             this.tsbNuevo.Text = "Nuevo";
+            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
             // 
@@ -156,6 +159,7 @@ namespace UI.Desktop
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "toolStripButton2";
             this.tsbEditar.ToolTipText = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -166,10 +170,11 @@ namespace UI.Desktop
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton3";
             this.tsbEliminar.ToolTipText = "Eliminar";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // id
             // 
-            this.id.DataPropertyName = "id_comision";
+            this.id.DataPropertyName = "ID";
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -177,7 +182,7 @@ namespace UI.Desktop
             // 
             // anio_especialidad
             // 
-            this.anio_especialidad.DataPropertyName = "anio_especialidad";
+            this.anio_especialidad.DataPropertyName = "AnioEspecialidad";
             this.anio_especialidad.HeaderText = "Año Especialidad";
             this.anio_especialidad.Name = "anio_especialidad";
             this.anio_especialidad.ReadOnly = true;
@@ -186,14 +191,14 @@ namespace UI.Desktop
             // descripcion
             // 
             this.descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descripcion.DataPropertyName = "desc_comision";
+            this.descripcion.DataPropertyName = "Descripcion";
             this.descripcion.HeaderText = "Descripcion";
             this.descripcion.Name = "descripcion";
             this.descripcion.ReadOnly = true;
             // 
             // id_plan
             // 
-            this.id_plan.DataPropertyName = "id_plan";
+            this.id_plan.DataPropertyName = "IDPlan";
             this.id_plan.HeaderText = "ID Plan";
             this.id_plan.Name = "id_plan";
             this.id_plan.ReadOnly = true;

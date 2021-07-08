@@ -113,10 +113,12 @@ namespace UI.Desktop
             this.tlEspecialidades.SetColumnSpan(this.dgvEspecialidades, 2);
             this.dgvEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEspecialidades.Location = new System.Drawing.Point(3, 3);
+            this.dgvEspecialidades.MultiSelect = false;
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
             this.dgvEspecialidades.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEspecialidades.RowTemplate.Height = 25;
+            this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEspecialidades.Size = new System.Drawing.Size(655, 416);
             this.dgvEspecialidades.TabIndex = 0;
             // 
@@ -174,7 +176,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.toolStripEsp.Location = new System.Drawing.Point(3, 0);
             this.toolStripEsp.Name = "toolStripEsp";
-            this.toolStripEsp.Size = new System.Drawing.Size(112, 25);
+            this.toolStripEsp.Size = new System.Drawing.Size(81, 25);
             this.toolStripEsp.TabIndex = 0;
             // 
             // tsbNuevo

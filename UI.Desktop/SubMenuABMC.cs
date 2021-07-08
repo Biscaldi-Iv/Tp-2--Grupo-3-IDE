@@ -44,5 +44,12 @@ namespace UI.Desktop
             Planes planes = new Planes();
             planes.ShowDialog();
         }
+
+        private void btnComisiones_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Comisiones comisiones = new Comisiones();
+            comisiones.ShowDialog();
+        }
     }
 }

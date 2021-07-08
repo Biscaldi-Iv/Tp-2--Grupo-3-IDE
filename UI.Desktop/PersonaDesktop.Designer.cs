@@ -32,20 +32,20 @@ namespace UI.Desktop
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lDireccion = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.lTelefono = new System.Windows.Forms.Label();
             this.lLegajo = new System.Windows.Forms.Label();
-            this.lIdPlan = new System.Windows.Forms.Label();
-            this.lTipoPersona = new System.Windows.Forms.Label();
-            this.lFechaNac = new System.Windows.Forms.Label();
-            this.txtLegajo = new System.Windows.Forms.TextBox();
-            this.txtIDplan = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtTipoPersona = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lTipoPersona = new System.Windows.Forms.Label();
+            this.txtLegajo = new System.Windows.Forms.TextBox();
+            this.lIdPlan = new System.Windows.Forms.Label();
+            this.lFechaNac = new System.Windows.Forms.Label();
             this.lPersona = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.txtTipoPersona = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbPlanes = new System.Windows.Forms.ComboBox();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -86,12 +86,12 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.txtLegajo, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.lIdPlan, 5, 2);
             this.tableLayoutPanel1.Controls.Add(this.lFechaNac, 5, 3);
-            this.tableLayoutPanel1.Controls.Add(this.txtTipoPersona, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.txtIDplan, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 6, 3);
             this.tableLayoutPanel1.Controls.Add(this.lPersona, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 8, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 7, 4);
+            this.tableLayoutPanel1.Controls.Add(this.txtTipoPersona, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 6, 3);
+            this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 6, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -116,15 +116,6 @@ namespace UI.Desktop
             this.lDireccion.TabIndex = 0;
             this.lDireccion.Text = "Direccion";
             // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.txtDireccion, 2);
-            this.txtDireccion.Location = new System.Drawing.Point(159, 47);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(150, 23);
-            this.txtDireccion.TabIndex = 1;
-            // 
             // lTelefono
             // 
             this.lTelefono.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -145,15 +136,23 @@ namespace UI.Desktop
             this.lLegajo.TabIndex = 3;
             this.lLegajo.Text = "Legajo";
             // 
-            // lIdPlan
+            // txtDireccion
             // 
-            this.lIdPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lIdPlan.AutoSize = true;
-            this.lIdPlan.Location = new System.Drawing.Point(407, 91);
-            this.lIdPlan.Name = "lIdPlan";
-            this.lIdPlan.Size = new System.Drawing.Size(44, 15);
-            this.lIdPlan.TabIndex = 6;
-            this.lIdPlan.Text = "ID Plan";
+            this.txtDireccion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.txtDireccion, 2);
+            this.txtDireccion.Location = new System.Drawing.Point(159, 47);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(150, 23);
+            this.txtDireccion.TabIndex = 1;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.txtTelefono, 2);
+            this.txtTelefono.Location = new System.Drawing.Point(159, 87);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(150, 23);
+            this.txtTelefono.TabIndex = 11;
             // 
             // lTipoPersona
             // 
@@ -165,6 +164,25 @@ namespace UI.Desktop
             this.lTipoPersona.TabIndex = 7;
             this.lTipoPersona.Text = "Tipo Persona";
             // 
+            // txtLegajo
+            // 
+            this.txtLegajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.txtLegajo, 2);
+            this.txtLegajo.Location = new System.Drawing.Point(159, 127);
+            this.txtLegajo.Name = "txtLegajo";
+            this.txtLegajo.Size = new System.Drawing.Size(150, 23);
+            this.txtLegajo.TabIndex = 9;
+            // 
+            // lIdPlan
+            // 
+            this.lIdPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lIdPlan.AutoSize = true;
+            this.lIdPlan.Location = new System.Drawing.Point(407, 91);
+            this.lIdPlan.Name = "lIdPlan";
+            this.lIdPlan.Size = new System.Drawing.Size(44, 15);
+            this.lIdPlan.TabIndex = 6;
+            this.lIdPlan.Text = "ID Plan";
+            // 
             // lFechaNac
             // 
             this.lFechaNac.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -175,32 +193,38 @@ namespace UI.Desktop
             this.lFechaNac.TabIndex = 8;
             this.lFechaNac.Text = "Fecha Nacimiento";
             // 
-            // txtLegajo
+            // lPersona
             // 
-            this.txtLegajo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.txtLegajo, 2);
-            this.txtLegajo.Location = new System.Drawing.Point(159, 127);
-            this.txtLegajo.Name = "txtLegajo";
-            this.txtLegajo.Size = new System.Drawing.Size(150, 23);
-            this.txtLegajo.TabIndex = 9;
+            this.lPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lPersona.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.lPersona, 3);
+            this.lPersona.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lPersona.Location = new System.Drawing.Point(302, 3);
+            this.lPersona.Name = "lPersona";
+            this.lPersona.Size = new System.Drawing.Size(97, 32);
+            this.lPersona.TabIndex = 14;
+            this.lPersona.Text = "Persona";
             // 
-            // txtIDplan
+            // btnSalir
             // 
-            this.txtIDplan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.txtIDplan, 2);
-            this.txtIDplan.Location = new System.Drawing.Point(471, 87);
-            this.txtIDplan.Name = "txtIDplan";
-            this.txtIDplan.Size = new System.Drawing.Size(150, 23);
-            this.txtIDplan.TabIndex = 10;
+            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSalir.Location = new System.Drawing.Point(633, 167);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(72, 25);
+            this.btnSalir.TabIndex = 15;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // txtTelefono
+            // btnAceptar
             // 
-            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.txtTelefono, 2);
-            this.txtTelefono.Location = new System.Drawing.Point(159, 87);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(150, 23);
-            this.txtTelefono.TabIndex = 11;
+            this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnAceptar.Location = new System.Drawing.Point(549, 167);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(72, 25);
+            this.btnAceptar.TabIndex = 16;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
             // 
             // txtTipoPersona
             // 
@@ -222,47 +246,31 @@ namespace UI.Desktop
             this.dateTimePicker1.Size = new System.Drawing.Size(150, 27);
             this.dateTimePicker1.TabIndex = 13;
             // 
-            // lPersona
+            // cbPlanes
             // 
-            this.lPersona.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lPersona.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lPersona, 3);
-            this.lPersona.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lPersona.Location = new System.Drawing.Point(302, 3);
-            this.lPersona.Name = "lPersona";
-            this.lPersona.Size = new System.Drawing.Size(97, 32);
-            this.lPersona.TabIndex = 14;
-            this.lPersona.Text = "Persona";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnSalir.Location = new System.Drawing.Point(630, 168);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 15;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnAceptar.Location = new System.Drawing.Point(549, 168);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(72, 23);
-            this.btnAceptar.TabIndex = 16;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.cbPlanes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.cbPlanes, 2);
+            this.cbPlanes.DisplayMember = "Descripcion";
+            this.cbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPlanes.DropDownWidth = 200;
+            this.cbPlanes.FormattingEnabled = true;
+            this.cbPlanes.Location = new System.Drawing.Point(471, 87);
+            this.cbPlanes.Name = "cbPlanes";
+            this.cbPlanes.Size = new System.Drawing.Size(150, 23);
+            this.cbPlanes.TabIndex = 17;
             // 
             // PersonaDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(708, 225);
             this.Controls.Add(this.toolStripContainer1);
+            this.MaximizeBox = false;
             this.Name = "PersonaDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PersonaDesktop";
+            this.Load += new System.EventHandler(this.PersonaDesktop_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
@@ -286,10 +294,10 @@ namespace UI.Desktop
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtLegajo;
         private System.Windows.Forms.TextBox txtTipoPersona;
-        private System.Windows.Forms.TextBox txtIDplan;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lPersona;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ComboBox cbPlanes;
     }
 }
