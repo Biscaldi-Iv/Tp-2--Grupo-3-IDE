@@ -24,7 +24,7 @@ namespace Data.Database
             SqlDataReader reader = this.ExecuteReader("SELECT [id_comision], [desc_comision],[anio_especialidad],[id_plan] FROM [Academia].[dbo].[comisiones] WHERE [state]=1"); // falta agregar state en la base de datos de tipo bit
             while (reader.Read())
             {
-                Comision c = new Comision(reader.GetInt32(0), reader.GetInt32(2),reader.GetInt32(3),reader.GetString(1)); // 
+                Comision c = new Comision(reader.GetInt32(0), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(1)); // 
                 com.Add(c);
             }
             reader.Close();
@@ -74,16 +74,17 @@ namespace Data.Database
             {
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE comisiones SET " +
-                    "desc_comision=@d_espec " +
-                    "WHERE id_comision=@id", sqlConnection);
+                    "desc_comision=@d_com , anio_especialidad=@anio" + 
+                    " WHERE id_comision=@id_com", sqlConnection);
                 cmdSave.Parameters.Add("@d_com", System.Data.SqlDbType.VarChar, 50).Value = comision.Descripcion;
-                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = comision.ID;
+                cmdSave.Parameters.Add("@anio", System.Data.SqlDbType.Int).Value = comision.AnioEspecialidad;
+                cmdSave.Parameters.Add("@id_com", System.Data.SqlDbType.Int).Value = comision.ID;
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
             catch (SqlException e)
             {
-                throw new Exception("Error en bd");
+                throw new Exception("Error en bd",e);
             }
             finally
             {
@@ -91,14 +92,16 @@ namespace Data.Database
             }
         }
 
-        /*public void AddNew(Comision com)
+        public void AddNew(Comision com)
         {
 
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_add_especialidad", sqlConnection);
+                SqlCommand cmd = new SqlCommand("sp_add_comisiones2", sqlConnection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@d_especialidad", esp.Descripcion);
+                cmd.Parameters.AddWithValue("@d_com",com.Descripcion);  //(@d_com,@id_com,@anio,@id_plan,
+                cmd.Parameters.AddWithValue("@anio", com.AnioEspecialidad);
+
                 this.OpenConnection();
                 cmd.ExecuteNonQuery();
             }
@@ -110,9 +113,10 @@ namespace Data.Database
             finally
             {
                 this.CloseConnection();
-            }*/
+            }
 
         }
     }
+}
 
 

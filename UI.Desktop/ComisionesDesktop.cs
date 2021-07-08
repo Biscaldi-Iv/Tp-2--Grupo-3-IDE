@@ -84,7 +84,7 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta:
                     {
-                       //comL.AddNew(ComisionActual);
+                       comL.AddNew(ComisionActual);
                         break;
                     }
                 case ModoForm.Modificacion:
