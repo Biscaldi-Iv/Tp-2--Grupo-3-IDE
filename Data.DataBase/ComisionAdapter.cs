@@ -97,7 +97,7 @@ namespace Data.Database
 
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_add_comisiones2", sqlConnection);
+                SqlCommand cmd = new SqlCommand("sp_add_comisionesHardCode", sqlConnection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@d_com",com.Descripcion);  //(@d_com,@id_com,@anio,@id_plan,
                 cmd.Parameters.AddWithValue("@anio", com.AnioEspecialidad);
