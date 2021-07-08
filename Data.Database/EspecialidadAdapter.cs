@@ -41,6 +41,7 @@ namespace Data.Database
                 $" WHERE [id_especialidad]={ID} and [state]=1");
             reader.Read();
             Especialidad es = new(reader.GetInt32(0), reader.GetString(1));
+            reader.Close();
             this.CloseConnection();
             
             return es;
@@ -122,6 +123,7 @@ namespace Data.Database
                 " WHERE [desc_especialidad]=\'"+desc+"\'");
             reader.Read();
             Especialidad es = new(reader.GetInt32(0), reader.GetString(1));
+            reader.Close();
             CloseConnection();
 
             return es;

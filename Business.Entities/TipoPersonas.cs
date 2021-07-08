@@ -15,5 +15,11 @@ namespace Business.Entities
             get { return this._Descripcion; }
             set { this._Descripcion = value; }
         }
+
+        public TipoPersonas(int id, string desc)
+        {
+            this.ID = id;
+            this.Descripcion = desc;
+        }
     }
 }
