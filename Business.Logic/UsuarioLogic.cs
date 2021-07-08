@@ -78,5 +78,9 @@ namespace Business.Logic
 
         }
 
+        public void AddNew(Usuario usr)
+        {
+            UsuarioData.AddNew(usr);
+        }
     }
 }

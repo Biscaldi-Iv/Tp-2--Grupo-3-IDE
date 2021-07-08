@@ -9,9 +9,10 @@ namespace Business.Entities
     public class Usuario : BusinessEntity
     {
         private string _NombreUsuario, _Clave, _Nombre, _Apellido, _Email;
-        private bool _Habilitado;
+        private bool _Habilitado, _cambia_pass;
+        private int _id_per;
 
-        public Usuario(int id,string user_name, string pass,string nom, string appellido, string email, bool h ): base(id)
+        public Usuario(int id,string user_name, string pass,string nom, string appellido, string email, bool h, int id_per, bool ccont ): base(id)
         { 
             this.NombreUsuario = user_name;
             this.Clave = pass;
@@ -19,6 +20,8 @@ namespace Business.Entities
             this.Nombre = nom;
             this.Email = email;
             this.Habilitado = h;
+            this.IdPersona = id_per;
+            this.CambiaContra = ccont;
         }
 
         public string NombreUsuario
@@ -55,6 +58,18 @@ namespace Business.Entities
         {
             get { return this._Habilitado; }
             set { this._Habilitado = value; }
+        }
+
+        public int IdPersona
+        {
+            get => this._id_per;
+            set => this._id_per = value;
+        }
+
+        public bool CambiaContra
+        {
+            get => this._cambia_pass;
+            set => this._cambia_pass = value;
         }
     }
 }

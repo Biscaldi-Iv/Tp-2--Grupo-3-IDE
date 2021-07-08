@@ -31,12 +31,16 @@ namespace UI.Desktop
         {
             if (Modo == ModoForm.Alta)
             {
-                UsuarioActual = new Usuario(0,"","","","","",false);
+                UsuarioActual = new Usuario(0,"","","","","",false,0,true);
                 this.UsuarioActual.State = BusinessEntity.States.New;
                 this.GuardarMapeoADatos();
                 PersonaDesktop persona = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido, this.UsuarioActual.Email, ModoForm.Alta);
                 persona.ShowDialog();
                 GuardarMapeoADatos();
+                PersonaLogic pl = new PersonaLogic();
+                this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                UsuarioLogic ul = new UsuarioLogic();
+                ul.AddNew(this.UsuarioActual);
             } 
             if (Modo == ModoForm.Modificacion)
             {                  
@@ -59,7 +63,10 @@ namespace UI.Desktop
             this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
             this.UsuarioActual.Clave = this.txtClave.Text;
             this.UsuarioActual.Clave = this.txtConfirmarClave.Text;
+            
         }
+
+        
         public override void GuardarCambios() 
         {            
             MapearADatos();
@@ -94,7 +101,7 @@ namespace UI.Desktop
         public UsuarioDesktop(ModoForm modo) : this() 
         { 
             Modo = modo;
-            Usuario usr = new Usuario(0,"","","","","",false);
+            Usuario usr = new Usuario(0,"","","","","",false,0,true);
             UsuarioActual = usr; 
             MapearDeDatos(); 
         }
@@ -132,6 +139,7 @@ namespace UI.Desktop
                     if (MessageBox.Show("Esta seguro que desea borrar este Usuario?", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
                         GuardarCambios();
+
                         this.Close();
                     }
                     else { this.Close(); }

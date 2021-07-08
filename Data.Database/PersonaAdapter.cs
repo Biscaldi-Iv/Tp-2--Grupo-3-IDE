@@ -51,6 +51,19 @@ namespace Data.Database
             return p;
         }
 
+        public int GetIDByMail(string mail)
+        {
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_persona] FROM [Academia].[dbo].[personas] " +
+                "WHERE [email]=\'"+mail+"\'");
+            reader.Read();
+            int i = reader.GetInt32(0);
+            reader.Close();
+            this.CloseConnection();
+
+            return i;
+        }
+
         public void Delete(int ID)
         {
             try

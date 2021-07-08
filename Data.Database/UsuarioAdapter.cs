@@ -24,7 +24,7 @@ namespace Data.Database
             {
                 Usuario usr = new Usuario(reader.GetInt32(0) ,reader.GetString(1), reader.GetString(2),
                     reader.GetString(4), reader.GetString(5), reader.GetString(6),
-                    reader.GetBoolean(3));
+                    reader.GetBoolean(3),reader.GetInt32(8), reader.GetBoolean(7));
                 users.Add(usr);
             }
             reader.Close();
@@ -36,12 +36,12 @@ namespace Data.Database
         {
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_usuario],[nombre_usuario],[clave]," +
-                "[nombre],[apellido],[email],[habilitado] " +
+                "[nombre],[apellido],[email],[habilitado],[cambia_clave],[id_persona] " +
                 "FROM[Academia].[dbo].[usuarios]" +
                 $"WHERE [id_usuario]={ID}");
             reader.Read();
-            Usuario u = new Usuario(reader.GetInt32(0) ,reader.GetString(1), reader.GetString(2), reader.GetString(3),
-                reader.GetString(4), reader.GetString(5), reader.GetBoolean(6));
+            Usuario u = new Usuario(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3),
+                reader.GetString(4), reader.GetString(5), reader.GetBoolean(6), reader.GetInt32(8), reader.GetBoolean(7)) ;
             reader.Close();
             this.CloseConnection();
 
@@ -83,6 +83,8 @@ namespace Data.Database
                     "nombre=@nom," +
                     "apellido=@ape," +
                     "email=@email " +
+                    ",[cambia_clave]=@ccl," +
+                    "[id_persona]=@ide " +
                     "WHERE id_usuario=@id", sqlConnection);
                 cmdSave.Parameters.Add("@n_user", System.Data.SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = usuario.ID;
@@ -91,6 +93,8 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@ape", System.Data.SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmdSave.Parameters.Add("@hab", System.Data.SqlDbType.Bit).Value = usuario.Habilitado;
+                cmdSave.Parameters.Add("@ccl", System.Data.SqlDbType.Bit).Value = usuario.CambiaContra;
+                cmdSave.Parameters.Add("@ide", System.Data.SqlDbType.Int).Value = usuario.IdPersona;
 
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
@@ -105,6 +109,32 @@ namespace Data.Database
             }
         }
 
-        public void AddNew(Usuario usuario) { }
+        public void AddNew(Usuario usr) 
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_add_usuario", sqlConnection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nom_usr", usr.NombreUsuario);
+                cmd.Parameters.AddWithValue("@clave", usr.Clave);
+                cmd.Parameters.AddWithValue("@habilitado", usr.Habilitado);
+                cmd.Parameters.AddWithValue("@nombre", usr.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", usr.Apellido);
+                cmd.Parameters.AddWithValue("@email",usr.Email);
+                cmd.Parameters.AddWithValue("@cambia_pass", usr.CambiaContra);
+                cmd.Parameters.AddWithValue("@id_pers",usr.IdPersona);
+                this.OpenConnection();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
+                throw ExcepcionNOManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
     }
 }

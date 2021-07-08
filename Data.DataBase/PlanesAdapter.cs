@@ -46,7 +46,7 @@ namespace Data.Database
         {
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]" +
-                $" WHERE [desc_plan]={desc} and [state]=1");
+                $" WHERE [desc_plan]=\'"+desc+"\' and [state]=1");
             reader.Read();
             Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
             CloseConnection();

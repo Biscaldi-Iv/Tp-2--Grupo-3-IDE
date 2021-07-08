@@ -10,6 +10,12 @@ namespace Business.Logic
 {
     public class TipoPersonaLogic : BusinessLogic
     {
+        public TipoPersonaLogic()
+        {
+            this.TipoPersona_data = new TipoPersonaAdapter();
+        }
+        
+        
         private TipoPersonaAdapter _TipoPersona_data;
 
         public TipoPersonaAdapter TipoPersona_data

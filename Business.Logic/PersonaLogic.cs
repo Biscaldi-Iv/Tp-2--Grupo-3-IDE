@@ -50,5 +50,10 @@ namespace Business.Logic
         {
             return this.Personas;
         }
+
+        public int GetIDByMail(string mail)
+        {
+            return this.Persona_data.GetIDByMail(mail);
+        }
     }
 }
