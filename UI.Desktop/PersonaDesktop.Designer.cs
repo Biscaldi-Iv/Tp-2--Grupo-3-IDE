@@ -251,6 +251,7 @@ namespace UI.Desktop
             this.cbPlanes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.cbPlanes, 2);
             this.cbPlanes.DisplayMember = "Descripcion";
+            this.cbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlanes.DropDownWidth = 200;
             this.cbPlanes.FormattingEnabled = true;
             this.cbPlanes.Location = new System.Drawing.Point(471, 87);

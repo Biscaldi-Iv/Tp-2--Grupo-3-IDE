@@ -33,6 +33,7 @@ namespace UI.Desktop
         private void PersonaDesktop_Load(object sender, EventArgs e)
         {
             Listar();
+            
 
         }
     }
