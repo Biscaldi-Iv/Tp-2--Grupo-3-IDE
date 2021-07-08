@@ -12,7 +12,7 @@ namespace Business.Entities
         private DateTime _FechaNacimiento;
         private int _IDPlan, _Legajo;
         private string _Nombre, _Telefono;
-        private TipoPersonas _TipoPersona;
+        private int _TipoPersona;
 
         public Persona (int id, string nom, string ap, string dir, string email, string tel, DateTime date, int leg, int tipo_per, int id_plan)
         {
@@ -24,7 +24,7 @@ namespace Business.Entities
             this.Telefono = tel;
             this.FechaNacimiento = date;
             this.Legajo = leg;
-           // this.TipoPersona = tipo_per; como se hace con esto cuando tipo persona es de tipo TipoPersona???
+            this.TipoPersona = tipo_per;
             this.IDPlan = id_plan;
                 
         }
@@ -77,7 +77,7 @@ namespace Business.Entities
         }
 
         // Corregir si es necesario creando 2 propiedades: getTipo y setTipo
-        public TipoPersonas TipoPersona
+        public int TipoPersona
         {
             get { return this._TipoPersona; }
             set { this._TipoPersona = value; }

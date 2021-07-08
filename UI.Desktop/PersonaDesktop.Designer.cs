@@ -43,7 +43,6 @@ namespace UI.Desktop
             this.lPersona = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.txtTipoPersona = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cbPlanes = new System.Windows.Forms.ComboBox();
             this.comboBoxTiposPer = new System.Windows.Forms.ComboBox();
@@ -90,10 +89,9 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.lPersona, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnSalir, 8, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 7, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtTipoPersona, 6, 1);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 6, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxTiposPer, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxTiposPer, 6, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -229,15 +227,6 @@ namespace UI.Desktop
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // txtTipoPersona
-            // 
-            this.txtTipoPersona.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.SetColumnSpan(this.txtTipoPersona, 2);
-            this.txtTipoPersona.Location = new System.Drawing.Point(471, 47);
-            this.txtTipoPersona.Name = "txtTipoPersona";
-            this.txtTipoPersona.Size = new System.Drawing.Size(150, 23);
-            this.txtTipoPersona.TabIndex = 12;
-            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -253,7 +242,6 @@ namespace UI.Desktop
             // 
             this.cbPlanes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.cbPlanes, 2);
-            this.cbPlanes.DisplayMember = "Descripcion";
             this.cbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlanes.DropDownWidth = 200;
             this.cbPlanes.FormattingEnabled = true;
@@ -264,10 +252,13 @@ namespace UI.Desktop
             // 
             // comboBoxTiposPer
             // 
+            this.comboBoxTiposPer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.SetColumnSpan(this.comboBoxTiposPer, 2);
+            this.comboBoxTiposPer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTiposPer.FormattingEnabled = true;
-            this.comboBoxTiposPer.Location = new System.Drawing.Point(81, 162);
+            this.comboBoxTiposPer.Location = new System.Drawing.Point(471, 47);
             this.comboBoxTiposPer.Name = "comboBoxTiposPer";
-            this.comboBoxTiposPer.Size = new System.Drawing.Size(72, 23);
+            this.comboBoxTiposPer.Size = new System.Drawing.Size(150, 23);
             this.comboBoxTiposPer.TabIndex = 18;
             // 
             // PersonaDesktop
@@ -304,7 +295,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Label lFechaNac;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtLegajo;
-        private System.Windows.Forms.TextBox txtTipoPersona;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lPersona;
         private System.Windows.Forms.Button btnSalir;

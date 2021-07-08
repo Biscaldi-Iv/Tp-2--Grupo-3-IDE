@@ -8,7 +8,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Data.Database
 {
-    class PersonaAdapter : Adapter
+    public class PersonaAdapter : Adapter
     {
         
         public PersonaAdapter() : base() { }
@@ -114,7 +114,37 @@ namespace Data.Database
             }
         }
 
+        public void AddNew(Persona pers)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_add_persona", sqlConnection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", pers.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", pers.Apellido);
+                cmd.Parameters.AddWithValue("@direccion", pers.Direccion);
+                cmd.Parameters.AddWithValue("@email", pers.Email);
+                cmd.Parameters.AddWithValue("@telefono", pers.Telefono);
+                cmd.Parameters.AddWithValue("@f_nac", pers.FechaNacimiento);
+                cmd.Parameters.AddWithValue("@legajo", pers.Legajo);
+                cmd.Parameters.AddWithValue("@tipo_persona", pers.TipoPersona);
+                cmd.Parameters.AddWithValue("@id_plan", pers.IDPlan);
+                this.OpenConnection();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
+                throw ExcepcionNOManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+    
     }
+
 
        /* public void Save(Persona persona)
         {

@@ -8,7 +8,7 @@ using Data.Database;
 
 namespace Business.Logic
 {
-    class TipoPersonaLogic : BusinessLogic
+    public class TipoPersonaLogic : BusinessLogic
     {
         private TipoPersonaAdapter _TipoPersona_data;
 

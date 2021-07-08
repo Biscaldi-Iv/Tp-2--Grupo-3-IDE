@@ -33,7 +33,8 @@ namespace UI.Desktop
             {
                 UsuarioActual = new Usuario(0,"","","","","",false);
                 this.UsuarioActual.State = BusinessEntity.States.New;
-                PersonaDesktop persona = new PersonaDesktop();
+                this.GuardarMapeoADatos();
+                PersonaDesktop persona = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido, this.UsuarioActual.Email, ModoForm.Alta);
                 persona.ShowDialog();
                 GuardarMapeoADatos();
             } 
