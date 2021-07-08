@@ -11,18 +11,20 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class PersonaDesktop : Form
+    public partial class PersonaDesktop : ApplicationForm
     {
-       
-        public PersonaDesktop()
+       //siempre entra por modo alta
+        public PersonaDesktop(string nombre, string apellido, string mail)
         {
-            InitializeComponent();                                 
+            InitializeComponent();
+            
         }
 
         public void Listar()
         {
             PlanesLogic p1 = new PlanesLogic();
             this.cbPlanes.DataSource = p1.GetAll();
+            //tipo person logic
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -34,6 +36,11 @@ namespace UI.Desktop
         {
             Listar();
             
+
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
 
         }
     }
