@@ -57,5 +57,26 @@ namespace Business.Logic
             this.UsuarioData.SaveChanges(usr);
         }
 
+        public bool VerificarUsuario(string nu, string pas)
+        {
+            try
+            {
+                var usr = from usuario in this.Usuarios where usuario.NombreUsuario == nu && usuario.Clave == pas select usuario;
+                if (usr.Any())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception exc)
+            {
+                throw new Exception("Error en bd"); //error sin manejar
+            }
+
+        }
+
     }
 }

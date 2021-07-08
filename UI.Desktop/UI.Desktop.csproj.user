@@ -10,21 +10,13 @@
     <Compile Update="Comisiones.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Update="ComisionesDesktop.cs">
-=======
-    <Compile Update="EspecialidadesDesktop.cs">
->>>>>>> eac6dae2a520c5f7e196415b97f10aeeb8fc70f5
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Especialidades.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Update="EspecialidadesDesktop.cs">
-=======
-    <Compile Update="ComisionesDesktop.cs">
->>>>>>> eac6dae2a520c5f7e196415b97f10aeeb8fc70f5
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">

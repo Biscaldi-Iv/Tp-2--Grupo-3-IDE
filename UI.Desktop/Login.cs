@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -30,7 +31,8 @@ namespace UI.Desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "admin")
+            UsuarioLogic ul = new UsuarioLogic();
+            if (ul.VerificarUsuario(this.txtUsuario.Text, this.txtPass.Text))
             {
                 this.DialogResult = DialogResult.OK; 
                // MessageBox.Show("Usted ha ingresado al sistema correctamente.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);

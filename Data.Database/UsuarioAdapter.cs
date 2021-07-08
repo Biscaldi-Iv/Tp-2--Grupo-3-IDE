@@ -106,6 +106,5 @@ namespace Data.Database
         }
 
         public void AddNew(Usuario usuario) { }
-        
     }
 }

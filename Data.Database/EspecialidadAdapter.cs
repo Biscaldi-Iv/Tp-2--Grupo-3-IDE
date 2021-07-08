@@ -52,7 +52,7 @@ namespace Data.Database
             {
                 SqlCommand cmdDelete = new SqlCommand(
                     "UPDATE especialidades SET " +
-                    "state=0" +
+                    "state=0 " +
                     "WHERE id_especialidad=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
                 this.OpenConnection();
