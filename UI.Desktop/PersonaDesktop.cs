@@ -80,15 +80,30 @@ namespace UI.Desktop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            switch (Modo) 
+            bool no_salir = true; //mantendra dentro del bucle hasta que se le asigne false
+            do
             {
-                case ModoForm.Alta:
+                if ((this.txtDireccion.Text.Length < 1)
+                    || (this.txtLegajo.Text.Length < 1)
+                    || (this.txtTelefono.Text.Length < 1))
+                {
+                    Notificar("Error" ,"Campos sin completar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    no_salir = false;
+                    switch (Modo)
                     {
-                        MapearADatos();
-                        new PersonaLogic().AddNew(PersonaActual);
-                        break;
+                        case ModoForm.Alta:
+                            {
+                                MapearADatos();
+                                new PersonaLogic().AddNew(PersonaActual);
+                                break;
+                            }
                     }
-            }
+                    
+                } 
+            } while (no_salir);
             this.Close();
         }
     }

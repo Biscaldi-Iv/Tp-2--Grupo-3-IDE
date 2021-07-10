@@ -54,7 +54,7 @@ namespace Data.Database
             {
                 SqlCommand cmdDelete = new SqlCommand(
                     "DELETE usuarios FROM " +
-                    "usuarios" +
+                    "usuarios " +
                     "WHERE id_usuario=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
 

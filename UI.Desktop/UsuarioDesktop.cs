@@ -16,6 +16,7 @@ namespace UI.Desktop
     {
         private Usuario _UsuarioActual;
         
+        //mapear de datos y a datos estan al reves***
         public override void MapearDeDatos() 
         {
             this.txtApellido.Text = this.UsuarioActual.Apellido;
@@ -27,33 +28,46 @@ namespace UI.Desktop
             this.txtID.Text = this.UsuarioActual.ID.ToString();
             this.btnAceptar.Text = nomBtn[(int)Modo].ToString();
         }
+
+
         public override void MapearADatos() 
         {
-            if (Modo == ModoForm.Alta)
+            UsuarioLogic ul = new UsuarioLogic();
+            switch (Modo)
             {
-                UsuarioActual = new Usuario(0,"","","","","",false,0,true);
-                this.UsuarioActual.State = BusinessEntity.States.New;
-                this.GuardarMapeoADatos();
-                PersonaDesktop persona = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido, this.UsuarioActual.Email, ModoForm.Alta);
-                persona.ShowDialog();
-                GuardarMapeoADatos();
-                PersonaLogic pl = new PersonaLogic();
-                this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
-                UsuarioLogic ul = new UsuarioLogic();
-                ul.AddNew(this.UsuarioActual);
-            } 
-            if (Modo == ModoForm.Modificacion)
-            {                  
-                this.UsuarioActual.State = BusinessEntity.States.Modified;
-                GuardarMapeoADatos();
-            }
-            if (Modo == ModoForm.Baja)
-            {
-                if (ValidarClave(txtClave.Text)) { this.UsuarioActual.State = BusinessEntity.States.Deleted; }
-                else { Notificar("Clave incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-
+                case ModoForm.Alta:
+                    {
+                        UsuarioActual = new Usuario(0, "", "", "", "", "", false, 0, true);
+                        this.UsuarioActual.State = BusinessEntity.States.New;
+                        this.GuardarMapeoADatos();
+                        PersonaDesktop persona = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido, this.UsuarioActual.Email, ModoForm.Alta);
+                        persona.ShowDialog();
+                        GuardarMapeoADatos();
+                        PersonaLogic pl = new PersonaLogic();
+                        this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                        ul.AddNew(this.UsuarioActual);
+                        break;
+                    }
+                case ModoForm.Baja:
+                    {
+                        //baja fisica
+                        ul.Delete(this.UsuarioActual.ID);
+                        break;
+                    }
+                case ModoForm.Modificacion:
+                    {
+                        this.UsuarioActual.State = BusinessEntity.States.Modified;
+                        GuardarMapeoADatos();
+                        break;
+                    }
+                case ModoForm.Consulta:
+                    {
+                        break;
+                    }
             }
         }
+
+
         private void GuardarMapeoADatos() //Temporal hasta implementar mejor modificacion-chekeo de clave-modificar clave
         {
             this.UsuarioActual.Apellido = this.txtApellido.Text;
@@ -119,39 +133,71 @@ namespace UI.Desktop
         {
 
         }
+        
+
+
         private void UsuarioDesktop_Load(object sender, EventArgs e)
         {
-            if (Modo == ModoForm.Baja)
+            switch(Modo)
             {
-                this.txtNombre.ReadOnly = true;
-                this.txtApellido.ReadOnly = true;
-                this.txtEmail.ReadOnly = true;
-                this.txtUsuario.ReadOnly = true;              
-                this.chkHabilitado.Enabled = false;
+                case ModoForm.Baja:
+                    {
+                        this.txtNombre.ReadOnly = true;
+                        this.txtApellido.ReadOnly = true;
+                        this.txtEmail.ReadOnly = true;
+                        this.txtUsuario.ReadOnly = true;
+                        this.chkHabilitado.Enabled = false;
+                        this.btnAceptar.Text = "Eliminar";
+                        break;
+                    }
+                case ModoForm.Alta:
+                    {
+                        this.btnAceptar.Text = "Registar";
+                        break;
+                    }
+                case ModoForm.Modificacion:
+                    {
+                        this.btnAceptar.Text = "Guardar";
+                        break;
+                    }
+                case ModoForm.Consulta:
+                    {
+                        this.btnAceptar.Text = "Aceptar";
+                        break;
+                    }
             }
         }
         private void btnAceptar_Click(object sender, EventArgs e) //Optimizar
         {
-            if (Modo == ApplicationForm.ModoForm.Baja)
+            switch (Modo) 
             {
-                if (ValidarClave(txtConfirmarClave.Text))
-                {
-                    if (MessageBox.Show("Esta seguro que desea borrar este Usuario?", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                case ModoForm.Baja:
                     {
-                        GuardarCambios();
+                        if (ValidarClave(txtConfirmarClave.Text))
+                        {
+                            if (MessageBox.Show("Esta seguro que desea borrar este Usuario?", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                            {
+                                GuardarCambios();
 
-                        this.Close();
+                                this.Close();
+                            }
+                            else { this.Close(); }
+                        }
+                        else
+                        {
+                            Notificar("Atencion", "Contraseña incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        break;
                     }
-                    else { this.Close(); }
-                } else { Notificar("Atencion", "Contraseña incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); }         
-            }                       
-            else
-            {
-                if (Validar())
-                {
-                    GuardarCambios();
-                    this.Close();
-                }
+                default: 
+                    {
+                        if (Validar())
+                        {
+                            GuardarCambios();
+                            this.Close();
+                        }
+                        break;
+                    }
             }
         }        
         private void btnCancelar_Click(object sender, EventArgs e)
