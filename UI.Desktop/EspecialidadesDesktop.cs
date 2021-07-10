@@ -71,7 +71,7 @@ namespace UI.Desktop
             this.tboxEspecialidad.Text = this.EspecialidadActual.Descripcion;
         }
 
-        public override void MapearADatos() 
+        public override void MapearPersona() 
         {
             this.EspecialidadActual.ID = Convert.ToInt32(this.tboxId.Text);
             this.EspecialidadActual.Descripcion = this.tboxEspecialidad.Text;
@@ -88,7 +88,7 @@ namespace UI.Desktop
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             EspecialidadLogic espL = new EspecialidadLogic();
-            MapearADatos();
+            MapearPersona();
             switch (Modo)
             {
                 case ModoForm.Alta: 

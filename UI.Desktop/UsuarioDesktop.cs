@@ -10,13 +10,15 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 
+
+//falta revisar manejo respecto a la existencia de persona
 namespace UI.Desktop
 {
     public partial class UsuarioDesktop : ApplicationForm
     {
         private Usuario _UsuarioActual;
         
-        //mapear de datos y a datos estan al reves***
+        //mapea lo que recibe y lo manda al form
         public override void MapearDeDatos() 
         {
             this.txtApellido.Text = this.UsuarioActual.Apellido;
@@ -26,24 +28,55 @@ namespace UI.Desktop
             this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
             this.txtClave.Text = this.UsuarioActual.Clave;
             this.txtID.Text = this.UsuarioActual.ID.ToString();
-            this.btnAceptar.Text = nomBtn[(int)Modo].ToString();
+            //revisar si esto no se repite con de Load
+            switch(Modo)
+            {
+                case ModoForm.Modificacion: 
+                    {
+                        this.txtEmail.ReadOnly = true;//no se puede modificar el mail
+                        this.btnAceptar.Text = "Guardar";
+                        break;
+                    }
+                case ModoForm.Baja:
+                    {
+                        //no se podran modificar los valores de los campos
+
+                        this.txtApellido.Enabled = false;
+                        this.txtNombre.Enabled = false;
+                        this.txtEmail.Enabled = false;
+                        this.txtUsuario.Enabled = false;
+                        this.chkHabilitado.Enabled = false;
+                        this.txtClave.Enabled = false;
+                        this.txtConfirmarClave.Hide();
+                        this.txtID.Enabled = false;
+                        this.btnAceptar.Text = "Eliminar";
+                        break;
+                    }
+                case ModoForm.Alta:
+                    {
+                        this.btnAceptar.Text = "Registrar";
+                        break;
+                    }
+            }
         }
 
-
-        public override void MapearADatos() 
+        //deberia revisar dependiendo el modo si ha que ver la persona
+        public override void MapearPersona() 
         {
             UsuarioLogic ul = new UsuarioLogic();
             switch (Modo)
             {
                 case ModoForm.Alta:
                     {
-                        UsuarioActual = new Usuario(0, "", "", "", "", "", false, 0, true);
                         this.UsuarioActual.State = BusinessEntity.States.New;
-                        this.GuardarMapeoADatos();
-                        PersonaDesktop persona = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido, this.UsuarioActual.Email, ModoForm.Alta);
-                        persona.ShowDialog();
-                        GuardarMapeoADatos();
+                        this.MapeoADatos();
                         PersonaLogic pl = new PersonaLogic();
+                        if (!pl.VerificarExistencia(this.UsuarioActual.Email))//si no hay persona registrada con el mail de usuario actual
+                        {
+                            PersonaDesktop persona = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido, this.UsuarioActual.Email, ModoForm.Alta);
+                            persona.ShowDialog();
+                        }
+                        this.MapeoADatos();
                         this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
                         ul.AddNew(this.UsuarioActual);
                         break;
@@ -57,7 +90,8 @@ namespace UI.Desktop
                 case ModoForm.Modificacion:
                     {
                         this.UsuarioActual.State = BusinessEntity.States.Modified;
-                        GuardarMapeoADatos();
+                        MapeoADatos();
+                        ul.Save(this.UsuarioActual);
                         break;
                     }
                 case ModoForm.Consulta:
@@ -68,7 +102,8 @@ namespace UI.Desktop
         }
 
 
-        private void GuardarMapeoADatos() //Temporal hasta implementar mejor modificacion-chekeo de clave-modificar clave
+        //del form a usuario actual
+        private void MapeoADatos() 
         {
             this.UsuarioActual.Apellido = this.txtApellido.Text;
             this.UsuarioActual.Nombre = this.txtNombre.Text;
@@ -77,16 +112,9 @@ namespace UI.Desktop
             this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
             this.UsuarioActual.Clave = this.txtClave.Text;
             this.UsuarioActual.Clave = this.txtConfirmarClave.Text;
-            
         }
 
         
-        public override void GuardarCambios() 
-        {            
-            MapearADatos();
-            UsuarioLogic ul = new UsuarioLogic();
-            ul.Save(_UsuarioActual);
-        }
         public bool ValidarClave(string c)  //Falta implementar
         {
             if (c == this.UsuarioActual.Clave)
@@ -105,7 +133,12 @@ namespace UI.Desktop
             }
             else { return true; }
         }
-        public Usuario UsuarioActual { set {_UsuarioActual = value;} get{ return this._UsuarioActual; }  }
+        public Usuario UsuarioActual 
+        { 
+            set {_UsuarioActual = value;} 
+            get{ return this._UsuarioActual; }  
+        }
+        
         public UsuarioDesktop()
         {           
             InitializeComponent();           
@@ -127,7 +160,7 @@ namespace UI.Desktop
             //falta ver el modo en que entra y setear el texto del boton aceptar/guardar/baja segun sea necesario
             UsuarioLogic ul = new UsuarioLogic();          
             this.UsuarioActual = ul.GetOne(ID);
-            MapearDeDatos();         
+            MapearDeDatos();       
         }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -167,39 +200,51 @@ namespace UI.Desktop
                     }
             }
         }
-        private void btnAceptar_Click(object sender, EventArgs e) //Optimizar
+        private void btnAceptar_Click(object sender, EventArgs e) 
         {
+            this.MapeoADatos();
             switch (Modo) 
             {
                 case ModoForm.Baja:
                     {
-                        if (ValidarClave(txtConfirmarClave.Text))
+                        if (MessageBox.Show("Esta seguro que desea borrar este Usuario?", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            if (MessageBox.Show("Esta seguro que desea borrar este Usuario?", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                            {
-                                GuardarCambios();
-
-                                this.Close();
-                            }
-                            else { this.Close(); }
+                             new UsuarioLogic().Delete(this.UsuarioActual.ID);
+                             this.Close();
                         }
-                        else
+                        else 
                         {
-                            Notificar("Atencion", "Contraseña incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                        break;
-                    }
-                default: 
-                    {
-                        if (Validar())
-                        {
-                            GuardarCambios();
                             this.Close();
                         }
                         break;
                     }
+                case ModoForm.Alta:
+                    {
+                        PersonaLogic pl = new PersonaLogic();
+                        if (pl.VerificarExistencia(this.UsuarioActual.Email))
+                        {
+                            //persona existe
+                            this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                        }
+                        else
+                        {
+                            PersonaDesktop pd = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido,
+                                this.UsuarioActual.Email, ModoForm.Alta);
+                            pd.ShowDialog();
+                            this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                        }
+                        new UsuarioLogic().AddNew(this.UsuarioActual);
+                        break;
+                    }
+                case ModoForm.Modificacion:
+                    {
+                        new UsuarioLogic().Save(this.UsuarioActual);
+                        break;
+                    }
             }
-        }        
+            this.Close();
+        }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -67,7 +67,7 @@ namespace UI.Desktop
             this.txt_anio_Esp.Text = this.ComisionActual.AnioEspecialidad.ToString() ;
         }
 
-        public override void MapearADatos()
+        public override void MapearPersona()
         {
             this.ComisionActual.ID = Convert.ToInt32(this.txtIDCom.Text);
             this.ComisionActual.Descripcion = this.txtDesc.Text;
@@ -79,7 +79,7 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ComisionLogic comL = new ComisionLogic();
-            MapearADatos();
+            MapearPersona();
             switch (Modo)
             {
                 case ModoForm.Alta:

@@ -24,7 +24,7 @@ namespace UI.Desktop
         private ModoForm _modo;
         public ModoForm Modo { get {return _modo;} set {_modo = value;} }        
         public virtual void MapearDeDatos() { }       
-        public virtual void MapearADatos() { }        
+        public virtual void MapearPersona() { }        
         public virtual void GuardarCambios() { }        
         public virtual bool Validar() { return false; }        
         public void Notificar(string titulo, string mensaje, MessageBoxButtons

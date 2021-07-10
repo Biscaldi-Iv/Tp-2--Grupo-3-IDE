@@ -32,18 +32,14 @@ namespace Business.Logic
 
         public void AddNew(Persona per)
         {
-            foreach(Persona p in this.Personas)
+            if(!this.VerificarExistencia(per.Email))
             {
-                if (p.Email==per.Email)
-                {
-                    //error no manejado
-                    throw new Exception("Persona ya existente!"); // devuelve excepcion porque ya existe una persona con ese mail
-                }
+                this.Persona_data.AddNew(per);
             }
-            this.Persona_data.AddNew(per);
-            
-            
-            this.Persona_data.AddNew(per);
+            else
+            {
+                throw new Exception("Persona existente");
+            }
         }
 
         public List<Persona> GetAll()
@@ -54,6 +50,18 @@ namespace Business.Logic
         public int GetIDByMail(string mail)
         {
             return this.Persona_data.GetIDByMail(mail);
+        }
+
+        public bool VerificarExistencia(string email)
+        {
+            foreach (Persona p in this.Personas)
+            {
+                if (p.Email == email)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

@@ -73,7 +73,7 @@ namespace UI.Desktop
             this.txtBDesc_Plan.Text = this.PlanActual.Descripcion;
         }
 
-        public override void MapearADatos()
+        public override void MapearPersona()
         {
             this.PlanActual.ID = Convert.ToInt32(this.tbID.Text);
             this.PlanActual.Descripcion = this.txtBDesc_Plan.Text;
@@ -105,7 +105,7 @@ namespace UI.Desktop
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             PlanesLogic pL = new PlanesLogic();
-            MapearADatos();
+            MapearPersona();
             switch (Modo)
             {
                 case ModoForm.Alta:
