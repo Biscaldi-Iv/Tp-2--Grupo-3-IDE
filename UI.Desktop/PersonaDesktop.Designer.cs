@@ -177,11 +177,11 @@ namespace UI.Desktop
             // 
             this.lIdPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lIdPlan.AutoSize = true;
-            this.lIdPlan.Location = new System.Drawing.Point(407, 91);
+            this.lIdPlan.Location = new System.Drawing.Point(414, 91);
             this.lIdPlan.Name = "lIdPlan";
-            this.lIdPlan.Size = new System.Drawing.Size(44, 15);
+            this.lIdPlan.Size = new System.Drawing.Size(30, 15);
             this.lIdPlan.TabIndex = 6;
-            this.lIdPlan.Text = "ID Plan";
+            this.lIdPlan.Text = "Plan";
             // 
             // lFechaNac
             // 
@@ -250,6 +250,7 @@ namespace UI.Desktop
             this.cbPlanes.Name = "cbPlanes";
             this.cbPlanes.Size = new System.Drawing.Size(150, 23);
             this.cbPlanes.TabIndex = 17;
+            this.cbPlanes.ValueMember = "ID";
             // 
             // comboBoxTiposPer
             // 

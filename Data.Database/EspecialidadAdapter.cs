@@ -21,7 +21,7 @@ namespace Data.Database
         {
             List<Especialidad> esp = new List<Especialidad>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] FROM [Academia].[dbo].[especialidades] WHERE [state]=1");
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] FROM [Academia].[dbo].[especialidades]");
             while(reader.Read())
             {
                 Especialidad es = new Especialidad(reader.GetInt32(0), reader.GetString(1));
@@ -38,7 +38,7 @@ namespace Data.Database
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_especialidad], [desc_especialidad] " +
                 "FROM [Academia].[dbo].[especialidades]" +
-                $" WHERE [id_especialidad]={ID} and [state]=1");
+                $" WHERE [id_especialidad]={ID}");
             reader.Read();
             Especialidad es = new(reader.GetInt32(0), reader.GetString(1));
             reader.Close();
@@ -52,16 +52,16 @@ namespace Data.Database
             try
             {
                 SqlCommand cmdDelete = new SqlCommand(
-                    "UPDATE especialidades SET " +
-                    "state=0 " +
+                    "DELETE especialidades FROM " +
+                    "especialidades " +
                     "WHERE id_especialidad=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
                 this.OpenConnection();
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -84,7 +84,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw new Exception("Error en bd");
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -105,8 +105,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
-                throw ExcepcionNOManejada;
+                throw new Exception(Ex.Message);
             }
             finally
             {

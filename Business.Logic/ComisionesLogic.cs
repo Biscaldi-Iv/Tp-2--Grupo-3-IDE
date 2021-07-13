@@ -47,7 +47,7 @@ namespace Business.Logic
                 }
                 catch (Exception e)
                 {
-                    throw e.InnerException;
+                    throw new Exception(e.Message);
                 }
             }
 
@@ -59,7 +59,7 @@ namespace Business.Logic
                 }
                 catch (Exception e)
                 {
-                    throw e.InnerException;
+                    throw new Exception(e.Message);
                 }
             }
 
@@ -71,7 +71,7 @@ namespace Business.Logic
                 }
                 catch (SqlException ex)
                 {
-                    throw ex.InnerException;
+                    throw new Exception(ex.Message);
                 }
             }
 

@@ -45,7 +45,7 @@ namespace UI.Desktop
             this.comboBoxTiposPer.DataSource = tpl.GetAll();
         }
 
-        public override void MapearPersona() 
+        public override void MapearADatos() 
         {
             this.PersonaActual.Direccion = this.txtDireccion.Text;
             this.PersonaActual.Telefono = this.txtTelefono.Text;
@@ -96,7 +96,7 @@ namespace UI.Desktop
                     {
                         case ModoForm.Alta:
                             {
-                                MapearPersona();
+                                MapearADatos();
                                 new PersonaLogic().AddNew(PersonaActual);
                                 break;
                             }

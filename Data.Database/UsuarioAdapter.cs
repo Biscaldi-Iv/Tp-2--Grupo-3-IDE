@@ -63,7 +63,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -128,8 +128,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
-                throw ExcepcionNOManejada;
+                throw new Exception(Ex.Message);
             }
             finally
             {

@@ -21,7 +21,7 @@ namespace Data.Database
         {
             List<Comision> com = new List<Comision>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_comision], [desc_comision],[anio_especialidad],[id_plan] FROM [Academia].[dbo].[comisiones] WHERE [state]=1"); // falta agregar state en la base de datos de tipo bit
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_comision], [desc_comision],[anio_especialidad],[id_plan] FROM [Academia].[dbo].[comisiones]"); // falta agregar state en la base de datos de tipo bit
             while (reader.Read())
             {
                 Comision c = new Comision(reader.GetInt32(0), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(1)); // 
@@ -38,7 +38,7 @@ namespace Data.Database
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT[id_comision], [desc_comision],[anio_especialidad],[id_plan]" +
                 "FROM [Academia].[dbo].[comisiones]" +
-                $" WHERE [id_comision]={ID} and [state]=1");
+                $" WHERE [id_comision]={ID}");
             reader.Read();
             Comision c = new Comision(reader.GetInt32(0), reader.GetInt32(2), reader.GetInt32(3), reader.GetString(1));
             this.CloseConnection();
@@ -51,8 +51,8 @@ namespace Data.Database
             try
             {
                 SqlCommand cmdDelete = new SqlCommand(
-                    "UPDATE comisiones SET " +
-                    "state=0 " +
+                    "DELETE comisiones FROM " +
+                    "comisiones " +
                     "WHERE id_comision=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = ID;
                 this.OpenConnection();
@@ -60,7 +60,7 @@ namespace Data.Database
             }
             catch (Exception e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -84,7 +84,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw new Exception("Error en bd",e);
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -97,18 +97,18 @@ namespace Data.Database
 
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_add_comisionesHardCode", sqlConnection);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@d_com",com.Descripcion);  //(@d_com,@id_com,@anio,@id_plan,
-                cmd.Parameters.AddWithValue("@anio", com.AnioEspecialidad);
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[comisiones] ([desc_comision] ,[anio_especialidad] ,[id_plan])" +
+                    "VALUES (@d_com, @anio, @plan)", sqlConnection);
+                cmd.Parameters.Add("@d_com", System.Data.SqlDbType.VarChar, 50).Value = com.Descripcion;
+                cmd.Parameters.Add("@anio", System.Data.SqlDbType.Int).Value = com.AnioEspecialidad;
+                cmd.Parameters.Add("@plan", System.Data.SqlDbType.Int).Value = com.IDPlan;
 
                 this.OpenConnection();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
-                throw ExcepcionNOManejada;
+                throw new Exception(Ex.Message);
             }
             finally
             {

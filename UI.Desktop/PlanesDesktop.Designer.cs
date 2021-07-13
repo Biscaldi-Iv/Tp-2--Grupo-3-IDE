@@ -30,13 +30,13 @@ namespace UI.Desktop
         private void InitializeComponent()
         {
             this.tlPlanes_desktop = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.cbEspecialidades = new System.Windows.Forms.ComboBox();
             this.txtBDesc_Plan = new System.Windows.Forms.TextBox();
-            this.tbID = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tlPlanes_desktop.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@ namespace UI.Desktop
             this.tlPlanes_desktop.Controls.Add(this.btnCancelar, 1, 4);
             this.tlPlanes_desktop.Controls.Add(this.label2, 0, 2);
             this.tlPlanes_desktop.Controls.Add(this.label1, 0, 1);
-            this.tlPlanes_desktop.Controls.Add(this.tbID, 1, 0);
+            this.tlPlanes_desktop.Controls.Add(this.txtD, 1, 0);
             this.tlPlanes_desktop.Controls.Add(this.label3, 0, 0);
             this.tlPlanes_desktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPlanes_desktop.Location = new System.Drawing.Point(0, 0);
@@ -67,25 +67,27 @@ namespace UI.Desktop
             this.tlPlanes_desktop.Size = new System.Drawing.Size(288, 321);
             this.tlPlanes_desktop.TabIndex = 0;
             // 
-            // label1
+            // cbEspecialidades
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Plan:";
+            this.cbEspecialidades.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlPlanes_desktop.SetColumnSpan(this.cbEspecialidades, 2);
+            this.cbEspecialidades.DisplayMember = "Descripcion";
+            this.cbEspecialidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEspecialidades.FormattingEnabled = true;
+            this.cbEspecialidades.Location = new System.Drawing.Point(98, 87);
+            this.cbEspecialidades.Name = "cbEspecialidades";
+            this.cbEspecialidades.Size = new System.Drawing.Size(187, 23);
+            this.cbEspecialidades.TabIndex = 4;
+            this.cbEspecialidades.ValueMember = "ID";
             // 
-            // label2
+            // txtBDesc_Plan
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Especialidad:";
+            this.txtBDesc_Plan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlPlanes_desktop.SetColumnSpan(this.txtBDesc_Plan, 2);
+            this.txtBDesc_Plan.Location = new System.Drawing.Point(98, 50);
+            this.txtBDesc_Plan.Name = "txtBDesc_Plan";
+            this.txtBDesc_Plan.Size = new System.Drawing.Size(187, 23);
+            this.txtBDesc_Plan.TabIndex = 5;
             // 
             // btnGuardar
             // 
@@ -108,36 +110,35 @@ namespace UI.Desktop
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // cbEspecialidades
+            // label2
             // 
-            this.cbEspecialidades.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlPlanes_desktop.SetColumnSpan(this.cbEspecialidades, 2);
-            this.cbEspecialidades.DisplayMember = "Descripcion";
-            this.cbEspecialidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEspecialidades.FormattingEnabled = true;
-            this.cbEspecialidades.Location = new System.Drawing.Point(98, 87);
-            this.cbEspecialidades.Name = "cbEspecialidades";
-            this.cbEspecialidades.Size = new System.Drawing.Size(187, 23);
-            this.cbEspecialidades.TabIndex = 4;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(75, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Especialidad:";
             // 
-            // txtBDesc_Plan
+            // label1
             // 
-            this.txtBDesc_Plan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlPlanes_desktop.SetColumnSpan(this.txtBDesc_Plan, 2);
-            this.txtBDesc_Plan.Location = new System.Drawing.Point(98, 50);
-            this.txtBDesc_Plan.Name = "txtBDesc_Plan";
-            this.txtBDesc_Plan.Size = new System.Drawing.Size(187, 23);
-            this.txtBDesc_Plan.TabIndex = 5;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Plan:";
             // 
-            // tbID
+            // txtD
             // 
-            this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tlPlanes_desktop.SetColumnSpan(this.tbID, 2);
-            this.tbID.Location = new System.Drawing.Point(98, 9);
-            this.tbID.Name = "tbID";
-            this.tbID.ReadOnly = true;
-            this.tbID.Size = new System.Drawing.Size(187, 23);
-            this.tbID.TabIndex = 6;
+            this.txtD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlPlanes_desktop.SetColumnSpan(this.txtD, 2);
+            this.txtD.Location = new System.Drawing.Point(98, 9);
+            this.txtD.Name = "txtD";
+            this.txtD.ReadOnly = true;
+            this.txtD.Size = new System.Drawing.Size(187, 23);
+            this.txtD.TabIndex = 6;
             // 
             // label3
             // 
@@ -173,7 +174,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cbEspecialidades;
         private System.Windows.Forms.TextBox txtBDesc_Plan;
-        private System.Windows.Forms.TextBox tbID;
+        private System.Windows.Forms.TextBox txtD;
         private System.Windows.Forms.Label label3;
     }
 }

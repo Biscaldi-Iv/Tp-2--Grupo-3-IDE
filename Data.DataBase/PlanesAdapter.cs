@@ -17,8 +17,7 @@ namespace Data.Database
         {
             List<Plan> planes = new List<Plan>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes] " +
-                "WHERE [state]=1");
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes] ");
             while (reader.Read())
             {
                 Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
@@ -34,7 +33,7 @@ namespace Data.Database
         {
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]" +
-                $" WHERE [id_plan]={ID} and [state]=1");
+                $" WHERE [id_plan]={ID}");
             reader.Read();
             Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
             CloseConnection();
@@ -46,7 +45,7 @@ namespace Data.Database
         {
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_plan],[desc_plan],[id_especialidad] FROM [Academia].[dbo].[planes]" +
-                $" WHERE [desc_plan]=\'"+desc+"\' and [state]=1");
+                $" WHERE [desc_plan]=\'"+desc+"\'");
             reader.Read();
             Plan p = new Plan(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
             CloseConnection();
@@ -59,8 +58,8 @@ namespace Data.Database
             try
             {
                 SqlCommand cmdSave = new SqlCommand(
-                    "UPDATE planes SET " +
-                    "state=0 " +
+                    "DELETE planes FORM " +
+                    "planes " +
                     "WHERE id_plan=@id", sqlConnection);
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value =ID;
                 this.OpenConnection();
@@ -68,7 +67,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -91,7 +90,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -113,8 +112,7 @@ namespace Data.Database
             }
             catch (SqlException Ex)
             {
-                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
-                throw ExcepcionNOManejada;
+                throw new Exception(Ex.Message);
             }
             finally
             {

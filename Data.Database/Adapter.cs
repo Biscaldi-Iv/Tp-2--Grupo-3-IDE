@@ -34,7 +34,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                throw new Exception(e.Message);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                throw new Exception(e.Message);
             }
         }
 

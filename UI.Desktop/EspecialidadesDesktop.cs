@@ -71,7 +71,7 @@ namespace UI.Desktop
             this.tboxEspecialidad.Text = this.EspecialidadActual.Descripcion;
         }
 
-        public override void MapearPersona() 
+        public override void MapearADatos() 
         {
             this.EspecialidadActual.ID = Convert.ToInt32(this.tboxId.Text);
             this.EspecialidadActual.Descripcion = this.tboxEspecialidad.Text;
@@ -88,7 +88,7 @@ namespace UI.Desktop
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             EspecialidadLogic espL = new EspecialidadLogic();
-            MapearPersona();
+            MapearADatos();
             switch (Modo)
             {
                 case ModoForm.Alta: 
@@ -103,10 +103,25 @@ namespace UI.Desktop
                     }
                 case ModoForm.Baja:
                     {
-                        espL.Delete(Convert.ToInt32(this.tboxId.Text));
+                        if (MessageBox.Show("Esta seguro que desea eliminar esta Especialidad?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            try
+                            {
+                                espL.Delete(Convert.ToInt32(this.tboxId.Text));
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("No ha sido posible eliminar la especialidad porque esta en uso!", "Error", MessageBoxButtons.OK);
+                            } 
+                        }
                         break;
                     }
             }
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

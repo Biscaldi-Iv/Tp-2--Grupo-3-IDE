@@ -61,7 +61,7 @@ namespace UI.Desktop
         }
 
         //deberia revisar dependiendo el modo si ha que ver la persona
-        public override void MapearPersona() 
+        public override void MapearADatos() 
         {
             UsuarioLogic ul = new UsuarioLogic();
             switch (Modo)
@@ -224,6 +224,7 @@ namespace UI.Desktop
                         if (pl.VerificarExistencia(this.UsuarioActual.Email))
                         {
                             //persona existe
+                            //revisar si es necesario actualizar datos de persona
                             this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
                         }
                         else

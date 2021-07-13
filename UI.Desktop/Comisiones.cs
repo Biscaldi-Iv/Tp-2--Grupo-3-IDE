@@ -73,8 +73,8 @@ namespace UI.Desktop
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             int id_ = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
-            ComisionesDesktop esp = new ComisionesDesktop(id_, ApplicationForm.ModoForm.Baja);
-            esp.ShowDialog();
+            ComisionesDesktop com = new ComisionesDesktop(id_, ApplicationForm.ModoForm.Baja);
+            com.ShowDialog();
         }
     }
 

@@ -79,7 +79,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -119,7 +119,7 @@ namespace Data.Database
             }
             catch (SqlException e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -147,8 +147,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionNOManejada = new Exception("Error al crear el curso", Ex);
-                throw ExcepcionNOManejada;
+                throw new Exception(Ex.Message);
             }
             finally
             {
@@ -157,33 +156,5 @@ namespace Data.Database
         }
     
     }
-
-
-       /* public void Save(Persona persona)
-        {
-            if (persona.State == BusinessEntity.States.New)
-            {
-                int NextID = 0;
-                foreach (Persona per in _Personas)
-                {
-                    if (per.ID > NextID)
-                    {
-                        NextID = per.ID;
-                    }
-                }
-                persona.ID = NextID + 1;
-                Persona.Add(persona);
-            }
-            else if (persona.State == BusinessEntity.States.Deleted)
-            {
-                this.Delete(persona.ID);
-            }
-            else if (persona.State == BusinessEntity.States.Modified)
-            {
-                Persona[persona.FindIndex(delegate (Persona p) { return p.ID == ; })] = persona;
-            }
-            persona.State = BusinessEntity.States.Unmodified;
-        }
-    }*/
 }
 

@@ -41,6 +41,7 @@ namespace UI.Desktop
         }
         public override void MapearDeDatos()
         {
+            this.comboBoxPlan.DataSource = new PlanesLogic().GetAll();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -51,40 +52,47 @@ namespace UI.Desktop
                 case ModoForm.Modificacion:
                     {
                         this.btnAceptar.Text = "Guardar";
+                        this.txtIDCom.Text = this.ComisionActual.ID.ToString();
+                        this.txtIDCom.Text = this.ComisionActual.Descripcion;
+                        this.txt_anio_Esp.Text = this.ComisionActual.AnioEspecialidad.ToString();
+                        this.comboBoxPlan.SelectedItem = this.ComisionActual.IDPlan;
                         break;
                     }
                 case ModoForm.Baja:
                     {
                         this.txtDesc.ReadOnly = true;
                         this.txt_anio_Esp.ReadOnly = true;
+                        this.txtIDCom.ReadOnly = true;
+                        this.comboBoxPlan.Enabled = false;
                         this.btnAceptar.Text = "Eliminar";
+                        this.txtIDCom.Text = this.ComisionActual.ID.ToString();
+                        this.txtIDCom.Text = this.ComisionActual.Descripcion;
+                        this.txt_anio_Esp.Text = this.ComisionActual.AnioEspecialidad.ToString();
+                        this.comboBoxPlan.SelectedItem = this.ComisionActual.IDPlan;
                         break;
                     }
             }
-            this.txtIDCom.Text = this.ComisionActual.ID.ToString();
-            this.txtDesc.Text = this.ComisionActual.Descripcion;
-            this.txtIDPlan.Text = this.ComisionActual.IDPlan.ToString();
-            this.txt_anio_Esp.Text = this.ComisionActual.AnioEspecialidad.ToString() ;
         }
 
-        public override void MapearPersona()
+        public override void MapearADatos()
         {
-            this.ComisionActual.ID = Convert.ToInt32(this.txtIDCom.Text);
             this.ComisionActual.Descripcion = this.txtDesc.Text;
-            this.ComisionActual.IDPlan= Convert.ToInt32(this.txtIDPlan.Text);
+            this.ComisionActual.IDPlan = new PlanesLogic().GetByDesc(this.comboBoxPlan.Text).ID;
             this.ComisionActual.AnioEspecialidad= Convert.ToInt32(this.txt_anio_Esp.Text);
         }
+
+
         public override bool Validar() { return false; }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             ComisionLogic comL = new ComisionLogic();
-            MapearPersona();
+            MapearADatos();
             switch (Modo)
             {
                 case ModoForm.Alta:
                     {
-                       comL.AddNew(ComisionActual);
+                        comL.AddNew(ComisionActual);
                         break;
                     }
                 case ModoForm.Modificacion:

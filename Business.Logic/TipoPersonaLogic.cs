@@ -31,7 +31,7 @@ namespace Business.Logic
             }
             catch (Exception e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
         }
         public List<TipoPersonas> GetAll()
@@ -42,7 +42,7 @@ namespace Business.Logic
             }
             catch (Exception e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
         }
         public TipoPersonas GetByDesc(string des)
@@ -53,7 +53,7 @@ namespace Business.Logic
             }
             catch (Exception e)
             {
-                throw e.InnerException;
+                throw new Exception(e.Message);
             }
         }
     }

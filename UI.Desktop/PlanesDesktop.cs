@@ -60,6 +60,8 @@ namespace UI.Desktop
                     {
                         this.btnGuardar.Text = "Guardar";
                         this.txtBDesc_Plan.Text = PlanActual.Descripcion;
+                        this.txtD.Text = this.PlanActual.ID.ToString();
+                        this.cbEspecialidades.SelectedValue = this.PlanActual.IDEspecialidad;
                         break;
                     }
                 case ModoForm.Baja: 
@@ -69,13 +71,13 @@ namespace UI.Desktop
                         break;
                     }
             }
-            this.tbID.Text = this.PlanActual.ID.ToString();
+            this.txtD.Text = this.PlanActual.ID.ToString();
             this.txtBDesc_Plan.Text = this.PlanActual.Descripcion;
         }
 
-        public override void MapearPersona()
+        public override void MapearADatos()
         {
-            this.PlanActual.ID = Convert.ToInt32(this.tbID.Text);
+            this.PlanActual.ID = Convert.ToInt32(this.txtD.Text);
             this.PlanActual.Descripcion = this.txtBDesc_Plan.Text;
             EspecialidadLogic esl = new EspecialidadLogic();
 
@@ -105,7 +107,7 @@ namespace UI.Desktop
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             PlanesLogic pL = new PlanesLogic();
-            MapearPersona();
+            MapearADatos();
             switch (Modo)
             {
                 case ModoForm.Alta:
@@ -120,7 +122,17 @@ namespace UI.Desktop
                     }
                 case ModoForm.Baja:
                     {
-                        pL.Delete(this.PlanActual.ID);
+                        if (MessageBox.Show("Esta seguro que desea eliminar este plan?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            try
+                            {
+                                pL.Delete(this.PlanActual.ID);
+                            }
+                            catch (Exception)
+                            {
+                                MessageBox.Show("No es posible eliminar este plan porque actualmente esta en uso", "Error", MessageBoxButtons.OK);
+                            } 
+                        }
                         break;
                     }
             }
