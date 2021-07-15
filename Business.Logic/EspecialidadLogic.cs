@@ -74,11 +74,18 @@ namespace Business.Logic
             }
         }
 
-        public void SaveChanges(Especialidad e)
+        public void SaveChanges(Especialidad esp)
         {
+            foreach (Especialidad e in Especialidades)
+            {
+                if (e.Descripcion == esp.Descripcion)
+                {
+                    throw new Exception("Ya existe una especialidad con el mismo nombre!"); // devuelve excepcion porque ya existe una especialidad con ese nombre
+                }
+            }
             try
             {
-                Especialidad_data.SaveChanges(e);
+                Especialidad_data.SaveChanges(esp);
             }
             catch(SqlException ex)
             {
@@ -93,7 +100,6 @@ namespace Business.Logic
             {
                 if (e.Descripcion == esp.Descripcion)
                 {
-                    //error no manejado
                     throw new Exception("Especialidad ya existente!"); // devuelve excepcion porque ya existe una especialidad con ese nombre
                 }
             }

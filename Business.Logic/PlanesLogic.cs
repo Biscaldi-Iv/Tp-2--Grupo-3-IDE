@@ -76,11 +76,18 @@ namespace Business.Logic
             }
         }
 
-        public void SaveChanges(Plan e)
+        public void SaveChanges(Plan p)
         {
+            foreach (Plan pl in Planes)
+            {
+                if (pl.Descripcion == p.Descripcion)
+                {
+                    throw new Exception("Ya existe un plan con el mismo nombre!"); // devuelve excepcion porque ya existe un plan con ese nombre
+                }
+            }
             try
             {
-                Planes_Data.SaveChanges(e);
+                Planes_Data.SaveChanges(p);
             }
             catch (SqlException ex)
             {
@@ -95,7 +102,6 @@ namespace Business.Logic
             {
                 if (e.Descripcion == pln.Descripcion)
                 {
-                    //error no manejado
                     throw new Exception("Plan ya existente!"); // devuelve excepcion porque ya existe un plan con ese nombre
                 }
             }

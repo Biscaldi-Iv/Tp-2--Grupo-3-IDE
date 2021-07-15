@@ -93,12 +93,26 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta: 
                     {
-                        espL.AddNew(EspecialidadActual);
+                        try
+                        {
+                            espL.AddNew(EspecialidadActual);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break;
                     }
                 case ModoForm.Modificacion: 
                     {
-                        espL.SaveChanges(EspecialidadActual);
+                        try
+                        {
+                            espL.SaveChanges(EspecialidadActual);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break; 
                     }
                 case ModoForm.Baja:

@@ -32,6 +32,8 @@ namespace UI.Desktop
             ComisionActual = com;
             MapearDeDatos();
         }
+
+        //ctr para modif/bajas
         public ComisionesDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
@@ -42,10 +44,12 @@ namespace UI.Desktop
         public override void MapearDeDatos()
         {
             this.comboBoxPlan.DataSource = new PlanesLogic().GetAll();
+            this.txtIDCom.ReadOnly = true;
             switch (Modo)
             {
                 case ModoForm.Alta:
                     {
+                        this.txtIDCom.Text = "*";
                         this.btnAceptar.Text = "Registrar";
                         break;
                     }
@@ -53,7 +57,7 @@ namespace UI.Desktop
                     {
                         this.btnAceptar.Text = "Guardar";
                         this.txtIDCom.Text = this.ComisionActual.ID.ToString();
-                        this.txtIDCom.Text = this.ComisionActual.Descripcion;
+                        this.txtDesc.Text = this.ComisionActual.Descripcion;
                         this.txt_anio_Esp.Text = this.ComisionActual.AnioEspecialidad.ToString();
                         this.comboBoxPlan.SelectedItem = this.ComisionActual.IDPlan;
                         break;
@@ -92,12 +96,26 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta:
                     {
-                        comL.AddNew(ComisionActual);
+                        try
+                        {
+                            comL.AddNew(ComisionActual);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
-                        comL.SaveChanges(ComisionActual);
+                        try
+                        {
+                            comL.SaveChanges(ComisionActual);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break;
                     }
                 case ModoForm.Baja:

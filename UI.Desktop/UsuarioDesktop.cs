@@ -125,7 +125,8 @@ namespace UI.Desktop
         }
         public override bool Validar() 
         { 
-            if (this.txtApellido.Text.Length == 0 || this.txtNombre.Text.Length == 0 || this.txtUsuario.Text.Length == 0 || !(this.txtEmail.Text.Contains("@gmail.com")) 
+            if (this.txtApellido.Text.Length == 0 || this.txtNombre.Text.Length == 0 || this.txtUsuario.Text.Length == 0 ||
+                !(this.txtEmail.Text.Contains("@") && this.txtEmail.Text.Contains(".com") && this.txtEmail.Text.Length>=7)
                 || this.txtClave.Text != this.txtConfirmarClave.Text)
             {
                 Notificar("Error","Faltan completar campos o contraseña incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -29,7 +29,7 @@ namespace UI.Desktop
             {
                 this.dgvComisiones.DataSource = com.GetAll();
             }
-            catch (Exception e) { Notificar("error", "sql roto", MessageBoxButtons.YesNo, MessageBoxIcon.Error); }
+            catch (Exception e) { Notificar("SQL error!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
 
@@ -62,12 +62,14 @@ namespace UI.Desktop
         {
             ComisionesDesktop com = new ComisionesDesktop(ApplicationForm.ModoForm.Alta);
             com.ShowDialog();
+            this.Listar();
         }
         private void tsbEditar_Click(object sender, EventArgs e)
         {
             int id_ = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
             ComisionesDesktop com = new ComisionesDesktop(id_, ApplicationForm.ModoForm.Modificacion);
             com.ShowDialog();
+            this.Listar();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -75,6 +77,7 @@ namespace UI.Desktop
             int id_ = ((Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
             ComisionesDesktop com = new ComisionesDesktop(id_, ApplicationForm.ModoForm.Baja);
             com.ShowDialog();
+            this.Listar();
         }
     }
 

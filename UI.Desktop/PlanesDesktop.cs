@@ -112,12 +112,26 @@ namespace UI.Desktop
             {
                 case ModoForm.Alta:
                     {
-                        pL.AddNew(PlanActual);
+                        try
+                        {
+                            pL.AddNew(PlanActual);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
-                        pL.SaveChanges(PlanActual);
+                        try
+                        {
+                            pL.SaveChanges(PlanActual);
+                        }
+                        catch (Exception ex)
+                        {
+                            Notificar("Error", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         break;
                     }
                 case ModoForm.Baja:

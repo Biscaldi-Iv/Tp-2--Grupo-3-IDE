@@ -63,11 +63,18 @@ namespace Business.Logic
                 }
             }
 
-            public void SaveChanges(Comision c)
+            public void SaveChanges(Comision com)
             {
-                try
+            foreach (Comision c in Comisiones)
+            {
+                if (c.Descripcion == com.Descripcion)
                 {
-                    Comision_data.SaveChanges(c);
+                    throw new Exception("Ya existe una comision con el mismo nombre!"); // devuelve excepcion porque ya existe una comision con ese nombre
+                }
+            }
+            try
+                {
+                    Comision_data.SaveChanges(com);
                 }
                 catch (SqlException ex)
                 {
@@ -82,8 +89,7 @@ namespace Business.Logic
                 {
                     if (c.Descripcion == com.Descripcion)
                     {
-                        //error no manejado
-                        throw new Exception("Especialidad ya existente!"); // devuelve excepcion porque ya existe una especialidad con ese nombre
+                        throw new Exception("Especialidad ya existente!"); // devuelve excepcion porque ya existe una comision con ese nombre
                     }
                 }
                 Comision_data.AddNew(com);
