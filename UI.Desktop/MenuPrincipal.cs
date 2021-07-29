@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI.Desktop
@@ -37,6 +30,59 @@ namespace UI.Desktop
             {
                 this.Dispose();
             }
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpcionLogin();
+        }
+
+        private void OpcionLogin()
+        {
+            formLogin frm = new formLogin();
+            frm.ShowDialog();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Comisiones frmComisiones = new Comisiones();
+            frmComisiones.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            FormListaEspecialidades frmEspecialidades = new FormListaEspecialidades();
+            frmEspecialidades.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Planes frmPlanes = new Planes();
+            frmPlanes.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Usuarios frmUsuaios = new Usuarios();
+            frmUsuaios.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -73,6 +73,16 @@ namespace UI.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_clipart_plus_and_minus_signs_computer_icons_symbol_symbol_miscellaneous_logo {
             get {
                 object obj = ResourceManager.GetObject("png-clipart-plus-and-minus-signs-computer-icons-symbol-symbol-miscellaneous-logo", resourceCulture);
@@ -86,6 +96,16 @@ namespace UI.Desktop.Properties {
         internal static System.Drawing.Bitmap png_transparent_computer_icons_delete_icon_white_text_logo {
             get {
                 object obj = ResourceManager.GetObject("png-transparent-computer-icons-delete-icon-white-text-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usr {
+            get {
+                object obj = ResourceManager.GetObject("usr", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

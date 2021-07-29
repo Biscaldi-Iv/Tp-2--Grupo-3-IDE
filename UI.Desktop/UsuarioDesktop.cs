@@ -125,7 +125,10 @@ namespace UI.Desktop
         }
         public override bool Validar() 
         { 
-            if (this.txtApellido.Text.Length == 0 || this.txtNombre.Text.Length == 0 || this.txtUsuario.Text.Length == 0 ||
+            //reeemplazar con clase validacion
+            //usar varios if para acumular errores en un string
+            //usar trim para validacios y para guadar
+            if (this.txtApellido.Text.Trim().Length == 0 || this.txtNombre.Text.Length == 0 || this.txtUsuario.Text.Length == 0 ||
                 !(this.txtEmail.Text.Contains("@") && this.txtEmail.Text.Contains(".com") && this.txtEmail.Text.Length>=7)
                 || this.txtClave.Text != this.txtConfirmarClave.Text)
             {
