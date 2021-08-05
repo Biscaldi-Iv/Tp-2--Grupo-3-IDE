@@ -63,5 +63,10 @@ namespace Business.Logic
             }
             return false;
         }
+
+        public Persona GetOne(int id)
+        {
+            return this.Persona_data.GetOne(id);
+        }
     }
 }

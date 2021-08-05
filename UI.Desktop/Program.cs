@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
 
 namespace UI.Desktop
 {
     static class Program
     {
+        public static Usuario usuarioLog;
+        public static TipoPersonas tipo;
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

@@ -78,6 +78,12 @@ namespace Business.Logic
 
         }
 
+        public Usuario RecuperarUsuario(string nu, string pas)
+        {
+            var usr = from usuario in this.Usuarios where usuario.NombreUsuario == nu && usuario.Clave == pas select usuario;
+            return usr.First();
+        }
+
         public void AddNew(Usuario usr)
         {
             UsuarioData.AddNew(usr);

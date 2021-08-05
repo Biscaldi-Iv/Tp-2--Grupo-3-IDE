@@ -18,7 +18,7 @@ namespace Data.Database
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_tipo_persona], [descripcion_t_p] " +
                 "FROM [Academia].[dbo].[tipo_persona]" +
-                $" WHERE [id_tiop_persona]={id}");
+                $" WHERE [id_tipo_persona]={id}");
             reader.Read();
             TipoPersonas tp = new TipoPersonas(reader.GetInt32(0), reader.GetString(1));
             reader.Close();

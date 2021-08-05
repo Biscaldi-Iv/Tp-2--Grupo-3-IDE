@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
@@ -32,10 +33,13 @@ namespace UI.Desktop
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             UsuarioLogic ul = new UsuarioLogic();
+            PersonaLogic pl = new PersonaLogic();
+            TipoPersonaLogic tpl = new TipoPersonaLogic();
             if (ul.VerificarUsuario(this.txtUsuario.Text, this.txtPass.Text))
             {
+                Program.usuarioLog = new UsuarioLogic().RecuperarUsuario(this.txtUsuario.Text, this.txtPass.Text);
+                Program.tipo = tpl.GetOne(pl.GetOne(Program.usuarioLog.IdPersona).TipoPersona); 
                 this.DialogResult = DialogResult.OK; 
-               // MessageBox.Show("Usted ha ingresado al sistema correctamente.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

@@ -15,26 +15,41 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void btnABMC_Click(object sender, EventArgs e)
-        {
-            Program.menu.Hide();
-            SubMenuABMC abmc = new SubMenuABMC();
-            abmc.ShowDialog();
-            Program.menu.Show();
-        }
-
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            formLogin appLogin = new formLogin();
-            if (appLogin.ShowDialog() != DialogResult.OK)
-            {
-                this.Dispose();
-            }
+            //formLogin appLogin = new formLogin();
+            //if (appLogin.ShowDialog() != DialogResult.OK)
+            //{
+                //this.Dispose();
+            //}
         }
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpcionLogin();
+            if(Program.usuarioLog!=null)
+            {
+                cerrarSesionToolStripMenuItem.Enabled = true;
+                loginToolStripMenuItem.Enabled = false;
+                switch (Program.tipo.Descripcion)
+                {
+                    case "Administrador":
+                        {
+                            aBMCToolStripMenuItem.Enabled = true;
+                            break;
+                        }
+                    case "Docente":
+                        {
+                            break;
+                        }
+                    case "Alumno":
+                        {
+                            break;
+                        }
+                    default: break;
+                }
+            }
+            //las variables de program determinan si hay que habilitar botones o no
         }
 
         private void OpcionLogin()
@@ -80,9 +95,13 @@ namespace UI.Desktop
             Program.menu.Show();
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            cerrarSesionToolStripMenuItem.Enabled = false;
+            loginToolStripMenuItem.Enabled = true;
+            aBMCToolStripMenuItem.Enabled = false;
+            Program.usuarioLog = null;
+            Program.tipo = null;
         }
     }
 }
