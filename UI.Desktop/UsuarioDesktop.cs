@@ -272,21 +272,31 @@ namespace UI.Desktop
                     {
                         if (this.Validar())
                         {
-                            PersonaLogic pl = new PersonaLogic();
-                            if (pl.VerificarExistencia(this.UsuarioActual.Email))
+                            try
                             {
-                                //persona existe
-                                //revisar si es necesario actualizar datos de persona
-                                this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                                PersonaLogic pl = new PersonaLogic();
+                                if (pl.VerificarExistencia(this.UsuarioActual.Email))
+                                {
+                                    //persona existe
+                                    //revisar si es necesario actualizar datos de persona
+                                    this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                                }
+                                else
+                                {
+                                    PersonaDesktop pd = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido,
+                                        this.UsuarioActual.Email, ModoForm.Alta);
+                                    pd.ShowDialog();
+                                    this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                                }
+                                new UsuarioLogic().AddNew(this.UsuarioActual);
                             }
-                            else
+                            catch (Exception)
                             {
-                                PersonaDesktop pd = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido,
-                                    this.UsuarioActual.Email, ModoForm.Alta);
-                                pd.ShowDialog();
-                                this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
-                            }
-                            new UsuarioLogic().AddNew(this.UsuarioActual); 
+                                //el unico error que salta es cuando se selecciona cancelar en persona desktop
+                                //no en cuyo caso debe cancelarce la operacion
+                                //por lo cual el manejo de errores solo bede evitar que se rompa el programa
+                                this.Notificar("Advertencia","Operacion cancelada!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            } 
                         }
                         else { saltaError = true; }
 
