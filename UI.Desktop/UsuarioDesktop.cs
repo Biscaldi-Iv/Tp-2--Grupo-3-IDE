@@ -124,19 +124,64 @@ namespace UI.Desktop
             return false;
         }
         public override bool Validar() 
-        { 
+        {
             //reeemplazar con clase validacion
             //usar varios if para acumular errores en un string
             //usar trim para validacios y para guadar
-            if (this.txtApellido.Text.Trim().Length == 0 || this.txtNombre.Text.Length == 0 || this.txtUsuario.Text.Length == 0 ||
-                !(this.txtEmail.Text.Contains("@") && this.txtEmail.Text.Contains(".com") && this.txtEmail.Text.Length>=7)
-                || this.txtClave.Text != this.txtConfirmarClave.Text)
+            string MensajeError = "";
+            if (this.txtApellido.Text.Trim().Length == 0)
             {
-                Notificar("Error","Faltan completar campos o contraseña incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MensajeError += "No se ha ingresado apellido\n";
+            }
+            else 
+            {
+                if(!Validaciones.NomApellidoValido(this.txtApellido.Text))
+                {
+                    MensajeError += "Apellido invalido\n";
+                }
+            }
+
+            if(this.txtNombre.Text.Length == 0)
+            {
+                MensajeError+= "No se ha ingresado nombre\n";
+            }
+            else
+            {
+                if (!Validaciones.NomApellidoValido(this.txtNombre.Text))
+                {
+                    MensajeError += "Nombre invalido\n";
+                }
+            }
+
+            if (this.txtUsuario.Text.Length == 0)
+            {
+                MensajeError += "Nombre de usuario invalido\n";
+            }
+
+            if (!Validaciones.EsMailValido(this.txtEmail.Text))
+            {
+                MensajeError += "Direccion de correo electronico invalida\n";
+            }
+
+            if (this.txtClave.Text.Length<=3)
+            {
+                MensajeError += "Contraseña demasiado corta\n";
+            }
+
+            if (this.txtClave.Text != this.txtConfirmarClave.Text)
+            {
+                MensajeError += "Las contraseñas no coinciden\n";
+            }
+
+            if (MensajeError.Length>=1)
+            {
+                Notificar("Error", MensajeError, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else { return true; }
+            return true;
         }
+
+
         public Usuario UsuarioActual 
         { 
             set {_UsuarioActual = value;} 
@@ -207,6 +252,7 @@ namespace UI.Desktop
         private void btnAceptar_Click(object sender, EventArgs e) 
         {
             this.MapeoADatos();
+            bool saltaError = false; //para que no cierre la ventana en caso de error al ingresar datos
             switch (Modo) 
             {
                 case ModoForm.Baja:
@@ -224,21 +270,26 @@ namespace UI.Desktop
                     }
                 case ModoForm.Alta:
                     {
-                        PersonaLogic pl = new PersonaLogic();
-                        if (pl.VerificarExistencia(this.UsuarioActual.Email))
+                        if (this.Validar())
                         {
-                            //persona existe
-                            //revisar si es necesario actualizar datos de persona
-                            this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                            PersonaLogic pl = new PersonaLogic();
+                            if (pl.VerificarExistencia(this.UsuarioActual.Email))
+                            {
+                                //persona existe
+                                //revisar si es necesario actualizar datos de persona
+                                this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                            }
+                            else
+                            {
+                                PersonaDesktop pd = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido,
+                                    this.UsuarioActual.Email, ModoForm.Alta);
+                                pd.ShowDialog();
+                                this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
+                            }
+                            new UsuarioLogic().AddNew(this.UsuarioActual); 
                         }
-                        else
-                        {
-                            PersonaDesktop pd = new PersonaDesktop(this.UsuarioActual.Nombre, this.UsuarioActual.Apellido,
-                                this.UsuarioActual.Email, ModoForm.Alta);
-                            pd.ShowDialog();
-                            this.UsuarioActual.IdPersona = pl.GetIDByMail(this.UsuarioActual.Email);
-                        }
-                        new UsuarioLogic().AddNew(this.UsuarioActual);
+                        else { saltaError = true; }
+
                         break;
                     }
                 case ModoForm.Modificacion:
@@ -247,7 +298,10 @@ namespace UI.Desktop
                         break;
                     }
             }
-            this.Close();
+            if (!saltaError)
+            {
+                this.Close();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Business.Logic
 {
@@ -13,11 +14,20 @@ namespace Business.Logic
             //expresiones regulares
             //RegEx--clase de expr regulares
             //IsMatch
-            if (!(mail.Contains("@") && mail.Contains(".com") && mail.Length >= 7))
+            if (Regex.IsMatch(mail, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
+        }
+
+        public static bool NomApellidoValido(string cadena)
+        {
+            if (Regex.IsMatch(cadena, @"\s*\w*\s*"))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
