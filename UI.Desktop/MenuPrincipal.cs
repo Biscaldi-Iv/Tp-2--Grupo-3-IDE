@@ -40,10 +40,12 @@ namespace UI.Desktop
                         }
                     case "Docente":
                         {
+                            aBMCToolStripMenuItem.Enabled = false;
                             break;
                         }
                     case "Alumno":
                         {
+                            aBMCToolStripMenuItem.Enabled = false;
                             break;
                         }
                     default: break;
