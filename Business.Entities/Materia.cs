@@ -11,6 +11,14 @@ namespace Business.Entities
         private int _IDPlan,_HsSemanales, _HsTotales;
         private string _Descripcion;
 
+        public Materia(int id, string desc, int hs_sem, int hs_tot, int id_plan) : base(id)
+        {
+            this.Descripcion = desc;
+            this.HsSemanales = hs_sem;
+            this.HsTotales = hs_tot;
+            this.IDPlan = id_plan;
+        }
+
         public int IDPlan
         {
             get { return this._IDPlan; }
