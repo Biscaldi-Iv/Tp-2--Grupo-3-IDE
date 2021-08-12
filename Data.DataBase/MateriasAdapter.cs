@@ -15,7 +15,7 @@ namespace Data.Database
             List<Materia> materias = new List<Materia>();
             this.OpenConnection();
             SqlDataReader reader = this.ExecuteReader("SELECT [id_materia], [desc_materia], [hs_semanales]," +
-                " [hs_totales], [id_plan] FROM [Academia][dbo].[materias]");
+                " [hs_totales], [id_plan] FROM [Academia].[dbo].[materias]");
             while(reader.Read())
             {
                 Materia mat = new Materia(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3),

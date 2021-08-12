@@ -105,5 +105,13 @@ namespace UI.Desktop
             Program.usuarioLog = null;
             Program.tipo = null;
         }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Materia frmMaterias = new Materia();
+            frmMaterias.ShowDialog();
+            Program.menu.Show();
+        }
     }
 }
