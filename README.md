@@ -18,5 +18,7 @@ seguridad de menus(diferencia tipos de usuario)
 
 pasar validaciones de registros a la clase validaciones en logic
 
+nuevo: validar los nombres en casos de modificaciones(todas las entidades)
+
 
 
