@@ -70,7 +70,7 @@ namespace UI.Desktop
                         this.comboBoxPlan.Enabled = false;
                         this.btnAceptar.Text = "Eliminar";
                         this.txtIDCom.Text = this.ComisionActual.ID.ToString();
-                        this.txtIDCom.Text = this.ComisionActual.Descripcion;
+                        //this.txtIDCom.Text = this.ComisionActual.Descripcion; //bug?
                         this.txt_anio_Esp.Text = this.ComisionActual.AnioEspecialidad.ToString();
                         this.comboBoxPlan.SelectedItem = this.ComisionActual.IDPlan;
                         break;

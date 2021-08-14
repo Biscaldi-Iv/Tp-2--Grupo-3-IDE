@@ -109,7 +109,7 @@ namespace UI.Desktop
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.menu.Hide();
-            Materia frmMaterias = new Materia();
+            Materias frmMaterias = new Materias();
             frmMaterias.ShowDialog();
             Program.menu.Show();
         }

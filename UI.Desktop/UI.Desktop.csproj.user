@@ -25,10 +25,10 @@
     <Compile Update="BackGround.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Materia.cs">
+    <Compile Update="MateriaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MateriaDesktop.cs">
+    <Compile Update="Materias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MenuPrincipal.cs">

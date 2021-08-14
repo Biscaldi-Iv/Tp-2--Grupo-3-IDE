@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class Materia
+    partial class Materias
     {
         /// <summary>
         /// Required designer variable.
@@ -163,6 +163,7 @@ namespace UI.Desktop
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnActualizar
             // 
@@ -173,6 +174,7 @@ namespace UI.Desktop
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // toolStrip1
             // 
@@ -204,6 +206,7 @@ namespace UI.Desktop
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "toolStripButton2";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -213,14 +216,15 @@ namespace UI.Desktop
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton3";
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
-            // Materia
+            // Materias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStripContainer1);
-            this.Name = "Materia";
+            this.Name = "Materias";
             this.Text = "Materia";
             this.Load += new System.EventHandler(this.Materia_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
