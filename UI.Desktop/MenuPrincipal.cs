@@ -113,5 +113,13 @@ namespace UI.Desktop
             frmMaterias.ShowDialog();
             Program.menu.Show();
         }
+
+        private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Cursos frmCursos = new Cursos();
+            frmCursos.ShowDialog();
+            Program.menu.Show();
+        }
     }
 }
