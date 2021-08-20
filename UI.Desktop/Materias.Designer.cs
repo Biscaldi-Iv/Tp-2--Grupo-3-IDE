@@ -103,6 +103,7 @@ namespace UI.Desktop
             this.dgvMateria.Name = "dgvMateria";
             this.dgvMateria.ReadOnly = true;
             this.dgvMateria.RowTemplate.Height = 25;
+            this.dgvMateria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMateria.Size = new System.Drawing.Size(794, 381);
             this.dgvMateria.TabIndex = 0;
             // 
