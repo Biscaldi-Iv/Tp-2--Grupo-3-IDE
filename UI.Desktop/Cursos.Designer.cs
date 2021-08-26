@@ -52,7 +52,7 @@ namespace UI.Desktop
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tlCursos);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 425);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 450);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
