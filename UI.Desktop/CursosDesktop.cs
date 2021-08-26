@@ -43,6 +43,7 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
+            //this.comboBoxMateria.DataSource = new MateriasLogic().GetAll();//error
             this.comboBoxMateria.DataSource = new MateriasLogic().GetAll();
             this.comboBoxComision.DataSource = new ComisionLogic().GetAll();
             switch (Modo)
@@ -108,31 +109,6 @@ namespace UI.Desktop
                 case ModoForm.Alta: 
                     {
                         MapearADatos();
-                        //while true verificar salir-mostrar msj s ino valida
-                         puedeCerrar = Validaciones.ValidaCurso(this.CursoActual);
-                        if (puedeCerrar)
-                        {
-                            try
-                            {
-                                cursosLogic.AddNew(this.CursoActual);
-
-                            }
-                            catch (Exception ex)
-                            {
-                                puedeCerrar = false;
-                                this.Notificar("Error", "No ha sido posible agregar el curso: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else 
-                        {
-                            
-                        }
-                        break;
-                    }
-                case ModoForm.Modificacion:
-                    {
-                        MapearADatos();
-                        //while true verificar salir-mostrar msj s ino valida
                         puedeCerrar = Validaciones.ValidaCurso(this.CursoActual);
                         if (puedeCerrar)
                         {
@@ -144,8 +120,39 @@ namespace UI.Desktop
                             catch (Exception ex)
                             {
                                 puedeCerrar = false;
-                                this.Notificar("Error", "No ha sido posible modificar el curso: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                this.Notificar("Error", "No ha sido posible agregar el curso: " + ex.Message, 
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+                        }
+                        else 
+                        {
+                            this.Notificar("Advertencia", "No se puede agregar el curso porque ya existe uno similar",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        break;
+                    }
+                case ModoForm.Modificacion:
+                    {
+                        MapearADatos();
+                        puedeCerrar = Validaciones.ValidaCurso(this.CursoActual);
+                        if (puedeCerrar)
+                        {
+                            try
+                            {
+                                cursosLogic.AddNew(this.CursoActual);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                puedeCerrar = false;
+                                this.Notificar("Error", "No ha sido posible modificar el curso: " + ex.Message,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            this.Notificar("Advertencia", "No se guardaron los cambios del curso porque existe uno similar",
+                                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         break;
                     }
@@ -160,7 +167,7 @@ namespace UI.Desktop
                         break;
                     }
             }
-            if(puedeCerrar==true)
+            if(puedeCerrar)
             {
                 this.Close();
             }
