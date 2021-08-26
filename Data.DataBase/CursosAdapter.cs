@@ -23,7 +23,7 @@ namespace Data.Database
                 "on [cursos].[id_materia]= [materias].[id_materia]" +
                 $" WHERE [id_curso]={id}");
             reader.Read();
-            string descripcion = $"{reader.GetString(5)}-{reader.GetString(6)}";
+            string descripcion = $"{reader.GetString(5)}-{reader.GetString(6)} ({reader.GetInt32(3)})";
             Curso curso = new Curso(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), descripcion);
             reader.Close();
             this.CloseConnection();
