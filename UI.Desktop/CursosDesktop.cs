@@ -24,17 +24,17 @@ namespace UI.Desktop
         
         public CursosDesktop()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        public CursosDesktop(ModoForm modo) : base()
+        public CursosDesktop(ModoForm modo) : this()
         {
             Modo = modo;
             this.CursoActual = new Curso(0, 0, 0, 2021, 0, "");
             MapearDeDatos();
         }
 
-        public CursosDesktop(int id, ModoForm modo): base()
+        public CursosDesktop(int id, ModoForm modo): this()
         {
             Modo = modo;
             this.CursoActual = cursosLogic.getOne(id);
@@ -43,7 +43,6 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
-            //this.comboBoxMateria.DataSource = new MateriasLogic().GetAll();//error
             this.comboBoxMateria.DataSource = new MateriasLogic().GetAll();
             this.comboBoxComision.DataSource = new ComisionLogic().GetAll();
             switch (Modo)
