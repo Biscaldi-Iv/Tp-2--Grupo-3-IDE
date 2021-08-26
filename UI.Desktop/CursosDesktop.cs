@@ -109,12 +109,44 @@ namespace UI.Desktop
                     {
                         MapearADatos();
                         //while true verificar salir-mostrar msj s ino valida
+                         puedeCerrar = Validaciones.ValidaCurso(this.CursoActual);
+                        if (puedeCerrar)
+                        {
+                            try
+                            {
+                                cursosLogic.AddNew(this.CursoActual);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                puedeCerrar = false;
+                                this.Notificar("Error", "No ha sido posible agregar el curso: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else 
+                        {
+                            
+                        }
                         break;
                     }
                 case ModoForm.Modificacion:
                     {
                         MapearADatos();
                         //while true verificar salir-mostrar msj s ino valida
+                        puedeCerrar = Validaciones.ValidaCurso(this.CursoActual);
+                        if (puedeCerrar)
+                        {
+                            try
+                            {
+                                cursosLogic.AddNew(this.CursoActual);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                puedeCerrar = false;
+                                this.Notificar("Error", "No ha sido posible modificar el curso: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
                         break;
                     }
                 case ModoForm.Baja:
