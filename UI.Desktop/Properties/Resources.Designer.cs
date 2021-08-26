@@ -83,6 +83,16 @@ namespace UI.Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap observe {
+            get {
+                object obj = ResourceManager.GetObject("observe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap png_clipart_plus_and_minus_signs_computer_icons_symbol_symbol_miscellaneous_logo {
             get {
                 object obj = ResourceManager.GetObject("png-clipart-plus-and-minus-signs-computer-icons-symbol-symbol-miscellaneous-logo", resourceCulture);
