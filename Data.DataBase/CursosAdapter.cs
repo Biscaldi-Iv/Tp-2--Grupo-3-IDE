@@ -56,12 +56,13 @@ namespace Data.Database
             {
                 SqlCommand cmdSave = new SqlCommand("UPDATE cursos SET id_materia=@materia, " +
                     "id_comision=@com, anio_calendario=@y, cupo=@cupo " +
-                    "WHERE id_curso=@id");
+                    "WHERE id_curso=@id", sqlConnection);
                 cmdSave.Parameters.Add("@materia", System.Data.SqlDbType.Int).Value = c.IDMateria;
                 cmdSave.Parameters.Add("@com", System.Data.SqlDbType.Int).Value = c.IDComision;
                 cmdSave.Parameters.Add("@y", System.Data.SqlDbType.Int).Value = c.AnioCalendario;
                 cmdSave.Parameters.Add("@cupo", System.Data.SqlDbType.Int).Value = c.Cupo;
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = c.ID;
+
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();
             }
@@ -79,8 +80,9 @@ namespace Data.Database
         {
             try
             {
-                SqlCommand cmdDelete = new SqlCommand("DELETE cursos FROM cursos WHERE id_curso=@id");
+                SqlCommand cmdDelete = new SqlCommand("DELETE cursos FROM cursos WHERE id_curso=@id", sqlConnection);
                 cmdDelete.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = id;
+
                 this.OpenConnection();
                 cmdDelete.ExecuteNonQuery();
             }
@@ -98,12 +100,13 @@ namespace Data.Database
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO cursos ([id_materia], [id_comision], [anio_calendario], [cupo]) " +
-                    "VALUES (@materia, @comision, @y, @cupo)");
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[cursos] ([id_materia], [id_comision], [anio_calendario], [cupo]) " +
+                    "VALUES (@materia, @comision, @y, @cupo)", sqlConnection);
                 cmd.Parameters.Add("@materia", System.Data.SqlDbType.Int).Value = c.IDMateria;
-                cmd.Parameters.Add("@com", System.Data.SqlDbType.Int).Value = c.IDComision;
+                cmd.Parameters.Add("@comision", System.Data.SqlDbType.Int).Value = c.IDComision;
                 cmd.Parameters.Add("@y", System.Data.SqlDbType.Int).Value = c.AnioCalendario;
                 cmd.Parameters.Add("@cupo", System.Data.SqlDbType.Int).Value = c.Cupo;
+
                 this.OpenConnection();
                 cmd.ExecuteNonQuery();
             }
