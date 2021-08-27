@@ -40,17 +40,18 @@ namespace UI.Desktop
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsABMC = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbVer = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tlCursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
-            this.toolStrip1.SuspendLayout();
+            this.tsABMC.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -59,16 +60,17 @@ namespace UI.Desktop
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tlCursos);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 451);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 450);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 476);
+            this.toolStripContainer1.Size = new System.Drawing.Size(800, 475);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tsABMC);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // tlCursos
@@ -172,18 +174,18 @@ namespace UI.Desktop
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // toolStrip1
+            // tsABMC
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsABMC.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsABMC.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbVer,
             this.tsbEliminar});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(135, 25);
-            this.toolStrip1.TabIndex = 0;
+            this.tsABMC.Location = new System.Drawing.Point(3, 0);
+            this.tsABMC.Name = "tsABMC";
+            this.tsABMC.Size = new System.Drawing.Size(104, 25);
+            this.tsABMC.TabIndex = 0;
             // 
             // tsbNuevo
             // 
@@ -193,6 +195,7 @@ namespace UI.Desktop
             this.tsbNuevo.Name = "tsbNuevo";
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
             this.tsbNuevo.Text = "toolStripButton1";
+            this.tsbNuevo.ToolTipText = "Nuevo";
             this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
             // 
             // tsbEditar
@@ -203,6 +206,7 @@ namespace UI.Desktop
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "toolStripButton1";
+            this.tsbEditar.ToolTipText = "Editar";
             this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbVer
@@ -213,6 +217,7 @@ namespace UI.Desktop
             this.tsbVer.Name = "tsbVer";
             this.tsbVer.Size = new System.Drawing.Size(23, 22);
             this.tsbVer.Text = "toolStripButton1";
+            this.tsbVer.ToolTipText = "Ver";
             this.tsbVer.Click += new System.EventHandler(this.tsbVer_Click);
             // 
             // tsbEliminar
@@ -223,16 +228,29 @@ namespace UI.Desktop
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton1";
+            this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Location = new System.Drawing.Point(107, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(111, 25);
+            this.toolStrip1.TabIndex = 1;
             // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 476);
+            this.ClientSize = new System.Drawing.Size(800, 475);
             this.Controls.Add(this.toolStripContainer1);
+            this.MaximumSize = new System.Drawing.Size(816, 514);
+            this.MinimumSize = new System.Drawing.Size(816, 514);
             this.Name = "Cursos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
+            this.Load += new System.EventHandler(this.Cursos_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
@@ -240,8 +258,8 @@ namespace UI.Desktop
             this.toolStripContainer1.PerformLayout();
             this.tlCursos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsABMC.ResumeLayout(false);
+            this.tsABMC.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -259,10 +277,11 @@ namespace UI.Desktop
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Año;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsABMC;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbVer;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

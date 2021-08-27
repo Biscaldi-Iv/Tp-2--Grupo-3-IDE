@@ -45,7 +45,7 @@ namespace UI.Desktop
                         }
                     case "Alumno":
                         {
-                            aBMCToolStripMenuItem.Enabled = false;
+                            aBMCToolStripMenuItem.Enabled = true;
                             break;
                         }
                     default: break;

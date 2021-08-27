@@ -119,7 +119,7 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-        public List<Curso> getbyEspecialidad(int idPlan)
+        public List<Curso> getbyPlan(int idPlan)
         {
             List<Curso> cursos = new List<Curso>();
             this.OpenConnection();

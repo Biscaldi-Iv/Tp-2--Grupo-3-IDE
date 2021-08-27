@@ -94,5 +94,16 @@ namespace Business.Logic
                 throw new Exception(e.Message);
             }
         }
+        public List<Curso> getbyPlan(int idPlan)
+        {
+            try
+            {
+                return new CursosAdapter().getbyPlan(idPlan) ;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
