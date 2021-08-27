@@ -34,11 +34,13 @@ namespace UI.Desktop
         {
             UsuarioLogic ul = new UsuarioLogic();
             PersonaLogic pl = new PersonaLogic();
+            PlanesLogic planl = new PlanesLogic();
             TipoPersonaLogic tpl = new TipoPersonaLogic();
             if (ul.VerificarUsuario(this.txtUsuario.Text, this.txtPass.Text))
             {
                 Program.usuarioLog = new UsuarioLogic().RecuperarUsuario(this.txtUsuario.Text, this.txtPass.Text);
-                Program.tipo = tpl.GetOne(pl.GetOne(Program.usuarioLog.IdPersona).TipoPersona); 
+                Program.tipo = tpl.GetOne(pl.GetOne(Program.usuarioLog.IdPersona).TipoPersona);
+                Program.plan = planl.GetOne(pl.GetOne(Program.usuarioLog.IdPersona).IDPlan);
                 this.DialogResult = DialogResult.OK; 
             }
             else

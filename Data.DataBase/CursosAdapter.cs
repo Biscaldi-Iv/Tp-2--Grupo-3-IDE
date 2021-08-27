@@ -119,5 +119,27 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+        public List<Curso> getbyEspecialidad(int idPlan)
+        {
+            List<Curso> cursos = new List<Curso>();
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_curso], [cursos].[id_materia],[cursos].[id_comision], [anio_calendario], [cupo], [desc_materia], [desc_comision]" +
+                " FROM [Academia].[dbo].[cursos] inner join [Academia].[dbo].[comisiones] " +
+                "on [cursos].[id_comision]= [comisiones].[id_comision] " +
+                "inner join [Academia].[dbo].[materias] " +
+                "on [cursos].[id_materia]= [materias].[id_materia]" +
+                " inner join [Academia].[dbo].[planes]" +
+                " on [materias].[id_plan]= [planes].[id_plan] " +
+                $"where [planes].[id_planes]= {idPlan}");
+            while (reader.Read())
+            {
+                string descripcion = $"{reader.GetString(5)}-{reader.GetString(6)} ({reader.GetInt32(3)})";
+                Curso curso = new Curso(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), descripcion);
+                cursos.Add(curso);
+            }
+            reader.Close();
+            this.CloseConnection();
+            return cursos;
+        }
     }
 }
