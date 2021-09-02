@@ -81,6 +81,7 @@ namespace UI.Desktop
             this.tlCursos.Controls.Add(this.dgvCursos, 0, 0);
             this.tlCursos.Controls.Add(this.btnSalir, 1, 1);
             this.tlCursos.Controls.Add(this.btnActualizar, 0, 1);
+            this.tlCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlCursos.Location = new System.Drawing.Point(0, 0);
             this.tlCursos.Name = "tlCursos";
             this.tlCursos.RowCount = 2;
@@ -113,28 +114,35 @@ namespace UI.Desktop
             // 
             this.Id.DataPropertyName = "ID";
             this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 60;
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.Width = 85;
             // 
             // Descripcion
             // 
             this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Descripcion.DataPropertyName = "Descripcion";
             this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 185;
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             // 
             // Materia
             // 
+            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Materia.DataPropertyName = "IDMateria";
             this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 120;
             this.Materia.Name = "Materia";
             this.Materia.ReadOnly = true;
             // 
             // Comision
             // 
+            this.Comision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Comision.DataPropertyName = "IDComision";
             this.Comision.HeaderText = "Comision";
+            this.Comision.MinimumWidth = 85;
             this.Comision.Name = "Comision";
             this.Comision.ReadOnly = true;
             // 
@@ -142,13 +150,17 @@ namespace UI.Desktop
             // 
             this.Año.DataPropertyName = "AnioCalendario";
             this.Año.HeaderText = "Año";
+            this.Año.MinimumWidth = 85;
             this.Año.Name = "Año";
             this.Año.ReadOnly = true;
+            this.Año.Width = 85;
             // 
             // Cupo
             // 
+            this.Cupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Cupo.DataPropertyName = "Cupo";
             this.Cupo.HeaderText = "Cupo";
+            this.Cupo.MinimumWidth = 85;
             this.Cupo.Name = "Cupo";
             this.Cupo.ReadOnly = true;
             // 
@@ -245,8 +257,8 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 475);
             this.Controls.Add(this.toolStripContainer1);
-            this.MaximumSize = new System.Drawing.Size(816, 514);
-            this.MinimumSize = new System.Drawing.Size(816, 514);
+            this.MaximumSize = new System.Drawing.Size(1616, 914);
+            this.MinimumSize = new System.Drawing.Size(616, 214);
             this.Name = "Cursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
@@ -271,17 +283,17 @@ namespace UI.Desktop
         private System.Windows.Forms.DataGridView dgvCursos;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
         private System.Windows.Forms.ToolStrip tsABMC;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbVer;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Año;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
     }
 }

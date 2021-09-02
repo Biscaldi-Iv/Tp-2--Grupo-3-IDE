@@ -271,6 +271,7 @@ namespace UI.Desktop
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(708, 225);
             this.Controls.Add(this.toolStripContainer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "PersonaDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

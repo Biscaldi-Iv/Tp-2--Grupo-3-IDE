@@ -47,7 +47,7 @@ namespace UI.Desktop
             this.tlEspecialidadesDesktop.ColumnCount = 3;
             this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.10938F));
             this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.89063F));
-            this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tlEspecialidadesDesktop.Controls.Add(this.btnGuardar, 3, 2);
             this.tlEspecialidadesDesktop.Controls.Add(this.btnCancelar, 1, 2);
             this.tlEspecialidadesDesktop.Controls.Add(this.label1, 0, 1);
@@ -78,7 +78,7 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(355, 124);
+            this.btnCancelar.Location = new System.Drawing.Point(354, 124);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -90,7 +90,7 @@ namespace UI.Desktop
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 72);
+            this.label1.Location = new System.Drawing.Point(7, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 15);
             this.label1.TabIndex = 2;
@@ -101,7 +101,7 @@ namespace UI.Desktop
             // 
             this.tboxEspecialidad.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tlEspecialidadesDesktop.SetColumnSpan(this.tboxEspecialidad, 2);
-            this.tboxEspecialidad.Location = new System.Drawing.Point(164, 68);
+            this.tboxEspecialidad.Location = new System.Drawing.Point(163, 68);
             this.tboxEspecialidad.Name = "tboxEspecialidad";
             this.tboxEspecialidad.Size = new System.Drawing.Size(332, 23);
             this.tboxEspecialidad.TabIndex = 3;
@@ -110,7 +110,7 @@ namespace UI.Desktop
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 17);
+            this.label2.Location = new System.Drawing.Point(136, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(21, 15);
             this.label2.TabIndex = 4;
@@ -120,7 +120,7 @@ namespace UI.Desktop
             // 
             this.tboxId.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tlEspecialidadesDesktop.SetColumnSpan(this.tboxId, 2);
-            this.tboxId.Location = new System.Drawing.Point(164, 13);
+            this.tboxId.Location = new System.Drawing.Point(163, 13);
             this.tboxId.Name = "tboxId";
             this.tboxId.ReadOnly = true;
             this.tboxId.Size = new System.Drawing.Size(332, 23);
@@ -132,6 +132,7 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 148);
             this.Controls.Add(this.tlEspecialidadesDesktop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EspecialidadesDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidad";
