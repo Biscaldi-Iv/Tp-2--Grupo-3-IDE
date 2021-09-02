@@ -11,6 +11,7 @@ namespace UI.Desktop
     {
         public static Usuario usuarioLog;
         public static TipoPersonas tipo;
+        public static Plan plan;
 
         /// <summary>
         ///  The main entry point for the application.

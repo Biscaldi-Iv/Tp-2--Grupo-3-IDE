@@ -73,5 +73,17 @@ namespace UI.Desktop
         {
             Notificar("Advertencia", "No disponible", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void Cursos_Load(object sender, EventArgs e)
+        {
+            switch (Program.tipo.Descripcion)
+            {
+                case "Alumno":
+                    {
+                        this.tsABMC.Hide();
+                        break;
+                    }                
+            }
+        }
     }
 }
