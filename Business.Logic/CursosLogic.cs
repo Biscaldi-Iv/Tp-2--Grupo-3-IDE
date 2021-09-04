@@ -105,5 +105,17 @@ namespace Business.Logic
                 throw new Exception(e.Message);
             }
         }
+
+        public List<Curso> getCursosDisponibles(int idPlan, int idAlumno)
+        {
+            try
+            {
+                return new CursosAdapter().getCursosDisponibles(idPlan, idAlumno);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
