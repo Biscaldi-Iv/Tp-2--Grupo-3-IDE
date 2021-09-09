@@ -132,5 +132,13 @@ namespace UI.Desktop
             frminscripcion.ShowDialog();
             Program.menu.Show();
         }
+
+        private void misCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Inscripciones frminscripcion = new Inscripciones(ApplicationForm.ModoForm.Consulta);
+            frminscripcion.ShowDialog();
+            Program.menu.Show();
+        }
     }
 }

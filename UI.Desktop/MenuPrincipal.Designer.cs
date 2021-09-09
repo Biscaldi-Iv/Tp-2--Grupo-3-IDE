@@ -46,6 +46,7 @@ namespace UI.Desktop
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inscripcionACursadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.misCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -214,7 +215,8 @@ namespace UI.Desktop
             // alumnosToolStripMenuItem
             // 
             this.alumnosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inscripcionACursadoToolStripMenuItem});
+            this.inscripcionACursadoToolStripMenuItem,
+            this.misCursosToolStripMenuItem});
             this.alumnosToolStripMenuItem.Enabled = false;
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
             this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
@@ -226,6 +228,13 @@ namespace UI.Desktop
             this.inscripcionACursadoToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.inscripcionACursadoToolStripMenuItem.Text = "Inscripcion a cursado";
             this.inscripcionACursadoToolStripMenuItem.Click += new System.EventHandler(this.inscripcionACursadoToolStripMenuItem_Click);
+            // 
+            // misCursosToolStripMenuItem
+            // 
+            this.misCursosToolStripMenuItem.Name = "misCursosToolStripMenuItem";
+            this.misCursosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.misCursosToolStripMenuItem.Text = "Mis cursos";
+            this.misCursosToolStripMenuItem.Click += new System.EventHandler(this.misCursosToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -271,5 +280,6 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inscripcionACursadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem misCursosToolStripMenuItem;
     }
 }

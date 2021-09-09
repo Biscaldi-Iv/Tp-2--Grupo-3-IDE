@@ -37,6 +37,14 @@ namespace UI.Desktop
                         break;
                     }
                 //modo consulta para ver las materias en las que se esta inscripto
+                case ModoForm.Consulta:
+                    {
+                        //this.dgvCursos.DataSource = this.cl.getCursosInscripto(Program.plan.ID, Program.usuarioLog.IdPersona);
+                        //this.dgvCursos.Columns.RemoveAt(2);
+                        //generar columna nota
+                        //ver si hay que unir 2 objetos usando linq e implementar alumnoinscriptcion en logic y adapter
+                        break;
+                    }
                 //modo baja para eliminar la inscripcion
             }
         }
@@ -48,7 +56,12 @@ namespace UI.Desktop
 
         private void dgvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Notificar("Curso", ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).Descripcion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (MessageBox.Show("Inscripcion a cursado", "Desea inscribirse a: " + ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).Descripcion,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.cl.Inscribirse(Program.usuarioLog.IdPersona ,((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID);
+                this.Listar();
+            }
         }
     }
 }

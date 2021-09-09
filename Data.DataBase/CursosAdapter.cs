@@ -193,6 +193,30 @@ namespace Data.Database
             return cursos;
         }
 
+        public void Inscribirse(int IdAlumno, int IdCurso)
+        {
+            try
+            {
+                SqlCommand cmdInscripcion = new SqlCommand("INSERT INTO [Academia].[dbo].[alumnos_inscripciones] " +
+                        "(id_alumno, id_curso, condicion) " +
+                        "VALUES  (@alumno, @curso, @condicion)", sqlConnection);
+                cmdInscripcion.Parameters.Add("@alumno", System.Data.SqlDbType.Int).Value = IdAlumno;
+                cmdInscripcion.Parameters.Add("@curso", System.Data.SqlDbType.Int).Value = IdCurso;
+                cmdInscripcion.Parameters.Add("@condicion", System.Data.SqlDbType.VarChar).Value = "Inscripto";
+                this.OpenConnection();
+                cmdInscripcion.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            
+        }
+
 
     }
 }
