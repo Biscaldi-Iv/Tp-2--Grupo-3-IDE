@@ -56,5 +56,6 @@ namespace Data.Database
             SqlDataReader reader = comando.ExecuteReader();
             return reader;
         }
+      
     }
 }

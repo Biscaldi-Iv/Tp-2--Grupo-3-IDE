@@ -41,13 +41,10 @@ namespace UI.Desktop
                         }
                     case "Docente":
                         {
-                            aBMCToolStripMenuItem.Enabled = false;
-                            alumnosToolStripMenuItem.Enabled = false;
                             break;
                         }
                     case "Alumno":
-                        {
-                            aBMCToolStripMenuItem.Enabled = false;
+                        {                            
                             alumnosToolStripMenuItem.Enabled = true;
                             break;
                         }
@@ -105,6 +102,7 @@ namespace UI.Desktop
             cerrarSesionToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = true;
             aBMCToolStripMenuItem.Enabled = false;
+            alumnosToolStripMenuItem.Enabled = false;
             Program.usuarioLog = null;
             Program.tipo = null;
         }

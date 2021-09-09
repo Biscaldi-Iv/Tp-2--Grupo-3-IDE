@@ -156,7 +156,8 @@ namespace Data.Database
                 $"where [planes].[id_plan]= {idPlan} and [cursos].id_curso NOT IN " +
                 "(select [cursos].id_curso from [cursos] inner join [alumnos_inscripciones] " +
                 "on [cursos].id_curso = [alumnos_inscripciones].id_curso " +
-                $"where [alumnos_inscripciones].id_alumno={idAlumno})");
+                $"where [alumnos_inscripciones].id_alumno={idAlumno}) " +
+                $"AND [cursos].[cupo] >= 1");
             while (reader.Read())
             {
                 string descripcion = $"{reader.GetString(5)}-{reader.GetString(6)} ({reader.GetInt32(3)})";

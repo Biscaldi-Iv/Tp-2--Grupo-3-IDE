@@ -15,12 +15,14 @@ namespace UI.Desktop
     public partial class Inscripciones : ApplicationForm
     {
         private CursosLogic cl;
+        private AlumnoInscripcionLogic aiL;
         
         public Inscripciones(ModoForm modo)
         {
             InitializeComponent();
             this.Modo = modo;
             this.cl = new CursosLogic();
+            this.aiL = new AlumnoInscripcionLogic();
             this.Listar();
 
         }
@@ -59,7 +61,7 @@ namespace UI.Desktop
             if (MessageBox.Show("Inscripcion a cursado", "Desea inscribirse a: " + ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).Descripcion,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
-                this.cl.Inscribirse(Program.usuarioLog.IdPersona ,((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID);
+                this.aiL.Inscribirse(Program.usuarioLog.IdPersona ,((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID);
                 this.Listar();
             }
         }
