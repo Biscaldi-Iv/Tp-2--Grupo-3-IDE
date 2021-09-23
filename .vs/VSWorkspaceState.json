@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\UI.Desktop"
+    "\\UI.Desktop",
+    "\\UI.Web",
+    "\\UI.Web\\App_Start"
   ],
-  "SelectedNode": "\\UI.Desktop\\Inscripciones.cs",
+  "SelectedNode": "\\UI.Web\\App_Start\\RouteConfig.cs",
   "PreviewInSolutionExplorer": false
 }

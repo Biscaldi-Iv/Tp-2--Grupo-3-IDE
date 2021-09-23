@@ -16,11 +16,11 @@ namespace UI.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        /*public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -38,6 +38,17 @@ namespace UI.Web
                 );
                 endpoints.MapRazorPages();
             });
+        }*/
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseDeveloperExceptionPage();
+            app.UseMvc(config =>
+            {
+                config.MapRoute("Default", "{controller}/{action}/{id?}",
+                    new { controller = "Home", action = "Index" });
+            });
         }
+        // Entry point for the application.
+        //public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }

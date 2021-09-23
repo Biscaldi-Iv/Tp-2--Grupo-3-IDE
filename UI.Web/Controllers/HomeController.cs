@@ -8,6 +8,7 @@ namespace UI.Web.Controllers
 {
     public class HomeController : Controller
     {
+        [Route("Home Page")]
         public IActionResult Index()
         {
             return View();
