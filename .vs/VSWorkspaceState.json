@@ -4,6 +4,10 @@
     "\\Data.DataBase",
     "\\UI.Desktop"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\UI.Desktop\\UsuarioDesktop.cs",
+=======
+  "SelectedNode": "\\UI.Desktop\\Cursos.cs",
+>>>>>>> 3f43f1c9e6101aedfee1aca709323a1b3c5ebdb0
   "PreviewInSolutionExplorer": false
 }

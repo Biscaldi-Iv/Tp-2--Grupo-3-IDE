@@ -113,10 +113,10 @@ namespace UI.Desktop
             this.Column1.DataPropertyName = "ID";
             this.Column1.FillWeight = 91.37056F;
             this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 26;
+            this.Column1.MinimumWidth = 80;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 26;
+            this.Column1.Width = 85;
             // 
             // Column2
             // 
@@ -124,7 +124,7 @@ namespace UI.Desktop
             this.Column2.DataPropertyName = "Descripcion";
             this.Column2.FillWeight = 91.37056F;
             this.Column2.HeaderText = "Descripcion";
-            this.Column2.MinimumWidth = 80;
+            this.Column2.MinimumWidth = 200;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -133,7 +133,7 @@ namespace UI.Desktop
             this.Column3.DataPropertyName = "HsSemanales";
             this.Column3.FillWeight = 91.37056F;
             this.Column3.HeaderText = "Horas Semanales";
-            this.Column3.MinimumWidth = 40;
+            this.Column3.MinimumWidth = 100;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 120;
@@ -143,7 +143,7 @@ namespace UI.Desktop
             this.Column4.DataPropertyName = "HsTotales";
             this.Column4.FillWeight = 91.37056F;
             this.Column4.HeaderText = "Horas Totales";
-            this.Column4.MinimumWidth = 40;
+            this.Column4.MinimumWidth = 100;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 120;
@@ -152,6 +152,7 @@ namespace UI.Desktop
             // 
             this.Plan.DataPropertyName = "IDPlan";
             this.Plan.HeaderText = "Plan";
+            this.Plan.MinimumWidth = 80;
             this.Plan.Name = "Plan";
             this.Plan.ReadOnly = true;
             // 
@@ -225,6 +226,7 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.toolStripContainer1);
+            this.MinimumSize = new System.Drawing.Size(670, 200);
             this.Name = "Materias";
             this.Text = "Materia";
             this.Load += new System.EventHandler(this.Materia_Load);

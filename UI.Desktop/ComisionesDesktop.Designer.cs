@@ -50,7 +50,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.92105F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.29268F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.68903F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanel1.Controls.Add(this.label_id_com, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtIDCom, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDesc, 1, 1);
@@ -74,7 +74,7 @@ namespace UI.Desktop
             // 
             this.label_id_com.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_id_com.AutoSize = true;
-            this.label_id_com.Location = new System.Drawing.Point(37, 23);
+            this.label_id_com.Location = new System.Drawing.Point(36, 23);
             this.label_id_com.Name = "label_id_com";
             this.label_id_com.Size = new System.Drawing.Size(72, 15);
             this.label_id_com.TabIndex = 0;
@@ -83,34 +83,34 @@ namespace UI.Desktop
             // txtIDCom
             // 
             this.txtIDCom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtIDCom.Location = new System.Drawing.Point(115, 19);
+            this.txtIDCom.Location = new System.Drawing.Point(114, 19);
             this.txtIDCom.Name = "txtIDCom";
             this.txtIDCom.ReadOnly = true;
-            this.txtIDCom.Size = new System.Drawing.Size(196, 23);
+            this.txtIDCom.Size = new System.Drawing.Size(195, 23);
             this.txtIDCom.TabIndex = 4;
             // 
             // txtDesc
             // 
             this.txtDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDesc.Location = new System.Drawing.Point(115, 84);
+            this.txtDesc.Location = new System.Drawing.Point(114, 84);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(196, 23);
+            this.txtDesc.Size = new System.Drawing.Size(195, 23);
             this.txtDesc.TabIndex = 6;
             // 
             // txt_anio_Esp
             // 
             this.txt_anio_Esp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txt_anio_Esp, 2);
-            this.txt_anio_Esp.Location = new System.Drawing.Point(436, 84);
+            this.txt_anio_Esp.Location = new System.Drawing.Point(434, 84);
             this.txt_anio_Esp.Name = "txt_anio_Esp";
-            this.txt_anio_Esp.Size = new System.Drawing.Size(303, 23);
+            this.txt_anio_Esp.Size = new System.Drawing.Size(305, 23);
             this.txt_anio_Esp.TabIndex = 7;
             // 
             // anio_especialidad
             // 
             this.anio_especialidad.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.anio_especialidad.AutoSize = true;
-            this.anio_especialidad.Location = new System.Drawing.Point(333, 88);
+            this.anio_especialidad.Location = new System.Drawing.Point(331, 88);
             this.anio_especialidad.Name = "anio_especialidad";
             this.anio_especialidad.Size = new System.Drawing.Size(97, 15);
             this.anio_especialidad.TabIndex = 3;
@@ -120,7 +120,7 @@ namespace UI.Desktop
             // 
             this.labelDesc.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelDesc.AutoSize = true;
-            this.labelDesc.Location = new System.Drawing.Point(40, 88);
+            this.labelDesc.Location = new System.Drawing.Point(39, 88);
             this.labelDesc.Name = "labelDesc";
             this.labelDesc.Size = new System.Drawing.Size(69, 15);
             this.labelDesc.TabIndex = 1;
@@ -130,7 +130,7 @@ namespace UI.Desktop
             // 
             this.label_id_plan.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label_id_plan.AutoSize = true;
-            this.label_id_plan.Location = new System.Drawing.Point(400, 23);
+            this.label_id_plan.Location = new System.Drawing.Point(398, 23);
             this.label_id_plan.Name = "label_id_plan";
             this.label_id_plan.Size = new System.Drawing.Size(30, 15);
             this.label_id_plan.TabIndex = 2;
@@ -150,7 +150,7 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(575, 170);
+            this.btnCancelar.Location = new System.Drawing.Point(572, 170);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 8;
@@ -164,9 +164,9 @@ namespace UI.Desktop
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxPlan, 2);
             this.comboBoxPlan.DisplayMember = "Descripcion";
             this.comboBoxPlan.FormattingEnabled = true;
-            this.comboBoxPlan.Location = new System.Drawing.Point(436, 19);
+            this.comboBoxPlan.Location = new System.Drawing.Point(434, 19);
             this.comboBoxPlan.Name = "comboBoxPlan";
-            this.comboBoxPlan.Size = new System.Drawing.Size(303, 23);
+            this.comboBoxPlan.Size = new System.Drawing.Size(305, 23);
             this.comboBoxPlan.TabIndex = 10;
             this.comboBoxPlan.ValueMember = "ID";
             // 
@@ -176,6 +176,7 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 196);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ComisionesDesktop";
             this.Text = "Comision";
             this.tableLayoutPanel1.ResumeLayout(false);

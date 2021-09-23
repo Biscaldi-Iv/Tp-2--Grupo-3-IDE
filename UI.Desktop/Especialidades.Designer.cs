@@ -34,8 +34,6 @@ namespace UI.Desktop
             this.tscEspecialidades = new System.Windows.Forms.ToolStripContainer();
             this.tlEspecialidades = new System.Windows.Forms.TableLayoutPanel();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            this.Id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsEspecialidades = new System.Windows.Forms.ToolStrip();
@@ -43,6 +41,8 @@ namespace UI.Desktop
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.Id_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc_especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscEspecialidades.ContentPanel.SuspendLayout();
             this.tscEspecialidades.TopToolStripPanel.SuspendLayout();
             this.tscEspecialidades.SuspendLayout();
@@ -67,11 +67,11 @@ namespace UI.Desktop
             // 
             this.tscEspecialidades.ContentPanel.Controls.Add(this.tlEspecialidades);
             this.tscEspecialidades.ContentPanel.Controls.Add(this.tsEspecialidades);
-            this.tscEspecialidades.ContentPanel.Size = new System.Drawing.Size(661, 451);
+            this.tscEspecialidades.ContentPanel.Size = new System.Drawing.Size(584, 286);
             this.tscEspecialidades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tscEspecialidades.Location = new System.Drawing.Point(0, 0);
             this.tscEspecialidades.Name = "tscEspecialidades";
-            this.tscEspecialidades.Size = new System.Drawing.Size(661, 476);
+            this.tscEspecialidades.Size = new System.Drawing.Size(584, 311);
             this.tscEspecialidades.TabIndex = 3;
             this.tscEspecialidades.Text = "toolStripContainer1";
             // 
@@ -94,7 +94,7 @@ namespace UI.Desktop
             this.tlEspecialidades.RowCount = 2;
             this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlEspecialidades.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlEspecialidades.Size = new System.Drawing.Size(661, 451);
+            this.tlEspecialidades.Size = new System.Drawing.Size(584, 286);
             this.tlEspecialidades.TabIndex = 1;
             // 
             // dgvEspecialidades
@@ -119,28 +119,13 @@ namespace UI.Desktop
             this.dgvEspecialidades.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvEspecialidades.RowTemplate.Height = 25;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(655, 416);
+            this.dgvEspecialidades.Size = new System.Drawing.Size(578, 251);
             this.dgvEspecialidades.TabIndex = 0;
-            // 
-            // Id_especialidad
-            // 
-            this.Id_especialidad.DataPropertyName = "ID";
-            this.Id_especialidad.HeaderText = "Id";
-            this.Id_especialidad.Name = "Id_especialidad";
-            this.Id_especialidad.ReadOnly = true;
-            // 
-            // desc_especialidad
-            // 
-            this.desc_especialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.desc_especialidad.DataPropertyName = "Descripcion";
-            this.desc_especialidad.HeaderText = "Especialidad";
-            this.desc_especialidad.Name = "desc_especialidad";
-            this.desc_especialidad.ReadOnly = true;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(502, 425);
+            this.btnActualizar.Location = new System.Drawing.Point(425, 260);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(75, 23);
             this.btnActualizar.TabIndex = 1;
@@ -150,7 +135,7 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(583, 425);
+            this.btnSalir.Location = new System.Drawing.Point(506, 260);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 2;
@@ -212,13 +197,32 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // Id_especialidad
+            // 
+            this.Id_especialidad.DataPropertyName = "ID";
+            this.Id_especialidad.HeaderText = "Id";
+            this.Id_especialidad.MinimumWidth = 80;
+            this.Id_especialidad.Name = "Id_especialidad";
+            this.Id_especialidad.ReadOnly = true;
+            this.Id_especialidad.Width = 85;
+            // 
+            // desc_especialidad
+            // 
+            this.desc_especialidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.desc_especialidad.DataPropertyName = "Descripcion";
+            this.desc_especialidad.HeaderText = "Especialidad";
+            this.desc_especialidad.MinimumWidth = 200;
+            this.desc_especialidad.Name = "desc_especialidad";
+            this.desc_especialidad.ReadOnly = true;
+            // 
             // FormListaEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 476);
+            this.ClientSize = new System.Drawing.Size(584, 311);
             this.Controls.Add(this.tscEspecialidades);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "FormListaEspecialidades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidades";
@@ -247,11 +251,11 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip tsEspecialidades;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_especialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desc_especialidad;
         private System.Windows.Forms.ToolStrip toolStripEsp;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_especialidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn desc_especialidad;
     }
 }

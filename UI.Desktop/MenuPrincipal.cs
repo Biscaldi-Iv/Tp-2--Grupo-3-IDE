@@ -36,16 +36,16 @@ namespace UI.Desktop
                     case "Administrador":
                         {
                             aBMCToolStripMenuItem.Enabled = true;
+                            alumnosToolStripMenuItem.Enabled = true;
                             break;
                         }
                     case "Docente":
                         {
-                            aBMCToolStripMenuItem.Enabled = false;
                             break;
                         }
                     case "Alumno":
-                        {
-                            aBMCToolStripMenuItem.Enabled = false;
+                        {                            
+                            alumnosToolStripMenuItem.Enabled = true;
                             break;
                         }
                     default: break;
@@ -102,6 +102,7 @@ namespace UI.Desktop
             cerrarSesionToolStripMenuItem.Enabled = false;
             loginToolStripMenuItem.Enabled = true;
             aBMCToolStripMenuItem.Enabled = false;
+            alumnosToolStripMenuItem.Enabled = false;
             Program.usuarioLog = null;
             Program.tipo = null;
         }
@@ -119,6 +120,22 @@ namespace UI.Desktop
             Program.menu.Hide();
             Cursos frmCursos = new Cursos();
             frmCursos.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void inscripcionACursadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Inscripciones frminscripcion = new Inscripciones(ApplicationForm.ModoForm.Alta);
+            frminscripcion.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void misCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            Inscripciones frminscripcion = new Inscripciones(ApplicationForm.ModoForm.Consulta);
+            frminscripcion.ShowDialog();
             Program.menu.Show();
         }
     }
