@@ -23,12 +23,28 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddMemoryCache();  //pendiente ver diferencias
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options => {
+                //options.IdleTimeout = TimeSpan.FromMinutes(30);  //para correr pagina
+                options.IdleTimeout = TimeSpan.FromSeconds(10);    //para pruebas
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+                options.Cookie.Name = ".Academia.Session";
+            });
+
+            //services.AddMvc(options => options.EnableEndpointRouting = false);
+
             services.AddControllersWithViews();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //el orden es importante*
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -42,15 +58,28 @@ namespace WebApplication1
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //ver diferencias con endpoints *
+            /*app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+            });*/
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }
