@@ -27,8 +27,8 @@ namespace WebApplication1
             services.AddDistributedMemoryCache();
 
             services.AddSession(options => {
-                //options.IdleTimeout = TimeSpan.FromMinutes(30);  //para correr pagina
-                options.IdleTimeout = TimeSpan.FromSeconds(10);    //para pruebas
+                options.IdleTimeout = TimeSpan.FromMinutes(30);  //para correr pagina
+                //options.IdleTimeout = TimeSpan.FromSeconds(10);    //para pruebas
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
                 options.Cookie.Name = ".Academia.Session";

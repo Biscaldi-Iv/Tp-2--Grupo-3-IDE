@@ -10,7 +10,7 @@ using WebApplication1.Models;
 using Business.Entities;
 using Newtonsoft.Json;
 
-namespace WebApplication1.Controllers
+namespace UI.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -23,18 +23,29 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            try
+            if (Models.SessionHepler.Sessionstate(HttpContext.Session))
             {
-                var userstr = HttpContext.Session.GetString("usuario");
-                Usuario u = (Usuario)JsonConvert.DeserializeObject<Usuario>(userstr);
-                ViewBag.usuario = u.NombreUsuario;
+                try
+                {
+                    Usuario u = Models.SessionHepler.GetUsuario(HttpContext.Session);
+                    ViewBag.usuario = u.NombreUsuario;
 
-            } catch(Exception)
+                    TipoPersonas tp = Models.SessionHepler.GetTipoPersona(HttpContext.Session);
+                    ViewBag.tipo = tp.Descripcion;
+
+                }
+                catch (Exception)
+                {
+                    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                }
+
+                return View();
+            }
+            else
             {
-                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                return RedirectToAction("Index", "Acceso");
             }
             
-            return View();
         }
 
         public IActionResult Privacy()

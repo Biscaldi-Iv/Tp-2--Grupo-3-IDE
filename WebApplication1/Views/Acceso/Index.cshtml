@@ -6,20 +6,21 @@
 }
 
 <div class="text-center">
-    <div class="form-row">
+    <div class="form-signin">
         <link href="~/css/signin.css" rel="stylesheet" />
 
-        <form id="frmlogin" method="post" asp-area="" asp-controller="Acceso" asp-action="Load">
+        <form id="frmlogin" method="post" asp-area="" asp-controller="Acceso" asp-action="StartSession">
             <h1>Iniciar Sesion</h1>
             <div class="form-floating">
-                <input id="NombreUsuario" name="NombreUsuario" type="text" class="form-control" />
+                <input id="NombreUsuario" name="NombreUsuario" type="text" class="form-control" required />
                 <label for="username">Nombre de Usuario</label>
             </div>
             <div class="form-floating">
-                <input id="Contraseña" name="Contraseña" type="password" class="form-control" />
+                <input id="Contraseña" name="Contraseña" type="password" class="form-control" required />
                 <label for="Contraseña">Contraseña</label>
             </div>
             <input id="Submit1" type="submit" value="Entrar" class="w-100 btn btn-lg btn-primary" />
         </form>
     </div>
 </div>
+<link rel="stylesheet" href="~/css/signin.css" />

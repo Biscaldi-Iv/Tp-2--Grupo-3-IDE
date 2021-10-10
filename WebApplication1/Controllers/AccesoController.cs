@@ -4,9 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Business.Entities;
-using Business.Logic;
-using Newtonsoft.Json;
+
 
 namespace UI.Web.Controllers
 {
@@ -14,17 +12,30 @@ namespace UI.Web.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            
+            if (Models.SessionHepler.Sessionstate(HttpContext.Session))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         [HttpPost]
-        public ActionResult Load(string nombreusuario, string contraseña)
+        public ActionResult StartSession(string nombreusuario, string contraseña)
         {
-            UsuarioLogic ul = new UsuarioLogic();
-            Usuario usr = ul.RecuperarUsuario(nombreusuario, contraseña);
-            var struser = JsonConvert.SerializeObject(usr);
-            HttpContext.Session.SetString("usuario", struser);
+            Models.SessionHepler.IniciarSesion(HttpContext.Session, nombreusuario, contraseña);
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult SessionClose()
+        {
+            HttpContext.Session.Clear();
+            
+            return RedirectToAction("Index");
         }
     }
 }
