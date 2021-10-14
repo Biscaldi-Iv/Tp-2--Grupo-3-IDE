@@ -17,8 +17,35 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                     @await RenderSectionAsync("MenuOptions", required: false)
-                    </div>
+                    @{
+                        if ((string)ViewData["Title"] != "Acceso")
+                        {
+                            <div class="collapse navbar-collapse" id="navbarsExample02">
+                                <ul class="navbar-nav me-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                    </li>
+                                    @switch (@ViewBag.tipo)
+                                    {
+                                    case "Administrador":
+                                    {
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a>
+                                    </li>
+                                    break;
+                                    }
+                                    case "Alumno": { break; }
+                                    case "Docente": { break; }
+                                    }
+                                </ul>
+                                <a class="nav-link px-3" asp-area="" asp-controller="Acceso" asp-action="SessionClose">Cerrar Sesion</a>
+                            </div>
+                        }
+                    }
+                </div>
             </nav>
         
         </header>

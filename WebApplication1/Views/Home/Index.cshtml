@@ -10,33 +10,3 @@
 
 
 </div>
-
-
-@section MenuOptions{ 
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </li>
-
-            @{
-                switch (@ViewBag.tipo)
-                {
-                    case "Administrador":
-                        {
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a>
-                        </li>
-                            break;
-                        }
-                    case "Alumno": { break; }
-                    case "Docente": { break; }
-                }
-            }
-        </ul>
-        <a class="nav-link px-3" asp-area="" asp-controller="Acceso" asp-action="SessionClose">Cerrar Sesion</a>
-    </div>
-}
