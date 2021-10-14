@@ -24,7 +24,8 @@ namespace UI.Web.Controllers
         }
 
         public IActionResult Index()
-        {            
+        {         
+            // HOLA
                 try
                 {
                     Usuario u = Models.SessionHepler.GetUsuario(HttpContext.Session);
