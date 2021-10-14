@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using WebApplication1.Models;
 using Business.Entities;
 using Newtonsoft.Json;
+using UI.Web.Filters;
 
 namespace UI.Web.Controllers
 {
+    [TypeFilter(typeof(authFilter))]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -22,9 +24,7 @@ namespace UI.Web.Controllers
         }
 
         public IActionResult Index()
-        {
-            if (Models.SessionHepler.Sessionstate(HttpContext.Session))
-            {
+        {            
                 try
                 {
                     Usuario u = Models.SessionHepler.GetUsuario(HttpContext.Session);
@@ -39,13 +39,7 @@ namespace UI.Web.Controllers
                     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
                 }
 
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Index", "Acceso");
-            }
-            
+                return View();                       
         }
 
         public IActionResult Privacy()

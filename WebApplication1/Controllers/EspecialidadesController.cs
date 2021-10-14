@@ -5,9 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Entities;
 using Business.Logic;
+using UI.Web.Filters;
 
 namespace UI.Web.Controllers
 {
+    [TypeFilter(typeof(authFilter))]
     public class EspecialidadesController : Controller
     {
         public IActionResult Index()
