@@ -15,5 +15,24 @@ namespace UI.Web.Controllers
             //chequear session o agregar chequeo a config(ver) para que envie a acceso
             return View();
         }
+
+        public IActionResult nuevo(string descripcion1)
+        {
+            EspecialidadLogic eL = new EspecialidadLogic();
+            Especialidad e = new Especialidad(0, descripcion1);
+            try
+            {
+                eL.AddNew(e);
+            }
+            catch(Exception ex)
+            {
+                string msgerror = "No se registra la especialidad: " + ex.Message;
+                ViewBag.msgerror = msgerror;
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+            
+        }
+
     }
 }
