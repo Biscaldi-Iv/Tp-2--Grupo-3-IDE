@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace UI.Web.Controllers
     {
         public IActionResult Index()
         {
+            TipoPersonas tp = Models.SessionHepler.GetTipoPersona(HttpContext.Session);
+            ViewBag.tipo = tp.Descripcion;
             return View();
         }
     }

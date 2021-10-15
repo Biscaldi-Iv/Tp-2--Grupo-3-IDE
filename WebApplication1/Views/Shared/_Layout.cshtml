@@ -33,8 +33,17 @@
                                     case "Administrador":
                                     {
                                     <li class="nav-item">
-                                        <a class="nav-link text-light" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a>
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                                                Administracion
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
+                                                <li><a class="dropdown-item" asp-area="" asp-controller="Comisiones" asp-action="Index">Comisiones</a></li>
+                                            </ul>
+                                        </div>
                                     </li>
+
                                     break;
                                     }
                                     case "Alumno": { break; }
