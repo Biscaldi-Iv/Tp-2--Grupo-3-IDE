@@ -26,6 +26,10 @@ namespace UI.Web.Controllers
             (comis.ID, comis.Descripcion, pls.Descripcion, comis.AnioEspecialidad, pls.ID);
             ViewBag.comisiones = coms;
             ViewBag.planes = planes;
+            if (TempData.ContainsKey("msgerror"))
+            {
+                ViewBag.msgerror = TempData["msgerror"].ToString();
+            }
             return View();
         }
 
@@ -34,7 +38,14 @@ namespace UI.Web.Controllers
         {
             ComisionLogic cl = new ComisionLogic();
             Comision c = new Comision(0, anio1, plan1, descCom1);
-            cl.AddNew(c);
+            try
+            {
+                cl.AddNew(c);
+            }
+            catch (Exception ex)
+            {
+                TempData.Add("msgerror", "No se registaro la comision >> " + ex.Message);
+            }
             return RedirectToAction("Index");
         }
 
@@ -44,7 +55,14 @@ namespace UI.Web.Controllers
             //solucionar error de edicion porque no se selecciona plan
             ComisionLogic cl = new ComisionLogic();
             Comision c = new Comision(idCom2, anio2, plan2, descCom2);
-            cl.SaveChanges(c);
+            try
+            {
+                cl.SaveChanges(c);
+            }
+            catch (Exception ex)
+            {
+                TempData.Add("msgerror", "No se registararon los cambios >> "+ex.Message);
+            }
             return RedirectToAction("Index");
         }
 
@@ -52,7 +70,14 @@ namespace UI.Web.Controllers
         public IActionResult Eliminar(int idCom3)
         {
             ComisionLogic cl = new ComisionLogic();
-            cl.Delete(idCom3);
+            try
+            {
+                cl.Delete(idCom3);
+            }
+            catch (Exception ex)
+            {
+                TempData.Add("msgerror", "No fue posible eliminar la comision >> " + ex.Message);
+            }
             return RedirectToAction("Index");
         }
     }

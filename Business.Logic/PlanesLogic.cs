@@ -80,9 +80,9 @@ namespace Business.Logic
         {
             foreach (Plan pl in Planes)
             {
-                if (pl.Descripcion == p.Descripcion)
+                if (pl.Descripcion == p.Descripcion && pl.ID!=p.ID)
                 {
-                    throw new Exception("Ya existe un plan con el mismo nombre!"); // devuelve excepcion porque ya existe un plan con ese nombre
+                    throw new Exception("Logica: Ya existe un plan con el mismo nombre!"); // devuelve excepcion porque ya existe un plan con ese nombre
                 }
             }
             try
@@ -117,7 +117,7 @@ namespace Business.Logic
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception("Logica:"+e.Message);
             }
         }
     }

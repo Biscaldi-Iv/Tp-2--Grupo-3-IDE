@@ -16,6 +16,10 @@ namespace UI.Web.Controllers
         {
             TipoPersonas tp = Models.SessionHepler.GetTipoPersona(HttpContext.Session);
             ViewBag.tipo = tp.Descripcion;
+            if (TempData.ContainsKey("msgerror"))
+            {
+                ViewBag.msgerror = TempData["msgerror"].ToString();
+            }
             return View();
         }
 
@@ -31,7 +35,7 @@ namespace UI.Web.Controllers
             catch(Exception ex)
             {
                 string msgerror = "No se registra la especialidad: " + ex.Message;
-                ViewBag.msgerror = msgerror;
+                TempData.Add("msgerror", msgerror);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
@@ -50,7 +54,7 @@ namespace UI.Web.Controllers
             catch(Exception ex)
             {
                 string msgerror = "No se registra la especialidad: " + ex.Message;
-                ViewBag.msgerror = msgerror;
+                TempData.Add("msgerror", msgerror);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
@@ -67,7 +71,7 @@ namespace UI.Web.Controllers
             catch (Exception ex)
             {
                 string msgerror = "No se registra la especialidad: " + ex.Message;
-                ViewBag.msgerror = msgerror;
+                TempData.Add("msgerror", msgerror);
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
