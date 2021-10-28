@@ -55,12 +55,12 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.textCupo, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxMateria, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxComision, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxAnio, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 4, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -114,7 +114,7 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(544, 234);
+            this.btnCancelar.Location = new System.Drawing.Point(626, 234);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 4;
@@ -125,7 +125,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAceptar.Location = new System.Drawing.Point(626, 234);
+            this.btnAceptar.Location = new System.Drawing.Point(544, 234);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 5;
@@ -190,6 +190,7 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(704, 260);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

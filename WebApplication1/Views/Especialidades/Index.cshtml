@@ -1,0 +1,136 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @using Business.Entities;
+    @using Business.Logic;
+    @using System.Collections.Generic;
+
+
+    ViewData["Title"] = "Especialidades";
+
+    EspecialidadLogic espL = new EspecialidadLogic();
+}
+
+
+<table class="table table-dark table-hover" id="esp">
+    <th id="id">ID</th>
+    <th id="espec">Especialidad</th>
+    <th></th>
+    <th></th>
+        @{ 
+            foreach (Especialidad e in espL.GetAll())
+            {
+            <tr>
+                <td>@e.ID</td>
+                <td>@e.Descripcion</td>
+                <td>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modaleditar">
+                        Editar
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
+            }
+        }
+    
+</table>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcrear">
+    Registar especialidad
+</button>
+
+<div class="modal fade" id="modalcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Especialidades" asp-action="nuevo">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Registrar Especialidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="IdEspecialidad1" name="IdEspecialidad1" type="text" class="form-control" disabled="disabled" required />
+                    <label for="username">Id</label>
+                </div>
+                <div class="form-floating">
+                    <input id="descripcion1" name="descripcion1" type="text" class="form-control" required />
+                    <label for="username">Descripcion</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modaleditar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Especialidades" asp-action="guardarCambio">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Guardar cambios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="IdEspecialidad2" name="IdEspecialidad2" type="text" class="form-control" readonly="readonly" required />
+                    <label for="username">Id</label>
+                </div>
+                <div class="form-floating">
+                    <input id="descripcion2" name="descripcion2" type="text" class="form-control" required />
+                    <label for="username">Descripcion</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalborrar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Especialidades" asp-action="borrar">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="staticBackdropLiveLabel">Eliminar especialidad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="IdEspecialidad3" name="IdEspecialidad3" type="text" class="form-control" readonly="readonly" required />
+                    <label for="username">Id</label>
+                </div>
+                <div class="form-floating">
+                    <input id="descripcion3" name="descripcion3" type="text" class="form-control" readonly="readonly" required />
+                    <label for="username">Descripcion</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var table = document.getElementById('esp'), rIndex;
+    for (i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function () {
+            rIndex = this.rowsIndex;
+            document.getElementById('IdEspecialidad2').value = this.cells[0].innerHTML;
+            document.getElementById('IdEspecialidad3').value = this.cells[0].innerHTML;
+            document.getElementById('descripcion2').value = this.cells[1].innerHTML;
+            document.getElementById('descripcion3').value = this.cells[1].innerHTML;
+
+        };
+    }
+
+</script>

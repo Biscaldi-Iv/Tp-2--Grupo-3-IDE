@@ -39,7 +39,7 @@ namespace UI.Desktop
             this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsMateria = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +48,7 @@ namespace UI.Desktop
             this.toolStripContainer1.SuspendLayout();
             this.tlMateria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMateria)).BeginInit();
-            this.toolStrip1.SuspendLayout();
+            this.tsMateria.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -67,7 +67,7 @@ namespace UI.Desktop
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tsMateria);
             // 
             // tlMateria
             // 
@@ -178,17 +178,17 @@ namespace UI.Desktop
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // toolStrip1
+            // tsMateria
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMateria.Dock = System.Windows.Forms.DockStyle.None;
+            this.tsMateria.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(81, 25);
-            this.toolStrip1.TabIndex = 0;
+            this.tsMateria.Location = new System.Drawing.Point(3, 0);
+            this.tsMateria.Name = "tsMateria";
+            this.tsMateria.Size = new System.Drawing.Size(81, 25);
+            this.tsMateria.TabIndex = 0;
             // 
             // tsbNuevo
             // 
@@ -237,8 +237,8 @@ namespace UI.Desktop
             this.toolStripContainer1.PerformLayout();
             this.tlMateria.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMateria)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsMateria.ResumeLayout(false);
+            this.tsMateria.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -250,7 +250,7 @@ namespace UI.Desktop
         private System.Windows.Forms.DataGridView dgvMateria;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsMateria;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;

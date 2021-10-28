@@ -1,6 +1,7 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\Data.DataBase",
     "\\UI.Desktop"
   ],
@@ -9,5 +10,12 @@
 =======
   "SelectedNode": "\\UI.Desktop\\Cursos.cs",
 >>>>>>> 3f43f1c9e6101aedfee1aca709323a1b3c5ebdb0
+=======
+    "\\UI.Desktop",
+    "\\UI.Web",
+    "\\UI.Web\\App_Start"
+  ],
+  "SelectedNode": "\\UI.Web\\App_Start\\RouteConfig.cs",
+>>>>>>> 3ef426be8ff7d9d37a6b042d79017a16e551396a
   "PreviewInSolutionExplorer": false
 }

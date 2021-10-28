@@ -67,7 +67,7 @@ namespace Business.Logic
             {
             foreach (Comision c in Comisiones)
             {
-                if (c.Descripcion == com.Descripcion)
+                if (c.Descripcion == com.Descripcion && c.ID!=com.ID && c.IDPlan==com.IDPlan)
                 {
                     throw new Exception("Ya existe una comision con el mismo nombre!"); // devuelve excepcion porque ya existe una comision con ese nombre
                 }

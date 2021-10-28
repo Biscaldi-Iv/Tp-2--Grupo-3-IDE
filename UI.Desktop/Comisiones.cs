@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using Microsoft.Win32;
 
 namespace UI.Desktop
 {
@@ -21,7 +22,32 @@ namespace UI.Desktop
              this.oComision = new ComisionLogic();
              this.dgvComisiones.AutoGenerateColumns = false;
              this.dgvComisiones.DataSource = this.oComision.GetAll();
-         }
+             LoadTheme();
+             UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+             SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+             this.Disposed += new EventHandler(Form_Disposed);
+        }
+        private UserPreferenceChangedEventHandler UserPreferenceChanged;
+
+        private void Form_Disposed(object sender, EventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle)
+            {
+                LoadTheme();
+            }
+        }
+
+        private void LoadTheme()
+        {
+            var themeColor = WinTema.GetAccentColor();
+            tcComisiones.TopToolStripPanel.BackColor = themeColor;
+            tscComisiones.BackColor = themeColor;            
+        }
         public void Listar()
         {
             ComisionLogic com = new ComisionLogic();

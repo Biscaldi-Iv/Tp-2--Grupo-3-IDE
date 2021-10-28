@@ -49,12 +49,12 @@ namespace UI.Desktop
             this.tlPlanes_desktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.6875F));
             this.tlPlanes_desktop.Controls.Add(this.cbEspecialidades, 1, 2);
             this.tlPlanes_desktop.Controls.Add(this.txtBDesc_Plan, 1, 1);
-            this.tlPlanes_desktop.Controls.Add(this.btnGuardar, 2, 4);
-            this.tlPlanes_desktop.Controls.Add(this.btnCancelar, 1, 4);
             this.tlPlanes_desktop.Controls.Add(this.label2, 0, 2);
             this.tlPlanes_desktop.Controls.Add(this.label1, 0, 1);
             this.tlPlanes_desktop.Controls.Add(this.txtD, 1, 0);
             this.tlPlanes_desktop.Controls.Add(this.label3, 0, 0);
+            this.tlPlanes_desktop.Controls.Add(this.btnCancelar, 2, 4);
+            this.tlPlanes_desktop.Controls.Add(this.btnGuardar, 1, 4);
             this.tlPlanes_desktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPlanes_desktop.Location = new System.Drawing.Point(0, 0);
             this.tlPlanes_desktop.Name = "tlPlanes_desktop";
@@ -92,7 +92,7 @@ namespace UI.Desktop
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(219, 295);
+            this.btnGuardar.Location = new System.Drawing.Point(147, 295);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(66, 23);
             this.btnGuardar.TabIndex = 2;
@@ -103,9 +103,9 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(138, 295);
+            this.btnCancelar.Location = new System.Drawing.Point(219, 295);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(66, 23);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -154,11 +154,13 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(288, 321);
             this.Controls.Add(this.tlPlanes_desktop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "PlanesDesktop";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PlanesDesktop";
             this.tlPlanes_desktop.ResumeLayout(false);
             this.tlPlanes_desktop.PerformLayout();

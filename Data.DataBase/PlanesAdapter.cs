@@ -58,7 +58,7 @@ namespace Data.Database
             try
             {
                 SqlCommand cmdSave = new SqlCommand(
-                    "DELETE planes FORM " +
+                    "DELETE planes FROM " +
                     "planes " +
                     "WHERE id_plan=@id", sqlConnection);
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value =ID;
@@ -81,9 +81,11 @@ namespace Data.Database
             {
                 SqlCommand cmdSave = new SqlCommand(
                     "UPDATE planes SET " +
-                    "desc_plan=@d_espec " +
+                    "desc_plan=@d_plan," +
+                    "id_especialidad=@espec " +
                     "WHERE id_plan=@id", sqlConnection);
-                cmdSave.Parameters.Add("@d_espec", System.Data.SqlDbType.VarChar, 50).Value = pl.Descripcion;
+                cmdSave.Parameters.Add("@d_plan", System.Data.SqlDbType.VarChar, 50).Value = pl.Descripcion;
+                cmdSave.Parameters.AddWithValue("@espec", pl.IDEspecialidad);
                 cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = pl.ID;
                 this.OpenConnection();
                 cmdSave.ExecuteNonQuery();

@@ -79,10 +79,8 @@ namespace UI.Desktop
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            bool no_salir = true; //mantendra dentro del bucle hasta que se le asigne false
-            do
-            {
+        {      
+            
                 if ((this.txtDireccion.Text.Length < 1)
                     || (this.txtLegajo.Text.Length < 1)
                     || (this.txtTelefono.Text.Length < 1))
@@ -91,20 +89,24 @@ namespace UI.Desktop
                 }
                 else
                 {
-                    no_salir = false;
                     switch (Modo)
                     {
-                        case ModoForm.Alta:
+                     case ModoForm.Alta:
                             {
                                 MapearADatos();
+                                try
+                                {
                                 new PersonaLogic().AddNew(PersonaActual);
+                                this.Close();
+                                }
+                                catch (Exception x)
+                                {
+                                Notificar("Error", x.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                                 break;
                             }
-                    }
-                    
-                } 
-            } while (no_salir);
-            this.Close();
+                    }                   
+                }                         
         }
     }
 }

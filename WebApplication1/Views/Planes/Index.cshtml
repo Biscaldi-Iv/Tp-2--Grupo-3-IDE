@@ -1,0 +1,165 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Planes";
+}
+<h1>Menu de Planes</h1>
+
+<table id="tabplan" class="table table-dark table-hover">
+    <th>ID</th>
+    <th>Descripcion</th>
+    <th>Especialidad</th>
+    <th></th>
+    <th></th>
+    @foreach (var p in ViewBag.planes)
+            {
+<tr>
+    <td>@p.Item1</td>
+    <td>@p.Item2</td>
+    <td>@p.Item3</td>
+    <td>
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalmodificar">
+            Editar
+        </button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modaleliminar">
+            Eliminar
+        </button>
+    </td>
+</tr>
+            }
+</table>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcrear">
+    Registar Plan
+</button>
+
+<div class="modal fade" id="modalcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Planes" asp-action="Nuevo">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Registrar Plan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="Idpl1" name="Idpl1" type="text" class="form-control" disabled="disabled" required />
+                    <label for="Idpl1">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="descPl1" name="descPl1" type="text" class="form-control" required />
+                    <label for="descPl1">Descripcion</label>
+                </div>
+                <br />
+                <label for="espec1">Plan</label>
+                <select id="espec1" name="espec1">
+                    @foreach (var esp in ViewBag.especialidades)
+                    {
+                        <option value="@esp.ID">@esp.Descripcion</option>
+                    }
+                </select>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalmodificar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Planes" asp-action="Modificar">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Modificar Plan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="Idpl2" name="Idpl2" type="text" class="form-control" readonly="readonly" required />
+                    <label for="Idpl2">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="descPl2" name="descPl2" type="text" class="form-control" required />
+                    <label for="descPl2">Descripcion</label>
+                </div>
+                <br />
+                <label for="espec2">Plan</label>
+                <select id="espec2" name="espec2">
+                    @foreach (var esp in ViewBag.especialidades)
+                    {
+                        <option value="@esp.ID">@esp.Descripcion</option>
+                    }
+                </select>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modaleliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Planes" asp-action="Eliminar">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="staticBackdropLiveLabel">Eliminar Plan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="Idpl3" name="Idpl3" type="text" class="form-control" readonly="readonly" required />
+                    <label for="Idpl3">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="descPl3" name="descPl3" type="text" class="form-control" disabled="disabled" required />
+                    <label for="descPl3">Descripcion</label>
+                </div>
+                <br />
+                <label for="espec3">Plan</label>
+                <select id="espec3" name="espec3" disabled="disabled">
+                    @foreach (var esp in ViewBag.especialidades)
+                    {
+                        <option value="@esp.ID">@esp.Descripcion</option>
+                    }
+                </select>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var table = document.getElementById('tabplan'), rIndex;
+    for (i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function () {
+            rIndex = this.rowsIndex;
+            document.getElementById('Idpl2').value = this.cells[0].innerHTML;
+            document.getElementById('Idpl3').value = this.cells[0].innerHTML;
+            document.getElementById('descPl2').value = this.cells[1].innerHTML;
+            document.getElementById('descPl3').value = this.cells[1].innerHTML;
+            for (x = 0; x < document.getElementById('espec3').options.length; x++) {
+                if (this.cells[2].innerHTML == document.getElementById('espec3').options[x].innerHTML) {
+                    document.getElementById('espec2').selectedIndex = x;
+                    document.getElementById('espec3').selectedIndex = x;
+                    break;
+                }
+            }
+
+        };
+    }
+
+</script>
