@@ -87,11 +87,11 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.lIdPlan, 5, 2);
             this.tableLayoutPanel1.Controls.Add(this.lFechaNac, 5, 3);
             this.tableLayoutPanel1.Controls.Add(this.lPersona, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 8, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 7, 4);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 6, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbPlanes, 6, 2);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxTiposPer, 6, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 8, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";

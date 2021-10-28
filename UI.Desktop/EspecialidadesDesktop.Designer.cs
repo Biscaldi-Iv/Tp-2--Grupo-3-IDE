@@ -47,13 +47,13 @@ namespace UI.Desktop
             this.tlEspecialidadesDesktop.ColumnCount = 3;
             this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.10938F));
             this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.89063F));
-            this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tlEspecialidadesDesktop.Controls.Add(this.btnGuardar, 3, 2);
-            this.tlEspecialidadesDesktop.Controls.Add(this.btnCancelar, 1, 2);
+            this.tlEspecialidadesDesktop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tlEspecialidadesDesktop.Controls.Add(this.label1, 0, 1);
             this.tlEspecialidadesDesktop.Controls.Add(this.tboxEspecialidad, 1, 1);
             this.tlEspecialidadesDesktop.Controls.Add(this.label2, 0, 0);
             this.tlEspecialidadesDesktop.Controls.Add(this.tboxId, 1, 0);
+            this.tlEspecialidadesDesktop.Controls.Add(this.btnCancelar, 2, 2);
+            this.tlEspecialidadesDesktop.Controls.Add(this.btnGuardar, 1, 2);
             this.tlEspecialidadesDesktop.Location = new System.Drawing.Point(-2, 1);
             this.tlEspecialidadesDesktop.Name = "tlEspecialidadesDesktop";
             this.tlEspecialidadesDesktop.RowCount = 3;
@@ -67,7 +67,8 @@ namespace UI.Desktop
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(442, 124);
+            this.btnGuardar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnGuardar.Location = new System.Drawing.Point(353, 124);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 0;
@@ -78,7 +79,7 @@ namespace UI.Desktop
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(354, 124);
+            this.btnCancelar.Location = new System.Drawing.Point(442, 124);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 1;
@@ -130,9 +131,11 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(517, 148);
             this.Controls.Add(this.tlEspecialidadesDesktop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EspecialidadesDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Especialidad";

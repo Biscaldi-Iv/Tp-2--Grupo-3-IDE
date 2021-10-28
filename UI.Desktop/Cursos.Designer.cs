@@ -29,7 +29,7 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.tcCursos = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,36 +40,36 @@ namespace UI.Desktop
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.tsABMC = new System.Windows.Forms.ToolStrip();
+            this.tscCursos = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbVer = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripContainer1.ContentPanel.SuspendLayout();
-            this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
+            this.tcCursos.ContentPanel.SuspendLayout();
+            this.tcCursos.TopToolStripPanel.SuspendLayout();
+            this.tcCursos.SuspendLayout();
             this.tlCursos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
-            this.tsABMC.SuspendLayout();
+            this.tscCursos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStripContainer1
+            // tcCursos
             // 
             // 
-            // toolStripContainer1.ContentPanel
+            // tcCursos.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.tlCursos);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 450);
-            this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 475);
-            this.toolStripContainer1.TabIndex = 0;
-            this.toolStripContainer1.Text = "toolStripContainer1";
+            this.tcCursos.ContentPanel.Controls.Add(this.tlCursos);
+            this.tcCursos.ContentPanel.Size = new System.Drawing.Size(800, 450);
+            this.tcCursos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcCursos.Location = new System.Drawing.Point(0, 0);
+            this.tcCursos.Name = "tcCursos";
+            this.tcCursos.Size = new System.Drawing.Size(800, 475);
+            this.tcCursos.TabIndex = 0;
+            this.tcCursos.Text = "toolStripContainer1";
             // 
-            // toolStripContainer1.TopToolStripPanel
+            // tcCursos.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.tsABMC);
+            this.tcCursos.TopToolStripPanel.Controls.Add(this.tscCursos);
             // 
             // tlCursos
             // 
@@ -184,18 +184,18 @@ namespace UI.Desktop
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // tsABMC
+            // tscCursos
             // 
-            this.tsABMC.Dock = System.Windows.Forms.DockStyle.None;
-            this.tsABMC.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tscCursos.Dock = System.Windows.Forms.DockStyle.None;
+            this.tscCursos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbVer,
             this.tsbEliminar});
-            this.tsABMC.Location = new System.Drawing.Point(3, 0);
-            this.tsABMC.Name = "tsABMC";
-            this.tsABMC.Size = new System.Drawing.Size(104, 25);
-            this.tsABMC.TabIndex = 0;
+            this.tscCursos.Location = new System.Drawing.Point(3, 0);
+            this.tscCursos.Name = "tscCursos";
+            this.tscCursos.Size = new System.Drawing.Size(135, 25);
+            this.tscCursos.TabIndex = 0;
             // 
             // tsbNuevo
             // 
@@ -246,34 +246,34 @@ namespace UI.Desktop
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 475);
-            this.Controls.Add(this.toolStripContainer1);
+            this.Controls.Add(this.tcCursos);
             this.MaximumSize = new System.Drawing.Size(1616, 914);
             this.MinimumSize = new System.Drawing.Size(616, 214);
             this.Name = "Cursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cursos";
             this.Load += new System.EventHandler(this.Cursos_Load);
-            this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
+            this.tcCursos.ContentPanel.ResumeLayout(false);
+            this.tcCursos.TopToolStripPanel.ResumeLayout(false);
+            this.tcCursos.TopToolStripPanel.PerformLayout();
+            this.tcCursos.ResumeLayout(false);
+            this.tcCursos.PerformLayout();
             this.tlCursos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).EndInit();
-            this.tsABMC.ResumeLayout(false);
-            this.tsABMC.PerformLayout();
+            this.tscCursos.ResumeLayout(false);
+            this.tscCursos.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private System.Windows.Forms.ToolStripContainer tcCursos;
         private System.Windows.Forms.TableLayoutPanel tlCursos;
         private System.Windows.Forms.DataGridView dgvCursos;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.ToolStrip tsABMC;
+        private System.Windows.Forms.ToolStrip tscCursos;
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbVer;

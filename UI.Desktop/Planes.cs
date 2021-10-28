@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.Win32;
 
 namespace UI.Desktop
 {
@@ -29,6 +30,32 @@ namespace UI.Desktop
             this.oPlan = new PlanesLogic();
             this.dgvPlanes.AutoGenerateColumns = false;
             this.dgvPlanes.DataSource = this.oPlan.GetAll();
+            LoadTheme();
+            UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+            this.Disposed += new EventHandler(Form_Disposed);
+        }
+        private UserPreferenceChangedEventHandler UserPreferenceChanged;
+
+        private void Form_Disposed(object sender, EventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle)
+            {
+                LoadTheme();
+            }
+        }
+
+        private void LoadTheme()
+        {
+            var themeColor = WinTema.GetAccentColor();
+            tcPlanes.TopToolStripPanel.BackColor = themeColor;
+            tsPlanes.BackColor = themeColor;
+
         }
 
         private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)

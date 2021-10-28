@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.Win32;
 
 namespace UI.Desktop
 {
@@ -20,7 +21,33 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.cl = new CursosLogic();
-            this.Listar();
+            this.Listar(); LoadTheme();
+            UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+            this.Disposed += new EventHandler(Form_Disposed);
+        }
+        private UserPreferenceChangedEventHandler UserPreferenceChanged;
+
+        private void Form_Disposed(object sender, EventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle)
+            {
+                LoadTheme();
+            }
+        }
+
+        private void LoadTheme()
+        {
+            var themeColor = WinTema.GetAccentColor();
+            tscCursos.BackColor = themeColor;
+            tscCursos.ForeColor = themeColor;
+            tcCursos.TopToolStripPanel.BackColor = themeColor;
+
         }
 
         public void Listar()
@@ -80,7 +107,7 @@ namespace UI.Desktop
             {
                 case "Alumno":
                     {
-                        this.tsABMC.Hide();
+                        this.tscCursos.Hide();
                         break;
                     }                
             }
