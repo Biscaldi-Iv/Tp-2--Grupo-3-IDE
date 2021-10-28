@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
+using Microsoft.Win32;
 
 namespace UI.Desktop
 {
@@ -23,6 +24,32 @@ namespace UI.Desktop
             this.oEspecialidad = new EspecialidadLogic();
             this.dgvEspecialidades.AutoGenerateColumns = false;
             this.dgvEspecialidades.DataSource = this.oEspecialidad.GetAll();
+            LoadTheme();
+            UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+            this.Disposed += new EventHandler(Form_Disposed);
+        }
+        private UserPreferenceChangedEventHandler UserPreferenceChanged;
+
+        private void Form_Disposed(object sender, EventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle)
+            {
+                LoadTheme();
+            }
+        }
+
+        private void LoadTheme()
+        {
+            var themeColor = WinTema.GetAccentColor();
+            tscEspecialidades.TopToolStripPanel.BackColor = themeColor;
+            toolStripEsp.BackColor = themeColor;
+
         }
 
         private void ListaEspecialidades_Load(object sender, EventArgs e)

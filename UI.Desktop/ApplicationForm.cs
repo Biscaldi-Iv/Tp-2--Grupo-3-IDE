@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using Microsoft.Win32;
 
 namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
-    {
+    {        
         public enum ModoForm { Alta, Baja, Modificacion, Consulta }
         public Hashtable nomBtn = new Hashtable()
         {
@@ -39,9 +40,9 @@ namespace UI.Desktop
         }
         public ApplicationForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
-
+        
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
 

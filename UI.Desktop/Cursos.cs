@@ -9,31 +9,92 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.Win32;
 
 namespace UI.Desktop
 {
     public partial class Cursos : ApplicationForm
     {
         private CursosLogic cl;
+        private AlumnoInscripcionLogic alLogic;
         
         public Cursos()
         {
             InitializeComponent();
+            this.dgvCursos.AutoGenerateColumns = false;
             this.cl = new CursosLogic();
-            this.Listar();
+            this.alLogic = new AlumnoInscripcionLogic();
+            this.Listar(); LoadTheme();
+            UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
+            SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
+            this.Disposed += new EventHandler(Form_Disposed);
+            if (Program.tipo.Descripcion == "Alumno")
+            {
+                this.tscCursos.Hide();
+            }
+        }
+        private UserPreferenceChangedEventHandler UserPreferenceChanged;
+
+        private void Form_Disposed(object sender, EventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= UserPreferenceChanged;
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General || e.Category == UserPreferenceCategory.VisualStyle)
+            {
+                LoadTheme();
+            }
+        }
+
+        private void LoadTheme()
+        {
+            var themeColor = WinTema.GetAccentColor();
+            tscCursos.BackColor = themeColor;
+            tscCursos.ForeColor = themeColor;
+            tcCursos.TopToolStripPanel.BackColor = themeColor;
+
         }
 
         public void Listar()
         {
-            this.dgvCursos.AutoGenerateColumns = false;
-            try
+            switch (Program.tipo.Descripcion)
             {
-                this.dgvCursos.DataSource = cl.getAll();
+                case "Administrador":
+                    {
+                        try
+                        {
+                            this.dgvCursos.DataSource = cl.getAll();
+                            this.dgvCursos.Columns[6].Visible = false;
+                        }
+                        catch (Exception e)
+                        {
+                            Notificar("Error", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    }
+                case "Docente":
+                    {
+                        break;
+                    }
+                case "Alumno":
+                    {
+                        try
+                        {
+                            this.dgvCursos.DataSource = alLogic.getCursosDisponibles(Program.plan.ID,Program.usuarioLog.IdPersona);
+                        }
+                        catch (Exception e)
+                        {
+                            Notificar("Error", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    }
+                default:
+                    break;
             }
-            catch (Exception e)
-            {
-                Notificar("Error", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                    
+         
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -80,9 +141,22 @@ namespace UI.Desktop
             {
                 case "Alumno":
                     {
-                        this.tsABMC.Hide();
+                        this.tscCursos.Hide();
                         break;
                     }                
+            }
+        }
+
+        private void dgvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e) // falta manejo de expeciones
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                int idCurso = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                alLogic.Inscribirse(Program.usuarioLog.IdPersona,idCurso);
+
             }
         }
     }

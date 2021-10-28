@@ -50,7 +50,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.32231F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.00826F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.66116F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
             this.tableLayoutPanel1.Controls.Add(this.lDescripcion, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lPlan, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.lHoraSemana, 2, 1);
@@ -97,7 +97,7 @@ namespace UI.Desktop
             // 
             this.lHoraSemana.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lHoraSemana.AutoSize = true;
-            this.lHoraSemana.Location = new System.Drawing.Point(331, 37);
+            this.lHoraSemana.Location = new System.Drawing.Point(330, 37);
             this.lHoraSemana.Name = "lHoraSemana";
             this.lHoraSemana.Size = new System.Drawing.Size(97, 15);
             this.lHoraSemana.TabIndex = 4;
@@ -107,7 +107,7 @@ namespace UI.Desktop
             // 
             this.lHoraTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lHoraTotal.AutoSize = true;
-            this.lHoraTotal.Location = new System.Drawing.Point(341, 67);
+            this.lHoraTotal.Location = new System.Drawing.Point(340, 67);
             this.lHoraTotal.Name = "lHoraTotal";
             this.lHoraTotal.Size = new System.Drawing.Size(76, 15);
             this.lHoraTotal.TabIndex = 5;
@@ -118,25 +118,25 @@ namespace UI.Desktop
             this.txtDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDescripcion.Location = new System.Drawing.Point(106, 33);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(219, 23);
+            this.txtDescripcion.Size = new System.Drawing.Size(218, 23);
             this.txtDescripcion.TabIndex = 6;
             // 
             // txtHorasSem
             // 
             this.txtHorasSem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtHorasSem, 2);
-            this.txtHorasSem.Location = new System.Drawing.Point(434, 33);
+            this.txtHorasSem.Location = new System.Drawing.Point(433, 33);
             this.txtHorasSem.Name = "txtHorasSem";
-            this.txtHorasSem.Size = new System.Drawing.Size(198, 23);
+            this.txtHorasSem.Size = new System.Drawing.Size(199, 23);
             this.txtHorasSem.TabIndex = 7;
             // 
             // txtHorasTot
             // 
             this.txtHorasTot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.txtHorasTot, 2);
-            this.txtHorasTot.Location = new System.Drawing.Point(434, 63);
+            this.txtHorasTot.Location = new System.Drawing.Point(433, 63);
             this.txtHorasTot.Name = "txtHorasTot";
-            this.txtHorasTot.Size = new System.Drawing.Size(198, 23);
+            this.txtHorasTot.Size = new System.Drawing.Size(199, 23);
             this.txtHorasTot.TabIndex = 8;
             // 
             // comboBoxPlan
@@ -146,7 +146,7 @@ namespace UI.Desktop
             this.comboBoxPlan.FormattingEnabled = true;
             this.comboBoxPlan.Location = new System.Drawing.Point(106, 63);
             this.comboBoxPlan.Name = "comboBoxPlan";
-            this.comboBoxPlan.Size = new System.Drawing.Size(219, 23);
+            this.comboBoxPlan.Size = new System.Drawing.Size(218, 23);
             this.comboBoxPlan.TabIndex = 9;
             this.comboBoxPlan.ValueMember = "ID";
             // 
@@ -164,7 +164,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAceptar.Location = new System.Drawing.Point(465, 124);
+            this.btnAceptar.Location = new System.Drawing.Point(464, 124);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 0;
@@ -176,8 +176,10 @@ namespace UI.Desktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(635, 152);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.Name = "MateriaDesktop";
             this.Text = "MateriaDesktop";
             this.tableLayoutPanel1.ResumeLayout(false);
