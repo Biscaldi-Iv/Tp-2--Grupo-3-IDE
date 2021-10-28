@@ -2,4 +2,272 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Cursos";
 }
+
+<h1>Menu de Cursos</h1>
+
+<table id="tabCursos" class="table table-dark table-hover">
+    <th>ID</th>
+    <th>Descripcion</th>
+    <th>Comision</th>
+    <th>Materia</th>
+    <th>Año</th>
+    <th>Cupo</th>
+    <th></th>
+    <th></th>
+    @foreach(var com in ViewBag.cursos)
+            {
+<tr>
+    <td>@com.Item1</td>
+    <td>@com.Item2</td>
+    <td>@com.Item3</td>
+    <td>@com.Item4</td>
+    <td>@com.Item5</td>
+    <td>@com.Item6</td>
+    <td>
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalmodificar">
+            Editar
+        </button>
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modaleliminar">
+            Eliminar
+        </button>
+    </td>
+</tr>
+            }
+</table>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcrear">
+    Registar Curso
+</button>
+
+
+<div class="modal fade" id="modalcrear" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Curso" asp-action="Nuevo">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Registrar Curso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="IdCurso1" name="IdCurso1" type="text" class="form-control" disabled="disabled" required />
+                    <label for="IdCurso1">Id</label>
+                </div>
+                <br />
+                <label for="comision1">Comision</label>
+                <select id="comision1" name="comision1">
+                    @foreach (var com in ViewBag.comisiones)
+                    {
+                        <option value="@com.ID">@com.Descripcion</option>
+                    }
+                </select>
+                <br />
+                <label for="materia1">Materia</label>
+                <select id="materia1" name="materia1">
+                    @foreach (var mat in ViewBag.materias)
+                    {
+                        <option value="@mat.ID">@mat.Descripcion</option>
+                    }
+                </select>
+                <br />
+                <label for="añocal1">Año calendario</label>
+                <select id="añocal1" name="añocal1">
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                </select>
+                <br />
+
+                <div class="form-floating">
+                    <input id="cupo1" name="cupo1" type="text" class="form-control" required />
+                    <label for="cupo1">Cupo</label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalmodificar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Curso" asp-action="Modificar">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Modificar Curso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="IdCurso2" name="IdCurso2" type="text" class="form-control" readonly="readonly" required />
+                    <label for="IdCurso2">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="descCurso2" name="descCurso2" type="text" class="form-control" disabled="disabled" required />
+                    <label for="descCurso2">Descripcion</label>
+                </div>
+                <br />
+                <label for="comision2">Comision</label>
+                <select id="comision2" name="comision2">
+                    @foreach (var com in ViewBag.comisiones)
+                    {
+                        <option value="@com.ID">@com.Descripcion</option>
+                    }
+                </select>
+                <br />
+                <label for="materia2">Materia</label>
+                <select id="materia2" name="materia2">
+                    @foreach (var mat in ViewBag.materias)
+                    {
+                        <option value="@mat.ID">@mat.Descripcion</option>
+                    }
+                </select>
+                <br />
+                <label for="añocal2">Año calendario</label>
+                <select id="añocal2" name="añocal2">
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                </select>
+                <br />
+                <div class="form-floating">
+                    <input id="cupo2" name="cupo2" type="text" class="form-control" required />
+                    <label for="cupo2">Cupo</label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modaleliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Curso" asp-action="Eliminar">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="staticBackdropLiveLabel">Eliminar Curso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="IdCurso3" name="IdCurso3" type="text" class="form-control" readonly="readonly" required />
+                    <label for="IdCurso3">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="descCurso3" name="descCurso3" type="text" class="form-control" disabled="disabled" required />
+                    <label for="descCurso3">Descripcion</label>
+                </div>
+                <br />
+                <label for="comision3">Comision</label>
+                <select id="comision3" name="comision3" disabled="disabled">
+                    @foreach (var com in ViewBag.comisiones)
+                    {
+                        <option value="@com.ID">@com.Descripcion</option>
+                    }
+                </select>
+                <br />
+                <label for="materia3">Materia</label>
+                <select id="materia3" name="materia3" disabled="disabled">
+                    @foreach (var mat in ViewBag.materias)
+                    {
+                        <option value="@mat.ID">@mat.Descripcion</option>
+                    }
+                </select>
+                <div class="form-floating">
+                    <label for="añocal3">Año calendario</label>
+                    <select id="añocal3" name="añocal3" disabled="disabled">
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                    </select>
+                </div>
+                <div class="form-floating">
+                    <input id="cupo3" name="cupo3" type="text" class="form-control" disabled="disabled" required />
+                    <label for="cupo3">Cupo</label>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var table = document.getElementById('tabCursos'), rIndex;
+    for (i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function () {
+            rIndex = this.rowsIndex;
+            document.getElementById('IdCurso2').value = this.cells[0].innerHTML;
+            document.getElementById('IdCurso3').value = this.cells[0].innerHTML;
+            document.getElementById('descCurso2').value = this.cells[1].innerHTML;
+            document.getElementById('descCurso3').value = this.cells[1].innerHTML;
+            for (x = 0; x < document.getElementById('comision2').options.length; x++) {
+                if (this.cells[2].innerHTML == document.getElementById('comision2').options[x].innerHTML) {
+                    document.getElementById('comision2').selectedIndex = x;
+                    document.getElementById('comision3').selectedIndex = x;
+                    break;
+                }
+            }
+            for (x = 0; x < document.getElementById('materia2').options.length; x++) {
+                if (this.cells[3].innerHTML == document.getElementById('materia2').options[x].innerHTML) {
+                    document.getElementById('materia2').selectedIndex = x;
+                    document.getElementById('materia3').selectedIndex = x;
+                    break;
+                }
+            }
+            for (x = 0; x < document.getElementById('añocal2').options.length; x++) {
+                if (this.cells[4].innerHTML == document.getElementById('añocal2').options[x].innerHTML) {
+                    document.getElementById('añocal2').selectedIndex = x;
+                    document.getElementById('añocal3').selectedIndex = x;
+                    break;
+                }
+            }
+            //añocal2
+            document.getElementById('cupo2').value = this.cells[5].innerHTML;
+            document.getElementById('cupo3').value = this.cells[5].innerHTML;
+
+        };
+    }
+
+</script>
