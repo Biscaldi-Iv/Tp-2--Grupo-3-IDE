@@ -155,7 +155,7 @@ namespace UI.Desktop
         private void inscripcionACursadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.menu.Hide();
-            Inscripciones frminscripcion = new Inscripciones(ApplicationForm.ModoForm.Alta);
+            Cursos frminscripcion = new Cursos();
             frminscripcion.ShowDialog();
             Program.menu.Show();
         }
@@ -163,7 +163,7 @@ namespace UI.Desktop
         private void misCursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.menu.Hide();
-            Inscripciones frminscripcion = new Inscripciones(ApplicationForm.ModoForm.Consulta);
+            Cursos frminscripcion = new Cursos();
             frminscripcion.ShowDialog();
             Program.menu.Show();
         }

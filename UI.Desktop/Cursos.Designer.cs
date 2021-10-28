@@ -45,6 +45,7 @@ namespace UI.Desktop
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbVer = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.Inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tcCursos.ContentPanel.SuspendLayout();
             this.tcCursos.TopToolStripPanel.SuspendLayout();
             this.tcCursos.SuspendLayout();
@@ -97,7 +98,8 @@ namespace UI.Desktop
             this.Materia,
             this.Comision,
             this.Año,
-            this.Cupo});
+            this.Cupo,
+            this.Inscribirse});
             this.tlCursos.SetColumnSpan(this.dgvCursos, 2);
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(3, 3);
@@ -107,6 +109,7 @@ namespace UI.Desktop
             this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursos.Size = new System.Drawing.Size(794, 415);
             this.dgvCursos.TabIndex = 0;
+            this.dgvCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellContentClick);
             // 
             // Id
             // 
@@ -194,7 +197,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tscCursos.Location = new System.Drawing.Point(3, 0);
             this.tscCursos.Name = "tscCursos";
-            this.tscCursos.Size = new System.Drawing.Size(135, 25);
+            this.tscCursos.Size = new System.Drawing.Size(104, 25);
             this.tscCursos.TabIndex = 0;
             // 
             // tsbNuevo
@@ -241,6 +244,12 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // Inscribirse
+            // 
+            this.Inscribirse.HeaderText = "Inscribirse";
+            this.Inscribirse.Name = "Inscribirse";
+            this.Inscribirse.ReadOnly = true;
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -284,5 +293,6 @@ namespace UI.Desktop
         private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Año;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
+        private System.Windows.Forms.DataGridViewButtonColumn Inscribirse;
     }
 }
