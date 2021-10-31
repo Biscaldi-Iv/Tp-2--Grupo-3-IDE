@@ -24,7 +24,8 @@ namespace UI.Desktop
             this.dgvCursos.AutoGenerateColumns = false;
             this.cl = new CursosLogic();
             this.alLogic = new AlumnoInscripcionLogic();
-            this.Listar(); LoadTheme();
+            this.Listar(); 
+            LoadTheme();
             UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
             SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
             this.Disposed += new EventHandler(Form_Disposed);
@@ -33,6 +34,13 @@ namespace UI.Desktop
                 this.tscCursos.Hide();
             }
         }
+
+        public Cursos(ModoForm modo) : this()
+        {
+            Modo = modo;
+            this.Listar();
+        }
+
         private UserPreferenceChangedEventHandler UserPreferenceChanged;
 
         private void Form_Disposed(object sender, EventArgs e)
@@ -82,7 +90,21 @@ namespace UI.Desktop
                     {
                         try
                         {
-                            this.dgvCursos.DataSource = alLogic.getCursosDisponibles(Program.plan.ID,Program.usuarioLog.IdPersona);
+                            switch (Modo)
+                            {
+                                case ModoForm.Alta:
+                                    {
+                                        this.dgvCursos.DataSource = alLogic.getCursosDisponibles(Program.plan.ID, Program.usuarioLog.IdPersona);
+                                        break;
+                                    }
+                                case ModoForm.Consulta:
+                                    {
+                                        this.dgvCursos.DataSource= alLogic.getCursosInscripto(Program.plan.ID, Program.usuarioLog.IdPersona);
+                                        this.dgvCursos.Columns[6].Visible = false;
+                                        break;
+                                    }
+                            }
+                            
                         }
                         catch (Exception e)
                         {
@@ -155,8 +177,7 @@ namespace UI.Desktop
                 e.RowIndex >= 0)
             {
                 int idCurso = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
-                alLogic.Inscribirse(Program.usuarioLog.IdPersona,idCurso);
-
+                alLogic.Inscribirse(Program.usuarioLog.IdPersona, idCurso);
             }
         }
     }
