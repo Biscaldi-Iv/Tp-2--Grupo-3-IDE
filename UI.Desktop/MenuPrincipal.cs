@@ -65,16 +65,19 @@ namespace UI.Desktop
                     case "Administrador":
                         {
                             aBMCToolStripMenuItem.Enabled = true;
-                            alumnosToolStripMenuItem.Enabled = true;
+                            alumnosToolStripMenuItem.Enabled = false;
                             break;
                         }
                     case "Docente":
                         {
+                            aBMCToolStripMenuItem.Visible = false;
+                            alumnosToolStripMenuItem.Visible = false;
                             break;
                         }
                     case "Alumno":
                         {                            
                             alumnosToolStripMenuItem.Enabled = true;
+                            aBMCToolStripMenuItem.Visible = false;
                             break;
                         }
                     default: break;

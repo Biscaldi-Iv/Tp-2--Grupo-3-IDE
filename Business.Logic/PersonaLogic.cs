@@ -68,5 +68,10 @@ namespace Business.Logic
         {
             return this.Persona_data.GetOne(id);
         }
+
+        public List<Persona> GetDocentes(int idPlan)
+        {
+            return this.Persona_data.GetDocentes(idPlan);
+        }
     }
 }

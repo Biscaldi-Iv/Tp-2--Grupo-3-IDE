@@ -75,5 +75,19 @@ namespace Data.Database
             }
 
         }
+
+        public List<AlumnoInscripcion> getInscripcionesDocente(int idDoc)
+        {
+            List<AlumnoInscripcion> inscripciones = new List<AlumnoInscripcion>();
+            this.OpenConnection();
+            SqlDataReader rdr = this.ExecuteReader("SELECT [id_inscripcion], [id_alumno], [cursos].[id_curso], [condicion], [nota] " +
+                " FROM [Academia].[dbo].[alumnos_inscripciones] INNER JOIN [Academia].[dbo].[cursos] " +
+                "ON [cursos].[id_curso]=[alumnos_inscripciones].[id_curso] " +
+                "INNER JOIN [Academia].[dbo].[alumnos_inscripciones] ON [cursos].[id_curso]=[alumnos_inscripciones].[id_curso]" +
+                " WHERE " +
+                " ");
+            
+            return null;
+        }
     }
 }

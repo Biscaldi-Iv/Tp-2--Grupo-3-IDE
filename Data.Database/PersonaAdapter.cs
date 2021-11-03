@@ -154,6 +154,41 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+        public List<Persona> GetDocentes(int idPlan)
+        {
+            List<Persona> pers = new List<Persona>();
+            this.OpenConnection();
+            try
+            {
+                SqlDataReader reader = this.ExecuteReader("SELECT TOP (1000) [personas].[id_persona],[nombre],[apellido],[direccion]," +
+                        "[email],[telefono],[fecha_nac],[legajo],[personas].[tipo_persona],[id_plan] " +
+                        "FROM [Academia].[dbo].[personas] INNER JOIN [Academia].[dbo].[tipo_persona] " +
+                        "ON [personas].[tipo_persona]=[tipo_persona].[id_tipo_persona] " +
+                        "INNER JOIN [Academia].[dbo].[personas]" +
+                        "WHERE [tipo_persona].[descripcion_t_p]='Docente' ");
+
+                while (reader.Read())
+                {
+                    Persona per = new Persona(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),
+                        reader.GetString(3), reader.GetString(4), reader.GetString(5),
+                        reader.GetDateTime(6), reader.GetInt32(7), reader.GetInt32(8),
+                        reader.GetInt32(9));
+                    pers.Add(per);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("BD>> No fue posible recuperar los docentes: " + ex.Message+"||");
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            
+            return pers;
+        }
     
     }
 }

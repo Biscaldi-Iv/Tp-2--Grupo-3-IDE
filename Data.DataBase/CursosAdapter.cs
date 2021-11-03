@@ -194,30 +194,31 @@ namespace Data.Database
             return cursos;
         }
 
-        public void Inscribirse(int IdAlumno, int IdCurso)
+        public List<DocenteCurso> GetDocentesCursos()
         {
+            List<DocenteCurso> dc = new List<DocenteCurso>();
+            this.OpenConnection();
             try
             {
-                SqlCommand cmdInscripcion = new SqlCommand("INSERT INTO [Academia].[dbo].[alumnos_inscripciones] " +
-                        "(id_alumno, id_curso, condicion) " +
-                        "VALUES  (@alumno, @curso, @condicion)", sqlConnection);
-                cmdInscripcion.Parameters.Add("@alumno", System.Data.SqlDbType.Int).Value = IdAlumno;
-                cmdInscripcion.Parameters.Add("@curso", System.Data.SqlDbType.Int).Value = IdCurso;
-                cmdInscripcion.Parameters.Add("@condicion", System.Data.SqlDbType.VarChar).Value = "Inscripto";
-                this.OpenConnection();
-                cmdInscripcion.ExecuteNonQuery();
+                SqlDataReader rdr = this.ExecuteReader("SELECT id_dictado, id_curso, id_docente, cargo " +
+                    "FROM [Academia].[dbo].[docentes_cursos]");
+                while (rdr.Read())
+                {
+                    DocenteCurso dcur = new DocenteCurso { ID=rdr.GetInt32(0)};
+                    dc.Add(dcur);
+                }
+                rdr.Close();
             }
-            catch (SqlException e)
+            catch(Exception ex)
             {
-                throw new Exception(e.Message);
+                throw new Exception("BD>> No fue posible recuperar los cursos de docentes:" + ex.Message + "||");
             }
             finally
             {
                 this.CloseConnection();
             }
-            
+
+            return dc;
         }
-
-
     }
 }
