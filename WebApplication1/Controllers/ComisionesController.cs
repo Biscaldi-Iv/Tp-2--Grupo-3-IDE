@@ -1,15 +1,15 @@
 ﻿using Business.Entities;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UI.Web.Filters;
 
 namespace UI.Web.Controllers
 {
-    [TypeFilter(typeof(authFilter))]
+    [Authorize(Policy = "EstadoReq")]
     public class ComisionesController : Controller
     {
         public IActionResult Index()

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Business.Entities;
 using Business.Logic;
-using UI.Web.Filters;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Web.Controllers
 {
-    [TypeFilter(typeof(authFilter))]
+    [Authorize(Policy = "EstadoReq")]
     public class EspecialidadesController : Controller
     {
         public IActionResult Index()

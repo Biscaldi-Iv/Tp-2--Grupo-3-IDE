@@ -34,12 +34,6 @@ namespace UI.Desktop
             this.label1 = new System.Windows.Forms.Label();
             this.cBoxPlan = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.tsDocentesCursos = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.IDCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +41,12 @@ namespace UI.Desktop
             this.ApellidoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDDictado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.tsDocentesCursos = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.tscDocentesCursos.ContentPanel.SuspendLayout();
             this.tscDocentesCursos.TopToolStripPanel.SuspendLayout();
             this.tscDocentesCursos.SuspendLayout();
@@ -106,11 +106,13 @@ namespace UI.Desktop
             // cBoxPlan
             // 
             this.cBoxPlan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cBoxPlan.DisplayMember = "Descripcion";
             this.cBoxPlan.FormattingEnabled = true;
             this.cBoxPlan.Location = new System.Drawing.Point(39, 3);
             this.cBoxPlan.Name = "cBoxPlan";
             this.cBoxPlan.Size = new System.Drawing.Size(233, 23);
             this.cBoxPlan.TabIndex = 1;
+            this.cBoxPlan.ValueMember = "ID";
             // 
             // dataGridView1
             // 
@@ -130,6 +132,41 @@ namespace UI.Desktop
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(794, 361);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // IDCurso
+            // 
+            this.IDCurso.HeaderText = "ID Curso";
+            this.IDCurso.Name = "IDCurso";
+            // 
+            // Curso
+            // 
+            this.Curso.HeaderText = "Curso";
+            this.Curso.Name = "Curso";
+            // 
+            // IDDocente
+            // 
+            this.IDDocente.HeaderText = "ID Docente";
+            this.IDDocente.Name = "IDDocente";
+            // 
+            // NombreDocente
+            // 
+            this.NombreDocente.HeaderText = "Nombre del Docente";
+            this.NombreDocente.Name = "NombreDocente";
+            // 
+            // ApellidoDocente
+            // 
+            this.ApellidoDocente.HeaderText = "Apellido del Docente";
+            this.ApellidoDocente.Name = "ApellidoDocente";
+            // 
+            // Cargo
+            // 
+            this.Cargo.HeaderText = "Cargo";
+            this.Cargo.Name = "Cargo";
+            // 
+            // IDDictado
+            // 
+            this.IDDictado.HeaderText = "Dictado";
+            this.IDDictado.Name = "IDDictado";
             // 
             // btnActualizar
             // 
@@ -189,41 +226,6 @@ namespace UI.Desktop
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // IDCurso
-            // 
-            this.IDCurso.HeaderText = "ID Curso";
-            this.IDCurso.Name = "IDCurso";
-            // 
-            // Curso
-            // 
-            this.Curso.HeaderText = "Curso";
-            this.Curso.Name = "Curso";
-            // 
-            // IDDocente
-            // 
-            this.IDDocente.HeaderText = "ID Docente";
-            this.IDDocente.Name = "IDDocente";
-            // 
-            // NombreDocente
-            // 
-            this.NombreDocente.HeaderText = "Nombre del Docente";
-            this.NombreDocente.Name = "NombreDocente";
-            // 
-            // ApellidoDocente
-            // 
-            this.ApellidoDocente.HeaderText = "Apellido del Docente";
-            this.ApellidoDocente.Name = "ApellidoDocente";
-            // 
-            // Cargo
-            // 
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            // 
-            // IDDictado
-            // 
-            this.IDDictado.HeaderText = "Dictado";
-            this.IDDictado.Name = "IDDictado";
             // 
             // DocentesCursos
             // 

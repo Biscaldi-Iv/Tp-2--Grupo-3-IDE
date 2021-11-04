@@ -155,7 +155,7 @@ namespace Data.Database
             }
         }
 
-        public List<Persona> GetDocentes(int idPlan)
+        public List<Persona> GetDocentes()
         {
             List<Persona> pers = new List<Persona>();
             this.OpenConnection();
