@@ -65,12 +65,14 @@ namespace UI.Desktop
                     case "Administrador":
                         {
                             aBMCToolStripMenuItem.Enabled = true;
-                            aBMCToolStripMenuItem.Visible = true;                            
+                            aBMCToolStripMenuItem.Visible = true;
+                            docentesToolStripMenuItem.Enabled = true;
+                            docentesToolStripMenuItem.Visible = true;
                             break;
                         }
                     case "Docente":
                         {
-                            // opcion docente ==> *ver-inscripciones *notas
+                            //subir notas
                             break;
                         }
                     case "Alumno":
@@ -167,6 +169,14 @@ namespace UI.Desktop
             Program.menu.Hide();
             AlumnoInscripciones frminscripcion = new AlumnoInscripciones();
             frminscripcion.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void inscripcionACursoDocenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            DocentesCursos docentescursos = new DocentesCursos();
+            docentescursos.ShowDialog();
             Program.menu.Show();
         }
     }
