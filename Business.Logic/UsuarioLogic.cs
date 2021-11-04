@@ -73,7 +73,7 @@ namespace Business.Logic
             }
             catch(Exception exc)
             {
-                throw new Exception("Error en bd"); //error sin manejar
+                throw new Exception("Error en bd");
             }
 
         }

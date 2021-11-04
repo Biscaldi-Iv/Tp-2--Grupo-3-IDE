@@ -169,7 +169,7 @@ namespace Data.Database
             return cursos;
         }
 
-        public List<Curso> getCursosInscripto(int idPlan, int idAlumno)
+      /*  public List<Curso> getCursosInscripto(int idPlan, int idAlumno)
         {
             List<Curso> cursos = new List<Curso>();
             this.OpenConnection();
@@ -192,7 +192,7 @@ namespace Data.Database
             reader.Close();
             this.CloseConnection();
             return cursos;
-        }
+        }*/
 
         public List<DocenteCurso> GetDocentesCursos()
         {

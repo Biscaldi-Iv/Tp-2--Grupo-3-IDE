@@ -19,6 +19,13 @@
                 <input id="Contraseña" name="Contraseña" type="password" class="form-control" required />
                 <label for="Contraseña">Contraseña</label>
             </div>
+            @{if (!string.IsNullOrEmpty(ViewBag.msgerror))
+                {
+                    <div class="alert alert-danger">
+                        <p>@ViewBag.msgerror</p>
+                    </div>
+                }
+            }
             <input id="Submit1" type="submit" value="Entrar" class="w-100 btn btn-lg btn-primary" />
         </form>
     </div>
