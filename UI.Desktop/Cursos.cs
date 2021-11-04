@@ -16,7 +16,7 @@ namespace UI.Desktop
     public partial class Cursos : ApplicationForm
     {
         private CursosLogic cl;
-        private AlumnoInscripcionLogic alLogic;
+        private AlumnoInscripcionLogic alLogic;       
         
         public Cursos()
         {
@@ -132,7 +132,10 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            Notificar("Advertencia", "No disponible", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int ID = ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+            CursosDesktop cursoDesktop = new CursosDesktop(ID, ApplicationForm.ModoForm.Baja);
+            cursoDesktop.ShowDialog();
+            this.Listar();           
         }
 
         private void Cursos_Load(object sender, EventArgs e)
@@ -154,9 +157,12 @@ namespace UI.Desktop
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                int idCurso = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
-                alLogic.Inscribirse(Program.usuarioLog.IdPersona,idCurso);
-
+                if (MessageBox.Show("Esta seguro que se quiere inscribir", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    int idCurso = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                    alLogic.Inscribirse(Program.usuarioLog.IdPersona, idCurso);
+                    
+                }                
             }
         }
     }

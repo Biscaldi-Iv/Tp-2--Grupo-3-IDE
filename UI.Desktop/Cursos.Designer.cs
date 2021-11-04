@@ -38,6 +38,7 @@ namespace UI.Desktop
             this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.tscCursos = new System.Windows.Forms.ToolStrip();
@@ -45,7 +46,6 @@ namespace UI.Desktop
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbVer = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.Inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tcCursos.ContentPanel.SuspendLayout();
             this.tcCursos.TopToolStripPanel.SuspendLayout();
             this.tcCursos.SuspendLayout();
@@ -165,6 +165,17 @@ namespace UI.Desktop
             this.Cupo.Name = "Cupo";
             this.Cupo.ReadOnly = true;
             // 
+            // Inscribirse
+            // 
+            this.Inscribirse.DataPropertyName = "botonInscribirse";
+            this.Inscribirse.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Inscribirse.HeaderText = "Inscribirse";
+            this.Inscribirse.Name = "Inscribirse";
+            this.Inscribirse.ReadOnly = true;
+            this.Inscribirse.Text = "Inscribirse";
+            this.Inscribirse.ToolTipText = "Inscribirse";
+            this.Inscribirse.UseColumnTextForButtonValue = true;
+            // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -243,12 +254,6 @@ namespace UI.Desktop
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
-            // Inscribirse
-            // 
-            this.Inscribirse.HeaderText = "Inscribirse";
-            this.Inscribirse.Name = "Inscribirse";
-            this.Inscribirse.ReadOnly = true;
             // 
             // Cursos
             // 

@@ -88,7 +88,7 @@ namespace Data.Database
             }
             catch (SqlException se)
             {
-                throw new Exception(se.Message);
+                throw new Exception("Es posible que haya inscripciones en el curso " + se.Message);
             }
             finally
             {

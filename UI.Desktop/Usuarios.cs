@@ -85,10 +85,16 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
+
             int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
             UsuarioDesktop usuarioDesktop = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
             usuarioDesktop.ShowDialog();
             this.Listar();
+        }
+
+        private void tlUsuarios_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
