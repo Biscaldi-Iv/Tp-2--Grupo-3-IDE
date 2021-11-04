@@ -32,13 +32,6 @@ namespace UI.Desktop
             this.tcCursos = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.tscCursos = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbVer = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +39,13 @@ namespace UI.Desktop
             this.Año = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inscribirse = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.tscCursos = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbVer = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tcCursos.ContentPanel.SuspendLayout();
             this.tcCursos.TopToolStripPanel.SuspendLayout();
             this.tcCursos.SuspendLayout();
@@ -110,6 +110,71 @@ namespace UI.Desktop
             this.dgvCursos.Size = new System.Drawing.Size(794, 415);
             this.dgvCursos.TabIndex = 0;
             this.dgvCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursos_CellContentClick);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "ID";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 60;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 85;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.MinimumWidth = 185;
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Materia
+            // 
+            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Materia.DataPropertyName = "IDMateria";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 120;
+            this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            // 
+            // Comision
+            // 
+            this.Comision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Comision.DataPropertyName = "IDComision";
+            this.Comision.HeaderText = "Comision";
+            this.Comision.MinimumWidth = 85;
+            this.Comision.Name = "Comision";
+            this.Comision.ReadOnly = true;
+            // 
+            // Año
+            // 
+            this.Año.DataPropertyName = "AnioCalendario";
+            this.Año.HeaderText = "Año";
+            this.Año.MinimumWidth = 85;
+            this.Año.Name = "Año";
+            this.Año.ReadOnly = true;
+            this.Año.Width = 85;
+            // 
+            // Cupo
+            // 
+            this.Cupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.MinimumWidth = 85;
+            this.Cupo.Name = "Cupo";
+            this.Cupo.ReadOnly = true;
+            // 
+            // Inscribirse
+            // 
+            this.Inscribirse.DataPropertyName = "botonInscribirse";
+            this.Inscribirse.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Inscribirse.HeaderText = "Inscribirse";
+            this.Inscribirse.Name = "Inscribirse";
+            this.Inscribirse.ReadOnly = true;
+            this.Inscribirse.Text = "Inscribirse";
+            this.Inscribirse.ToolTipText = "Inscribirse";
+            this.Inscribirse.UseColumnTextForButtonValue = true;
             // 
             // btnSalir
             // 
@@ -189,69 +254,6 @@ namespace UI.Desktop
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "ID";
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 60;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 85;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.MinimumWidth = 185;
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // Materia
-            // 
-            this.Materia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Materia.DataPropertyName = "IDMateria";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.MinimumWidth = 120;
-            this.Materia.Name = "Materia";
-            this.Materia.ReadOnly = true;
-            // 
-            // Comision
-            // 
-            this.Comision.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Comision.DataPropertyName = "IDComision";
-            this.Comision.HeaderText = "Comision";
-            this.Comision.MinimumWidth = 85;
-            this.Comision.Name = "Comision";
-            this.Comision.ReadOnly = true;
-            // 
-            // Año
-            // 
-            this.Año.DataPropertyName = "AnioCalendario";
-            this.Año.HeaderText = "Año";
-            this.Año.MinimumWidth = 85;
-            this.Año.Name = "Año";
-            this.Año.ReadOnly = true;
-            this.Año.Width = 85;
-            // 
-            // Cupo
-            // 
-            this.Cupo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.MinimumWidth = 85;
-            this.Cupo.Name = "Cupo";
-            this.Cupo.ReadOnly = true;
-            // 
-            // Inscribirse
-            // 
-            this.Inscribirse.HeaderText = "Inscripcion";
-            this.Inscribirse.Name = "Inscribirse";
-            this.Inscribirse.ReadOnly = true;
-            this.Inscribirse.Text = "Inscribirse";
-            this.Inscribirse.ToolTipText = "Inscribirse a cursado";
-            this.Inscribirse.UseColumnTextForButtonValue = true;
             // 
             // Cursos
             // 

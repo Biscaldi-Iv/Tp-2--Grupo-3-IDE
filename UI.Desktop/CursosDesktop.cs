@@ -158,6 +158,7 @@ namespace UI.Desktop
                 case ModoForm.Baja:
                     {
                         //validar si hay que eliminar inscripciones-alum/docentes
+                        cursosLogic.Delete(this.CursoActual.ID);
                         break;
                     }
                 case ModoForm.Consulta:
