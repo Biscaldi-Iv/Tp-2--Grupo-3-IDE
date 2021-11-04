@@ -47,6 +47,8 @@ namespace UI.Desktop
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inscripcionACursadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.misCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.docentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inscripcionACursoDocenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -123,7 +125,8 @@ namespace UI.Desktop
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.aBMCToolStripMenuItem,
-            this.alumnosToolStripMenuItem});
+            this.alumnosToolStripMenuItem,
+            this.docentesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(679, 24);
@@ -143,7 +146,7 @@ namespace UI.Desktop
             // 
             this.loginToolStripMenuItem.Image = global::UI.Desktop.Properties.Resources.usr;
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loginToolStripMenuItem.Text = "Iniciar Sesion";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -152,7 +155,7 @@ namespace UI.Desktop
             this.cerrarSesionToolStripMenuItem.Enabled = false;
             this.cerrarSesionToolStripMenuItem.Image = global::UI.Desktop.Properties.Resources.close;
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
@@ -167,48 +170,49 @@ namespace UI.Desktop
             this.cursosToolStripMenuItem});
             this.aBMCToolStripMenuItem.Enabled = false;
             this.aBMCToolStripMenuItem.Name = "aBMCToolStripMenuItem";
-            this.aBMCToolStripMenuItem.Size = new System.Drawing.Size(100, 20);
-            this.aBMCToolStripMenuItem.Text = "Administracion";
+            this.aBMCToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.aBMCToolStripMenuItem.Text = "ABMC";
+            this.aBMCToolStripMenuItem.Visible = false;
             // 
             // comisionesToolStripMenuItem
             // 
             this.comisionesToolStripMenuItem.Name = "comisionesToolStripMenuItem";
-            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comisionesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.comisionesToolStripMenuItem.Text = "Comisiones";
             this.comisionesToolStripMenuItem.Click += new System.EventHandler(this.comisionesToolStripMenuItem_Click);
             // 
             // especialidadesToolStripMenuItem
             // 
             this.especialidadesToolStripMenuItem.Name = "especialidadesToolStripMenuItem";
-            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.especialidadesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.especialidadesToolStripMenuItem.Text = "Especialidades";
             this.especialidadesToolStripMenuItem.Click += new System.EventHandler(this.especialidadesToolStripMenuItem_Click);
             // 
             // planesToolStripMenuItem
             // 
             this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.planesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.planesToolStripMenuItem.Text = "Planes";
             this.planesToolStripMenuItem.Click += new System.EventHandler(this.planesToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // materiasToolStripMenuItem
             // 
             this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.materiasToolStripMenuItem.Text = "Materias";
             this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
             // 
             // cursosToolStripMenuItem
             // 
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
@@ -221,6 +225,7 @@ namespace UI.Desktop
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
             this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
+            this.alumnosToolStripMenuItem.Visible = false;
             // 
             // inscripcionACursadoToolStripMenuItem
             // 
@@ -235,6 +240,23 @@ namespace UI.Desktop
             this.misCursosToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.misCursosToolStripMenuItem.Text = "Mis cursos";
             this.misCursosToolStripMenuItem.Click += new System.EventHandler(this.misCursosToolStripMenuItem_Click);
+            // 
+            // docentesToolStripMenuItem
+            // 
+            this.docentesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inscripcionACursoDocenteToolStripMenuItem});
+            this.docentesToolStripMenuItem.Enabled = false;
+            this.docentesToolStripMenuItem.Name = "docentesToolStripMenuItem";
+            this.docentesToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.docentesToolStripMenuItem.Text = "Docentes";
+            this.docentesToolStripMenuItem.Visible = false;
+            // 
+            // inscripcionACursoDocenteToolStripMenuItem
+            // 
+            this.inscripcionACursoDocenteToolStripMenuItem.Name = "inscripcionACursoDocenteToolStripMenuItem";
+            this.inscripcionACursoDocenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inscripcionACursoDocenteToolStripMenuItem.Text = "Inscripcion a curso";
+            this.inscripcionACursoDocenteToolStripMenuItem.Click += new System.EventHandler(this.inscripcionACursoDocenteToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -282,5 +304,7 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inscripcionACursadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem misCursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem docentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inscripcionACursoDocenteToolStripMenuItem;
     }
 }

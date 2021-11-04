@@ -175,6 +175,7 @@ namespace UI.Desktop
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlUsuarios.Size = new System.Drawing.Size(1078, 487);
             this.tlUsuarios.TabIndex = 0;
+            this.tlUsuarios.Paint += new System.Windows.Forms.PaintEventHandler(this.tlUsuarios_Paint);
             // 
             // btnSalir
             // 
@@ -201,14 +202,14 @@ namespace UI.Desktop
             // 
             this.tsUsuarios.AutoSize = false;
             this.tsUsuarios.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tsUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsUsuarios.Dock = System.Windows.Forms.DockStyle.None;
             this.tsUsuarios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbNuevo,
             this.tsbEditar,
             this.tsbEliminar});
             this.tsUsuarios.Location = new System.Drawing.Point(3, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(1075, 25);
+            this.tsUsuarios.Size = new System.Drawing.Size(147, 25);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo

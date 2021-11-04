@@ -164,9 +164,8 @@ namespace Data.Database
                 SqlDataReader reader = this.ExecuteReader("SELECT TOP (1000) [personas].[id_persona],[nombre],[apellido],[direccion]," +
                         "[email],[telefono],[fecha_nac],[legajo],[personas].[tipo_persona],[id_plan] " +
                         "FROM [Academia].[dbo].[personas] INNER JOIN [Academia].[dbo].[tipo_persona] " +
-                        "ON [personas].[tipo_persona]=[tipo_persona].[id_tipo_persona] " +
-                        "INNER JOIN [Academia].[dbo].[personas]" +
-                        "WHERE [tipo_persona].[descripcion_t_p]='Docente' ");
+                        "ON [personas].[tipo_persona]=[tipo_persona].[id_tipo_persona] " +                        
+                        " WHERE [tipo_persona].[descripcion_t_p] = 'Docente' ");
 
                 while (reader.Read())
                 {
