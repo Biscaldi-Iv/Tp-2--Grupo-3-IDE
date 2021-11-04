@@ -13,10 +13,19 @@
     <Compile Update="ComisionesDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ControlNotas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Cursos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="CursosDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DocentesCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DocentesCursosForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Especialidades.cs">
@@ -26,6 +35,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Comisiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inscripciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">

@@ -28,11 +28,12 @@ namespace Business.Logic
                 throw new Exception(e.Message);
             }
         }
-        public void getCursosInscripto(int idPlan, int idAlumno)
+        public List<Curso> getCursosInscripto(int idPlan, int idAlumno)
         {
             try
             {
-                ai_adapter.getCursosInscripto(idPlan, idAlumno);
+                List<Curso> cursos=ai_adapter.getCursosInscripto(idPlan, idAlumno);
+                return cursos;
             }
             catch (Exception e)
             {
@@ -56,6 +57,11 @@ namespace Business.Logic
                 
             }
             return CursosDisp;
+        }
+
+        public void EliminarInscripcion()
+        {
+            //ver
         }
 
 

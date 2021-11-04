@@ -126,28 +126,5 @@ namespace Business.Logic
             }
         }
 
-        public void Inscribirse(int idAlumno, int idCurso)
-        {
-            try
-            {
-                cursosAdapter.Inscribirse(idAlumno, idCurso);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public List<Curso> getCursosInscripto(int idPlan, int idAlumno)
-        {
-            try
-            {
-                return cursosAdapter.getCursosDisponibles(idPlan, idAlumno);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
     }
 }
