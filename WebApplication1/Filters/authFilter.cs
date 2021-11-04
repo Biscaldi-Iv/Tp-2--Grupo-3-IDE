@@ -25,48 +25,44 @@ namespace UI.Web.Filters
     public class authFilter : AuthorizationHandler<EstadoRequerido>
     {
 
-        /*public override void OnActionExecuting(ActionExecutingContext filterContext)
+        IHttpContextAccessor _httpContextAccessor = null;
+
+        public authFilter(IHttpContextAccessor httpContextAccessor)
         {
-            try
-            {
-                base.OnActionExecuting(filterContext);               
-                if (!Models.SessionHepler.Sessionstate(filterContext.HttpContext.Session))
-                {
-
-                    if ((filterContext.Controller is AccesoController) == false)
-                    {
-                        filterContext.HttpContext.Response.Redirect("/Acceso");
-                        //filterContext.ActionDescriptor.
-                        return;
-                    }
-                }
-
-            }
-            catch (Exception)
-            {
-                filterContext.Result = new RedirectResult("~/Acceso");
-            }
-
+            _httpContextAccessor = httpContextAccessor;
         }
-        */
+
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EstadoRequerido requirement)
         {
             //estado requerido deberia ser = true
-            var httpcontx = context.Resource as AuthorizationFilterContext;
-            if(httpcontx is null)
+            //var httpcontx = context.Resource as AuthorizationFilterContext;
+            /*if(httpcontx is null)
             {
                 //httpcontx = new AuthorizationFilterContext();
                 //httpcontx.Result = new RedirectToActionResult("Index", "Acceso", null);
                 return Task.CompletedTask;
+            }*/
+            string path = _httpContextAccessor.HttpContext.GetEndpoint().ToString();
+            ISession se = _httpContextAccessor.HttpContext.Session;
+            if (path.Contains("Acceso"))
+            {
+                return Task.CompletedTask;
             }
-            if (Models.SessionHepler.Sessionstate(httpcontx.HttpContext.Session)==requirement.Requerido)
+            //posiblemente no necesario
+            if (se is null)
+            {
+                _httpContextAccessor.HttpContext.Response.Redirect("/Acceso", true);
+                return Task.CompletedTask;
+            }
+            if (Models.SessionHepler.Sessionstate(_httpContextAccessor.HttpContext.Session) ==requirement.Requerido)
             {
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }
             else
             {
-                httpcontx.Result = new RedirectToActionResult("Index", "Acceso", null);
+                //httpcontx.Result = new RedirectToActionResult("Index", "Acceso", null);
+                _httpContextAccessor.HttpContext.Response.Redirect("/Acceso",true);
                 return Task.CompletedTask;
             }
             throw new NotImplementedException();

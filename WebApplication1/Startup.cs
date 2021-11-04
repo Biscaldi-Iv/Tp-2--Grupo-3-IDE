@@ -36,16 +36,23 @@ namespace WebApplication1
                 options.Cookie.IsEssential = true;
                 options.Cookie.Name = ".Academia.Session";
             });
-
+            services.AddHttpContextAccessor();
             services.AddAuthorization(options=> options.AddPolicy("EstadoReq", policy=> policy.AddRequirements(new EstadoRequerido())));
             services.AddSingleton<IAuthorizationHandler, authFilter>();
 
-            services.AddAuthentication(options =>
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Acceso";
+                options.LogoutPath = "/Acceso/SessionClose";
+            });
+            /*services.AddAuthentication(options =>
             {
                 //options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 //options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            }).AddCookie(options => { options.LoginPath = "/Acceso"; });
+            }).AddCookie(options => { options.LoginPath = "/Acceso"; });*/
 
             //services.AddMvc(options => options.EnableEndpointRouting = false);
 
@@ -80,11 +87,13 @@ namespace WebApplication1
             });*/
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
 
-            app.UseSession();
+            
 
             app.UseEndpoints(endpoints =>
             {
