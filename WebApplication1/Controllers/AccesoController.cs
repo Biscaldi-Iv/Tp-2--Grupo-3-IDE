@@ -12,7 +12,11 @@ namespace UI.Web.Controllers
     {
         public IActionResult Index()
         {
-            
+            ViewBag.msgerror = "";
+            if (TempData.ContainsKey("msgerror"))
+            {
+                ViewBag.msgerror = TempData["msgerror"].ToString();
+            }
             if (Models.SessionHepler.Sessionstate(HttpContext.Session))
             {
                 return RedirectToAction("Index", "Home");
@@ -27,7 +31,16 @@ namespace UI.Web.Controllers
         [HttpPost]
         public ActionResult StartSession(string nombreusuario, string contraseña)
         {
-            Models.SessionHepler.IniciarSesion(HttpContext.Session, nombreusuario, contraseña);
+            
+            try
+            {
+                Models.SessionHepler.IniciarSesion(HttpContext.Session, nombreusuario, contraseña);
+            }
+            catch (Exception ex)
+            {
+                TempData.Add("msgerror", ex.Message);
+            }
+           
             return RedirectToAction("Index", "Home");
         }
 

@@ -49,6 +49,11 @@ namespace UI.Web.Models
         {
             //guarda el usuario
             UsuarioLogic ul = new UsuarioLogic();
+            if (!ul.VerificarUsuario(username, clave))
+            {
+                throw new Exception("Es posible que haya escrito mal el usuario o contraseña");
+            }
+            
             Usuario usr = ul.RecuperarUsuario(username, clave);
             var struser = JsonConvert.SerializeObject(usr);
             s.SetString("usuario", struser);
