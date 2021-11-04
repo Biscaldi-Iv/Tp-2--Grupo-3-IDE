@@ -10,15 +10,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UI.Web;
 using UI.Web.Filters;
 
-namespace WebApplication1
+
+namespace UI.Web
 {
     public class Startup
     {
+        IConfiguration configuration;
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -26,6 +29,10 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<DBConnection>(options =>
+            {
+                options.ConnectionString = @"Data Source=.\SQLExpress;Initial Catalog=Academia;Integrated Security=True";
+            });
             //services.AddMemoryCache();  //pendiente ver diferencias
             services.AddDistributedMemoryCache();
 
@@ -36,22 +43,34 @@ namespace WebApplication1
                 options.Cookie.IsEssential = true;
                 options.Cookie.Name = ".Academia.Session";
             });
-
+            services.AddHttpContextAccessor();
             services.AddAuthorization(options=> options.AddPolicy("EstadoReq", policy=> policy.AddRequirements(new EstadoRequerido())));
             services.AddSingleton<IAuthorizationHandler, authFilter>();
 
-            services.AddAuthentication(options =>
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Acceso";
+                options.LogoutPath = "/Acceso/SessionClose";
+            });
+            /*services.AddAuthentication(options =>
             {
                 //options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 //options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            }).AddCookie(options => { options.LoginPath = "/Acceso"; });
+            }).AddCookie(options => { options.LoginPath = "/Acceso"; });*/
 
-            //services.AddMvc(options => options.EnableEndpointRouting = false);
-
+            services.AddMvc();
+            services.AddOptions();
+            services.AddTransient<iPlanService, PlanesService>();
+            
+           
             services.AddControllersWithViews();
 
             services.AddRazorPages();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,11 +99,13 @@ namespace WebApplication1
             });*/
             app.UseRouting();
 
+            app.UseSession();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
 
-            app.UseSession();
+            
 
             app.UseEndpoints(endpoints =>
             {
@@ -93,6 +114,9 @@ namespace WebApplication1
                 //    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Report}/{action=print}/{id?}");
             });
         }
     }

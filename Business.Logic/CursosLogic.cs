@@ -44,7 +44,7 @@ namespace Business.Logic
         {
             try
             {
-                return Cursos;
+                return this.Cursos;
             }
             catch (Exception e)
             {

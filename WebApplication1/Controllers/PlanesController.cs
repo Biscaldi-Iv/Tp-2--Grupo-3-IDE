@@ -42,6 +42,7 @@ namespace UI.Web.Controllers
             }
             catch(Exception e)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No se pudo registrar el plan >>" + e.Message);
             }
             return RedirectToAction("Index");
@@ -58,6 +59,7 @@ namespace UI.Web.Controllers
             }
             catch(Exception e)
             {
+                TempData.Remove("msgerror"); 
                 TempData.Add("msgerror", "No se registraron los cambios >>" + e.Message);
             }
             return RedirectToAction("Index");
@@ -73,6 +75,7 @@ namespace UI.Web.Controllers
             }
             catch(Exception e)
             {
+                TempData.Remove("msgerror"); 
                 TempData.Add("msgerror", "No se elimino el plan >>" + e.Message);
             }
             return RedirectToAction("Index");

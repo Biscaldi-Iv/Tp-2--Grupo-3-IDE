@@ -16,7 +16,7 @@ namespace UI.Desktop
     public partial class Cursos : ApplicationForm
     {
         private CursosLogic cl;
-        private AlumnoInscripcionLogic alLogic;
+        private AlumnoInscripcionLogic alLogic;       
         
         public Cursos()
         {
@@ -24,8 +24,7 @@ namespace UI.Desktop
             this.dgvCursos.AutoGenerateColumns = false;
             this.cl = new CursosLogic();
             this.alLogic = new AlumnoInscripcionLogic();
-            this.Listar(); 
-            LoadTheme();
+            this.Listar(); LoadTheme();
             UserPreferenceChanged = new UserPreferenceChangedEventHandler(SystemEvents_UserPreferenceChanged);
             SystemEvents.UserPreferenceChanged += UserPreferenceChanged;
             this.Disposed += new EventHandler(Form_Disposed);
@@ -34,13 +33,6 @@ namespace UI.Desktop
                 this.tscCursos.Hide();
             }
         }
-
-        public Cursos(ModoForm modo) : this()
-        {
-            Modo = modo;
-            this.Listar();
-        }
-
         private UserPreferenceChangedEventHandler UserPreferenceChanged;
 
         private void Form_Disposed(object sender, EventArgs e)
@@ -90,21 +82,7 @@ namespace UI.Desktop
                     {
                         try
                         {
-                            switch (Modo)
-                            {
-                                case ModoForm.Alta:
-                                    {
-                                        this.dgvCursos.DataSource = alLogic.getCursosDisponibles(Program.plan.ID, Program.usuarioLog.IdPersona);
-                                        break;
-                                    }
-                                case ModoForm.Consulta:
-                                    {
-                                        this.dgvCursos.DataSource= alLogic.getCursosInscripto(Program.plan.ID, Program.usuarioLog.IdPersona);
-                                        this.dgvCursos.Columns[6].Visible = false;
-                                        break;
-                                    }
-                            }
-                            
+                            this.dgvCursos.DataSource = alLogic.getCursosDisponibles(Program.plan.ID,Program.usuarioLog.IdPersona);
                         }
                         catch (Exception e)
                         {
@@ -154,7 +132,10 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            Notificar("Advertencia", "No disponible", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int ID = ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+            CursosDesktop cursoDesktop = new CursosDesktop(ID, ApplicationForm.ModoForm.Baja);
+            cursoDesktop.ShowDialog();
+            this.Listar();           
         }
 
         private void Cursos_Load(object sender, EventArgs e)
@@ -176,8 +157,12 @@ namespace UI.Desktop
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                int idCurso = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
-                alLogic.Inscribirse(Program.usuarioLog.IdPersona, idCurso);
+                if (MessageBox.Show("Esta seguro que se quiere inscribir", "Ciudado", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    int idCurso = ((Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
+                    alLogic.Inscribirse(Program.usuarioLog.IdPersona, idCurso);
+                    
+                }                
             }
         }
     }

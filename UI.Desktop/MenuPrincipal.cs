@@ -65,19 +65,20 @@ namespace UI.Desktop
                     case "Administrador":
                         {
                             aBMCToolStripMenuItem.Enabled = true;
-                            alumnosToolStripMenuItem.Enabled = false;
+                            aBMCToolStripMenuItem.Visible = true;
+                            docentesToolStripMenuItem.Enabled = true;
+                            docentesToolStripMenuItem.Visible = true;
                             break;
                         }
                     case "Docente":
                         {
-                            aBMCToolStripMenuItem.Visible = false;
-                            alumnosToolStripMenuItem.Visible = false;
+                            //subir notas
                             break;
                         }
                     case "Alumno":
                         {                            
                             alumnosToolStripMenuItem.Enabled = true;
-                            aBMCToolStripMenuItem.Visible = false;
+                            alumnosToolStripMenuItem.Visible = true;
                             break;
                         }
                     default: break;
@@ -158,7 +159,7 @@ namespace UI.Desktop
         private void inscripcionACursadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.menu.Hide();
-            Cursos frminscripcion = new Cursos(ApplicationForm.ModoForm.Alta);
+            Cursos frminscripcion = new Cursos();
             frminscripcion.ShowDialog();
             Program.menu.Show();
         }
@@ -166,8 +167,16 @@ namespace UI.Desktop
         private void misCursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.menu.Hide();
-            Cursos frminscripcion = new Cursos(ApplicationForm.ModoForm.Consulta);
+            AlumnoInscripciones frminscripcion = new AlumnoInscripciones();
             frminscripcion.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void inscripcionACursoDocenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            DocentesCursos docentescursos = new DocentesCursos();
+            docentescursos.ShowDialog();
             Program.menu.Show();
         }
     }
