@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Logic;
+using Business.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +17,19 @@ namespace UI.Desktop
         public DocentesCursos()
         {
             InitializeComponent();
+            CursosL = new CursosLogic();
+            PlanesL = new PlanesLogic();
         }
 
+        public CursosLogic CursosL { get; set; }
+        public PlanesLogic PlanesL { get; set; }
+        public List<DocenteCurso> docenteCursos { set; get; }
+        public PersonaLogic PersonasL { get; set; }
+
+        public void Listar()
+        {
+            
+        }
         /*
         id de dictado debe pasarse al form pero solo como variable para guardar cambios,
         NO MOSTRAR
