@@ -38,6 +38,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", ex.Message);
             }
            
