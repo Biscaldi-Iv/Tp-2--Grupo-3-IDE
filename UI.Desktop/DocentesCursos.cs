@@ -19,16 +19,21 @@ namespace UI.Desktop
             InitializeComponent();
             CursosL = new CursosLogic();
             PlanesL = new PlanesLogic();
+            PersonasL = new PersonaLogic();
+            DCL = new DocentesCursosLogic();
         }
 
         public CursosLogic CursosL { get; set; }
         public PlanesLogic PlanesL { get; set; }
+        public DocentesCursosLogic DCL { get; set; }
         public List<DocenteCurso> docenteCursos { set; get; }
         public PersonaLogic PersonasL { get; set; }
 
         public void Listar()
         {
-            
+            this.cBoxPlan.DataSource = PlanesL.GetAll();
+            List<Persona> docentes = PersonasL.GetDocentes();
+            docenteCursos = DCL.GetDocentesCursos();
         }
         /*
         id de dictado debe pasarse al form pero solo como variable para guardar cambios,

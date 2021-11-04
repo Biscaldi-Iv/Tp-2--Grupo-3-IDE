@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UI.Web.Filters;
 
 namespace WebApplication1
 {
@@ -33,6 +36,16 @@ namespace WebApplication1
                 options.Cookie.IsEssential = true;
                 options.Cookie.Name = ".Academia.Session";
             });
+
+            services.AddAuthorization(options=> options.AddPolicy("EstadoReq", policy=> policy.AddRequirements(new EstadoRequerido())));
+            services.AddSingleton<IAuthorizationHandler, authFilter>();
+
+            services.AddAuthentication(options =>
+            {
+                //options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                //options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(options => { options.LoginPath = "/Acceso"; });
 
             //services.AddMvc(options => options.EnableEndpointRouting = false);
 

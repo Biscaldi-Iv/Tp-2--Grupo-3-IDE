@@ -8,12 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication1.Models;
 using Business.Entities;
-using Newtonsoft.Json;
-using UI.Web.Filters;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Web.Controllers
 {
-    [TypeFilter(typeof(authFilter))]
+    [Authorize(Policy = "EstadoReq")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

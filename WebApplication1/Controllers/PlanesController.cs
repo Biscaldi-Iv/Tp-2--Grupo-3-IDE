@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UI.Web.Filters;
 using Business.Entities;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Web.Controllers
 {
-    [TypeFilter(typeof(authFilter))]
+    [Authorize(Policy = "EstadoReq")]
     public class PlanesController : Controller
     {
         public IActionResult Index()
