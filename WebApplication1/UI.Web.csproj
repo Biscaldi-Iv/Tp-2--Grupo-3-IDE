@@ -29,10 +29,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\Reports\ReportCursos.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\Reports\SampleReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\Reports\SampleReport2.rdlc">
+    <Content Update="wwwroot\Reports\ReportPlanes.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

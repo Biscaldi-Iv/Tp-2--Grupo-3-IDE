@@ -1,4 +1,4 @@
-namespace RDLCDesign
+namespace UI.Web
 {
 
 

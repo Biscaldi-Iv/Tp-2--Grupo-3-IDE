@@ -64,6 +64,7 @@ namespace UI.Web
             services.AddMvc();
             services.AddOptions();
             services.AddTransient<iPlanService, PlanesService>();
+            services.AddTransient<ICursosService, CursosService>();
             
            
             services.AddControllersWithViews();
