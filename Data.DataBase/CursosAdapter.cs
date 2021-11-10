@@ -220,5 +220,11 @@ namespace Data.Database
 
             return dc;
         }
+
+        public List<Curso> GetCursoSinDocente()
+        {
+            List<Curso> cur = new List<Curso>();
+            return cur;
+        }
     }
 }
