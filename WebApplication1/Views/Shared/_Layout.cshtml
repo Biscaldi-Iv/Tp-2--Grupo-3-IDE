@@ -21,37 +21,52 @@
                         if ((string)ViewData["Title"] != "Acceso")
                         {
                             <div class="collapse navbar-collapse" id="navbarsExample02">
-                                <ul class="navbar-nav me-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                                    </li>
-                                    @switch (@ViewBag.tipo)
-                                    {
-                                    case "Administrador":
-                                    {
-                                    <li class="nav-item">
-                                        <div class="dropdown">
-                                            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
-                                                Administracion
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
-                                                <li><a class="dropdown-item" asp-area="" asp-controller="Comisiones" asp-action="Index">Comisiones</a></li>
-                                                <li><a class="dropdown-item" asp-area="" asp-controller="Planes" asp-action="Index">Planes</a></li>
-                                                <li><a class="dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+                                                    <ul class="navbar-nav me-auto">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                                        </li>
+                                                        @switch (@ViewBag.tipo)
+                                                        {
+                                                            case "Administrador":
+                                                                {
+                                                                    <li class="nav-item">
+                                                                        <div class="dropdown">
+                                                                            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                                                                                Administracion
+                                                                            </button>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a></li>
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Comisiones" asp-action="Index">Comisiones</a></li>
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Planes" asp-action="Index">Planes</a></li>
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Reporte Planes" asp-action="PrintPlanes">Report</a></li>
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Reporte Cursos" asp-action="PrintCursos">Report</a></li>
 
-                                    break;
-                                    }
-                                    case "Alumno": { break; }
-                                    case "Docente": { break; }
-                                    }
-                                </ul>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="nav-item">
+                                                                        <div class="dropdown">
+                                                                            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                                                                                Reportes
+                                                                            </button>
+                                                                            <ul class="dropdown-menu">                                                                               
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="PrintPlanes">Planes</a></li>
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Report" asp-action="PrintCursos">Cursos</a></li>
+
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+
+                                                                    break;
+                                                                }
+                                                            case "Alumno": { break; }
+                                                            case "Docente": { break; }
+                                                        }
+                                                    </ul>
                                 <a class="nav-link px-3" asp-area="" asp-controller="Acceso" asp-action="SessionClose">Cerrar Sesion</a>
                             </div>
                         }

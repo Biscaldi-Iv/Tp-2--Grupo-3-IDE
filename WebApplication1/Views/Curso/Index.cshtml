@@ -90,13 +90,13 @@
                 <br />
 
                 <div class="form-floating">
-                    <input id="cupo1" name="cupo1" type="text" class="form-control" required />
+                    <input id="cupo1" name="cupo1" type="text" class="form-control" onchange="valida1(this.value)" required />
                     <label for="cupo1">Cupo</label>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary" id="registrar" disabled>Registrar</button>
                 </div>
             </form>
         </div>
@@ -154,13 +154,13 @@
                 </select>
                 <br />
                 <div class="form-floating">
-                    <input id="cupo2" name="cupo2" type="text" class="form-control" required />
+                    <input id="cupo2" name="cupo2" type="text" class="form-control" onchange="valida2(this.value)" required />
                     <label for="cupo2">Cupo</label>
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-primary" id="guardar" disabled>Guardar</button>
                 </div>
             </form>
         </div>
@@ -267,7 +267,28 @@
             document.getElementById('cupo2').value = this.cells[5].innerHTML;
             document.getElementById('cupo3').value = this.cells[5].innerHTML;
 
+            document.getElementById('registrar').disabled = true;
+            document.getElementById('guardar').disabled = true;
+
         };
+    }
+
+    function valida1(val) {
+        if (isNaN(val)) {
+            document.getElementById('registrar').disabled = true;
+        }
+        else {
+            document.getElementById('registrar').disabled = false;
+        }
+    }
+
+    function valida2(val) {
+        if (isNaN(val)) {
+            document.getElementById('registrar').disabled = true;
+        }
+        else {
+            document.getElementById('guardar').disabled = false;
+        }
     }
 
 </script>

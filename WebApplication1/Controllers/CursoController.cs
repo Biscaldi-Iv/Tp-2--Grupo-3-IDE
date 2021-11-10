@@ -38,6 +38,7 @@ namespace UI.Web.Controllers
             }
             catch(Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No se registro el curso >>" + ex.Message);
             }
             return RedirectToAction("Index");
@@ -54,6 +55,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No se guardaron los cambios >>" + ex.Message);
             }
             return RedirectToAction("Index");
@@ -69,6 +71,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No se elimino el curso >>" + ex.Message);
             }
             return RedirectToAction("Index");

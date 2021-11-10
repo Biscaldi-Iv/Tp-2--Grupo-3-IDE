@@ -48,7 +48,7 @@ namespace UI.Web.Filters
             {
                 return Task.CompletedTask;
             }
-            //posiblemente no necesario
+            //posiblemente este if no es necesario
             if (se is null)
             {
                 _httpContextAccessor.HttpContext.Response.Redirect("/Acceso", true);

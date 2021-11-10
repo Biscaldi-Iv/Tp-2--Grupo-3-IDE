@@ -35,6 +35,7 @@ namespace UI.Web.Controllers
             catch(Exception ex)
             {
                 string msgerror = "No se registra la especialidad: " + ex.Message;
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", msgerror);
                 return RedirectToAction("Index");
             }
@@ -54,6 +55,7 @@ namespace UI.Web.Controllers
             catch(Exception ex)
             {
                 string msgerror = "No se registra la especialidad: " + ex.Message;
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", msgerror);
                 return RedirectToAction("Index");
             }
@@ -71,6 +73,7 @@ namespace UI.Web.Controllers
             catch (Exception ex)
             {
                 string msgerror = "No se registra la especialidad: " + ex.Message;
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", msgerror);
                 return RedirectToAction("Index");
             }

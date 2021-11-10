@@ -44,6 +44,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No se registaro la comision >> " + ex.Message);
             }
             return RedirectToAction("Index");
@@ -61,6 +62,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No se registararon los cambios >> "+ex.Message);
             }
             return RedirectToAction("Index");
@@ -76,6 +78,7 @@ namespace UI.Web.Controllers
             }
             catch (Exception ex)
             {
+                TempData.Remove("msgerror");
                 TempData.Add("msgerror", "No fue posible eliminar la comision >> " + ex.Message);
             }
             return RedirectToAction("Index");
