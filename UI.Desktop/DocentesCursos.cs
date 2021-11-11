@@ -49,10 +49,7 @@ namespace UI.Desktop
                 dataTable1.Rows.Add(dc.Item2.ID, dc.Item2.Descripcion, dc.Item3.ID,
                     dc.Item3.Nombre, dc.Item3.Apellido, dc.Item1.Cargo.TipoCargo, dc.Item1.ID);
             }
-
-            this.dgvDocentesCursos.DataSource = dataTable1;
-            //this.dgvDocentesCursos.Selec
-
+            this.dgvDocentesCursos.DataSource = dataTable1;            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

@@ -126,6 +126,7 @@ namespace UI.Desktop
             this.cBoxDocente.Name = "cBoxDocente";
             this.cBoxDocente.Size = new System.Drawing.Size(356, 23);
             this.cBoxDocente.TabIndex = 4;
+            this.cBoxDocente.ValueMember = "ID";
             // 
             // label1
             // 
@@ -157,6 +158,7 @@ namespace UI.Desktop
             this.btnRegistrar.TabIndex = 7;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // lbTipoCargo
             // 
@@ -178,6 +180,7 @@ namespace UI.Desktop
             this.cbTipoCargo.Name = "cbTipoCargo";
             this.cbTipoCargo.Size = new System.Drawing.Size(356, 23);
             this.cbTipoCargo.TabIndex = 9;
+            this.cbTipoCargo.ValueMember = "ID";
             // 
             // DocentesCursosForm
             // 

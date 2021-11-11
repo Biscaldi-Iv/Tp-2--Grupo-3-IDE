@@ -12,29 +12,21 @@ namespace Data.Database
     public class AlumnoInscripcionAdapter : Adapter
     {
         public AlumnoInscripcionAdapter() : base() { }
-        public List<Curso> getCursosInscripto(int idPlan, int idAlumno)
+        public List<AlumnoInscripcion> getCursosInscripto(int idAlumno)
         {
-            List<Curso> cursos = new List<Curso>();
+            List<AlumnoInscripcion> ai = new List<AlumnoInscripcion>();
             this.OpenConnection();
-            SqlDataReader reader = this.ExecuteReader("SELECT [cursos].[id_curso], [cursos].[id_materia],[cursos].[id_comision], [anio_calendario], [cupo], [desc_materia], [desc_comision]" +
-                " FROM [Academia].[dbo].[cursos] inner join [Academia].[dbo].[comisiones] " +
-                "on [cursos].[id_comision]= [comisiones].[id_comision] " +
-                "inner join [Academia].[dbo].[materias] " +
-                "on [cursos].[id_materia]= [materias].[id_materia]" +
-                " inner join [Academia].[dbo].[planes]" +
-                " on [materias].[id_plan]= [planes].[id_plan] " +
-                "inner join [Academia].[dbo].[alumnos_inscripciones] " +
-                "on [alumnos_inscripciones].[id_curso]=[cursos].[id_curso]" +
-                $"where [planes].[id_plan]= {idPlan} and [alumnos_inscripciones].[id_alumno]={idAlumno}");
+            SqlDataReader reader = this.ExecuteReader("SELECT id_inscripcion, id_alumno, id_curso, condicion, nota " +
+                "FROM [dbo].[alumnos_inscripciones]" +
+                $"where [alumnos_inscripciones].[id_alumno]={idAlumno}");
             while (reader.Read())
-            {
-                string descripcion = $"{reader.GetString(5)}-{reader.GetString(6)} ({reader.GetInt32(3)})";
-                Curso curso = new Curso(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), descripcion);
-                cursos.Add(curso);
+            {           //(string condicion, int iDAlumno, int iDCurso, int nota)
+                AlumnoInscripcion a = new AlumnoInscripcion(reader.GetInt32(0), reader.GetString(3), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(4));
+                ai.Add(a);
             }
             reader.Close();
             this.CloseConnection();
-            return cursos;
+            return ai;
         }
 
         public void Inscribirse(int IdAlumno, int IdCurso)
@@ -76,6 +68,35 @@ namespace Data.Database
 
         }
 
+        public void SaveChanges(AlumnoInscripcion alumnoActual)
+        {
+            try
+            {
+                SqlCommand cmdSave = new SqlCommand(
+                    "UPDATE alumnos_inscripciones SET " +                   
+                    "id_alumno=@idAlu," +
+                    "id_curso=@idCur, " +
+                    "condicion=@cond," +
+                    "nota=@nota " +
+                    "WHERE id_inscripcion=@id", sqlConnection);
+                cmdSave.Parameters.Add("@idAlu", System.Data.SqlDbType.Int).Value = alumnoActual.IDAlumno;
+                cmdSave.Parameters.Add("@idCur", System.Data.SqlDbType.Int).Value = alumnoActual.IDCurso;
+                cmdSave.Parameters.Add("@cond", System.Data.SqlDbType.VarChar, 50).Value = alumnoActual.Condicion;
+                cmdSave.Parameters.Add("@nota", System.Data.SqlDbType.Int).Value = alumnoActual.Nota;
+                cmdSave.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = alumnoActual.ID;
+                this.OpenConnection();
+                cmdSave.ExecuteNonQuery();
+            }
+            catch (SqlException e)
+            {
+                throw e.InnerException;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
         public List<AlumnoInscripcion> getInscripcionesDocente(int idDoc)
         {
             List<AlumnoInscripcion> inscripciones = new List<AlumnoInscripcion>();
@@ -88,6 +109,35 @@ namespace Data.Database
                 " ");
             
             return null;
+        }
+
+        public List<AlumnoInscripcion> getAll()
+        {
+            List<AlumnoInscripcion> ai = new List<AlumnoInscripcion>();
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_inscripcion], [id_alumno], [id_curso], [condicion], [nota] FROM [dbo].[alumnos_inscripciones]");
+            while (reader.Read())
+            {           //(string condicion, int iDAlumno, int iDCurso, int nota)
+                AlumnoInscripcion a = new AlumnoInscripcion(reader.GetInt32(0),reader.GetString(3), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(4));
+                ai.Add(a);
+            }
+            reader.Close();
+            this.CloseConnection();
+            return ai;
+        }
+
+        public AlumnoInscripcion getOne(int IDinscripcion)
+        {
+            
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT [id_inscripcion], [id_alumno], [id_curso], [condicion], [nota] FROM [dbo].[alumnos_inscripciones] " +
+                $"WHERE id_inscripcion = {IDinscripcion}");
+            reader.Read();
+                       //(string condicion, int iDAlumno, int iDCurso, int nota)
+            AlumnoInscripcion a = new AlumnoInscripcion(reader.GetInt32(0), reader.GetString(3), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(4));     
+            reader.Close();
+            this.CloseConnection();
+            return a;
         }
     }
 }

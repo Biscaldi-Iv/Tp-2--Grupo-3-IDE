@@ -4,7 +4,7 @@ using Microsoft.Win32;
 
 namespace UI.Desktop
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipal : ApplicationForm
     {
        
 
@@ -68,11 +68,14 @@ namespace UI.Desktop
                             aBMCToolStripMenuItem.Visible = true;
                             docentesToolStripMenuItem.Enabled = true;
                             docentesToolStripMenuItem.Visible = true;
+                            inscripcionACursoDocenteToolStripMenuItem.Visible = true;
                             break;
                         }
                     case "Docente":
                         {
-                            //subir notas
+                            docentesToolStripMenuItem.Enabled = true;
+                            docentesToolStripMenuItem.Visible = true;
+                            notasToolStripMenuItem.Visible = true;
                             break;
                         }
                     case "Alumno":
@@ -166,7 +169,7 @@ namespace UI.Desktop
 
         private void misCursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Program.menu.Hide();
+            Program.menu.Hide();           
             AlumnoInscripciones frminscripcion = new AlumnoInscripciones();
             frminscripcion.ShowDialog();
             Program.menu.Show();
@@ -177,6 +180,14 @@ namespace UI.Desktop
             Program.menu.Hide();
             DocentesCursos docentescursos = new DocentesCursos();
             docentescursos.ShowDialog();
+            Program.menu.Show();
+        }
+
+        private void notasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.menu.Hide();
+            AlumnoInscripciones frminscripcion = new AlumnoInscripciones();
+            frminscripcion.ShowDialog();
             Program.menu.Show();
         }
     }

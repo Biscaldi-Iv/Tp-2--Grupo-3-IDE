@@ -33,11 +33,6 @@ namespace UI.Desktop
             this.tlpOrden = new System.Windows.Forms.TableLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvAlumnoIncripciones = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.tsAlumnosIncripciones = new System.Windows.Forms.ToolStrip();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +51,7 @@ namespace UI.Desktop
             // tcAlumnosInscripciones.ContentPanel
             // 
             this.tcAlumnosInscripciones.ContentPanel.Controls.Add(this.tlpOrden);
-            this.tcAlumnosInscripciones.ContentPanel.Size = new System.Drawing.Size(745, 426);
+            this.tcAlumnosInscripciones.ContentPanel.Size = new System.Drawing.Size(745, 451);
             this.tcAlumnosInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcAlumnosInscripciones.Location = new System.Drawing.Point(0, 0);
             this.tcAlumnosInscripciones.Name = "tcAlumnosInscripciones";
@@ -83,13 +78,13 @@ namespace UI.Desktop
             this.tlpOrden.RowCount = 2;
             this.tlpOrden.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpOrden.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpOrden.Size = new System.Drawing.Size(745, 426);
+            this.tlpOrden.Size = new System.Drawing.Size(745, 451);
             this.tlpOrden.TabIndex = 0;
             // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalir.Location = new System.Drawing.Point(673, 401);
+            this.btnSalir.Location = new System.Drawing.Point(673, 426);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(69, 22);
             this.btnSalir.TabIndex = 1;
@@ -99,68 +94,23 @@ namespace UI.Desktop
             // 
             // dgvAlumnoIncripciones
             // 
+            this.dgvAlumnoIncripciones.AllowUserToDeleteRows = false;
             this.dgvAlumnoIncripciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlumnoIncripciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Curso,
-            this.Alumno,
-            this.Condicion,
-            this.Nota});
             this.tlpOrden.SetColumnSpan(this.dgvAlumnoIncripciones, 3);
             this.dgvAlumnoIncripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAlumnoIncripciones.Location = new System.Drawing.Point(3, 3);
+            this.dgvAlumnoIncripciones.MultiSelect = false;
             this.dgvAlumnoIncripciones.Name = "dgvAlumnoIncripciones";
+            this.dgvAlumnoIncripciones.ReadOnly = true;
             this.dgvAlumnoIncripciones.RowTemplate.Height = 25;
-            this.dgvAlumnoIncripciones.Size = new System.Drawing.Size(739, 392);
+            this.dgvAlumnoIncripciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAlumnoIncripciones.Size = new System.Drawing.Size(739, 417);
             this.dgvAlumnoIncripciones.TabIndex = 2;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 40;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 85;
-            // 
-            // Curso
-            // 
-            this.Curso.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Curso.HeaderText = "Curso";
-            this.Curso.MinimumWidth = 100;
-            this.Curso.Name = "Curso";
-            this.Curso.ReadOnly = true;
-            // 
-            // Alumno
-            // 
-            this.Alumno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Alumno.HeaderText = "Alumno";
-            this.Alumno.MinimumWidth = 100;
-            this.Alumno.Name = "Alumno";
-            this.Alumno.ReadOnly = true;
-            // 
-            // Condicion
-            // 
-            this.Condicion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Condicion.HeaderText = "Condicion";
-            this.Condicion.MinimumWidth = 100;
-            this.Condicion.Name = "Condicion";
-            this.Condicion.ReadOnly = true;
-            this.Condicion.Width = 130;
-            // 
-            // Nota
-            // 
-            this.Nota.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Nota.HeaderText = "Nota";
-            this.Nota.MinimumWidth = 45;
-            this.Nota.Name = "Nota";
-            this.Nota.ReadOnly = true;
-            this.Nota.Width = 85;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(599, 401);
+            this.btnActualizar.Location = new System.Drawing.Point(599, 426);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(68, 22);
             this.btnActualizar.TabIndex = 0;
@@ -177,6 +127,7 @@ namespace UI.Desktop
             this.tsAlumnosIncripciones.Name = "tsAlumnosIncripciones";
             this.tsAlumnosIncripciones.Size = new System.Drawing.Size(58, 25);
             this.tsAlumnosIncripciones.TabIndex = 0;
+            this.tsAlumnosIncripciones.Visible = false;
             // 
             // tsbEditar
             // 
@@ -185,8 +136,9 @@ namespace UI.Desktop
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEditar.Text = "toolStripButton1";
+            this.tsbEditar.Text = "Editar";
             this.tsbEditar.ToolTipText = "Editar";
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -195,7 +147,7 @@ namespace UI.Desktop
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
-            this.tsbEliminar.Text = "toolStripButton2";
+            this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.ToolTipText = "Eliminar";
             // 
             // AlumnoInscripciones
@@ -208,6 +160,7 @@ namespace UI.Desktop
             this.MinimumSize = new System.Drawing.Size(560, 333);
             this.Name = "AlumnoInscripciones";
             this.Text = "AlumnoInscripciones";
+            this.Load += new System.EventHandler(this.AlumnoInscripciones_Load);
             this.tcAlumnosInscripciones.ContentPanel.ResumeLayout(false);
             this.tcAlumnosInscripciones.TopToolStripPanel.ResumeLayout(false);
             this.tcAlumnosInscripciones.TopToolStripPanel.PerformLayout();
@@ -231,10 +184,5 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStrip tsAlumnosIncripciones;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Condicion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
     }
 }
