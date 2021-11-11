@@ -27,5 +27,20 @@ namespace Business.Logic
                 throw new Exception(e.Message);
             }
         }
+
+        public List<ValueTuple<DocenteCurso, Curso, Persona>> cursos_asignados()
+        {
+            PersonaLogic PersonasL = new PersonaLogic();
+            CursosLogic CursosL = new CursosLogic();
+            var cursos = CursosL.getAll();
+            var docenteCursos = this.GetDocentesCursos();
+            var docentes = PersonasL.GetDocentes();
+            var cur_doc = (from dc in docenteCursos
+                           join c in cursos on dc.IDCurso equals c.ID
+                           join doc in docentes on dc.IDDocente equals doc.ID
+                           select (dc, c, doc)).ToList();
+
+            return cur_doc;
+        }
     }
 }

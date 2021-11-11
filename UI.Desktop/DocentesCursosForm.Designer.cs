@@ -38,6 +38,8 @@ namespace UI.Desktop
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
+            this.lbTipoCargo = new System.Windows.Forms.Label();
+            this.cbTipoCargo = new System.Windows.Forms.ComboBox();
             this.tlDocentesCursos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,15 +55,18 @@ namespace UI.Desktop
             this.tlDocentesCursos.Controls.Add(this.cBoxCurso, 1, 1);
             this.tlDocentesCursos.Controls.Add(this.cBoxDocente, 1, 2);
             this.tlDocentesCursos.Controls.Add(this.label1, 0, 2);
-            this.tlDocentesCursos.Controls.Add(this.btnCancelar, 1, 3);
-            this.tlDocentesCursos.Controls.Add(this.btnRegistrar, 2, 3);
+            this.tlDocentesCursos.Controls.Add(this.btnCancelar, 1, 4);
+            this.tlDocentesCursos.Controls.Add(this.btnRegistrar, 2, 4);
+            this.tlDocentesCursos.Controls.Add(this.lbTipoCargo, 0, 3);
+            this.tlDocentesCursos.Controls.Add(this.cbTipoCargo, 1, 3);
             this.tlDocentesCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDocentesCursos.Location = new System.Drawing.Point(0, 0);
             this.tlDocentesCursos.Name = "tlDocentesCursos";
-            this.tlDocentesCursos.RowCount = 4;
-            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tlDocentesCursos.RowCount = 5;
+            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlDocentesCursos.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlDocentesCursos.Size = new System.Drawing.Size(432, 319);
             this.tlDocentesCursos.TabIndex = 0;
@@ -72,7 +77,7 @@ namespace UI.Desktop
             this.tlDocentesCursos.SetColumnSpan(this.cBoxPlan, 2);
             this.cBoxPlan.DisplayMember = "Descripcion";
             this.cBoxPlan.FormattingEnabled = true;
-            this.cBoxPlan.Location = new System.Drawing.Point(73, 36);
+            this.cBoxPlan.Location = new System.Drawing.Point(73, 24);
             this.cBoxPlan.Name = "cBoxPlan";
             this.cBoxPlan.Size = new System.Drawing.Size(356, 23);
             this.cBoxPlan.TabIndex = 0;
@@ -83,7 +88,7 @@ namespace UI.Desktop
             // 
             this.lblPlan.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(37, 40);
+            this.lblPlan.Location = new System.Drawing.Point(37, 28);
             this.lblPlan.Name = "lblPlan";
             this.lblPlan.Size = new System.Drawing.Size(30, 15);
             this.lblPlan.TabIndex = 1;
@@ -93,7 +98,7 @@ namespace UI.Desktop
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 136);
+            this.label2.Location = new System.Drawing.Point(29, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 2;
@@ -105,7 +110,7 @@ namespace UI.Desktop
             this.tlDocentesCursos.SetColumnSpan(this.cBoxCurso, 2);
             this.cBoxCurso.DisplayMember = "Descripcion";
             this.cBoxCurso.FormattingEnabled = true;
-            this.cBoxCurso.Location = new System.Drawing.Point(73, 132);
+            this.cBoxCurso.Location = new System.Drawing.Point(73, 96);
             this.cBoxCurso.Name = "cBoxCurso";
             this.cBoxCurso.Size = new System.Drawing.Size(356, 23);
             this.cBoxCurso.TabIndex = 3;
@@ -115,9 +120,9 @@ namespace UI.Desktop
             // 
             this.cBoxDocente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlDocentesCursos.SetColumnSpan(this.cBoxDocente, 2);
-            this.cBoxDocente.DisplayMember = "IDDocente";
+            this.cBoxDocente.DisplayMember = "Apellido";
             this.cBoxDocente.FormattingEnabled = true;
-            this.cBoxDocente.Location = new System.Drawing.Point(73, 228);
+            this.cBoxDocente.Location = new System.Drawing.Point(73, 168);
             this.cBoxDocente.Name = "cBoxDocente";
             this.cBoxDocente.Size = new System.Drawing.Size(356, 23);
             this.cBoxDocente.TabIndex = 4;
@@ -126,7 +131,7 @@ namespace UI.Desktop
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 232);
+            this.label1.Location = new System.Drawing.Point(16, 172);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 15);
             this.label1.TabIndex = 5;
@@ -153,6 +158,27 @@ namespace UI.Desktop
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
             // 
+            // lbTipoCargo
+            // 
+            this.lbTipoCargo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbTipoCargo.AutoSize = true;
+            this.lbTipoCargo.Location = new System.Drawing.Point(28, 244);
+            this.lbTipoCargo.Name = "lbTipoCargo";
+            this.lbTipoCargo.Size = new System.Drawing.Size(39, 15);
+            this.lbTipoCargo.TabIndex = 8;
+            this.lbTipoCargo.Text = "Cargo";
+            // 
+            // cbTipoCargo
+            // 
+            this.cbTipoCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlDocentesCursos.SetColumnSpan(this.cbTipoCargo, 2);
+            this.cbTipoCargo.DisplayMember = "TipoCargo";
+            this.cbTipoCargo.FormattingEnabled = true;
+            this.cbTipoCargo.Location = new System.Drawing.Point(73, 240);
+            this.cbTipoCargo.Name = "cbTipoCargo";
+            this.cbTipoCargo.Size = new System.Drawing.Size(356, 23);
+            this.cbTipoCargo.TabIndex = 9;
+            // 
             // DocentesCursosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -178,5 +204,7 @@ namespace UI.Desktop
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Label lbTipoCargo;
+        private System.Windows.Forms.ComboBox cbTipoCargo;
     }
 }
