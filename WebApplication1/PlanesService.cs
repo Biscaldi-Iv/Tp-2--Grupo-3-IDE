@@ -20,7 +20,7 @@ namespace UI.Web
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return await db.QueryAsync<planes>("Select id_plan,desc_plan,id_especialidad,state from Planes ", 
+                return await db.QueryAsync<planes>("Select id_plan,desc_plan,id_especialidad from Planes ", 
                     commandType: CommandType.Text);
             }
             
