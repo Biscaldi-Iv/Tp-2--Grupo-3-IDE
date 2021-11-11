@@ -70,11 +70,14 @@ namespace UI.Desktop
             // 
             this.cBoxPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlDocentesCursos.SetColumnSpan(this.cBoxPlan, 2);
+            this.cBoxPlan.DisplayMember = "Descripcion";
             this.cBoxPlan.FormattingEnabled = true;
             this.cBoxPlan.Location = new System.Drawing.Point(73, 36);
             this.cBoxPlan.Name = "cBoxPlan";
             this.cBoxPlan.Size = new System.Drawing.Size(356, 23);
             this.cBoxPlan.TabIndex = 0;
+            this.cBoxPlan.ValueMember = "ID";
+            this.cBoxPlan.SelectedIndexChanged += new System.EventHandler(this.cBoxPlan_SelectedIndexChanged);
             // 
             // lblPlan
             // 
@@ -100,16 +103,19 @@ namespace UI.Desktop
             // 
             this.cBoxCurso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlDocentesCursos.SetColumnSpan(this.cBoxCurso, 2);
+            this.cBoxCurso.DisplayMember = "Descripcion";
             this.cBoxCurso.FormattingEnabled = true;
             this.cBoxCurso.Location = new System.Drawing.Point(73, 132);
             this.cBoxCurso.Name = "cBoxCurso";
             this.cBoxCurso.Size = new System.Drawing.Size(356, 23);
             this.cBoxCurso.TabIndex = 3;
+            this.cBoxCurso.ValueMember = "ID";
             // 
             // cBoxDocente
             // 
             this.cBoxDocente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tlDocentesCursos.SetColumnSpan(this.cBoxDocente, 2);
+            this.cBoxDocente.DisplayMember = "IDDocente";
             this.cBoxDocente.FormattingEnabled = true;
             this.cBoxDocente.Location = new System.Drawing.Point(73, 228);
             this.cBoxDocente.Name = "cBoxDocente";

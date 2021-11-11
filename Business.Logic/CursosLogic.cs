@@ -126,5 +126,31 @@ namespace Business.Logic
             }
         }
 
+        public List<Curso> getCursoSinDocente()
+        {
+            try
+            {
+                return cursosAdapter.GetCursoSinDocente();
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public List<Curso> getCursobyIdPlan(int idPlan)
+        {
+            try
+            {
+                return cursosAdapter.getCursobyIdPlan(idPlan);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
     }
 }

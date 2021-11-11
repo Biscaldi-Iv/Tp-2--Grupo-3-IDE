@@ -224,7 +224,57 @@ namespace Data.Database
         public List<Curso> GetCursoSinDocente()
         {
             List<Curso> cur = new List<Curso>();
+            
+            this.OpenConnection();
+            try
+            {                
+                SqlDataReader reader = this.ExecuteReader("SELECT  a.id_curso, a.id_materia, id_comision, anio_calendario, cupo, desc_materia  " +
+                    "FROM [Academia].[dbo].[cursos] a " +
+                    "INNER JOIN[Academia].[dbo].[materias]  mat " +
+                    "ON a.id_materia = mat.id_materia " +
+                    "LEFT JOIN [Academia].[dbo].[docentes_cursos] b " +
+                    "ON a.id_curso = b.id_curso  " +
+                    "WHERE b.id_curso IS NULL");
+                while (reader.Read())
+                {
+                    //int id, int idmat, int idcom, int cale, int cupo, string desc
+                    Curso c = new Curso(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5)) ;
+                    cur.Add(c);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("BD>> No fue posible recuperar los cursos de docentes:" + ex.Message + "||");
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
             return cur;
+        }
+
+        public List<Curso> getCursobyIdPlan (int idPlan)
+        { 
+            List<Curso> cursos = new List<Curso>();
+            this.OpenConnection();
+            SqlDataReader reader = this.ExecuteReader("SELECT id_curso, c.id_materia, c.id_comision, anio_calendario, cupo, desc_materia " +
+                "FROM [Academia].[dbo].[cursos] c " +
+                "INNER JOIN [Academia].[dbo].[materias] m " +
+                "ON c.id_materia = m.id_materia " +
+                "INNER JOIN [Academia].[dbo].[comisiones] com " +
+                "ON c.[id_comision]= com.[id_comision] " +
+                "INNER JOIN [Academia].[dbo].[planes] p " +
+                "ON com.[id_plan] = p.[id_plan] " +
+                $"WHERE p.[id_plan] = {idPlan}" );
+            while (reader.Read())
+            {
+                Curso curso = new Curso(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), reader.GetString(5));
+                cursos.Add(curso);
+            }
+            reader.Close();
+            this.CloseConnection();
+            return cursos;
         }
     }
 }
