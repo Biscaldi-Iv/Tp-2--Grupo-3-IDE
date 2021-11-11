@@ -9,22 +9,17 @@ namespace Business.Entities
     public class DocenteCurso: BusinessEntity
     {
         private TiposCargo _Cargo;
+        
         private int _IDCurso, _IDDocente;
 
         //Corregir si es necesario creando 2 propiedades: getCargo y setCargo
         public TiposCargo Cargo
         {
             get { return this._Cargo; }
-            set { this._Cargo = value; }
+            set { this._Cargo = value; }            
         }
 
-        public DocenteCurso(int id, TiposCargo cargo, int iDCurso, int iDDocente)
-        {
-            ID = id;
-            Cargo = cargo;
-            IDCurso = iDCurso;
-            IDDocente = iDDocente;
-        }
+       
 
         public int IDCurso
         {

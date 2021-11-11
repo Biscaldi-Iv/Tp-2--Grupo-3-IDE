@@ -18,11 +18,19 @@ namespace Data.Database
             this.OpenConnection();
             try
             {
+                //                                                  0          1         2         3
                 SqlDataReader rdr = this.ExecuteReader("SELECT id_dictado, id_curso, id_docente, cargo " +
                     "FROM [Academia].[dbo].[docentes_cursos]");
+                CargosAdapter cargos = new CargosAdapter();
                 while (rdr.Read())
                 {
-                    DocenteCurso dcur = new DocenteCurso(rdr.GetInt32(0),rdr.(3) ,rdr.GetInt32(1), rdr.GetInt32(2) );
+                    DocenteCurso dcur = new DocenteCurso
+                    {
+                        ID = rdr.GetInt32(0),
+                        IDCurso = rdr.GetInt32(1),
+                        Cargo = cargos.getOne(rdr.GetInt32(3)),
+                        IDDocente = rdr.GetInt32(2)
+                    };
                     dc.Add(dcur);
                 }
                 rdr.Close();

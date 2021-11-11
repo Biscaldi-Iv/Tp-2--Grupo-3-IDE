@@ -124,7 +124,7 @@ namespace UI.Desktop
             this.btnAgregar});
             this.tsDocentesCursos.Location = new System.Drawing.Point(3, 0);
             this.tsDocentesCursos.Name = "tsDocentesCursos";
-            this.tsDocentesCursos.Size = new System.Drawing.Size(35, 25);
+            this.tsDocentesCursos.Size = new System.Drawing.Size(66, 25);
             this.tsDocentesCursos.TabIndex = 0;
             // 
             // btnAgregar
@@ -145,7 +145,6 @@ namespace UI.Desktop
             this.Controls.Add(this.tscDocentesCursos);
             this.Name = "DocentesCursos";
             this.Text = "DocentesCursos";
-            this.Load += new System.EventHandler(this.DocentesCursos_Load);
             this.tscDocentesCursos.ContentPanel.ResumeLayout(false);
             this.tscDocentesCursos.TopToolStripPanel.ResumeLayout(false);
             this.tscDocentesCursos.TopToolStripPanel.PerformLayout();

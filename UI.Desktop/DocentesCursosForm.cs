@@ -23,9 +23,10 @@ namespace UI.Desktop
         private void Listar()
         {
             CursosLogic curso = new CursosLogic();
-            DocentesCursosLogic docente = new DocentesCursosLogic();
-            PlanesLogic plan = new PlanesLogic();            
-            this.cBoxDocente.DataSource = docente.GetDocentesCursos();
+            PersonaLogic docente = new PersonaLogic();
+            PlanesLogic plan = new PlanesLogic(); 
+           
+            this.cBoxDocente.DataSource = docente.GetDocentes();
             this.cBoxPlan.DataSource = plan.GetAll();            
             this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));
         }
