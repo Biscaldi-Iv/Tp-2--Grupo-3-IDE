@@ -24,8 +24,9 @@ namespace UI.Desktop
         {
             CursosLogic curso = new CursosLogic();
             PersonaLogic docente = new PersonaLogic();
-            PlanesLogic plan = new PlanesLogic(); 
-           
+            PlanesLogic plan = new PlanesLogic();
+            DocentesCursosLogic cargo = new DocentesCursosLogic();
+            this.cbTipoCargo.DataSource = cargo.getAllcargos();
             this.cBoxDocente.DataSource = docente.GetDocentes();
             this.cBoxPlan.DataSource = plan.GetAll();            
             this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));

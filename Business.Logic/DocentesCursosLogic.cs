@@ -42,5 +42,19 @@ namespace Business.Logic
 
             return cur_doc;
         }
+
+        public List<TiposCargo> getAllcargos()
+        {
+            try
+            {
+                CargosAdapter tca = new CargosAdapter();
+                List<TiposCargo> tc = tca.getAll();
+                return tc;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
