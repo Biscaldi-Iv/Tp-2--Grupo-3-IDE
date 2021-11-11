@@ -49,6 +49,7 @@ namespace UI.Desktop
             this.misCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.docentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inscripcionACursoDocenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -244,7 +245,8 @@ namespace UI.Desktop
             // docentesToolStripMenuItem
             // 
             this.docentesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inscripcionACursoDocenteToolStripMenuItem});
+            this.inscripcionACursoDocenteToolStripMenuItem,
+            this.notasToolStripMenuItem});
             this.docentesToolStripMenuItem.Enabled = false;
             this.docentesToolStripMenuItem.Name = "docentesToolStripMenuItem";
             this.docentesToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
@@ -256,7 +258,15 @@ namespace UI.Desktop
             this.inscripcionACursoDocenteToolStripMenuItem.Name = "inscripcionACursoDocenteToolStripMenuItem";
             this.inscripcionACursoDocenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inscripcionACursoDocenteToolStripMenuItem.Text = "Inscripcion a curso";
+            this.inscripcionACursoDocenteToolStripMenuItem.Visible = false;
             this.inscripcionACursoDocenteToolStripMenuItem.Click += new System.EventHandler(this.inscripcionACursoDocenteToolStripMenuItem_Click);
+            // 
+            // notasToolStripMenuItem
+            // 
+            this.notasToolStripMenuItem.Name = "notasToolStripMenuItem";
+            this.notasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.notasToolStripMenuItem.Text = "Notas";
+            this.notasToolStripMenuItem.Click += new System.EventHandler(this.notasToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -306,5 +316,6 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem misCursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem docentesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inscripcionACursoDocenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notasToolStripMenuItem;
     }
 }

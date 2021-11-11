@@ -49,7 +49,24 @@ namespace Data.Database
 
         public void AddNew(DocenteCurso dc)
         {
-            //hacer
+            try
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[docentes_cursos] ([id_curso],[id_docente],[cargo])" +
+                        "VALUES (@idCurso,@idDocente,@cargo)", sqlConnection);
+                cmd.Parameters.Add("@idCurso", System.Data.SqlDbType.Int).Value = dc.IDCurso;
+                cmd.Parameters.Add("@idDocente", System.Data.SqlDbType.Int).Value = dc.IDDocente;
+                cmd.Parameters.Add("@cargo", System.Data.SqlDbType.Int).Value = dc.Cargo.ID;
+                this.OpenConnection();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException se)
+            {
+                throw new Exception(se.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }            
         }
     }
 }

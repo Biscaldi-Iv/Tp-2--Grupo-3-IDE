@@ -11,6 +11,20 @@ namespace Business.Entities
         private string _Condicion;
         private int _IDAlumno, _IDCurso, _Nota;
 
+        public AlumnoInscripcion()
+        {
+        }
+
+        public AlumnoInscripcion(int id, string condicion, int iDAlumno, int iDCurso, int nota)
+        {
+            ID = id;
+            Condicion = condicion;
+            IDAlumno = iDAlumno;
+            IDCurso = iDCurso;
+            Nota = nota;
+        }
+
+        
         public string Condicion
         {
             get { return this._Condicion; }

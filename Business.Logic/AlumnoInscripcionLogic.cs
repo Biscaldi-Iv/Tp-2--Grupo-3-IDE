@@ -28,12 +28,12 @@ namespace Business.Logic
                 throw new Exception(e.Message);
             }
         }
-        public List<Curso> getCursosInscripto(int idPlan, int idAlumno)
+        public List<Entities.AlumnoInscripcion> getCursosInscripto(int idAlumno)
         {
             try
             {
-                List<Curso> cursos=ai_adapter.getCursosInscripto(idPlan, idAlumno);
-                return cursos;
+                List<Entities.AlumnoInscripcion> ai = ai_adapter.getCursosInscripto(idAlumno);
+                return ai;
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ namespace Business.Logic
         public List<Curso> getCursosDisponibles(int idPlan,int idAlumno) // habria que filtrar por año actual a los cursos??? preguntar
         {
             CursosLogic cLogic = new CursosLogic();
-            List<Curso> cursosInscriptos = ai_adapter.getCursosInscripto(idPlan, idAlumno);
+            List<Entities.AlumnoInscripcion> cursosInscriptos = ai_adapter.getCursosInscripto(idAlumno);
             List<Curso> cursosPlan = cLogic.getbyPlan(idPlan);
             //List<Curso> CursosDisp = (from cp in cursosPlan where !cursosInscriptos.Contains(cp) select cp).ToList();
             List<Curso> CursosDisp = new List<Curso>();
@@ -59,11 +59,49 @@ namespace Business.Logic
             return CursosDisp;
         }
 
+        public void Save(AlumnoInscripcion alumnoActual)
+        {
+            try
+            {
+                this.ai_adapter.SaveChanges(alumnoActual);             
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         public void EliminarInscripcion()
         {
             //ver
         }
 
+        public List<Entities.AlumnoInscripcion> getAll()
+        {
+            try
+            {
+                List<Entities.AlumnoInscripcion> ai = ai_adapter.getAll();
+                    return ai;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public Entities.AlumnoInscripcion getOne(int idIns)
+        {
+            try
+            {
+                Entities.AlumnoInscripcion ai = ai_adapter.getOne(idIns);
+                return ai;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using Business.Entities;
 using Business.Logic;
 using System;
 using System.Collections.Generic;
@@ -27,9 +28,19 @@ namespace UI.Desktop
             PlanesLogic plan = new PlanesLogic();
             DocentesCursosLogic cargo = new DocentesCursosLogic();
             this.cbTipoCargo.DataSource = cargo.getAllcargos();
+            this.cbTipoCargo.ValueMember = "ID";
             this.cBoxDocente.DataSource = docente.GetDocentes();
+            
             this.cBoxPlan.DataSource = plan.GetAll();            
             this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));
+            this.cBoxCurso.ValueMember = "ID";
+        }
+        private DocenteCurso _docenteCursoActual;
+        private DocentesCursosLogic docurLogic = new DocentesCursosLogic();
+        public DocenteCurso docenteCursoActual
+        {
+            get => this._docenteCursoActual;
+            set => this._docenteCursoActual = value;
         }
 
         private void cBoxPlan_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,10 +48,24 @@ namespace UI.Desktop
             CursosLogic curso = new CursosLogic();
             this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));
         }
+        public void MapearAdatos()
+        {
+            docenteCursoActual = new DocenteCurso();
+            docenteCursoActual.IDDocente = (int)this.cBoxDocente.SelectedValue;
+            docenteCursoActual.IDCurso = (int)this.cBoxCurso.SelectedValue;
+            docenteCursoActual.Cargo = docurLogic.getOneCargo((int)this.cbTipoCargo.SelectedValue);
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            MapearAdatos();
+            docurLogic.AddNew(this.docenteCursoActual);
+            this.Close();
         }
 
 

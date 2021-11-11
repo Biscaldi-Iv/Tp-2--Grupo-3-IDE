@@ -56,5 +56,23 @@ namespace Business.Logic
                 throw new Exception(e.Message);
             }
         }
+        public TiposCargo getOneCargo(int id)
+        {
+            CargosAdapter tca = new CargosAdapter();
+            TiposCargo tc = tca.getOne(id);
+            return tc;
+        }
+
+        public void AddNew(DocenteCurso docenteCursoActual)
+        {
+            try
+            {
+                Source.AddNew(docenteCursoActual);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
