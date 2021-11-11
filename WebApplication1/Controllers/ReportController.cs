@@ -5,9 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Web.Controllers
 {
+    [Authorize(Policy = "EstadoReq")]
     public class ReportController : Controller
     {
         private readonly IWebHostEnvironment webHostEnvironment;

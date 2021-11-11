@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Business.Logic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Web.Controllers
 {
+    [Authorize(Policy = "EstadoReq")]
     public class UsuarioController : Controller
     {
         
@@ -52,6 +54,17 @@ namespace UI.Web.Controllers
             PersonaLogic pl  =  new PersonaLogic();
             Usuario u = new Usuario(0, nombreusuario1, clave1, nombre1, apellido1, email1,  true, idpersona1, true);
             Persona p = new Persona(0, nombreusuario1, apellido1, direccion1, email1, telefono1, fechanacimiento1, Convert.ToInt32(legajo1), tipo1, plan1 );
+            try
+            {
+                pl.AddNew(p);
+                var id=pl.GetIDByMail(u.Email);
+                u.IdPersona = id;
+                ul.AddNew(u);
+            }
+            catch(Exception e)
+            {
+                TempData.Add("msgerror", "No se registro el nuevo usuario:" + e.Message);
+            }
             return RedirectToAction("Index");
         }
 
@@ -76,12 +89,12 @@ namespace UI.Web.Controllers
             return RedirectToAction("Index");
 
         }
-        public IActionResult Eliminar(int id3)
+        public IActionResult Eliminar(int idusuario3)
         {
             UsuarioLogic ul = new UsuarioLogic();
             try
             {
-                ul.Delete(id3);
+                ul.Delete(idusuario3);
             }
             catch(Exception e)
             {

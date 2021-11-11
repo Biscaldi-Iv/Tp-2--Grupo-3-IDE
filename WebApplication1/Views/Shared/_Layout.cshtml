@@ -62,7 +62,20 @@
 
                                                                     break;
                                                                 }
-                                                            case "Alumno": { break; }
+                                                            case "Alumno": 
+                                                                { 
+                                                                    <li class="=nav-item">
+                                                                        <div class="dropdown">
+                                                                            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">
+                                                                                Cursado
+                                                                            </button>
+                                                                            <ul class="dropdown-menu">
+                                                                                <li><a class="dropdown-item" asp-area="" asp-controller="Curso" asp-action="Inscripciones">Mis cursos</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </li>
+                                                                    break; 
+                                                                }
                                                             case "Docente": { break; }
                                                         }
                                                     </ul>

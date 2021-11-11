@@ -76,5 +76,18 @@ namespace UI.Web.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult Inscripciones()
+        {
+            AlumnoInscripcionLogic al = new AlumnoInscripcionLogic();
+            CursosLogic cl = new CursosLogic();
+            Usuario u = Models.SessionHepler.GetUsuario(HttpContext.Session);
+            List<AlumnoInscripcion> inscripciones = al.getCursosInscripto(u.IdPersona);
+            List<Curso> c = cl.getAll();
+            //idcur idal nota condicion
+            var i = (from insc in inscripciones join cur in c on insc.IDCurso equals cur.ID select (insc, cur)).ToList();
+            ViewBag.inscripciones = i;
+            return Inscripciones();
+        }
     }
 }

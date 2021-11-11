@@ -98,8 +98,8 @@
 
                     <br />
                     <div class="form-floating">
-                        <input id="telefono1" name="telfono1" type="text" class="form-control" />
-                        <label for="telefono">Telefono</label>
+                        <input id="telefono1" name="telefono1" type="text" class="form-control" />
+                        <label for="telefono1">Telefono</label>
                     </div>
                     <br />
                     <div class="form-floating">
@@ -115,15 +115,15 @@
                         <label for="direccion1">Direccion</label>
                     </div>
                     <br />
-                    <label for="plan1">Plan</label>
-                    <select id="plan1">
+                    <label for="plan1" >Plan</label>
+                    <select id="plan1" name="plan1">
                         @foreach (Plan p in ViewBag.Planes)
                         {
                             <option value="@p.ID">@p.Descripcion</option>
                         }
                     </select>
                     <br />
-                    <select id="tipo1">
+                    <select id="tipo1" name="tipo1">
                         @foreach (TipoPersonas tp in ViewBag.Tipos)
                         {
                             <option value="@tp.ID">@tp.Descripcion</option>
@@ -217,7 +217,7 @@
                 </div>
                 <br />
                 <label for="plan2">Plan</label>
-                <select id="plan2">
+                <select id="plan2" name="plan2">
                     @foreach (Plan p in ViewBag.Planes)
                     {
                         <option value="@p.ID">@p.Descripcion</option>
@@ -225,7 +225,7 @@
                 </select>
                 <br />
                 <label for="tipo2">Tipo persona</label>
-                <select id="tipo2">
+                <select id="tipo2" name="tipo2">
                     @foreach (TipoPersonas tp in ViewBag.Tipos)
                     {
                         <option value="@tp.ID">@tp.Descripcion</option>
@@ -321,7 +321,33 @@
 }
 
 <script type="text/javascript">
+    //-------------------------------funcion de conversion
+    String.prototype.toDate = function (format) {
+        var normalized = this.replace(/[^a-zA-Z0-9]/g, '-');
+        var normalizedFormat = format.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
+        var formatItems = normalizedFormat.split('-');
+        var dateItems = normalized.split('-');
 
+        var monthIndex = formatItems.indexOf("mm");
+        var dayIndex = formatItems.indexOf("dd");
+        var yearIndex = formatItems.indexOf("yyyy");
+        var hourIndex = formatItems.indexOf("hh");
+        var minutesIndex = formatItems.indexOf("ii");
+        var secondsIndex = formatItems.indexOf("ss");
+
+        var today = new Date();
+
+        var year = yearIndex > -1 ? dateItems[yearIndex] : today.getFullYear();
+        var month = monthIndex > -1 ? dateItems[monthIndex] - 1 : today.getMonth() - 1;
+        var day = dayIndex > -1 ? dateItems[dayIndex] : today.getDate();
+
+        var hour = hourIndex > -1 ? dateItems[hourIndex] : today.getHours();
+        var minute = minutesIndex > -1 ? dateItems[minutesIndex] : today.getMinutes();
+        var second = secondsIndex > -1 ? dateItems[secondsIndex] : today.getSeconds();
+
+        return new Date(year, month, day, hour, minute, second);
+    };
+    //--------------------------------------------------------------------fin funcion
 
     function BuscarEmail(email) {
         var email = document.getElementById('email1').value;
@@ -330,11 +356,8 @@
                 alert("I am an alert box!");
                 document.getElementById('frmpersona').style.visibility = 'hidden';
                 document.getElementById('idpersona1').value = idpers[i];
-                //document.getElementById('email1').value = emails[i];
-                //document.getElementById('fechanacimiento1').value = fechas[i];
-                //document.getElementById('legajo1').value = legajos[i];
-                //document.getElementById('direccion1').value = direcciones[i];
-                //document.getElementById('itelefono1').value = telefonos[i];
+                document.getElementById('btnregistrar').style.display = 'block';
+                document.getElementById('btnregistrar2').style.display = 'none';
 
 
                 break;
@@ -366,7 +389,9 @@
                 if (emails[i] == this.cells[4].innerHTML)
                 document.getElementById('idpersona2').value = idpers[i];
                 document.getElementById('telefono2').value = telefonos[i];
-                document.getElementById('fechanacimiento2').value = fechas[i];
+
+                var mydate = fechas[i].toDate("dd-mm-yyyy hh:ii:ss");
+                document.getElementById('fechanacimiento2').value = mydate;
                 document.getElementById('legajo2').value = legajos[i];
                 document.getElementById('direccion2').value = direcciones[i];
                 document.getElementById('plan2').selectedIndex = planes[i];
