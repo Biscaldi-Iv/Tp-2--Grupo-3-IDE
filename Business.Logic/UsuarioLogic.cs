@@ -88,5 +88,6 @@ namespace Business.Logic
         {
             UsuarioData.AddNew(usr);
         }
+        
     }
 }

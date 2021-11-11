@@ -73,5 +73,16 @@ namespace Business.Logic
         {
             return this.Persona_data.GetDocentes();
         }
+        public void SaveChange(Persona person)
+        {
+            try
+            {
+                this.Persona_data.SaveChanges(person);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace UI.Web
                 return await db.QueryAsync<planes>("Select id_plan,desc_plan,id_especialidad from Planes ", 
                     commandType: CommandType.Text);
             }
-            
         }
     }
 }

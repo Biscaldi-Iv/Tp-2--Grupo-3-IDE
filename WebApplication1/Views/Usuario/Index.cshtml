@@ -13,34 +13,36 @@
 }
 
 
-<table class="table table-dark table-hover" id="esp">
+<table class="table table-dark table-hover" id="usuarios">
     <th>ID</th>
     <th>Usuario</th>
     <th>Nombre </th>
     <th>Apellido</th>
     <th>Email</th>
     <th>ID Persona</th>
+    <th></th>
+    <th></th>
     @{
-        foreach (Usuario u in ViewBag.Usuario)
+        foreach (Usuario u in ViewBag.Usuarios)
         {
-        <tr>
-            <td>@u.ID</td>
-            <td>@u.NombreUsuario</td>
-            <td>@u.Nombre</td>
-            <td>@u.Apellido</td>
-            <td>@u.Email</td>
-            <td>@u.IdPersona</td>
-            <td>
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modaleditar">
-                    Editar
-                </button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalborrar">
-                    Eliminar
-                </button>
-            </td>
-        </tr>
+            <tr>
+                <td>@u.ID</td>
+                <td>@u.NombreUsuario</td>
+                <td>@u.Nombre</td>
+                <td>@u.Apellido</td>
+                <td>@u.Email</td>
+                <td>@u.IdPersona</td>
+                <td>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modaleditar">
+                        Editar
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modaleliminar">
+                        Eliminar
+                    </button>
+                </td>
+            </tr>
         }
     }
 
@@ -54,20 +56,236 @@
         <div class="modal-content">
             <form method="post" asp-area="" asp-controller="Usuario" asp-action="nuevo">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLiveLabel">Registrar Especialidad</h5>
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Registrar Usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="form-floating">
-                    <input id="IdUsuario1" name="IdUsuario1" type="text" class="form-control" disabled="disabled" required />
-                    <label for="username">Id</label>
+                    <input id="idusuario1" name="idusuario1" type="number" class="form-control" disabled="disabled" />
+                    <label for="idusuario1">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="email1" name="email1" type="text" class="form-control" onchange="BuscarEmail()" required />
+                    <label for="email1">Email</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="nombreusuario1" name="nombreusuario1" type="text" class="form-control" required />
+                    <label for="nombreusuario1">Nombre de usuario</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="clave1" name="clave1" type="password" class="form-control" required />
+                    <label for="clave1">Clave</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="nombre1" name="nombre1" type="text" class="form-control" required />
+                    <label for="nombre1">Nombre</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="apellido1" name="apellido1" type="text" class="form-control" required />
+                    <label for="apellido1">Apellido</label>
                 </div>
                 <div class="form-floating">
-                    <input id="descripcion1" name="descripcion1" type="text" class="form-control" required />
-                    <label for="username">Descripcion</label>
+                    <input id="idpersona1" name="idpersona1" type="number" class="form-control" readonly value="0" />
+                    <label for="idpersona1">ID Persona</label>
                 </div>
+                <!--#######################       inputs ocultos         #####################-->
+                <br />
+                <div style="visibility:hidden" id="frmpersona">
+
+                    <br />
+                    <div class="form-floating">
+                        <input id="telefono1" name="telfono1" type="text" class="form-control" />
+                        <label for="telefono">Telefono</label>
+                    </div>
+                    <br />
+                    <div class="form-floating">
+                        <input id="fechanacimiento1" name="fechanacimiento1" type="date" class="form-control" />
+                        <label for="fechanacimiento1">Fecha de nacimiento</label>
+                    </div>
+                    <div class="form-floating">
+                        <input id="legajo1" name="legajo1" type="number" class="form-control" />
+                        <label for="legajo1">Legajo</label>
+                    </div>
+                    <div class="form-floating">
+                        <input id="direccion1" name="direccion1" type="text" class="form-control" />
+                        <label for="direccion1">Direccion</label>
+                    </div>
+                    <br />
+                    <label for="plan1">Plan</label>
+                    <select id="plan1">
+                        @foreach (Plan p in ViewBag.Planes)
+                        {
+                            <option value="@p.ID">@p.Descripcion</option>
+                        }
+                    </select>
+                    <br />
+                    <select id="tipo1">
+                        @foreach (TipoPersonas tp in ViewBag.Tipos)
+                        {
+                            <option value="@tp.ID">@tp.Descripcion</option>
+                        }
+                    </select>
+                </div>
+               
+
+
+                <!--#######################       inputs ocultos         #####################-->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit"
+                            asp-controller="Usuario" asp-action="RegistrarUsuario" class="btn btn-primary"
+                            id="btnregistrar">
+                        Registrar
+                    </button>
+                    <button type="submit"
+                            asp-controller="Usuario" asp-action="RegistrarUsuario2" class="btn btn-primary"
+                            id="btnregistrar2" style="display:none">
+                        Registrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--############################ modal editar-->
+<div class="modal fade" id="modaleditar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Usuario" asp-action="Editar">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Registrar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="idusuario2" name="idusuario2" type="number" class="form-control" disabled="disabled" />
+                    <label for="idusuario2">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="email2" name="email2" type="text" class="form-control" onchange="BuscarEmail()" required />
+                    <label for="email2">Email</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="nombreusuario2" name="nombreusuario2" type="text" class="form-control" required />
+                    <label for="nombreusuario2">Nombre de usuario</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="clave2" name="clave2" type="password" class="form-control" required />
+                    <label for="clave2">Clave</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="nombre2" name="nombre2" type="text" class="form-control" required />
+                    <label for="nombre2">Nombre</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="apellido2" name="apellido2" type="text" class="form-control" required />
+                    <label for="apellido2">Apellido</label>
+                </div>
+                <br />
+                <div id="frmpersona2">
+                    <div class="form-floating">
+                        <input id="idpersona2" name="idpersona2" type="number" class="form-control" readonly value="0" />
+                        <label for="idpersona2">ID Persona</label>
+                    </div>
+                    <br />
+                    <div class="form-floating">
+                        <input id="telefono2" name="telfono2" type="text" class="form-control" />
+                        <label for="telefono2">Telefono</label>
+                    </div>
+                    <br />
+                    <div class="form-floating">
+                        <input id="fechanacimiento2" name="fechanacimiento2" type="date" class="form-control" />
+                        <label for="fechanacimiento2">Fecha de nacimiento</label>
+                    </div>
+                    <div class="form-floating">
+                        <input id="legajo2" name="legajo2" type="number" class="form-control" />
+                        <label for="legajo2">Legajo</label>
+                    </div>
+                </div>
+                <div class="form-floating">
+                    <input id="direccion2" name="direccion2" type="text" class="form-control" />
+                    <label for="direccion2">Direccion</label>
+                </div>
+                <br />
+                <label for="plan2">Plan</label>
+                <select id="plan2">
+                    @foreach (Plan p in ViewBag.Planes)
+                    {
+                        <option value="@p.ID">@p.Descripcion</option>
+                    }
+                </select>
+                <br />
+                <label for="tipo2">Tipo persona</label>
+                <select id="tipo2">
+                    @foreach (TipoPersonas tp in ViewBag.Tipos)
+                    {
+                        <option value="@tp.ID">@tp.Descripcion</option>
+                    }
+                </select>
+
+
+                <!--#######################       inputs ocultos         #####################-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="btneditar">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--############################ modal Eliminar-->
+<div class="modal fade" id="modaleliminar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-area="" asp-controller="Usuario" asp-action="Eliminar">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLiveLabel">Eliminar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="form-floating">
+                    <input id="idusuario3" name="idusuario3" type="number" class="form-control" readonly />
+                    <label for="idusuario3">Id</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="email3" name="email3" type="text" class="form-control" onchange="BuscarEmail()" disabled />
+                    <label for="email3">Email</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="nombreusuario3" name="nombreusuario3" type="text" class="form-control" disabled />
+                    <label for="nombreusuario3">Nombre de usuario</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="clave3" name="clave3" type="password" class="form-control" disabled />
+                    <label for="clave3">Clave</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="nombre3" name="nombre3" type="text" class="form-control" disabled />
+                    <label for="nombre3">Nombre</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input id="apellido3" name="apellido3" type="text" class="form-control" disabled />
+                    <label for="apellido3">Apellido</label>
+                </div>
+                <br />
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger" id="btneliminar">Eliminar</button>
                 </div>
             </form>
         </div>
@@ -76,17 +294,90 @@
 
 
 <script type="text/javascript">
+    var emails = [];
+    var idpers = [];
+    var planes = [];
+    var tipos = [];
+    var fechas = [];
+    var legajos = [];
+    var direcciones = [];
+    var telefonos = [];
+</script>
 
-    var table = document.getElementById('esp'), rIndex;
-    for (i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function () {
+@foreach (Persona p in ViewBag.Personas)
+{
+<script type="text/javascript">
+        emails.push("@p.Email");
+        idpers.push(@p.ID);
+        planes.push(@p.IDPlan);
+        tipos.push(@p.TipoPersona);
+        fechas.push("@p.FechaNacimiento");
+        legajos.push(@p.Legajo);
+        direcciones.push("@p.Direccion");
+        telefonos.push("@p.Telefono");
+
+
+</script>
+}
+
+<script type="text/javascript">
+
+
+    function BuscarEmail(email) {
+        var email = document.getElementById('email1').value;
+        for (i = 0; i < emails.length; i++) {
+            if (emails[i] == email) {
+                alert("I am an alert box!");
+                document.getElementById('frmpersona').style.visibility = 'hidden';
+                document.getElementById('idpersona1').value = idpers[i];
+                //document.getElementById('email1').value = emails[i];
+                //document.getElementById('fechanacimiento1').value = fechas[i];
+                //document.getElementById('legajo1').value = legajos[i];
+                //document.getElementById('direccion1').value = direcciones[i];
+                //document.getElementById('itelefono1').value = telefonos[i];
+
+
+                break;
+            }
+            else {
+                document.getElementById('frmpersona').style.visibility = 'visible';
+                document.getElementById('btnregistrar').style.display = 'none';
+                document.getElementById('btnregistrar2').style.display = 'block';
+            }
+        }
+    }
+
+    var table = document.getElementById('usuarios'), rIndex;
+    for (x = 0; x < table.rows.length; x++) {
+        table.rows[x].onclick = function () {
             rIndex = this.rowsIndex;
-            document.getElementById('IdEspecialidad2').value = this.cells[0].innerHTML;
-            document.getElementById('IdEspecialidad3').value = this.cells[0].innerHTML;
-            document.getElementById('descripcion2').value = this.cells[1].innerHTML;
-            document.getElementById('descripcion3').value = this.cells[1].innerHTML;
+            document.getElementById('idusuario2').value = this.cells[0].innerHTML;
+            document.getElementById('idusuario3').value = this.cells[0].innerHTML;
+            document.getElementById('email2').value = this.cells[4].innerHTML;
+            document.getElementById('email3').value = this.cells[4].innerHTML;
+            document.getElementById('nombreusuario2').value = this.cells[1].innerHTML;
+            document.getElementById('nombreusuario3').value = this.cells[1].innerHTML;
+            document.getElementById('nombre2').value = this.cells[2].innerHTML;
+            document.getElementById('nombre3').value = this.cells[2].innerHTML;
+            document.getElementById('apellido2').value = this.cells[3].innerHTML;
+            document.getElementById('apellido3').value = this.cells[3].innerHTML;
+            for (i = 0; i < emails.length; i++)
+            {
+                if (emails[i] == this.cells[4].innerHTML)
+                document.getElementById('idpersona2').value = idpers[i];
+                document.getElementById('telefono2').value = telefonos[i];
+                document.getElementById('fechanacimiento2').value = fechas[i];
+                document.getElementById('legajo2').value = legajos[i];
+                document.getElementById('direccion2').value = direcciones[i];
+                document.getElementById('plan2').selectedIndex = planes[i];
+                document.getElementById('tipo2').selectedIndex = tipos[i];
+            }
+            
 
         };
     }
+
+
+
 
 </script>
