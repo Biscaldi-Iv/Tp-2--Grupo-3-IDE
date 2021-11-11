@@ -103,5 +103,23 @@ namespace Business.Logic
 
         }
 
+        public List<AlumnoInscripcion> GetInscripciones_D(int idDoc)
+        {
+            List<AlumnoInscripcion> ins = this.getAll();
+            DocentesCursosLogic dcl = new DocentesCursosLogic();
+            CursosLogic cl = new CursosLogic();
+            List<Curso> cursos_del_doc = (from c in cl.getAll()
+                                          join dc in dcl.GetDocentesCursos()
+                   on c.ID equals dc.IDCurso
+                                          where
+                dc.IDDocente == idDoc
+                                          select c).ToList();
+            List<AlumnoInscripcion> ins_del_doc = (from i in ins
+                                                   join c in cursos_del_doc
+                                    on i.IDCurso equals c.ID
+                                                   select i).ToList();
+            return ins_del_doc;
+                                    
+        }
     }
 }

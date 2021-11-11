@@ -87,7 +87,7 @@ namespace UI.Web.Controllers
             //idcur idal nota condicion
             var i = (from insc in inscripciones join cur in c on insc.IDCurso equals cur.ID select (insc, cur)).ToList();
             ViewBag.inscripciones = i;
-            return Inscripciones();
+            return View();
         }
     }
 }
