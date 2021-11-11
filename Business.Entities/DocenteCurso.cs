@@ -18,6 +18,14 @@ namespace Business.Entities
             set { this._Cargo = value; }
         }
 
+        public DocenteCurso(int id, TiposCargo cargo, int iDCurso, int iDDocente)
+        {
+            ID = id;
+            Cargo = cargo;
+            IDCurso = iDCurso;
+            IDDocente = iDDocente;
+        }
+
         public int IDCurso
         {
             get { return this._IDCurso; }

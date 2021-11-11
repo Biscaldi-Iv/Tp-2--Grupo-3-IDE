@@ -22,7 +22,7 @@ namespace Data.Database
                     "FROM [Academia].[dbo].[docentes_cursos]");
                 while (rdr.Read())
                 {
-                    DocenteCurso dcur = new DocenteCurso { ID = rdr.GetInt32(0) };
+                    DocenteCurso dcur = new DocenteCurso(rdr.GetInt32(0),rdr.(3) ,rdr.GetInt32(1), rdr.GetInt32(2) );
                     dc.Add(dcur);
                 }
                 rdr.Close();

@@ -31,22 +31,11 @@ namespace UI.Desktop
         {
             this.tscDocentesCursos = new System.Windows.Forms.ToolStripContainer();
             this.tlDocentesCursos = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cBoxPlanFiltro = new System.Windows.Forms.ComboBox();
             this.dgvDocentesCursos = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsDocentesCursos = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.IDCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApellidoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDDictado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregar = new System.Windows.Forms.ToolStripButton();
             this.tscDocentesCursos.ContentPanel.SuspendLayout();
             this.tscDocentesCursos.TopToolStripPanel.SuspendLayout();
             this.tscDocentesCursos.SuspendLayout();
@@ -79,8 +68,6 @@ namespace UI.Desktop
             this.tlDocentesCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlDocentesCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlDocentesCursos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlDocentesCursos.Controls.Add(this.label1, 0, 0);
-            this.tlDocentesCursos.Controls.Add(this.cBoxPlanFiltro, 1, 0);
             this.tlDocentesCursos.Controls.Add(this.dgvDocentesCursos, 0, 1);
             this.tlDocentesCursos.Controls.Add(this.btnActualizar, 2, 2);
             this.tlDocentesCursos.Controls.Add(this.btnSalir, 1, 2);
@@ -93,45 +80,19 @@ namespace UI.Desktop
             this.tlDocentesCursos.Size = new System.Drawing.Size(800, 425);
             this.tlDocentesCursos.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Plan";
-            // 
-            // cBoxPlanFiltro
-            // 
-            this.cBoxPlanFiltro.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cBoxPlanFiltro.DisplayMember = "Descripcion";
-            this.cBoxPlanFiltro.FormattingEnabled = true;
-            this.cBoxPlanFiltro.Location = new System.Drawing.Point(39, 3);
-            this.cBoxPlanFiltro.Name = "cBoxPlanFiltro";
-            this.cBoxPlanFiltro.Size = new System.Drawing.Size(233, 23);
-            this.cBoxPlanFiltro.TabIndex = 1;
-            this.cBoxPlanFiltro.ValueMember = "ID";
-            this.cBoxPlanFiltro.SelectedValueChanged += new System.EventHandler(this.cBoxPlanFiltro_SelectedValueChanged);
-            // 
             // dgvDocentesCursos
             // 
+            this.dgvDocentesCursos.AllowUserToAddRows = false;
+            this.dgvDocentesCursos.AllowUserToDeleteRows = false;
             this.dgvDocentesCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDocentesCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDCurso,
-            this.Curso,
-            this.IDDocente,
-            this.NombreDocente,
-            this.ApellidoDocente,
-            this.Cargo,
-            this.IDDictado});
             this.tlDocentesCursos.SetColumnSpan(this.dgvDocentesCursos, 3);
             this.dgvDocentesCursos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDocentesCursos.Location = new System.Drawing.Point(3, 32);
+            this.dgvDocentesCursos.Location = new System.Drawing.Point(3, 3);
+            this.dgvDocentesCursos.MultiSelect = false;
             this.dgvDocentesCursos.Name = "dgvDocentesCursos";
+            this.dgvDocentesCursos.ReadOnly = true;
             this.dgvDocentesCursos.RowTemplate.Height = 25;
-            this.dgvDocentesCursos.Size = new System.Drawing.Size(794, 361);
+            this.dgvDocentesCursos.Size = new System.Drawing.Size(794, 390);
             this.dgvDocentesCursos.TabIndex = 2;
             // 
             // btnActualizar
@@ -143,6 +104,7 @@ namespace UI.Desktop
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnSalir
             // 
@@ -153,87 +115,27 @@ namespace UI.Desktop
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // tsDocentesCursos
             // 
             this.tsDocentesCursos.Dock = System.Windows.Forms.DockStyle.None;
             this.tsDocentesCursos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.btnAgregar});
             this.tsDocentesCursos.Location = new System.Drawing.Point(3, 0);
             this.tsDocentesCursos.Name = "tsDocentesCursos";
-            this.tsDocentesCursos.Size = new System.Drawing.Size(81, 25);
+            this.tsDocentesCursos.Size = new System.Drawing.Size(35, 25);
             this.tsDocentesCursos.TabIndex = 0;
             // 
-            // toolStripButton1
+            // btnAgregar
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::UI.Desktop.Properties.Resources.png_clipart_plus_and_minus_signs_computer_icons_symbol_symbol_miscellaneous_logo;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::UI.Desktop.Properties.Resources._45406;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::UI.Desktop.Properties.Resources.png_transparent_computer_icons_delete_icon_white_text_logo;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // IDCurso
-            // 
-            this.IDCurso.DataPropertyName = "IDcurso";
-            this.IDCurso.HeaderText = "ID Curso";
-            this.IDCurso.Name = "IDCurso";
-            // 
-            // Curso
-            // 
-            this.Curso.DataPropertyName = "DescCurso";
-            this.Curso.HeaderText = "Curso";
-            this.Curso.Name = "Curso";
-            // 
-            // IDDocente
-            // 
-            this.IDDocente.DataPropertyName = "IDdocente";
-            this.IDDocente.HeaderText = "ID Docente";
-            this.IDDocente.Name = "IDDocente";
-            // 
-            // NombreDocente
-            // 
-            this.NombreDocente.DataPropertyName = "Nomdocente";
-            this.NombreDocente.HeaderText = "Nombre del Docente";
-            this.NombreDocente.Name = "NombreDocente";
-            // 
-            // ApellidoDocente
-            // 
-            this.ApellidoDocente.DataPropertyName = "Apdocente";
-            this.ApellidoDocente.HeaderText = "Apellido del Docente";
-            this.ApellidoDocente.Name = "ApellidoDocente";
-            // 
-            // Cargo
-            // 
-            this.Cargo.DataPropertyName = "Cargodc";
-            this.Cargo.HeaderText = "Cargo";
-            this.Cargo.Name = "Cargo";
-            // 
-            // IDDictado
-            // 
-            this.IDDictado.DataPropertyName = "IDdc";
-            this.IDDictado.HeaderText = "Dictado";
-            this.IDDictado.Name = "IDDictado";
+            this.btnAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAgregar.Image = global::UI.Desktop.Properties.Resources.png_clipart_plus_and_minus_signs_computer_icons_symbol_symbol_miscellaneous_logo;
+            this.btnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(23, 22);
+            this.btnAgregar.Text = "Agrear";
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // DocentesCursos
             // 
@@ -243,13 +145,13 @@ namespace UI.Desktop
             this.Controls.Add(this.tscDocentesCursos);
             this.Name = "DocentesCursos";
             this.Text = "DocentesCursos";
+            this.Load += new System.EventHandler(this.DocentesCursos_Load);
             this.tscDocentesCursos.ContentPanel.ResumeLayout(false);
             this.tscDocentesCursos.TopToolStripPanel.ResumeLayout(false);
             this.tscDocentesCursos.TopToolStripPanel.PerformLayout();
             this.tscDocentesCursos.ResumeLayout(false);
             this.tscDocentesCursos.PerformLayout();
             this.tlDocentesCursos.ResumeLayout(false);
-            this.tlDocentesCursos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocentesCursos)).EndInit();
             this.tsDocentesCursos.ResumeLayout(false);
             this.tsDocentesCursos.PerformLayout();
@@ -261,21 +163,10 @@ namespace UI.Desktop
 
         private System.Windows.Forms.ToolStripContainer tscDocentesCursos;
         private System.Windows.Forms.TableLayoutPanel tlDocentesCursos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cBoxPlanFiltro;
         private System.Windows.Forms.DataGridView dgvDocentesCursos;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip tsDocentesCursos;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDCurso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Curso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDDocente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreDocente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoDocente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cargo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDDictado;
+        private System.Windows.Forms.ToolStripButton btnAgregar;
     }
 }

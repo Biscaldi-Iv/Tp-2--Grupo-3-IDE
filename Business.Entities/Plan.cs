@@ -15,6 +15,7 @@ namespace Business.Entities
             set { this._Descripcion = value; }
         }
 
+
         private int _IDEspecialidad;
         public int IDEspecialidad
         {

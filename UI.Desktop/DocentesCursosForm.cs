@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Business.Logic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +17,31 @@ namespace UI.Desktop
         public DocentesCursosForm()
         {
             InitializeComponent();
+            Listar();
         }
+
+        private void Listar()
+        {
+            CursosLogic curso = new CursosLogic();
+            DocentesCursosLogic docente = new DocentesCursosLogic();
+            PlanesLogic plan = new PlanesLogic();            
+            this.cBoxDocente.DataSource = docente.GetDocentesCursos();
+            this.cBoxPlan.DataSource = plan.GetAll();            
+            this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));
+        }
+
+        private void cBoxPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CursosLogic curso = new CursosLogic();
+            this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+
         /*
         Usar los Modos
         No mostrar ids nunca
