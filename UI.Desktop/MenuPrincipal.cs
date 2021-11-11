@@ -69,6 +69,8 @@ namespace UI.Desktop
                             docentesToolStripMenuItem.Enabled = true;
                             docentesToolStripMenuItem.Visible = true;
                             inscripcionACursoDocenteToolStripMenuItem.Visible = true;
+                            alumnosToolStripMenuItem.Enabled = false;
+                            alumnosToolStripMenuItem.Visible = false;
                             break;
                         }
                     case "Docente":
@@ -76,12 +78,23 @@ namespace UI.Desktop
                             docentesToolStripMenuItem.Enabled = true;
                             docentesToolStripMenuItem.Visible = true;
                             notasToolStripMenuItem.Visible = true;
+                            aBMCToolStripMenuItem.Enabled = false;
+                            aBMCToolStripMenuItem.Visible = false;                     
+                            inscripcionACursoDocenteToolStripMenuItem.Visible = false;
+                            alumnosToolStripMenuItem.Enabled = false;
+                            alumnosToolStripMenuItem.Visible = false;
                             break;
                         }
                     case "Alumno":
                         {                            
                             alumnosToolStripMenuItem.Enabled = true;
                             alumnosToolStripMenuItem.Visible = true;
+                            docentesToolStripMenuItem.Enabled = false;
+                            docentesToolStripMenuItem.Visible = false;
+                            notasToolStripMenuItem.Visible = false;
+                            aBMCToolStripMenuItem.Enabled = false;
+                            aBMCToolStripMenuItem.Visible = false;
+                            inscripcionACursoDocenteToolStripMenuItem.Visible = false;
                             break;
                         }
                     default: break;
