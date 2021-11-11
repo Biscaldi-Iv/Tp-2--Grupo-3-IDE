@@ -66,6 +66,7 @@ namespace UI.Desktop
         {
             DocentesCursosForm agregar = new DocentesCursosForm();
             agregar.ShowDialog();
+            Listar();
         }
 
         /*
