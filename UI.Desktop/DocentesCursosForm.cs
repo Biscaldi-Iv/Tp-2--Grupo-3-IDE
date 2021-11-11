@@ -36,6 +36,11 @@ namespace UI.Desktop
             this.cBoxCurso.DataSource = curso.getCursobyIdPlan(Convert.ToInt32(this.cBoxPlan.SelectedValue));
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
 
         /*
         Usar los Modos

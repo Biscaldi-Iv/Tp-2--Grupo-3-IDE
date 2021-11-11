@@ -63,6 +63,16 @@ namespace UI.Desktop
             this.Listar();
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
+
         /*
 id de dictado debe pasarse al form pero solo como variable para guardar cambios,
 NO MOSTRAR

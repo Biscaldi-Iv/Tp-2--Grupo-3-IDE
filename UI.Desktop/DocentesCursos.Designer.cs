@@ -104,6 +104,7 @@ namespace UI.Desktop
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnSalir
             // 
@@ -114,6 +115,7 @@ namespace UI.Desktop
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // tsDocentesCursos
             // 
@@ -122,7 +124,7 @@ namespace UI.Desktop
             this.btnAgregar});
             this.tsDocentesCursos.Location = new System.Drawing.Point(3, 0);
             this.tsDocentesCursos.Name = "tsDocentesCursos";
-            this.tsDocentesCursos.Size = new System.Drawing.Size(66, 25);
+            this.tsDocentesCursos.Size = new System.Drawing.Size(35, 25);
             this.tsDocentesCursos.TabIndex = 0;
             // 
             // btnAgregar
