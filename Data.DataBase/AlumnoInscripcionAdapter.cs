@@ -37,8 +37,8 @@ namespace Data.Database
                 try
                 {
                     SqlCommand cmdInscripcion = new SqlCommand("INSERT INTO [Academia].[dbo].[alumnos_inscripciones] " +
-                            "(id_alumno, id_curso, condicion) " +
-                            "VALUES  (@alumno, @curso, @condicion)", sqlConnection);
+                            "(id_alumno, id_curso, condicion, nota) " +
+                            "VALUES  (@alumno, @curso, @condicion, 0)", sqlConnection);
                     cmdInscripcion.Transaction = transaccion;
                     cmdInscripcion.Parameters.Add("@alumno", System.Data.SqlDbType.Int).Value = IdAlumno;
                     cmdInscripcion.Parameters.Add("@curso", System.Data.SqlDbType.Int).Value = IdCurso;
