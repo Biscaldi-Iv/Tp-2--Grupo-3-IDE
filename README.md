@@ -1,24 +1,16 @@
-Tp-2--Grupo-3-IDE
+# Trabajo Practico N°2
 
-TO DO:
+## Materia: Tecnologias de desarrollo de software IDE
 
-que se abra menu y despues el log-in***
+## Comision 301 2021-UTN
 
-program debe llamar directamente a log-in***
+## Integrantes
 
-menus
+Ivan Biscaldi
 
-2 reporte(opcional)
+Sebastian Ricalde
 
-notas hace update cuando docente registra
-
-notas hace inser cuandose registra alumno en cursado(?)
-
-seguridad de menus(diferencia tipos de usuario)
-
-pasar validaciones de registros a la clase validaciones en logic
-
-nuevo: validar los nombres en casos de modificaciones(todas las entidades)
+Cristian Gerster
 
 
 
